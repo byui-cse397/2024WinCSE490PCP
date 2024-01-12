@@ -8,7 +8,7 @@ classDiagram
       Project : +Customer(BroClements)
       class Requirements{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Andrew Swayze)
       }
       class DevEnvironment{
           +String Lead()
@@ -29,7 +29,7 @@ classDiagram
       Project : +Customer(BroClements)
       class FrontEnd{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Andrew Swayze)
       }
       class BackEnd{
           +String Lead()
