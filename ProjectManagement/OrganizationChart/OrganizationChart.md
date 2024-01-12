@@ -12,7 +12,7 @@ classDiagram
       }
       class DevEnvironment{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Angela Slinker)
       }
       class RuntimeEnvironment{
           +String Lead()
@@ -30,6 +30,8 @@ classDiagram
       class FrontEnd{
           +String Lead()
           +String TeamMember(Andrew Swayze)
+          +String TeamMember(Angela Slinker)
+
       }
       class BackEnd{
           +String Lead()
