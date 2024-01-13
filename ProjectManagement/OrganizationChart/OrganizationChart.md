@@ -13,6 +13,7 @@ classDiagram
       class DevEnvironment{
           +String Lead()
           +String TeamMember(Angela Slinker)
+          +String TeamMember(Conner Wadsworth)
       }
       class RuntimeEnvironment{
           +String Lead()
