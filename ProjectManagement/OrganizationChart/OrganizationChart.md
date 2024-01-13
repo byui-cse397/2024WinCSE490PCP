@@ -17,6 +17,7 @@ classDiagram
       class RuntimeEnvironment{
           +String Lead()
           +String TeamMember(Jessica Vargas)
+          +String TeamMember(Brian Anderson)
       }
 ```
 Rest of the Semester
