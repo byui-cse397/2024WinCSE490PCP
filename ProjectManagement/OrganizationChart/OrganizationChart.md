@@ -9,6 +9,7 @@ classDiagram
       class Requirements{
           +String Lead()
           +String TeamMember(Andrew Swayze)
+          +String TeamMember(Darcy Merilan)
       }
       class DevEnvironment{
           +String Lead()
@@ -33,6 +34,7 @@ classDiagram
           +String Lead()
           +String TeamMember(Andrew Swayze)
           +String TeamMember(Angela Slinker)
+          +String TeamMember(Darcy Merilan)
           +String TeamMember(Conner Wadsworth)
 
       }
