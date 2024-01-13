@@ -12,7 +12,7 @@ classDiagram
       }
       class DevEnvironment{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Joshua Bee)
       }
       class RuntimeEnvironment{
           +String Lead()
