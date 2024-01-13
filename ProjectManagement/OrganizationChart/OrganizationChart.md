@@ -12,7 +12,7 @@ classDiagram
           +String TeamMember(Darcy Merilan)
       }
       class DevEnvironment{
-          +String Lead()
+          +String Lead(Joshua Bee)
           +String TeamMember(Angela Slinker)
           +String TeamMember(Conner Wadsworth)
       }
@@ -43,7 +43,7 @@ classDiagram
           +String TeamMember(Jessica Vargas)
       }
       class Database{
-          +String Lead()
+          +String Lead(Joshua Bee)
           +String TeamMember(Brian Anderson)
       }
 ```
