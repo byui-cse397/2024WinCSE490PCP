@@ -32,6 +32,7 @@ classDiagram
           +String Lead()
           +String TeamMember(Andrew Swayze)
           +String TeamMember(Angela Slinker)
+          +String TeamMember(Conner Wadsworth)
 
       }
       class BackEnd{
