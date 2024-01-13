@@ -12,7 +12,7 @@ classDiagram
       }
       class DevEnvironment{
           +String Lead()
-          +String TeamMember(Joshua Bee)
+          +String TeamMember()
       }
       class RuntimeEnvironment{
           +String Lead()
@@ -36,7 +36,7 @@ classDiagram
           +String TeamMember()
       }
       class Database{
-          +String Lead(Joshua Bee)
+          +String Lead()
           +String TeamMember()
       }
 ```
