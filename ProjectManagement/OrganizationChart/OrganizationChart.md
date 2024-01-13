@@ -36,7 +36,7 @@ classDiagram
           +String TeamMember()
       }
       class Database{
-          +String Lead()
+          +String Lead(Joshua Bee)
           +String TeamMember()
       }
 ```
