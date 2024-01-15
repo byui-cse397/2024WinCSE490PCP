@@ -10,6 +10,7 @@ classDiagram
           +String Lead()
           +String TeamMember(Andrew Swayze)
           +String TeamMember(Darcy Merilan)
+          +String TeamMember(Anita Woodford)
       }
       class DevEnvironment{
           +String Lead(Joshua Bee)
@@ -42,6 +43,7 @@ classDiagram
           +String Lead()
           +String TeamMember(Jessica Vargas)
           +String TeamMember(George Krenk)
+          +String TeamMember(Anita Woodford)
       }
       class Database{
           +String Lead(Joshua Bee)
