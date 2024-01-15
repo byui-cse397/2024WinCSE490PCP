@@ -41,6 +41,7 @@ classDiagram
       class BackEnd{
           +String Lead()
           +String TeamMember(Jessica Vargas)
+          +String TeamMember(George Krenk)
       }
       class Database{
           +String Lead(Joshua Bee)
