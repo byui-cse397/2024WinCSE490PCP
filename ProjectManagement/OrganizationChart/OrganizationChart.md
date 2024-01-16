@@ -12,6 +12,7 @@ classDiagram
           +String TeamMember(Darcy Merilan)
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
+          +String TeamMember(Nolan Jeppson)
       }
       class DevEnvironment{
           +String Lead(Joshua Bee)
@@ -51,5 +52,6 @@ classDiagram
           +String Lead(Joshua Bee)
           +String TeamMember(Brian Anderson)
           +String TeamMember(Kjellden Knutzen)
+          +String TeamMember(Nolan Jeppson)
       }
 ```
