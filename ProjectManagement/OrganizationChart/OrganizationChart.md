@@ -48,5 +48,6 @@ classDiagram
       class Database{
           +String Lead(Joshua Bee)
           +String TeamMember(Brian Anderson)
+          +String TeamMember(Kjellden Knutzen)
       }
 ```
