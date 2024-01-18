@@ -18,6 +18,7 @@ classDiagram
           +String Lead(Joshua Bee)
           +String TeamMember(Angela Slinker)
           +String TeamMember(Conner Wadsworth)
+          +String TeamMember(George Krenk)
       }
       class RuntimeEnvironment{
           +String Lead()
