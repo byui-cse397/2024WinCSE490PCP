@@ -19,6 +19,7 @@ classDiagram
           +String TeamMember(Angela Slinker)
           +String TeamMember(Conner Wadsworth)
           +String TeamMember(George Krenk)
+          +String TeamMember(Claudio Parra)
       }
       class RuntimeEnvironment{
           +String Lead()
@@ -54,5 +55,6 @@ classDiagram
           +String TeamMember(Brian Anderson)
           +String TeamMember(Kjellden Knutzen)
           +String TeamMember(Nolan Jeppson)
+          +String TeamMember(Claudio Parra)
       }
 ```
