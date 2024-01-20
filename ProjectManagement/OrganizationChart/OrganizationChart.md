@@ -9,7 +9,6 @@ classDiagram
       class Requirements{
           +String Lead(Darcy Merilan)
           +String TeamMember(Andrew Swayze)
-          +String TeamMember(Darcy Merilan)
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
           +String TeamMember(Nolan Jeppson)
