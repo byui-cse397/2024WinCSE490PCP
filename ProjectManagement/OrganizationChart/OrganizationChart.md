@@ -25,6 +25,7 @@ classDiagram
           +String Lead()
           +String TeamMember(Jessica Vargas)
           +String TeamMember(Brian Anderson)
+          +String TeamMember(Kjellden Knutzen)
       }
 ```
 Rest of the Semester
