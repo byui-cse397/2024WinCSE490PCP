@@ -7,7 +7,7 @@ classDiagram
       Project : +PM()
       Project : +Customer(BroClements)
       class Requirements{
-          +String Lead()
+          +String Lead(Darcy Merilan)
           +String TeamMember(Andrew Swayze)
           +String TeamMember(Darcy Merilan)
           +String TeamMember(Anita Woodford)
