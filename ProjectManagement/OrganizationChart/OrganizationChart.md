@@ -7,16 +7,26 @@ classDiagram
       Project : +PM()
       Project : +Customer(BroClements)
       class Requirements{
-          +String Lead()
-          +String TeamMember()
+          +String Lead(Darcy Merilan)
+          +String TeamMember(Andrew Swayze)
+          +String TeamMember(Anita Woodford)
+          +String TeamMember(Allan Marina)
+          +String TeamMember(Nolan Jeppson)
       }
       class DevEnvironment{
-          +String Lead()
-          +String TeamMember()
+          +String Lead(Joshua Bee)
+          +String TeamMember(Angela Slinker)
+          +String TeamMember(Conner Wadsworth)
+          +String TeamMember(George Krenk)
+          +String TeamMember(Claudio Parra)
       }
       class RuntimeEnvironment{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Jessica Vargas)
+          +String TeamMember(Brian Anderson)
+          +String TeamMember(Kjellden Knutzen)
+          +String TeamMember(Nazanal Laughlin)
+          +String TeamMember (Bryan Welton)
       }
 ```
 Rest of the Semester
@@ -29,14 +39,25 @@ classDiagram
       Project : +Customer(BroClements)
       class FrontEnd{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Andrew Swayze)
+          +String TeamMember(Angela Slinker)
+          +String TeamMember(Darcy Merilan)
+          +String TeamMember(Conner Wadsworth)
+          +String TeamMember(Bryan Welton)
       }
       class BackEnd{
           +String Lead()
-          +String TeamMember()
+          +String TeamMember(Jessica Vargas)
+          +String TeamMember(George Krenk)
+          +String TeamMember(Anita Woodford)
+          +String TeamMember(Allan Marina)
+          +String TeamMember(Nazanal Laughlin)
       }
       class Database{
-          +String Lead()
-          +String TeamMember()
+          +String Lead(Joshua Bee)
+          +String TeamMember(Brian Anderson)
+          +String TeamMember(Kjellden Knutzen)
+          +String TeamMember(Nolan Jeppson)
+          +String TeamMember(Claudio Parra)
       }
 ```
