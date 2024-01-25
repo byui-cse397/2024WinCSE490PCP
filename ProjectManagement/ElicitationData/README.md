@@ -1,8 +1,7 @@
 Title: Software Requirements Specification
 
 Team: 
-Organization Chart [a link](2024WinCSE490PCP/ProjectManagement/OrganizationChart
-/OrganizationChart.md)
+
 Latest commit
 bewe3
 bewe3
