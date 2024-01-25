@@ -26,6 +26,7 @@ classDiagram
           +String TeamMember(Brian Anderson)
           +String TeamMember(Kjellden Knutzen)
           +String TeamMember(Nazanal Laughlin)
+          +String TeamMember (Bryan Welton)
       }
 ```
 Rest of the Semester
