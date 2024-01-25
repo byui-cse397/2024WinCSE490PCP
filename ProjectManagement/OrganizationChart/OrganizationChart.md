@@ -25,6 +25,7 @@ classDiagram
           +String TeamMember(Jessica Vargas)
           +String TeamMember(Brian Anderson)
           +String TeamMember(Kjellden Knutzen)
+          +String TeamMember(Nazanal Laughlin)
       }
 ```
 Rest of the Semester
@@ -41,7 +42,6 @@ classDiagram
           +String TeamMember(Angela Slinker)
           +String TeamMember(Darcy Merilan)
           +String TeamMember(Conner Wadsworth)
-
       }
       class BackEnd{
           +String Lead()
@@ -49,6 +49,7 @@ classDiagram
           +String TeamMember(George Krenk)
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
+          +String TeamMember(Nazanal Laughlin)
       }
       class Database{
           +String Lead(Joshua Bee)
