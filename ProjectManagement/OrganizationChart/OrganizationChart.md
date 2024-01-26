@@ -12,6 +12,7 @@ classDiagram
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
           +String TeamMember(Nolan Jeppson)
+          +String TeamMember(Kristina Hayes)  
       }
       class DevEnvironment{
           +String Lead(Joshua Bee)
@@ -52,6 +53,8 @@ classDiagram
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
           +String TeamMember(Nazanal Laughlin)
+          +String TeamMember(Kristina Hayes)  
+            
       }
       class Database{
           +String Lead(Joshua Bee)
