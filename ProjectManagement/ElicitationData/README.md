@@ -15,5 +15,3 @@ Anita Woodford
 Andrew Swayze
 
 01/25/2024
-
-Latest commit:bewe3bewe3 ]
