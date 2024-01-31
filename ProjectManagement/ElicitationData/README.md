@@ -2,10 +2,7 @@ Title: Software Requirements Specification
 
 Team: 
 
-Latest commit
-bewe3
-bewe3
-]
+
 
 Team Lead: Darcy Merilan
 
