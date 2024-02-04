@@ -1,17 +1,16 @@
-# Community Board Forum
 
-Software Requirements Specification<br>
-Submitted to: Brother Clements<br>
-Department of Computer Science and Engineering: Faculty<br>
-CSE 490 Special Topics<br>
-Winter 2024<br>
-February 02, 2024<br>
-Version 3<br>
 
+# Software Requirements Specification
+## For Community Board Forum
+### Submitted to: Brother Clements<br>
+### Department of Computer Science and Engineering: Faculty<br>
+### CSE 490 Special Topics<br>
+### Winter 2024<br>
+### February 02, 2024<br>
+### Version 3<br>
 
 Abstract<br>
 A Software Requirements Specification Document for a Community Board<br>
-
 
 Team Lead: Darcy Merilan
 
