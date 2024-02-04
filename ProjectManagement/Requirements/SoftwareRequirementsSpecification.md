@@ -3,11 +3,11 @@
 # Software Requirements Specification
 ## For Community Board Forum
 #### Submitted to: Brother Clements
-Department of Computer Science and Engineering: Faculty
-CSE 490 Special Topics
-Winter 2024
-February 02, 2024
-Version 3
+##### Department of Computer Science and Engineering: Faculty
+##### CSE 490 Special Topics
+##### Winter 2024
+##### February 02, 2024
+##### Version 3
 
 Abstract<br>
 A Software Requirements Specification Document for a Community Board<br>
