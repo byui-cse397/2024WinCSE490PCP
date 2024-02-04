@@ -1,26 +1,27 @@
 # Community Board Forum
 
-Software Requirements Specification
-Submitted to: Brother Clements
-Department of Computer Science and Engineering: Faculty
-CSE 490 Special Topics
-Winter 2024
-February 02, 2024
-Version 3
+Software Requirements Specification<br>
+Submitted to: Brother Clements<br>
+Department of Computer Science and Engineering: Faculty<br>
+CSE 490 Special Topics<br>
+Winter 2024<br>
+February 02, 2024<br>
+Version 3<br>
 
 
-Abstract
-A Software Requirements Specification Document for a Community Board
+Abstract<br>
+A Software Requirements Specification Document for a Community Board<br>
 
 
 Team Lead: Darcy Merilan
 
 Team Members:
-Allan Marina,
-Andrew Swayze,
-Anita Woodford,
-Nolan Jeppson,
-Kristina Hayes,
+- Allan Marina,
+- Andrew Swayze,
+- Anita Woodford,
+- Kristina Hayes,
+- Nolan Jeppson,
+
 
 All information in red or says test is for example only I used a final draft from my 472 and 372 class. So, we can have examples to look over.
 
