@@ -1,20 +1,15 @@
 # Community Board Forum
 
-Software Requirements SpecificationSubmitted to: Brother Clements
-
+Software Requirements Specification
+Submitted to: Brother Clements
 Department of Computer Science and Engineering: Faculty
-
 CSE 490 Special Topics
-
 Winter 2024
-
 February 02, 2024
-
 Version 3
 
 
 Abstract
-
 A Software Requirements Specification Document for a Community Board
 
 
