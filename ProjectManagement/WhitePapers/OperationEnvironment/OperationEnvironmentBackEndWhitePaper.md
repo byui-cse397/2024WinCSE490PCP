@@ -1,4 +1,4 @@
-### Authors: Brian Anderson, Kjellden Knutzen, Nazanal Laughlin, Jessica Vargas 
+### Authors: Brian Anderson, Kjellden Knutzen, Nazanal Laughlin, Jessica Vargas, Bryan Welton 
 # **WINDOWS VS. LINUX SERVERS. CLOUD VS. DOCKER**
 
 **Windows Servers.**
