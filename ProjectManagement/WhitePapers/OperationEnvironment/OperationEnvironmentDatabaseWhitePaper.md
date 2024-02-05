@@ -1,3 +1,4 @@
+### Authors: Brian Anderson, Kjellden Knutzen, Nazanal Laughlin, Jessica Vargas 
 # Introduction
 
 In the fast-evolving landscape of data analysis, the choice of tools plays a
