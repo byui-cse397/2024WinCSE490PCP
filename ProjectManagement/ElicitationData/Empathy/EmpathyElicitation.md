@@ -2,7 +2,15 @@ Title: Software Requirements Specification
 
 **Empathy Elicitation Techniques 
 Requirement Report**
+Team Lead: Darcy Merilan
 
+Team Members:
+
+Allan Marina,
+Andrew Swayze,
+Anita Woodford,
+Kristina Hayes,
+Nolan Jeppson,
 **Introduction:**
 Understanding user needs and preferences is paramount for the successful development of any platform, especially community board platforms designed for diverse user interactions. This report outlines the empathy elicitation techniques employed to gather user insights for the development of our community board platform. By leveraging IEEE practices and incorporating user stories and prototypes, we aim to ensure that the platform effectively meets user expectations and fosters meaningful engagement.
 
