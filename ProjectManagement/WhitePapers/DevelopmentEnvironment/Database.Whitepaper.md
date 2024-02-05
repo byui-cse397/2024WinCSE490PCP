@@ -28,7 +28,7 @@ Executive Summary
 - PostgreSQL 
 - MariaDB 
 - MySQL 
-- SQLite  
+- SQLite  (https://developer.android.com/codelabs/basic-android-kotlin-compose-sql#0)
 
 SQLite, a lightweight and versatile database engine, seamlessly integrates with Android Studio for mobile app development. This compatibility enhances the appeal of both SQLite and Android Studio. PostgreSQL, MariaDB, and MySQL are all better suited to use with a webapp. 
 
