@@ -1,3 +1,4 @@
+### Authors: Brian Anderson, Kjellden Knutzen, Nazanal Laughlin, Jessica Vargas 
 ## White Papers Outline
 
 ### Frontend:
