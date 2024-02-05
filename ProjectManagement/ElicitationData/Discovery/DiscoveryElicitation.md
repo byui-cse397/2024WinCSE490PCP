@@ -1,4 +1,13 @@
 Title: Software Requirements Specification
+Team Lead: Darcy Merilan
+
+Team Members:
+
+Allan Marina,
+Andrew Swayze,
+Anita Woodford,
+Kristina Hayes,
+Nolan Jeppson,
 
 
 **Discovery Elicitation Technique Summary**
