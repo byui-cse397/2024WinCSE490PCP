@@ -55,7 +55,7 @@ classDiagram
           +String TeamMember(Nazanal Laughlin)
           +String TeamMember(Kristina Hayes)
           +String TeamMember(Brian Anderson)
-            
+
       }
       class Database{
           +String Lead(Joshua Bee)

@@ -1,5 +1,6 @@
+
 # Database White Paper
-Brian Anderson, Jessica Vargas, Kjellden Knutzen, Nazanal Laughlin, Bryan Welton
+### Authors: Brian Anderson, Kjellden Knutzen, Nazanal Laughlin, Jessica Vargas, Bryan Welton 
 
 # Introduction
 
