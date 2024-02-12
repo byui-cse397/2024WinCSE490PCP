@@ -452,6 +452,9 @@ verificati<br>
 ### 4.3.5 Organization
   If the system provides features for organizing posts by date, category, or other criteria, it passes verification; otherwise, it fails verification.
 
+### 4.3.6 Recommendations
+  If the system provides relevant user recommendations from user interactions such as posts, or other relevant interactions it passes verification; otherwise, it fails verification.
+
 ## 4.4 Interface Requirements
 
 ### 4.4.1 Menu
