@@ -357,10 +357,10 @@ These system interfaces collectively facilitate the functionality and interactio
   3.4.2.2 The system shall allow the user to manually or automatically tag the location 
 
 ### 3.4.3 Profile Page
-  3.4.3.1 The system shall give access through the menu to the user’s Profile Page 
-  3.4.3.2 Within the user’s Profile Page, the user shall be able to navigate to Privacy Settings 
-  3.4.3.3 Within the user’s Profile Page, the user shall be able to navigate Personal Identifying information 
-  3.4.3.4 Test
+  3.4.3.1 The system shall give access through the menu to the user’s Profile Page  
+  3.4.3.2 Within the user’s Profile Page, the user shall be able to navigate to Privacy Settings  
+  3.4.3.3 Within the user’s Profile Page, the user shall be able to navigate Personal Identifying information  
+  3.4.3.4 Test  
 
 ## 3.5 Menu Template
 
