@@ -167,7 +167,7 @@ erDiagram
         int post_id FK
     }
 
-     POST ||--o{ MESSAGE: contains
+     ACCOUNT ||--o{ MESSAGE: contains
     MESSAGE{
         int id PK
         int Sender_id FK
