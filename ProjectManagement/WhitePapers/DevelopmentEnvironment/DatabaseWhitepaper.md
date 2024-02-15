@@ -13,16 +13,6 @@ Joshua Bee, George Krenk, Angela Slinker, Conner Wadsworth, Claudio Inostroza
 
 
 
-
-
-
-
-
-
-
-
-
-
 Executive Summary
 
 - PostgreSQL 
@@ -137,3 +127,58 @@ Android studio provides a powerful tool we can use in debugging our database, th
 - Conclusion
 
 From everything we researched and discussed, we were able to decide as a group that Python would be the best software to use for our development environment. Its ease of use, cross-platform compatibility, and ability in environments like iOS, android, and Windows makes it an excellent choice for our app.
+
+*Database ERD (Entity Relationship Diagram)
+```mermaid
+erDiagram
+    ACCOUNT {
+        int id PK
+        string username
+        string password_hash
+    }
+    POST {
+        int id PK
+        int account_id FK
+    }
+    
+    ACCOUNT ||--o{ POST : contains
+
+    COMMENTS {
+        int id PK
+        string comment
+        int post_id FK
+    }
+
+    POST ||--o{ COMMENTS : contains
+
+    DEPARTING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ DEPARTING : contains
+
+    ARRIVING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ ARRIVING : contains
+
+    COMMUNITY ||--o{ FORUMS : contains
+    COMMUNITY {
+        int id PK
+        string name
+        shape region
+    }
+
+    FORUMS ||--o{ POST : contains
+    FORUMS {
+        int id PK
+        string name
+        int post_id FK
+    }
+
+```
