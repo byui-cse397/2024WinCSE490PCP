@@ -167,4 +167,13 @@ erDiagram
         int post_id FK
     }
 
+     POST ||--o{ MESSAGE: contains
+    MESSAGE{
+        int id PK
+        int Sender_id FK
+        int Recipient_id
+        string Message content
+        timestamp
+    }
+
 ```
