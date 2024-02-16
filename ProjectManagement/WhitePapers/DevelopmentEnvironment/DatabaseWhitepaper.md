@@ -124,6 +124,7 @@ erDiagram
     }
     POST {
         int id PK
+        varchar(800) content_text
         int account_id FK
     }
     
@@ -171,7 +172,7 @@ erDiagram
     MESSAGE{
         int id PK
         int Sender_id FK
-        int Recipient_id
+        int Recipient_id FK
         string Message content
         timestamp
     }
