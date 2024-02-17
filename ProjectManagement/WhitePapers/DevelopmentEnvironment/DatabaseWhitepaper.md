@@ -173,7 +173,7 @@ erDiagram
         int id PK
         int Sender_id FK
         int Recipient_id FK
-        string Message content
+        string[300] Message content
         timestamp
     }
 
