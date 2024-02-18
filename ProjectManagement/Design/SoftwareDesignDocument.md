@@ -101,7 +101,7 @@ Involves user credentials (username/password) and session management for maintai
 #### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
 
-### Front End:
+### Front End (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):
 
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
