@@ -55,6 +55,66 @@ Users can create posts to seek or offer rides, promoting transportation assistan
 
 ### 1.1.4. Search Functionality
 The system must provide users with the ability to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information.
+#### Introduction
+
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the search functionality within an application. The purpose of this functionality is to allow users to efficiently locate specific posts based on various criteria such as destination, category, and timestamp.
+
+#### 1.1.4.1 Scope
+
+The search functionality aims to enhance user experience by providing an efficient mechanism to locate specific posts based on predefined criteria. It will support the application's overall goal of facilitating information discovery and engagement among users.
+
+#### 1.1.4.2 User Needs
+
+Users need to quickly and efficiently find posts relevant to their interests or information needs based on specific criteria like destination, category, and timestamp.
+
+#### 1.1.4.3  Assumptions and Dependencies
+
+- It is assumed that the application has a substantial and diverse set of posts to search from.
+- The search functionality depends on a robust database and indexing system for quick retrieval of information.
+
+#### 1.1.4.4  Description and Priority
+
+The search feature is a high-priority component that allows users to find posts based on specific criteria. It is essential for enhancing user satisfaction and engagement with the application.
+
+#### 1.1.4.5  Stimulus/Response Sequences
+
+- **Stimulus**: The user inputs search criteria such as destination, category, and timestamp.
+- **Response**: The system displays a list of posts that match the search criteria.
+
+#### 1.1.4.6 Functional Requirements
+
+- **FR1**: The system shall allow users to input one or multiple search criteria at a time.
+- **FR2**: The system shall provide real-time suggestions as users type in their search criteria.
+- **FR3**: The system shall display search results sorted by relevance, with the option to sort by other parameters such as timestamp.
+- **FR4**: The system shall update the search results dynamically as users adjust the search criteria.
+
+#### 1.1.4.7 User Interfaces
+
+- The search functionality shall be accessible through a prominent search bar in the application's user interface.
+- The search interface shall include fields or dropdowns for each of the search criteria (destination, category, timestamp).
+- The search results page shall display the results in a clear, concise format, including the post title, an excerpt, and relevant metadata.
+
+#### 1.1.4.8 Software Interfaces
+
+- The search functionality shall interface with the application's backend database to retrieve and display the search results.
+- The system shall use a search engine (e.g., Elasticsearch) for indexing and querying posts.
+
+#### 1.1.4.9 Performance Requirements
+
+- The search functionality shall return results within 2 seconds under normal load conditions.
+- The system shall be capable of handling a high volume of search queries simultaneously without significant degradation in performance.
+
+#### 1.1.4.10 Design Constraints
+
+- The search functionality shall be designed to be scalable as the number of users and posts in the application grows.
+- The system shall ensure user privacy and data protection compliance during the search process.
+
+#### 1.1.4.11 Other Requirements
+
+- **Security Requirements**: The system shall ensure that search operations are performed securely, with protection against injection attacks and unauthorized access to user data.
+- **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating search algorithms and criteria.
+
+
 
 ## 1.2. Scope
 
