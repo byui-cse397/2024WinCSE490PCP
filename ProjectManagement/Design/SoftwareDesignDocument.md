@@ -288,6 +288,7 @@ This sequence diagram is essential for detailing the operational flow of the sea
 ### Front End :
 (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):
 
+
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
 
