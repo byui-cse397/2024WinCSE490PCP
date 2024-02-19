@@ -1,13 +1,13 @@
 # Software Design Description 
 # Community Board Forum 
 ## Authors:
-Darcy Merilan <br>
-Andrew Swazye <br>
-Angela Slinker<br>
-Jessica Vargas<br>
-Conner Wadsworth<br>
-Bryan Welton<br>
-Anita Woodford<br>
+- Darcy Merilan 
+- Andrew Swazye 
+- Angela Slinker
+- Jessica Vargas
+- Conner Wadsworth
+- Bryan Welton
+- Anita Woodford
 
 Submitted to: Brother William Clements
 
