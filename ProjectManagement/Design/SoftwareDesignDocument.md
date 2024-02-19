@@ -149,7 +149,7 @@ Following the data description, the sequence diagram illustrates the interaction
 
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
-### Front End (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):
+### Front End:
 
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
