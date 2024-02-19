@@ -88,6 +88,28 @@ The back-end system plays a critical role in managing the Community Board Forum'
 * Model: Details on how search queries are constructed and executed against the database.
   This may include:
   - Data conversion and formatting.Communication with file storage if relevant.
+## Search Functionality Overview
+
+The search functionality is a critical component of the Community Board Forum, allowing users to efficiently find posts and information relevant to their interests. It is implemented following the MVC design pattern, with detailed considerations for the Model, View, and Controller components to ensure a seamless and efficient search experience.
+
+### Model - Class Diagram
+
+This diagram represents the structure of the data model for the search functionality, detailing the classes, their attributes, methods, and relationships.
+
+![Search Functionality Model](https://github.com/byui-cse397/2024WinCSE490PCP/blob/4d26d701fcf4268802da566c0f77fe7c1320bdc7/ProjectManagement/Design/Images/BackendSearchClass.drawio.png)
+
+### View - Process Flow Diagram
+
+Illustrates the user's journey through the search interface, from inputting search criteria to receiving and interacting with search results.
+
+![Search Functionality View](https://github.com/byui-cse397/2024WinCSE490PCP/blob/4d26d701fcf4268802da566c0f77fe7c1320bdc7/ProjectManagement/Design/Images/BackendSeachFlowView.drawio.png)
+
+
+### Controller - Process Flow Diagram
+
+Details the sequence of operations performed by the controller in response to a search request, including validating the search criteria and processing the search results.
+
+![Search Functionality Controller](https://github.com/byui-cse397/2024WinCSE490PCP/blob/4d26d701fcf4268802da566c0f77fe7c1320bdc7/ProjectManagement/Design/Images/BackendSearchController.drawio.png)
 
 ## Database Design (MySQL)
 Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
