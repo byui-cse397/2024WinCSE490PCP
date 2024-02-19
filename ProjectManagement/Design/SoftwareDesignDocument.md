@@ -80,7 +80,7 @@ CSE 490R Special Topics
     - [Search Functionality](#search-functionality-1)
       - [Data Description](#data-description-1)
       - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
-    - [Front End (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):](#front-end-section-done-by-darcy-merilan-bryan-welton-conner-wadsworth-angela-slinker-andrew-swazye-)
+    - [Front End :](#front-end-)
       - [User Account Management](#user-account-management)
         - [View:](#view)
         - [Create:](#create)
@@ -285,7 +285,9 @@ Following the data description, the sequence diagram illustrates the interaction
 
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
-### Front End:
+### Front End :
+(section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):
+
 
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
