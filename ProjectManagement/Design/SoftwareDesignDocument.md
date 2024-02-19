@@ -1,13 +1,20 @@
 # Software Design Description 
 # Community Board Forum 
 ## Authors:
-Anita Woodford
+- Darcy Merilan 
+- Andrew Swazye 
+- Angela Slinker
+- Jessica Vargas
+- Conner Wadsworth
+- Bryan Welton
+- Anita Woodford
 
 Submitted to: Brother William Clements
 
 CSE 490R Special Topics
 
 Project Manager: 
+
 Team Leads: 
 
 **Version:** 3.0  
