@@ -1,24 +1,122 @@
-# Software Design Description 
-# Community Board Forum 
-## Authors:
-- Darcy Merilan 
-- Andrew Swazye 
+# Software Design Description (SDD) for Community Board Forum
+
+**Document Identifier:** SDD-CBF-003
+
+## Authors
+- Darcy Merilan
+- Andrew Swazye
 - Angela Slinker
 - Jessica Vargas
 - Conner Wadsworth
 - Bryan Welton
 - Anita Woodford
 
-Submitted to: Brother William Clements
-
+## Submitted to
+Brother William Clements  
 CSE 490R Special Topics
 
-Project Manager: 
-
-Team Leads: 
+## Project Management
+- **Project Manager:** [Project Manager's Name]
+- **Team Leads:** [Team Leads' Names]
 
 **Version:** 3.0  
-**Date:** Post-Thursday's Update
+**Date:** [Current Date or "Post-Thursday's Update"]
+
+---
+
+
+## Revision History
+===============
+## Revision History
+
+| Date       | Version | Description of Changes                                      |
+|------------|---------|-------------------------------------------------------------|
+| 02/16/2024 | 1.0     | Initial creation of the document. Outlined basic structure and introduced key sections including Introduction, System Overview, and Initial Architecture. |
+| 02/18/2024 | 2.0     | Minor updates and corrections. Enhanced the Architecture section, added preliminary details to the Design Considerations, and revised the Introduction for clarity. |
+| 02/19/2024 | 3.0     | Today's updates include: Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to visually support the Search Functionality descriptions. |
+| TBD        | 4.0     | Comprehensive review and update based on feedback. Enhanced security considerations, refined data models, and expanded the Appendix with additional resources. |
+
+
+
+**Date:** 02/19/2024
+
+## Table of Contents
+- [Software Design Description (SDD) for Community Board Forum](#software-design-description-sdd-for-community-board-forum)
+  - [Authors](#authors)
+  - [Submitted to](#submitted-to)
+  - [Project Management](#project-management)
+  - [Revision History](#revision-history)
+  - [Revision History](#revision-history-1)
+  - [Table of Contents](#table-of-contents)
+  - [4. References](#4-references)
+  - [Details](#details)
+  - [1. Introduction](#1-introduction)
+    - [Purpose](#purpose)
+    - [Scope](#scope)
+  - [Glossary](#glossary)
+  - [Overview](#overview)
+  - [2. System Overview](#2-system-overview)
+  - [3. Design Considerations](#3-design-considerations)
+    - [Assumptions and Dependencies](#assumptions-and-dependencies)
+    - [Development Environment Setup](#development-environment-setup)
+  - [4. Architecture](#4-architecture)
+    - [System Architecture Overview](#system-architecture-overview)
+  - [Front-End Design(Android Studio)](#front-end-designandroid-studio)
+  - [Back-End Design (Java in Android Studio)](#back-end-design-java-in-android-studio)
+    - [Introduction](#introduction)
+    - [Architecture](#architecture)
+    - [Search Functionality](#search-functionality)
+  - [Search Functionality Overview](#search-functionality-overview)
+    - [Model - Class Diagram](#model---class-diagram)
+    - [Back-End System Processing of Search Requests](#back-end-system-processing-of-search-requests)
+    - [View - Process Flow Diagram](#view---process-flow-diagram)
+    - [Controller - Process Flow Diagram](#controller---process-flow-diagram)
+  - [Database Design (MySQL)](#database-design-mysql)
+  - [5. Detailed System Design](#5-detailed-system-design)
+    - [Main Feature: User Login](#main-feature-user-login)
+      - [Sub-Features Breakdown](#sub-features-breakdown)
+      - [Data Description](#data-description)
+      - [Collaboration Requirements](#collaboration-requirements)
+    - [Search Functionality](#search-functionality-1)
+      - [Data Description](#data-description-1)
+      - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
+    - [Front End (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):](#front-end-section-done-by-darcy-merilan-bryan-welton-conner-wadsworth-angela-slinker-andrew-swazye-)
+      - [User Account Management](#user-account-management)
+        - [View:](#view)
+        - [Create:](#create)
+        - [Read:](#read)
+        - [Update:](#update)
+        - [Delete:](#delete)
+      - [Community Posts](#community-posts)
+        - [View:](#view-1)
+        - [Create:](#create-1)
+        - [Read:](#read-1)
+        - [Update:](#update-1)
+        - [Delete:](#delete-1)
+      - [Search Functionality](#search-functionality-2)
+        - [View:](#view-2)
+        - [Create:](#create-2)
+        - [Read:](#read-2)
+        - [Update:](#update-2)
+        - [Delete:](#delete-2)
+  - [Development and Runtime Environment Setup](#development-and-runtime-environment-setup)
+  - [Implementation Planning](#implementation-planning)
+  - [8. Appendices](#8-appendices)
+
+## 4. References
+
+The following references were used in the preparation of this Software Design Description (SDD) document:
+
+1. IEEE. (2010). *IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications*. IEEE Computer Society.
+2. IEEE. (2009). *IEEE Std 1016-2009, IEEE Standard for Information Technology—System Design—Software Design Descriptions*. IEEE Computer Society.
+3. Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley.
+4. Martin, R. C. (2003). *Agile Software Development: Principles, Patterns, and Practices*. Prentice Hall.
+5. Android Developers. (n.d.). *Android Studio*. Retrieved February 2024, from 
+6. MySQL. (n.d.). *MySQL Documentation*. Retrieved February 2024, from
+7. Software Requirements Specification for the Community Board Forum
+
+Please note that the URLs and access dates are fictional and provided for illustrative purposes only.
+
 ## Details
 ## 1. Introduction
 
@@ -28,19 +126,29 @@ This document provides a detailed design overview for the Community Board Forum,
 ### Scope
 The application will support functionalities such as user registration and login, post creation and management, commenting, and searching, with a focus on mobile usability and performance.
 
-### Definitions, Acronyms, and Abbreviations
-- **SDD:** Software Design Description
-- **SRS:** Software Requirements Specification
-- **MVC:** Model-View-Controller
-- **FE:** Front End
-- **BE:** Back End
-- **DB:** Database
-- **CRUD:** Create, Read, Update, Delete
+## Glossary
 
-### References
-- Software Requirements Specification for the Community Board Forum
+This section provides definitions for terms, acronyms, and abbreviations used throughout the Software Design Description (SDD) document to ensure clarity for all readers.
 
-# Table of Contents
+- **SDD:** Software Design Description. A document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
+- **SRS:** Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
+- **MVC:** Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted from the user.
+- **FE:** Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
+- **BE:** Back End. The part of the software that does not directly interact with the users. It is responsible for storing and retrieving data, and performing background operations.
+- **DB:** Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used for storing and managing data in the software system.
+- **CRUD:** Create, Read, Update, Delete. These are the four basic functions of persistent storage in software development. CRUD operations are essential for managing databases.
+- **API:** Application Programming Interface. A set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
+- **UI:** User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
+- **UX:** User Experience. Refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
+- **HTTP:** Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
+- **HTTPS:** Hypertext Transfer Protocol Secure. An extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
+- **SQL:** Structured Query Language. A standard language for storing, manipulating, and retrieving data in databases.
+- **NoSQL:** A class of database management systems that do not follow all of the rules of a traditional database. NoSQL databases are useful for working with a huge quantity of data when the data's nature does not require a relational model.
+- **JSON:** JavaScript Object Notation. An open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.
+- **XML:** eXtensible Markup Language. A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+
+Please note that this glossary is not exhaustive and may be updated as the project evolves and new terms are introduced or existing definitions are revised.
+
 
 ## Overview 
 The document is structured to guide the development process across the front-end, back-end, and database components, emphasizing detailed feature breakdowns and MVC implementation for each sub-feature.
