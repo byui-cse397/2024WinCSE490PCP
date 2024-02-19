@@ -55,6 +55,65 @@ Users can create posts to seek or offer rides, promoting transportation assistan
 
 ### 1.1.4. Search Functionality
 The system must provide users with the ability to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information.
+#### Introduction
+
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the search functionality within an application. The purpose of this functionality is to allow users to efficiently locate specific posts based on various criteria such as destination, category, and timestamp.
+
+#### 1.1.4.1 Scope
+
+The search functionality aims to enhance user experience by providing an efficient mechanism to locate specific posts based on predefined criteria. It will support the application's overall goal of facilitating information discovery and engagement among users.
+
+#### 1.1.4.2 User Needs
+
+Users need to quickly and efficiently find posts relevant to their interests or information needs based on specific criteria like destination, category, and timestamp.
+
+#### 1.1.4.3 Assumptions and Dependencies
+
+- It is assumed that the application has a substantial and diverse set of posts to search from.
+- The search functionality depends on a robust database and indexing system for quick retrieval of information.
+
+#### 1.1.4.4 Description and Priority
+
+The search feature is a high-priority component that allows users to find posts based on specific criteria. It is essential for enhancing user satisfaction and engagement with the application.
+
+#### 1.1.4.5 Stimulus/Response Sequences (MVC Framework)
+
+- **Stimulus**: User inputs search criteria in the View.
+- **Controller Action**: Interprets the input and communicates with the Model.
+- **Model Processing**: Queries the database and retrieves matching posts.
+- **Response**: The View updates to display the search results.
+
+#### 1.1.4.6 Functional Requirements (MVC Specifics)
+
+- **FR1**: The Controller shall manage user inputs of one or multiple search criteria.
+- **FR2**: The View shall provide real-time suggestions as users type, facilitated by the Controller.
+- **FR3**: The Model shall enable sorting of search results, with the View presenting these options.
+- **FR4**: The View shall dynamically update search results based on user adjustments, managed by the Controller.
+
+#### 1.1.4.7 User Interfaces (MVC Perspective)
+
+The View will include a prominent search bar and criteria fields, ensuring an intuitive user interface that interacts seamlessly with the Controller for processing and displaying results.
+
+#### 1.1.4.8 Software Interfaces (MVC Design)
+
+- The Model will interface with the backend database and search engine.
+- The Controller will facilitate communication between the View and the Model for data retrieval and display.
+
+#### 1.1.4.9 Performance Requirements (MVC Consideration)
+
+The MVC architecture shall ensure swift response times for search queries, with the Model optimized for quick data retrieval, and the View designed for rapid rendering of results.
+
+#### 1.1.4.10 Design Constraints (MVC Constraints)
+
+The search functionality must be scalable and maintainable within the MVC framework, ensuring that each component can evolve to meet growing demands without compromising performance or user experience.
+
+#### 1.1.4.11 Other Requirements
+
+- **Security Requirements**: The system shall ensure that search operations are performed securely, with protection against injection attacks and unauthorized access to user data.
+- **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating search algorithms and criteria.
+
+
+
 
 ## 1.2. Scope
 
@@ -357,10 +416,10 @@ These system interfaces collectively facilitate the functionality and interactio
   3.4.2.2 The system shall allow the user to manually or automatically tag the location 
 
 ### 3.4.3 Profile Page
-  3.4.3.1 The system shall give access through the menu to the user’s Profile Page 
-  3.4.3.2 Within the user’s Profile Page, the user shall be able to navigate to Privacy Settings 
-  3.4.3.3 Within the user’s Profile Page, the user shall be able to navigate Personal Identifying information 
-  3.4.3.4 Test
+  3.4.3.1 The system shall give access through the menu to the user’s Profile Page  
+  3.4.3.2 Within the user’s Profile Page, the user shall be able to navigate to Privacy Settings  
+  3.4.3.3 Within the user’s Profile Page, the user shall be able to navigate Personal Identifying information  
+  3.4.3.4 Test  
 
 ## 3.5 Menu Template
 
@@ -451,6 +510,9 @@ verificati<br>
 
 ### 4.3.5 Organization
   If the system provides features for organizing posts by date, category, or other criteria, it passes verification; otherwise, it fails verification.
+
+### 4.3.6 Recommendations
+  If the system provides relevant user recommendations from user interactions such as posts, or other relevant interactions it passes verification; otherwise, it fails verification.
 
 ## 4.4 Interface Requirements
 

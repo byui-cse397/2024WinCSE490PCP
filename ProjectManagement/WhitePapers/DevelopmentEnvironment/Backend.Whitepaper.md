@@ -153,3 +153,57 @@ Python’s cross-platform functionality using BeeWare will be of the most use to
 - Conclusion
 
 From everything we researched and discussed, we were able to decide as a group that Python would be the best software to use for our development environment. Its ease of use, cross-platform compatibility, and ability in environments like iOS, android, and Windows makes it an excellent choice for our app.
+
+```mermaid
+erDiagram
+    ACCOUNT {
+        int id PK
+        string username
+        string password_hash
+    }
+    POST {
+        int id PK
+        int account_id FK
+    }
+    
+    ACCOUNT ||--o{ POST : contains
+
+    COMMENTS {
+        int id PK
+        string comment
+        int post_id FK
+    }
+
+    POST ||--o{ COMMENTS : contains
+
+    DEPARTING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ DEPARTING : contains
+
+    ARRIVING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ ARRIVING : contains
+
+    COMMUNITY ||--o{ FORUMS : contains
+    COMMUNITY {
+        int id PK
+        string name
+        shape region
+    }
+
+    FORUMS ||--o{ POST : contains
+    FORUMS {
+        int id PK
+        string name
+        int post_id FK
+    }
+
+```
