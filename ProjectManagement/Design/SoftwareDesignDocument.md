@@ -100,6 +100,25 @@ Involves user credentials (username/password) and session management for maintai
 
 #### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
+### Search Functionality
+
+#### Data Description
+Here, you would describe the types of data involved in the search functionality, such as user credentials (username/password), search criteria (destination, category, timestamp), and how this data is managed and utilized within the system.
+
+After providing a thorough understanding of the data aspects, you then introduce the sequence diagram to visually represent how this data is processed within the MVC framework of your application.
+
+#### Search Functionality Sequence Diagram
+Following the data description, the sequence diagram illustrates the interactions for the search functionality within the Community Board Forum. This visualization helps in understanding the dynamic process from when a user initiates a search query to when the results are displayed.
+
+- **Stimulus/Response Sequences (MVC Framework):**
+  - **Stimulus:** User inputs search criteria in the View.
+  - **Controller Action:** Interprets the input and communicates with the Model.
+  - **Model Processing:** The Model queries the database using the search criteria and retrieves matching posts.
+  - **Response:** The View updates to display the search results to the user.
+
+![Search Functionality Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/1a674c31fd77cbb03b71c26bd620919a18e3ec4d/ProjectManagement/Design/Images/Backend-search.drawio.png)
+
+This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
 ### Front End (section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swazye ):
 
