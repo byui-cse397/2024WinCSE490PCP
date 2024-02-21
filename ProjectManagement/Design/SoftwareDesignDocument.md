@@ -17,7 +17,7 @@ CSE 490R Special Topics
 
 ## Project Management
 - **Project Manager:** [Project Manager's Name]
-- **Team Leads:** [Team Leads' Names]
+- **Team Leads:** [Joshua Bee, ]
 
 **Version:** 3.0  
 **Date:** [Current Date or "Post-Thursday's Update"]
