@@ -126,6 +126,7 @@ erDiagram
         int id PK
         varchar(800) content_text
         int account_id FK
+        timestamp time
     }
     
     ACCOUNT ||--o{ POST : contains
@@ -173,8 +174,8 @@ erDiagram
         int id PK
         int Sender_id FK
         int Recipient_id FK
-        string[300] Message content
-        timestamp
+        varchar[300] message
+        timestamp time
     }
 
 ```
