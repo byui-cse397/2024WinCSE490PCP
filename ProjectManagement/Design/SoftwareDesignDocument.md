@@ -249,7 +249,71 @@ The Controller acts as the intermediary between the View and Model, processing u
 
 ## Database Design (MySQL)
 Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
+# ERD
+```mermaid
+erDiagram
+    ACCOUNT {
+        int id PK
+        string username
+        string password_hash
+    }
+    POST {
+        int id PK
+        varchar(800) content_text
+        int account_id FK
+        timestamp time
+    }
+    
+    ACCOUNT ||--o{ POST : contains
 
+    COMMENTS {
+        int id PK
+        string comment
+        int post_id FK
+    }
+
+    POST ||--o{ COMMENTS : contains
+
+    DEPARTING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ DEPARTING : contains
+
+    ARRIVING {
+        int id pk
+        string location
+        int post_id fk
+    }
+
+    POST ||--o{ ARRIVING : contains
+
+    COMMUNITY ||--o{ FORUMS : contains
+    COMMUNITY {
+        int id PK
+        string name
+        shape region
+    }
+
+    FORUMS ||--o{ POST : contains
+    FORUMS {
+        int id PK
+        string name
+        int post_id FK
+    }
+
+     ACCOUNT ||--o{ MESSAGE: contains
+    MESSAGE{
+        int id PK
+        int Sender_id FK
+        int Recipient_id FK
+        varchar[300] message
+        timestamp time
+    }
+
+```
 ## 5. Detailed System Design
 
 ### Main Feature: User Login
