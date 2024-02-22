@@ -190,37 +190,28 @@ The back-end system plays a critical role in managing the Community Board Forum'
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
-**\### Login Functionality**
+### Login Functionality**
 
-\* View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
+* View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
+  
+* Controller: Description of the controller's functionality in managing login requests, encompassing:
+- Receiving and validating user input from the View.
+- Processing login requests, including authentication logic.
+- Handling various HTTP requests related to login operations.
+- Potential inter-controller communication for managing session data or user state.
+- Interaction with the Model to access user credentials and authentication data.
 
-\* Controller: Description of the controller's functionality in managing login requests, encompassing:
+* Model: Clarification on how user authentication and credential verification are executed, involving:
+- Storage and retrieval of user credentials from the database.
+- Hashing and comparison of passwords for secure authentication.
+- Possible integration with external authentication services.
+- Data conversion and formatting as necessary for database interaction.
 
-\- Receiving and validating user input from the View.
-
-\- Processing login requests, including authentication logic.
-
-\- Handling various HTTP requests related to login operations.
-
-\- Potential inter-controller communication for managing session data or user state.
-
-\- Interaction with the Model to access user credentials and authentication data.
-
-\* Model: Clarification on how user authentication and credential verification are executed, involving:
-
-\- Storage and retrieval of user credentials from the database.
-
-\- Hashing and comparison of passwords for secure authentication.
-
-\- Possible integration with external authentication services.
-
-\- Data conversion and formatting as necessary for database interaction.
-
-**\### Login Functionality Overview**
+### Login Functionality Overview**
 
 The login functionality serves as a foundational aspect of the Community Board Forum, facilitating user access and authentication within the system. It is architected based on the MVC design pattern, emphasizing meticulous design and implementation across the Model, View, and Controller layers to guarantee a streamlined and secure login process.
 
-\### Model - Class Diagram
+### Model - Class Diagram
 
 This diagram represents the structure of the data model for the login functionality, detailing the classes, their attributes, methods, and relationships.
 
