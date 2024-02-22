@@ -231,6 +231,69 @@ User account deletion is a critical component of the application, prioritized to
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating account deletion workflows and security 
 protocols.
 
+### 1.1.2.4. User Profile Editing
+
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the user profile editing functionality within the university community board application. The purpose of this functionality is to allow users to update their profile information, including personal details and profile pictures, as well as change their password.
+
+### 1.1.2.4.1 Scope
+
+The user profile editing functionality aims to provide users with a convenient and intuitive interface to modify their personal information and update their profile picture. It will support the application's overall goal of enabling users to maintain accurate and up-to-date profiles.
+
+### 1.1.2.4.2 User Needs
+
+Users need a seamless and user-friendly method to edit their profile information, including name, contact information, and profile picture. Additionally, users should be able to change their passwords securely.
+
+### 1.1.2.4.3 Assumptions and Dependencies
+
+- It is assumed that users will provide valid and authorized changes to their profile information and passwords.
+- The profile editing functionality depends on secure communication protocols to prevent unauthorized access to user data.
+- The system relies on robust authentication mechanisms to verify user identity before allowing profile modifications.
+
+### 1.1.2.4.4 Description and Priority
+
+User profile editing is a high-priority component of the application, as it directly impacts user experience and engagement. It is essential to provide users with a seamless and secure method to update their profile information and manage their account settings.
+
+### 1.1.2.4.5 Stimulus/Response Sequences (MVC Framework)
+
+- **Stimulus**: User inputs profile changes in the View.
+- **Controller Action**: Interprets the input and communicates with the Model to process profile updates.
+- **Model Processing**: Validates the changes and updates the user profile data in the backend database.
+- **Response**: The View confirms successful profile updates and displays any error messages if applicable.
+
+### 1.1.2.4.6 Functional Requirements (MVC Specifics)
+
+- **FR1**: The Controller shall handle incoming profile editing requests and validate user inputs.
+- **FR2**: The Model shall process profile changes and update the user profile data in the backend database.
+- **FR3**: The View shall provide a user-friendly interface for users to input and submit profile modifications.
+- **FR4**: The Controller shall enforce security measures to prevent unauthorized profile edits and ensure data integrity.
+
+### 1.1.2.4.7 User Interfaces (MVC Perspective)
+
+- The View will include forms and fields for users to input their profile changes, including name, contact information, profile picture upload, and password modification.
+- Error messages for invalid inputs or failed profile updates will be displayed within the View.
+
+### 1.1.2.4.8 Software Interfaces (MVC Design)
+
+- The Model will interface with the backend database to retrieve and update user profile data.
+- The Controller will facilitate communication between the View and the Model to handle 
+
+profile editing requests and processing user inputs.
+
+### 1.1.2.4.9Performance Requirements (MVC Consideration)
+
+- The MVC architecture shall ensure swift response times for profile editing requests and data processing.
+- The Model and Controller components will be optimized for efficient data retrieval, validation, and storage.
+
+### 1.1.2.4.10 Design Constraints (MVC Constraints)
+
+- The user profile editing functionality must be scalable and maintainable within the MVC framework, allowing for future enhancements and updates without compromising system performance or user experience.
+
+### 1.1.2.4.11 Other Requirements
+
+- **Security Requirements**: The system shall ensure that profile editing operations are performed 
+securely, with protection against unauthorized access and data manipulation.
+- **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating profile editing workflows and security protocols. 
+
 ### 1.1.3. Community Posts
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
 
