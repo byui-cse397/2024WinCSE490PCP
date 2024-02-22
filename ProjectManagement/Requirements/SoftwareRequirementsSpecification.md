@@ -171,9 +171,6 @@ User registration and email verification are high-priority components of the app
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
 
-This comprehensive specification outlines the requirements, interactions, and constraints associated with implementing the user registration and email verification feature within the university community board application, focusing on the MVC architecture and its components.
-
-
 ### 1.1.3. Community Posts
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
 
