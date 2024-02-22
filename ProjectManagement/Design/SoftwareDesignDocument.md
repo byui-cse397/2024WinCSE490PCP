@@ -177,8 +177,6 @@ Android Studio is designated for integrated development, with MySQL for data man
 ### System Architecture Overview
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
 
-
-
 ## Front-End Design(Android Studio)
 Focuses on delivering a seamless user experience with a native Android application, implementing views for user interaction and controllers for handling user input and system responses.
 
@@ -191,6 +189,125 @@ The back-end system plays a critical role in managing the Community Board Forum'
 ### Architecture 
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
+
+**\### Login Functionality**
+
+\* View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
+
+\* Controller: Description of the controller's functionality in managing login requests, encompassing:
+
+\- Receiving and validating user input from the View.
+
+\- Processing login requests, including authentication logic.
+
+\- Handling various HTTP requests related to login operations.
+
+\- Potential inter-controller communication for managing session data or user state.
+
+\- Interaction with the Model to access user credentials and authentication data.
+
+\* Model: Clarification on how user authentication and credential verification are executed, involving:
+
+\- Storage and retrieval of user credentials from the database.
+
+\- Hashing and comparison of passwords for secure authentication.
+
+\- Possible integration with external authentication services.
+
+\- Data conversion and formatting as necessary for database interaction.
+
+**\### Login Functionality Overview**
+
+The login functionality serves as a foundational aspect of the Community Board Forum, facilitating user access and authentication within the system. It is architected based on the MVC design pattern, emphasizing meticulous design and implementation across the Model, View, and Controller layers to guarantee a streamlined and secure login process.
+
+\### Model - Class Diagram
+
+This diagram represents the structure of the data model for the login functionality, detailing the classes, their attributes, methods, and relationships.
+
+![Backend-User Account Management Class drawio](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/2c7ae3ef-ece0-4482-9529-0661ddd223af)
+
+The Model component is responsible for the data representation of the login functionality, including the storage, retrieval, and search algorithms used to find, identify, and authorize the user. Specifically, the Model:
+
+- **Stores**:
+  - user credentials, including usernames, passwords (hashed or encrypted), and any additional user-related data.
+  - Session information, including session ID and timestamp.
+  - Access logs, including successful or failed attempts and login time.
+- **Retrieves**
+  - Authentication, including hashed or encrypted passwords associated with the username.
+  - Authorization, including login function check for user permission and roles.
+- **Processes** login attempts by the system receiving user input (username and password). If the username and password match to database data authentication is successful, and the user gains access.
+
+**Back-End System Processing of Login Attempt**
+
+- **User Authentication**:
+
+The login functionality begins when the user attempts to log in.
+
+The system receives the user’s input (username and password).
+
+The Model (database) retrieves the hashed or encrypted password associated with the provided username.
+
+The Controller compares the user’s input password (after hashing or encryption) with the stored password.
+
+If they match, authentication is successful, and the user gains access.
+
+- **Session Management**:
+  - Upon successful authentication:
+
+The system generates a **session ID** for the user.
+
+The session ID is stored in the database or as a secure token (e.g., JWT).
+
+The Controller associates the session ID with the user’s session.
+
+Subsequent requests from the user include the session ID for authorization.
+
+- **Authorization and Access Control**:
+  - The Controller retrieves the user’s roles or permissions from the Model.
+  - Based on the user’s role, the system determines what actions the user is allowed to perform.
+  - Authorization rules define access to specific resources (e.g., read, write, delete).
+  - Access control lists (ACLs) or role-based access control (RBAC) mechanisms are used.
+
+**View - Process Flow Diagram**
+
+Illustrates the user's journey through the login interface, from inputting login criteria to receiving and interacting with login results.
+
+![Backend-User Login drawio (1)](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/0dd0ba5c-ce94-4029-aaff-5b9b4117c9f1)
+
+The **View** component provides the interface through which users interact with the login functionality. It is designed to:
+
+- **Present Login Inputs**:
+  - The login view presents user-friendly input fields for:
+    - **Username**: A field where users enter their unique usernames.
+    - **Password**: A secure input field for users to enter their passwords.
+    - **Remember Me**: An optional checkbox allowing users to stay logged in across sessions.
+- **Feedback and Error Messages**:
+  - The view displays feedback messages to guide users during login attempts:
+    - **Success Message**: When authentication is successful, a message confirms access.
+    - **Error Messages**: For failed login attempts (e.g., incorrect password, locked account).
+- **Security Measures**:
+  - The view incorporates security best practices:
+    - **Password Masking**: Passwords are masked to prevent shoulder surfing.
+    - **Captcha (Optional)**: To prevent automated attacks (e.g., bots).
+- **Session Management**:
+  - If the user selects “Remember Me”:
+    - The view provides an option to keep the user logged in across sessions.
+    - A persistent session token (e.g., cookie) is generated and stored securely.
+- **Links and Actions**:
+  - The view includes links or buttons for additional actions:
+    - **Forgot Password**: A link to initiate password recovery.
+    - **Create Account**: For new users to register.
+    - **Contact Support**: In case of login issues.
+
+**Controller**
+
+Details the sequence of operations performed by the controller in response to a login attempt, including validating the username/ password and processing the login results.
+
+The Controller acts as the intermediary between the View and Model, processing user input and managing the flow of data. For the search functionality, the Controller:
+
+- **Interprets** user inputs from the View, converting them into queries or commands that the Model can execute.
+- **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
+- **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
 ### Search Functionality 
 * View: Description of the API endpoints that serve the search functionality to the front end.
