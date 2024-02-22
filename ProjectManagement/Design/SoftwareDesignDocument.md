@@ -3,7 +3,8 @@
 **Document Identifier:** SDD-CBF-003
 
 ## Authors
-- Darcy Merilan
+                          Backend
+- Darcy Merilan           - George Krenk
 - Andrew Swayze
 - Angela Slinker
 - Jessica Vargas
@@ -82,6 +83,7 @@ CSE 490R Special Topics
       - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
     - [Front End :](#front-end-)
       - [User Account Management](#user-account-management)
+        - [Security:](#security)
         - [View:](#view)
         - [Create:](#create)
         - [Read:](#read)
@@ -356,6 +358,8 @@ This sequence diagram is essential for detailing the operational flow of the sea
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
 
+##### Security:
+The backend program will look for and report on suspicious activity that could be linked to a potential bot. This program will look for repeated suspicious sign-in attempts or bot-like behavior within an account (high post frequency, high comment frequency, etc). When these are seen, the program will alert the owner of the account (in the case of bot-like attempts trying to sign in) and warn the owner of this app of the behavior. If serious or repeated enough, this could put a block on the account until everything is figured out.
 ##### View:
 The user interface elements for account registration, login, profile management, and account settings. This includes forms for input, pages for viewing and editing user profiles, and menus for accessing account settings. The View listens for user actions (e.g., button clicks, form submissions) and communicates these actions to the Controller.
 ##### Create:
