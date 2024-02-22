@@ -110,7 +110,7 @@ User registration and email verification are high-priority components of the app
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
 - 
 
-### 1.1.2.2 User Registration
+### 1.1.2.2 Registration
 
 This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the user registration and email verification functionality within the university community board application. The purpose of this feature is to allow users to register for an account on the platform and verify their email addresses to ensure authentication and security.
 
@@ -171,7 +171,7 @@ User registration and email verification are high-priority components of the app
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
 
-### 1.1.2.3 User Account Deletion
+### 1.1.2.3 Account Deletion
 
 This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the user account deletion functionality within the university community board application. The purpose of this functionality is to allow users to securely delete their accounts while preventing unauthorized deletions.
 
