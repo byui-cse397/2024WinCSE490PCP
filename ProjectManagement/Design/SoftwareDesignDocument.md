@@ -4,7 +4,7 @@
 
 ## Authors
                           Backend
-- Darcy Merilan           - George Krenk
+- Darcy Merilan      |     - George Krenk
 - Andrew Swayze
 - Angela Slinker
 - Jessica Vargas
