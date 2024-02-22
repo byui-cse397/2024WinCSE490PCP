@@ -171,6 +171,66 @@ User registration and email verification are high-priority components of the app
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
 
+### 1.1.2.3 User Account Deletion
+
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the user account deletion functionality within the university community board application. The purpose of this functionality is to allow users to securely delete their accounts while preventing unauthorized deletions.
+
+### 1.1.2.3.1 Scope
+
+The user account deletion functionality aims to provide users with a secure method to permanently remove their accounts from the system. It will support the application's overall goal of allowing users to manage their accounts and maintain data privacy.
+
+### 1.1.2.3.2 User Needs
+
+Users need a straightforward and secure process to delete their accounts if they no longer wish to use the application. They expect their account deletion requests to be processed promptly and with proper authentication measures to prevent unauthorized access.
+
+### 1.1.2.3.3 Assumptions and Dependencies
+
+- It is assumed that users will initiate account deletion requests deliberately and to permanently remove their accounts.
+- The account deletion functionality depends on robust authentication mechanisms to verify user identity and prevent unauthorized deletions.
+- The system relies on secure data deletion protocols to ensure that user data is permanently removed from the system upon account deletion.
+
+### 1.1.2.3.4 Description and Priority
+
+User account deletion is a critical component of the application, prioritized to ensure user privacy and data security. It is essential to provide users with a seamless and secure method to delete their accounts while maintaining the integrity of the system.
+
+### 1.1.2.3.5 Stimulus/Response Sequences (MVC Framework)
+
+- **Stimulus**: User initiates the account deletion process in the View.
+- **Controller Action**: Interprets the deletion request and communicates with the Model to process the deletion.
+- **Model Processing**: Validates the deletion request and permanently removes user data from the backend database.
+- **Response**: The View confirms successful account deletion and provides feedback to the user.
+
+### 1.1.2.3.6 Functional Requirements (MVC Specifics)
+
+- **FR1**: The Controller shall handle incoming account deletion requests and authenticate the user's identity.
+- FR2: The Model shall process account deletion requests and permanently remove user data from the backend database.
+- **FR3**: The View shall provide a user-friendly interface for users to initiate and confirm account deletion requests.
+- **FR4**: The Controller shall enforce security measures to prevent unauthorized account deletions and ensure data integrity.
+
+### 1.1.2.3.7 User Interfaces (MVC Perspective)
+
+- The View will include a dedicated interface for users to initiate account deletion requests, providing clear instructions and confirmation prompts.
+- Feedback messages for successful account deletion or error notifications will be displayed within the View.
+
+### 1.1.2.3.8 Software Interfaces (MVC Design)
+- The Model will interface with the backend database to retrieve and permanently remove user data upon account deletion.
+- The Controller will facilitate communication between the View and the Model to handle account deletion requests and authenticate user identity.
+
+### 1.1.2.3.9 Performance Requirements (MVC Consideration)
+
+- The MVC architecture shall ensure swift response times for account deletion requests and data processing.
+- The Model and Controller components will be optimized for efficient data deletion and authentication processes.
+
+### 1.1.2.3.10 Design Constraints (MVC Constraints)
+
+- The user account deletion functionality must be scalable and maintainable within the MVC framework, allowing for future enhancements and updates without compromising system performance or user experience.
+
+### 1.1.2.3.11 Other Requirements
+
+- **Security Requirements**: The system shall ensure that account deletion operations are performed securely, with protection against unauthorized access and data retention.
+- **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating account deletion workflows and security 
+protocols.
+
 ### 1.1.3. Community Posts
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
 
