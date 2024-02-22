@@ -3,14 +3,17 @@
 **Document Identifier:** SDD-CBF-003
 
 ## Authors
-                          Backend
-- Darcy Merilan      |     - George Krenk
+
+- Darcy Merilan
 - Andrew Swayze
 - Angela Slinker
 - Jessica Vargas
 - Conner Wadsworth
 - Bryan Welton
 - Anita Woodford
+
+Backend
+- George Krenk
 
 ## Submitted to
 Brother William Clements  
