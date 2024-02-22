@@ -108,6 +108,71 @@ User registration and email verification are high-priority components of the app
 
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
+- 
+
+### 1.1.2.2 User Registration
+
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the user registration and email verification functionality within the university community board application. The purpose of this feature is to allow users to register for an account on the platform and verify their email addresses to ensure authentication and security.
+
+### 1.1.2.2.1 Scope
+
+The user registration and email verification functionality aim to onboard new users to the platform securely and efficiently. It will support the application's overall goal of fostering community engagement and information sharing among university members.
+
+### 1.1.2.2.2 User Needs
+
+Users need a seamless and secure registration process that includes email verification to ensure the security of their accounts and the platform.
+
+### 1.1.2.2.3 Assumptions and Dependencies
+
+- It is assumed that users will provide valid and unique email addresses during the registration process.
+- The email verification process depends on a reliable email service provider to send verification emails and handle responses.
+- The system depends on secure storage mechanisms for user account information and verification status.
+
+### 1.1.2.2.4 Description and Priority
+
+User registration and email verification are high-priority components of the application, as they form the foundation for user authentication and security. It is essential to ensure a smooth and reliable registration process to onboard users effectively.
+
+### 1.1.2.2.5 Stimulus/Response Sequences (MVC Framework)
+
+- **Stimulus**: User fills out the registration form and submits it in the View.
+- **Controller Action**: Interprets the form input, validates user data, and communicates with the Model.
+- **Model Processing**: Creates a new user record in the database with account details and a unique verification token.
+- **Response**: The Model triggers the email service to send a verification email to the user's provided email address.
+
+### 1.1.2.2.6 Functional Requirements (MVC Specifics)
+
+- **FR1**: The Controller shall handle incoming registration requests and validate user input data.
+- **FR2**: The Model shall create a new user record in the database with account details and a unique verification token.
+- **FR3**: The Model shall trigger the email service to send a verification email to the user's provided email address.
+- **FR4**: The View shall display a confirmation message indicating that the registration process is successful and instruct the user to check their email for verification instructions.
+
+### 1.1.2.2.7 User Interfaces (MVC Perspective)
+
+- The View will include a user registration form with fields for user details such as name, email, and password.
+- Upon successful registration, the View will display a message prompting the user to check their email for further instructions.
+
+### 1.1.2.2.8 Software Interfaces (MVC Design)
+
+- The Model will interface with the backend database to store user account information and verification status.
+- The Controller will facilitate communication between the View and the Model to handle user registration requests and email verification processes.
+
+### 1.1.2.2.9 Performance Requirements (MVC Consideration)
+
+- The MVC architecture shall ensure swift response times for user registration and email verification processes.
+- The Model and Controller components will be optimized for efficient data processing and communication.
+
+### 1.1.2.2.10 Design Constraints (MVC Constraints)
+
+- The user registration and email verification functionality must be scalable to accommodate a growing user base.
+- The system architecture must be designed to handle potential email service provider changes or updates without impacting functionality.
+
+### 1.1.2.2.11 Other Requirements
+
+- **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
+- **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
+
+This comprehensive specification outlines the requirements, interactions, and constraints associated with implementing the user registration and email verification feature within the university community board application, focusing on the MVC architecture and its components.
+
 
 ### 1.1.3. Community Posts
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
