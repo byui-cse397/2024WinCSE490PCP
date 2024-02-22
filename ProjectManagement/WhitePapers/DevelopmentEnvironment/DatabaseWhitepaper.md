@@ -8,7 +8,7 @@
 
 1-19-24
 
-Joshua Bee, George Krenk, Angela Slinker, Conner Wadsworth, Claudio Inostroza
+Joshua Bee, George Krenk, Angela Slinker, Conner Wadsworth, Claudio Inostroza, Kjellden Knutzen
 
 
 
