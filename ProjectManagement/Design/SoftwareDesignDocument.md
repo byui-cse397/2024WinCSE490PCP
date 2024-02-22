@@ -4,16 +4,18 @@
 
 ## Authors
 
+### Frontend
+### Backend
+- Jessica Vargas
+- Anita Woodford
+- George Krenk
+- Allan Marina (Team Lead)
+### Database
 - Darcy Merilan
 - Andrew Swayze
 - Angela Slinker
-- Jessica Vargas
 - Conner Wadsworth
 - Bryan Welton
-- Anita Woodford
-
-Backend
-- George Krenk
 
 ## Submitted to
 Brother William Clements  
