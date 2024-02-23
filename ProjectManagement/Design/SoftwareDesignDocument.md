@@ -515,7 +515,7 @@ The Controller acts as the intermediary between the View and Model, processing u
 
 ## Database Design (MySQL)
 Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
-# ERD
+
 ```mermaid
 erDiagram
     ACCOUNT {
