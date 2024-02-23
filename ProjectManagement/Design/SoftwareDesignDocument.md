@@ -190,7 +190,7 @@ The back-end system plays a critical role in managing the Community Board Forum'
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
-### Login Functionality**
+### Login Functionality
 
 * View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
   
@@ -207,7 +207,7 @@ The back-end system plays a critical role in managing the Community Board Forum'
 - Possible integration with external authentication services.
 - Data conversion and formatting as necessary for database interaction.
 
-### Login Functionality Overview**
+### Login Functionality Overview
 
 The login functionality serves as a foundational aspect of the Community Board Forum, facilitating user access and authentication within the system. It is architected based on the MVC design pattern, emphasizing meticulous design and implementation across the Model, View, and Controller layers to guarantee a streamlined and secure login process.
 
@@ -299,6 +299,149 @@ The Controller acts as the intermediary between the View and Model, processing u
 - **Interprets** user inputs from the View, converting them into queries or commands that the Model can execute.
 - **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
+
+### Registration Functionality
+
+* View: The user interface elements responsible for registration are meticulously crafted to streamline the account creation process. These components typically include input fields for user information such as username, email, password, and a registration button.
+
+* Controller: The controller component orchestrates the registration process, managing user input validation and registration requests. Its functionalities encompass:
+
+- Receiving and validating user input from the registration form.
+- Processing registration requests, including data validation and account creation logic.
+- Handling various HTTP requests associated with the registration process.
+- Potential inter-controller communication for managing session data or user state.
+- Interacting with the Model to store user registration details securely.
+
+* Model: The Model component governs the data management and authentication aspects of user registration. It involves:
+
+- Storage and retrieval of user registration data from the database, ensuring data integrity and security.
+- Hashing and secure storage of user passwords to safeguard sensitive information.
+- Potential integration with external authentication services for enhanced security measures.
+- Data conversion and formatting as necessary for seamless interaction with the database.
+
+## Registration Functionality Overview
+
+The registration functionality serves as a pivotal aspect of the Community Board Forum, enabling users to create accounts and gain access to the platform's features. It operates within the MVC design pattern, ensuring seamless coordination and efficiency across the Model, View, and Controller components.
+
+### Model – Process Flow Diagram
+
+This process flow diagram outlines the sequence of steps involved in user registration for the Community Board Forum, delineating the roles of the Model, View, and Controller components:.
+
+
+![Backend-User Registration Class drawio (1)](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/f0913f10-5861-448a-80f7-5b5950eff9cc)
+
+The Model component is responsible for the data representation of the registration functionality, including the storage, retrieval, and search algorithms used to find, identify, and authorize the user. Specifically, the Model:
+
+- **Stores**:
+
+- user credentials, including usernames, passwords (hashed or encrypted), and any additional user-related data.
+
+- Session information, including session id and timestamp.
+
+- Access logs, including successful or failed registration attempts.
+
+- **Retrieves**
+
+- Authentication, including hashed or encrypted password associated to username.
+
+- Authorization, including login function check for user permission and roles.
+
+- **Processes** registration attempts by the system receiving user input (username and password). If username and password successfully match criteria then it is stored in the database.
+
+**Back-End System Processing of Registration Attempt**
+
+- ** Receiving Registration Requests\*\*:
+
+- The registration functionality begins when the backend server initializes the registration process upon receiving registration requests from clients (e.g., web browsers, mobile apps) via HTTP or HTTPS requests.
+
+- User input, including username and password, is received by the system.
+
+- The Model (database) retrieves the hashed or encrypted password associated with the provided username.
+
+- The Controller validates the user’s input password (after hashing or encryption) by comparing it with the stored password.
+
+- Successful authentication grants the user access to the system.
+
+- If they match, authentication is successful, and the user gains access.
+
+- **Session Management**:
+
+- A unique session ID is generated by the system for the authenticated user.
+
+- The session ID is securely stored either in the database or as a secure token such as JSON Web Token (JWT).
+
+- The Controller establishes an association between the user’s session and the generated session ID.
+
+- Subsequent requests from the user include the session ID for authentication and authorization purposes.
+
+- **Authorization and Access Control**:
+
+- The Controller retrieves the user’s roles or permissions from the Model upon successful authentication.
+
+- Based on the user’s role, the system determines the actions the user is authorized to perform.
+
+- Authorization rules are defined to regulate access to specific resources, specifying permissions such as read, write, or delete.
+
+- Access control lists (ACLs) or role-based access control (RBAC) mechanisms are implemented to enforce access control policies effectively.
+
+The View component of the user registration feature provides an intuitive and user-friendly interface for users to interact with during the registration process. It is structured to accommodate various elements essential for a seamless registration experience:
+
+- ** Input Fields for Registration**:
+
+- The view displays feedback messages to guide users during registration attempts:
+
+- **Username**: A field where users enter their desired usernames.
+
+- **Email**: An input field for users to provide their email addresses.
+
+- **Password**: A secure input field for users to create and confirm their passwords.
+
+- **Additional Information**: Optional fields for users to input additional details such as full name, date of birth, etc.
+
+- **Feedback and Error Messages**:
+
+- The view displays feedback messages to guide users during login attempts:
+
+- **Success Message**: Upon successful registration, a confirmation message is displayed.
+
+- **Error Messages**: For registration failures (e.g., username/email already exists, invalid email format).
+
+- **Security Measures**:
+  - The view incorporates security best practices to ensure the safety of user information:
+    - **Password Strength Indicator**: Provides visual feedback on password strength to encourage secure password creation.
+    - **Captcha (Optional)**: Optionally, a CAPTCHA may be included to prevent automated registration attempts and spam.
+- **Terms and Conditions Agreement**:
+  - The view includes a checkbox or agreement section where users can acknowledge and agree to the platform's terms and conditions and privacy policy.
+- **Session Management**:
+  - Upon successful registration, the view may provide an option to immediately log in or redirect users to a login page.
+  - Persistent session tokens (e.g., cookies) are generated and securely stored to keep users logged in across sessions, if applicable.
+- **Links and Actions**:
+  - The view includes links or buttons for additional actions:
+    - **Login**: For users who have already registered and wish to log in.
+    - **Forgot Password**: A link to initiate the password recovery process.
+    - **Contact Support**: In case users encounter issues during the registration process, a link or button is provided to contact support for assistance.
+
+##Controller
+
+The **Controller** component orchestrates the sequence of operations involved in processing user registration attempts, ensuring seamless interaction between the View and Model while managing data flow effectively. For the user registration feature, the Controller executes the following tasks:
+
+- **Interpreting User Inputs**:
+  - The Controller receives user inputs from the View, including username, email address, password, and additional registration details.
+  - It interprets these inputs, validating them to ensure they meet the required format and criteria for registration.
+- **Communicating with the Model**:
+  - Upon receiving user inputs, the Controller communicates with the Model to initiate the registration process.
+  - It passes the validated user data to the Model, triggering the creation of a new user account and storage of registration details in the database.
+- **Model Processing**:
+  - The Model processes the received user data, performing tasks such as hashing passwords, checking for existing usernames or email addresses, and storing user registration details securely in the database.
+  - It handles any necessary data validation and ensures that user registration adheres to system requirements and constraints.
+- **Response Handling**:
+  - Upon completion of the registration process, the Controller manages the response flow back to the View.
+  - It updates the View to provide feedback to the user regarding the outcome of the registration attempt, including success messages for successful registrations and error messages for registration failures (e.g., duplicate username, invalid email format).
+- **Stimulus/Response Sequences (MVC Framework)**:
+  - **Stimulus:** User provides registration details through the View.
+  - **Controller Action:** The Controller interprets and validates user inputs, communicating registration requests to the Model.
+  - **Model Processing:** The Model processes registration data, executing necessary operations such as data validation, storage, and error handling.
+  - **Response:** The Controller updates the View to inform the user of the registration outcome, ensuring a clear and informative user experience.
 
 ### Search Functionality 
 * View: Description of the API endpoints that serve the search functionality to the front end.
