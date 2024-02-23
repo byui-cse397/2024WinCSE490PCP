@@ -297,6 +297,88 @@ securely, with protection against unauthorized access and data manipulation.
 ### 1.1.3. Community Posts
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
 
+### Introduction
+
+The University Community Board Application aims to provide a platform for university members to communicate and collaborate effectively. This document outlines the requirements for the Post Creation feature, which enables users to create posts with specific attributes for effective communication and coordination within the university community..
+
+### 1.1.3.1 Scope
+
+The community post aims to enhance user experience by users’ the ability to generate and share content within the community app.
+
+### 1.1.3.2 User Needs
+
+Users of the community app require a streamlined and intuitive post feature backend that caters to their diverse needs and preferences.
+
+### 1.1.3.3 Assumptions and Dependencies
+
+- The application hosts a significant and varied collection of posts spanning different topics, categories, and user interests. This assumption is fundamental to meeting user expectations regarding the availability and diversity of content within the platform.
+- Users actively contribute to the platform by creating and sharing posts on a regular basis, ensuring a continuous influx of new content for search and discovery.
+- The community app's user base actively engages with the platform, demonstrating a willingness to explore and interact with posts across various categories and topics.
+- The effectiveness of the search functionality relies heavily on the underlying infrastructure's database and indexing system. A robust and well-optimized database architecture is necessary to facilitate quick and efficient retrieval of information in response to user queries.
+- The indexing system must be capable of indexing a diverse range of post types, including text, multimedia content, and metadata, to ensure comprehensive search coverage across all relevant content categories.
+- Regular maintenance and optimization of the database and indexing system are essential to sustain optimal performance levels, particularly as the volume of posts and user activity grows over time.
+- The availability of relevant content for search and discovery depends on users' ongoing contributions and engagement within the community. Encouraging user participation and content creation is vital to maintaining a vibrant and dynamic platform ecosystem.
+
+### 1.1.3.4 Description and Priority
+
+The community posts feature is a high-priority component that allows users create, view, and edit posts. It is essential for enhancing user satisfaction and engagement with the application.
+
+### 1.1.3.5 Stimulus/Response Sequences (MVC Framework)
+
+-**Stimulus**:
+
+- User submits a new post or edits an existing post through the user interface.
+
+-**Controller Action**:
+
+- Upon receiving the user's post submission or edit request, the Controller validates the incoming data and interprets the user's intent.
+- If it's a new post submission, the Controller initiates the creation process; if it's an edit request, it identifies the post to be updated.
+- The Controller then communicates with the Model to handle the post creation or update operation.
+
+-**Model Processing**:
+
+- For new post submissions, the Model processes the incoming data, performs necessary validation checks, and creates a new post entity.
+- If it's an edit request, the Model retrieves the existing post from the database, updates it with the new information, and persists the changes.
+- The Model ensures data integrity and enforces any business logic or constraints associated with post creation or modification.
+
+-**Response**:
+
+- After completing the post creation or update process, the Model communicates the outcome (success or failure) back to the Controller.
+- The Controller, upon receiving the response from the Model, determines the appropriate action to take.
+- If the operation was successful, the Controller may trigger additional actions such as updating the user interface to reflect the changes, sending notifications to relevant users, or logging relevant metrics.
+- In case of a failure, the Controller handles errors gracefully, providing feedback to the user and potentially offering guidance on resolving any issues encountered during the operation.
+
+### 1.1.3.6 Functional Requirements (MVC Specifics)
+
+- **FR1**: The Controller shall handle incoming requests from the View related to post creation, editing, and retrieval.
+- **FR2**: The View shall provide user interface elements for creating new posts, editing existing posts, and viewing posts.
+- **FR3**: The Model shall implement methods for creating new posts, updating existing posts, retrieving posts based on various criteria (e.g., category, timestamp), and deleting posts.
+- **FR4**: The View shall dynamically update and display post creation/editing forms, post lists, and individual post details in a clear and intuitive manner.
+
+### 1.1.3.7 User Interfaces (MVC Perspective)
+
+The View will feature intuitive elements for creating, editing, and viewing community posts, providing users with a seamless experience. A prominent post creation/editing interface will be available, along with a post feed for browsing existing posts.
+
+### 1.1.3.8 Software Interfaces (MVC Design)
+
+- The Model will interface with the backend database for post storage and retrieval.
+
+- The Controller will facilitate communication between the View and the Model, handling user actions related to post creation, editing, and retrieval.
+
+### 1.1.3.9 Performance Requirements (MVC Consideration)
+
+The MVC architecture shall ensure swift response times for post-related operations, with the Model optimized for efficient data storage and retrieval, and the View designed for seamless rendering of post content.
+
+### 1.1.3.10 Design Constraints (MVC Constraints)
+
+The community post feature must be scalable and maintainable within the MVC framework, allowing each component to adapt to increased usage and evolving requirements without sacrificing performance or usability.
+
+### 1.1.3.11 Other Requirements
+
+-**Security Requirements**: The system shall enforce secure post operations, mitigating risks of unauthorized access and protecting user data from potential vulnerabilities.
+-**Maintenance Requirements**: The system shall be designed with modularity and extensibility in mind, facilitating updates to post-related functionalities and algorithms as needed, while minimizing disruption to the overall system.
+
+
 ### 1.1.4. Search Functionality
 The system must provide users with the ability to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information.
 #### Introduction
