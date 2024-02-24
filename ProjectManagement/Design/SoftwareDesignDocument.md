@@ -479,6 +479,9 @@ The **Controller** component orchestrates the sequence of operations processing 
 
 The Community Post Forum Backend is designed to provide the core functionality for managing community posts. This Software Design Document section outlines the architecture and design considerations for the backend components, including controllers, services, repositories, and data transfer objects.
 
+![Backend-Community Posts - Sequence Diagram drawio](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/78c1b80a-456b-4c44-8d76-768db3595d04)
+
+
 ### System Architecture
 
 The backend system is structured with several key components:
