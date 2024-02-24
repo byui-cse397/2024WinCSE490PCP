@@ -74,6 +74,7 @@ CSE 490R Special Topics
     - [Introduction](#introduction)
     - [Architecture](#architecture)
     - [User Account Management](#Account-Management)
+    - [Community Post](#Community-Post)
     - [Search Functionality](#search-functionality)
   - [Search Functionality Overview](#search-functionality-overview)
     - [Model - Class Diagram](#model---class-diagram)
