@@ -10,6 +10,7 @@
 - Anita Woodford
 - George Krenk
 - Allan Marina (Team Lead)
+- Kristina Hayes
 ### Database
 - Darcy Merilan
 - Andrew Swayze
@@ -39,7 +40,7 @@ CSE 490R Special Topics
 |------------|---------|-------------------------------------------------------------|
 | 02/16/2024 | 1.0     | Initial creation of the document. Outlined basic structure and introduced key sections including Introduction, System Overview, and Initial Architecture. |
 | 02/18/2024 | 2.0     | Minor updates and corrections. Enhanced the Architecture section, added preliminary details to the Design Considerations, and revised the Introduction for clarity. |
-| 02/19/2024 | 3.0     | Today's updates include: Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to visually support the Search Functionality descriptions. |
+| 02/19/2024 | 3.0     | Today's updates include Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to support the Search Functionality descriptions visually. |
 | TBD        | 4.0     | Comprehensive review and update based on feedback. Enhanced security considerations, refined data models, and expanded the Appendix with additional resources. |
 
 
@@ -131,21 +132,21 @@ Please note that the URLs and access dates are fictional and provided for illust
 This document provides a detailed design overview for the Community Board Forum, an Android application aimed at facilitating community engagement and interaction. It serves as a blueprint for development, detailing the application's architecture, components, and interaction flows in adherence to the Model-View-Controller (MVC) design pattern.
 
 ### Scope
-The application will support functionalities such as user registration and login, post creation and management, commenting, and searching, with a focus on mobile usability and performance.
+The application will support functionalities such as user registration and login, post creation and management, commenting, and searching, focusing on mobile usability and performance.
 
 ## Glossary
 
 This section provides definitions for terms, acronyms, and abbreviations used throughout the Software Design Description (SDD) document to ensure clarity for all readers.
 
-- **SDD:** Software Design Description. A document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
+- **SDD:** Software Design Description. A document that comprehensively describes the software's design and architecture, outlining components, interactions, and processes.
 - **SRS:** Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
-- **MVC:** Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted from the user.
+- **MVC:** Model-View-Controller. A design pattern is used for developing user interfaces that divide the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted by the user.
 - **FE:** Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
-- **BE:** Back End. The part of the software that does not directly interact with the users. It is responsible for storing and retrieving data, and performing background operations.
+- **BE:** Back End. The part of the software that does not directly interact with the users. It is responsible for storing and retrieving data and performing background operations.
 - **DB:** Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used for storing and managing data in the software system.
 - **CRUD:** Create, Read, Update, Delete. These are the four basic functions of persistent storage in software development. CRUD operations are essential for managing databases.
-- **API:** Application Programming Interface. A set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
-- **UI:** User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
+- **API:** Application Programming Interface. A set of functions and procedures allows the creation of applications that access the features or data of an operating system, application, or other service.
+- **UI:** User Interface. The means by which the user and a computer system interact, in particular, the use of input devices and software.
 - **UX:** User Experience. Refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
 - **HTTP:** Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
 - **HTTPS:** Hypertext Transfer Protocol Secure. An extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
@@ -154,7 +155,7 @@ This section provides definitions for terms, acronyms, and abbreviations used th
 - **JSON:** JavaScript Object Notation. An open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.
 - **XML:** eXtensible Markup Language. A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
 
-Please note that this glossary is not exhaustive and may be updated as the project evolves and new terms are introduced or existing definitions are revised.
+Please note that this glossary is incomplete and may be updated as the project evolves, new terms are introduced, or existing definitions are revised.
 
 
 ## Overview 
@@ -162,7 +163,7 @@ The document is structured to guide the development process across the front-end
 
 ## 2. System Overview
 
-The Community Board Forum is transitioning to an Android application to directly target mobile users. This change impacts the development strategy, focusing on Android Studio for both front-end and back-end development, with MySQL for database management. The architecture supports modular development and scalability, adhering to MVC principles.
+The Community Board Forum is transitioning to an Android application to target mobile users directly. This change impacts the development strategy, focusing on Android Studio for front-end and back-end development, with MySQL for database management. The architecture supports modular development and scalability, adhering to MVC principles.
 
 ## 3. Design Considerations
 
@@ -196,11 +197,11 @@ This diagram represents the deletion of a user's account.
 
 ![pics](https://github.com/byui-cse397/2024WinCSE490PCP/assets/97206108/0b1fd12f-ee3c-4f54-8772-c41da8906d24)
 
-The deletion function is responsible for deleting all information of a specified account. The process involves asking the user for their login information in order to ensure that the actual user is the one asking to delete the account.
+The deletion function is responsible for deleting all information from a specified account. The process involves asking the user for their login information to ensure that the user is the one asking to delete the account.
 
 ### Login Functionality
 
-* View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
+* View: Explanation of the user interface components responsible for logins, such as input fields for username and password and the login button.
   
 * Controller: Description of the controller's functionality in managing login requests, encompassing:
 - Receiving and validating user input from the View.
@@ -217,7 +218,7 @@ The deletion function is responsible for deleting all information of a specified
 
 ### Login Functionality Overview
 
-The login functionality serves as a foundational aspect of the Community Board Forum, facilitating user access and authentication within the system. It is architected based on the MVC design pattern, emphasizing meticulous design and implementation across the Model, View, and Controller layers to guarantee a streamlined and secure login process.
+The login functionality is a foundational aspect of the Community Board Forum, facilitating user access and authentication within the system. It is architected based on the MVC design pattern, emphasizing meticulous design and implementation across the Model, View, and Controller layers to guarantee a streamlined and secure login process.
 
 ### Model - Class Diagram
 
@@ -234,7 +235,7 @@ The Model component is responsible for the data representation of the login func
 - **Retrieves**
   - Authentication, including hashed or encrypted passwords associated with the username.
   - Authorization, including login function check for user permission and roles.
-- **Processes** login attempts by the system receiving user input (username and password). If the username and password match to database data authentication is successful, and the user gains access.
+- **Processes** login attempts by the system receiving user input (username and password). If the username and password match to database data, authentication is successful, and the user gains access.
 
 **Back-End System Processing of Login Attempt**
 
@@ -300,12 +301,12 @@ The **View** component provides the interface through which users interact with 
 
 **Controller**
 
-Details the sequence of operations performed by the controller in response to a login attempt, including validating the username/ password and processing the login results.
+Details the sequence of operations the controller performs in response to a login attempt, including validating the username/ password and processing the login results.
 
-The Controller acts as the intermediary between the View and Model, processing user input and managing the flow of data. For the search functionality, the Controller:
+The Controller is the intermediary between the View and Model, processing user input and managing the data flow. For the search functionality, the Controller:
 
-- **Interprets** user inputs from the View, converting them into queries or commands that the Model can execute.
-- **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
+- **Interprets** user inputs from the View, converting them into queries or commands the Model can execute.
+- **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters better handled outside the database (e.g., post-processing results for personalization).
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
 ### Registration Functionality
@@ -320,7 +321,7 @@ The Controller acts as the intermediary between the View and Model, processing u
 - Potential inter-controller communication for managing session data or user state.
 - Interacting with the Model to store user registration details securely.
 
-* Model: The Model component governs the data management and authentication aspects of user registration. It involves:
+* Model: The Model component governs user registration's data management and authentication aspects. It involves:
 
 - Storage and retrieval of user registration data from the database, ensuring data integrity and security.
 - Hashing and secure storage of user passwords to safeguard sensitive information.
@@ -333,7 +334,7 @@ The registration functionality serves as a pivotal aspect of the Community Board
 
 ### Model – Process Flow Diagram
 
-This process flow diagram outlines the sequence of steps involved in user registration for the Community Board Forum, delineating the roles of the Model, View, and Controller components:.
+This process flow diagram outlines the steps in user registration for the Community Board Forum, delineating the roles of the Model, View, and Controller components:
 
 
 ![Backend-User Registration Class drawio (1)](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/f0913f10-5861-448a-80f7-5b5950eff9cc)
@@ -344,17 +345,17 @@ The Model component is responsible for the data representation of the registrati
 
 - user credentials, including usernames, passwords (hashed or encrypted), and any additional user-related data.
 
-- Session information, including session id and timestamp.
+- Session information, including session ID and timestamp.
 
 - Access logs, including successful or failed registration attempts.
 
 - **Retrieves**
 
-- Authentication, including hashed or encrypted password associated to username.
+- Authentication, including hashed or encrypted password associated with a username.
 
 - Authorization, including login function check for user permission and roles.
 
-- **Processes** registration attempts by the system receiving user input (username and password). If username and password successfully match criteria then it is stored in the database.
+- **Processes** registration attempts by the system receiving user input (username and password). If the username and password match the criteria, it is stored in the database.
 
 **Back-End System Processing of Registration Attempt**
 
@@ -374,9 +375,9 @@ The Model component is responsible for the data representation of the registrati
 
 - **Session Management**:
 
-- A unique session ID is generated by the system for the authenticated user.
+- The system generates A unique session ID for the authenticated user.
 
-- The session ID is securely stored either in the database or as a secure token such as JSON Web Token (JWT).
+- The session ID is securely stored in the database or as a secure token such as JSON Web Token (JWT).
 
 - The Controller establishes an association between the user’s session and the generated session ID.
 
@@ -402,7 +403,7 @@ The View component of the user registration feature provides an intuitive and us
 
 - **Email**: An input field for users to provide their email addresses.
 
-- **Password**: A secure input field for users to create and confirm their passwords.
+- **Password**: A secure input field for users to create and confirm passwords.
 
 - **Additional Information**: Optional fields for users to input additional details such as full name, date of birth, etc.
 
@@ -410,38 +411,38 @@ The View component of the user registration feature provides an intuitive and us
 
 - The view displays feedback messages to guide users during login attempts:
 
-- **Success Message**: Upon successful registration, a confirmation message is displayed.
+- **Success Message**: A confirmation message is displayed upon successful registration.
 
 - **Error Messages**: For registration failures (e.g., username/email already exists, invalid email format).
 
 - **Security Measures**:
   - The view incorporates security best practices to ensure the safety of user information:
     - **Password Strength Indicator**: Provides visual feedback on password strength to encourage secure password creation.
-    - **Captcha (Optional)**: Optionally, a CAPTCHA may be included to prevent automated registration attempts and spam.
+    - **Captcha (Optional)**: a CAPTCHA may be included to prevent automated registration attempts and spam.
 - **Terms and Conditions Agreement**:
   - The view includes a checkbox or agreement section where users can acknowledge and agree to the platform's terms and conditions and privacy policy.
 - **Session Management**:
-  - Upon successful registration, the view may provide an option to immediately log in or redirect users to a login page.
+  - Upon successful registration, the view may provide an option to log in or redirect users to a login page immediately.
   - Persistent session tokens (e.g., cookies) are generated and securely stored to keep users logged in across sessions, if applicable.
 - **Links and Actions**:
   - The view includes links or buttons for additional actions:
     - **Login**: For users who have already registered and wish to log in.
-    - **Forgot Password**: A link to initiate the password recovery process.
-    - **Contact Support**: In case users encounter issues during the registration process, a link or button is provided to contact support for assistance.
+    - **Forgot Password**: A link to initiate the password recovery.
+    - **Contact Support**: If users encounter issues during registration, a link or button is provided to contact support for assistance.
 
 ##Controller
 
-The **Controller** component orchestrates the sequence of operations involved in processing user registration attempts, ensuring seamless interaction between the View and Model while managing data flow effectively. For the user registration feature, the Controller executes the following tasks:
+The **Controller** component orchestrates the sequence of operations processing user registration attempts, ensuring seamless interaction between the View and Model while managing data flow effectively. For the user registration feature, the Controller executes the following tasks:
 
 - **Interpreting User Inputs**:
   - The Controller receives user inputs from the View, including username, email address, password, and additional registration details.
   - It interprets these inputs, validating them to ensure they meet the required format and criteria for registration.
 - **Communicating with the Model**:
   - Upon receiving user inputs, the Controller communicates with the Model to initiate the registration process.
-  - It passes the validated user data to the Model, triggering the creation of a new user account and storage of registration details in the database.
+  - It passes the validated user data to the Model, triggering the creation of a new user account and storing registration details in the database.
 - **Model Processing**:
-  - The Model processes the received user data, performing tasks such as hashing passwords, checking for existing usernames or email addresses, and storing user registration details securely in the database.
-  - It handles any necessary data validation and ensures that user registration adheres to system requirements and constraints.
+  - The Model processes the received user data, performing tasks such as hashing passwords, checking for existing usernames or email addresses and storing user registration details securely in the database.
+  - It handles data validation and ensures user registration adheres to system requirements and constraints.
 - **Response Handling**:
   - Upon completion of the registration process, the Controller manages the response flow back to the View.
   - It updates the View to provide feedback to the user regarding the outcome of the registration attempt, including success messages for successful registrations and error messages for registration failures (e.g., duplicate username, invalid email format).
@@ -466,7 +467,7 @@ The **Controller** component orchestrates the sequence of operations involved in
 
 ## Search Functionality Overview
 
-The search functionality is a critical component of the Community Board Forum, allowing users to efficiently find posts and information relevant to their interests. It is implemented following the MVC design pattern, with detailed considerations for the Model, View, and Controller components to ensure a seamless and efficient search experience.
+The search functionality is a critical component of the Community Board Forum, allowing users to find posts and information relevant to their interests efficiently. It is implemented following the MVC design pattern, with detailed considerations for the Model, View, and Controller components to ensure a seamless and efficient search experience.
 
 ### Model - Class Diagram
 
@@ -485,7 +486,7 @@ The Model component is responsible for the data representation of the search fun
 Following the detailed description of the Model component, it's important to understand the technical strategies employed by the back-end system to optimize search results, ensuring efficiency and relevance:
 
 - **Indexing**: Implementing indexing on searchable fields to expedite query execution, potentially utilizing specialized search engines like Elasticsearch or Apache Solr.
-- **Ranking Algorithms**: Applying algorithms to rank search results by relevance, considering factors such as keyword matches, user engagement (views, likes), and content freshness.
+- **Ranking Algorithms**: Applying algorithms to rank search results by relevance, considering keyword matches, user engagement (views, likes), and content freshness.
 - **Personalization**: Using user data to tailor search results, possibly with machine learning models to predict and highlight content matching individual preferences or past behavior.
 - **Query Expansion and Correction**: Improving search queries with techniques like synonym expansion, spell correction, and query suggestions to enhance result accuracy and user satisfaction.
 
@@ -503,14 +504,14 @@ The View component provides the interface through which users interact with the 
 
 ### Controller - Process Flow Diagram
 
-Details the sequence of operations performed by the controller in response to a search request, including validating the search criteria and processing the search results.
+Details the sequence of operations the controller performs in response to a search request, including validating the search criteria and processing the search results.
 
 ![Search Functionality Controller](https://github.com/byui-cse397/2024WinCSE490PCP/blob/4d26d701fcf4268802da566c0f77fe7c1320bdc7/ProjectManagement/Design/Images/BackendSearchController.drawio.png)
 
-The Controller acts as the intermediary between the View and Model, processing user input and managing the flow of data. For the search functionality, the Controller:
+The Controller is the intermediary between the View and Model, processing user input and managing the data flow. For the search functionality, the Controller:
 
-- **Interprets** user inputs from the View, converting them into queries or commands that the Model can execute.
-- **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
+- **Interprets** user inputs from the View, converting them into queries or commands the Model can execute.
+- **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters better handled outside the database (e.g., post-processing results for personalization).
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
 ## Database Design (MySQL)
