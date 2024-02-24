@@ -191,6 +191,14 @@ The back-end system plays a critical role in managing the Community Board Forum'
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
+### Account Management
+
+This diagram represents the management of the user's username and password.
+
+![Capture3](https://github.com/byui-cse397/2024WinCSE490PCP/assets/97206108/9babf80b-3be9-44ae-a6e2-640b940cd44f)
+
+This management function is responsible for managing the user's username and password. This allows the user to change their username and password after providing their credentials. After changing their username/password, the program will alter the saved username/password in the database, and ensure that the user's username on comments/posts is suitably changed as well.
+
 ### Delete Account
 
 This diagram represents the deletion of a user's account.
