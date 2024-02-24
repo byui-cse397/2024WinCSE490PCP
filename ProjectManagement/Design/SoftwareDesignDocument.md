@@ -594,6 +594,12 @@ CommunityService may depend on CommunityRepository for community-related data ac
 
 These dependencies establish a clear flow of control and data within the system.
 
+### Community Post Process Flow Diagram
+
+The process flow diagram illustrates how the sub-components involved with the Community Post component create a cohesive product to handle the start-to-finish process of creating a post within a forum.
+
+![CommunityPostProcessFlowDiagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week06/ProjectManagement/Design/Images/Backend-Community%20Post%20Flow%20Diagram.drawio.png)
+
 ### Potential Points of Error
 
 Circular Dependencies: Care must be taken to avoid circular dependencies among components, which could lead to design complexities and potential runtime errors.
