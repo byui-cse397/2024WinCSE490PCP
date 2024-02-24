@@ -472,7 +472,132 @@ The **Controller** component orchestrates the sequence of operations processing 
   This may include:
   - Data conversion and formatting.Communication with file storage if relevant.
 
+### Community Post
 
+The Community Post Forum Backend is designed to provide the core functionality for managing community posts. This Software Design Document section outlines the architecture and design considerations for the backend components, including controllers, services, repositories, and data transfer objects.
+
+### System Architecture
+
+The backend system is structured with several key components:
+
+* CommunityController: 
+- Responsible for handling HTTP requests related to community posts. It interacts with the PostService to execute operations.
+* Post Service: 
+- Manages the business logic for community posts, including validation, creation, retrieval, modification, and removal. It collaborates with the PostRepository for data storage.
+* CommunityService: 
+- Handles community-related operations, such as retrieving community details and managing members. It may interact with the CommunityRepository for data access.
+* AuthenticationService: 
+- Manages user authentication and authorization. It interacts with the User entity and is crucial for securing the application.
+* PostRepository and CommunityRepository: 
+- Responsible for database interactions related to posts and communities, respectively. They store and retrieve data using the Post and Community entities.
+*DTO (Data Transfer Object) Classes: 
+- PostDTO and CommunityDTO represent the data structure for post and community data transfer, ensuring efficient communication between components.
+*Model Classes: 
+- Post and Community represent the data structure of posts and communities. They are used for data storage and retrieval.
+
+### Detailed Class Diagram
+
+<https://raw.githubusercontent.com/byui-cse397/2024WinCSE490PCP/Week06/ProjectManagement/Design/Images/ClassDiagramCommunityPost.png?token=GHSAT0AAAAAACJLYVT5UQ3VWUT725X5R3UGZOZ5ZZQ>
+
+### CommunityController
+
+The CommunityController class handles incoming HTTP requests related to community posts. It contains methods for creating, retrieving, updating, and deleting posts. Additionally, it can list posts within a community. The controller interacts with the PostService to perform these operations.
+
+### PostService
+
+The PostService class is responsible for the business logic related to community posts. It validates post data, creates new posts, retrieves posts, modifies existing posts, and removes posts. It collaborates with the PostRepository for data storage.
+
+### CommunityService
+
+The CommunityService class manages community-related operations. It provides methods to retrieve community details and manage community members (add or remove). This service may interact with the CommunityRepository for data access.
+
+### AuthenticationService
+
+The AuthenticationService class handles user authentication and authorization. It contains methods to authenticate users and authorize specific actions. It interacts with the User entity to ensure secure access to the system.
+
+### PostRepository
+
+The PostRepository class is responsible for database interactions related to posts. It provides methods to insert, retrieve, update, and delete posts in the underlying database.
+
+### CommunityRepository
+
+The CommunityRepository class manages database interactions for community entities. It includes methods to insert, retrieve, update, and delete communities in the underlying database.
+
+### DTO Classes
+
+DTO classes, such as PostDTO and CommunityDTO, facilitate data transfer between components. They encapsulate the data required for communication without exposing internal structures.
+
+###  Model Classes
+
+Model classes, including Post and Community, represent the data structure for posts and communities. They are used for storage and retrieval within the application.
+
+### Dependencies
+
+The system relies on external libraries or frameworks for tasks such as database access, security, and web application development.
+
+The design of the Community Post Forum Backend ensures a modular and scalable architecture, facilitating the effective management of community posts. The detailed class diagram provides insights into the relationships and interactions between key components, fostering a clear understanding of the system's structure.
+
+Software Design Document (SDD) Section: Community Post Forum Backend *Component Design
+
+### Community Post – Component Diagram
+
+This section of the SDD focuses on the component design of the Community Post Forum Backend. It outlines the key components, their responsibilities, and the relationships between them. The component design ensures modularity, maintainability, and effective collaboration among different modules within the system.
+
+### Component Overview
+
+<https://raw.githubusercontent.com/byui-cse397/2024WinCSE490PCP/Week06/ProjectManagement/Design/Images/CommunityPostComponentDiagram.png?token=GHSAT0AAAAAACJLYVT4TCMARTDGRYDK6O5MZOZ5ZBA>
+
+### Community Post System
+
+The Community Post System is the overarching component that encapsulates various modules responsible for managing community posts. It serves as the container for other components, facilitating the coordination of functionalities.
+
+### CommunityController
+
+The CommunityController component is responsible for handling incoming HTTP requests related to community posts. It acts as an entry point, forwarding requests to the appropriate service components.
+
+### PostService
+
+The PostService component manages the business logic for community posts. It validates post data, orchestrates post-related operations, and interacts with the PostRepository for data storage and retrieval.
+
+### CommunityService
+
+The CommunityService component handles community-related operations. It provides functionalities such as retrieving community details and managing community members. It may interact with the CommunityRepository for data access.
+
+### AuthenticationService
+
+The AuthenticationService component is responsible for user authentication and authorization. It ensures secure access to the system by verifying user credentials and authorizing specific actions.
+
+### PostRepository
+
+The PostRepository component manages interactions with the database for post-related operations. It includes methods for inserting, retrieving, updating, and deleting posts.
+
+### CommunityRepository
+
+The CommunityRepository component is responsible for database interactions related to communities. It provides methods for inserting, retrieving, updating, and deleting community data.
+
+### Relationships and Interactions
+
+The relationships between components are primarily represented by dependencies, denoted by arrows indicating the direction of reliance. The primary dependencies include:
+
+CommunityController depends on PostService to handle post-related operations.
+
+PostService depends on PostRepository for data storage and retrieval.
+
+CommunityService may depend on CommunityRepository for community-related data access.
+
+These dependencies establish a clear flow of control and data within the system.
+
+### Potential Points of Error
+
+Circular Dependencies: Care must be taken to avoid circular dependencies among components, which could lead to design complexities and potential runtime errors.
+
+Missing Dependencies: Verify that all necessary dependencies are accurately represented. Ensure that each component relies on others appropriately.
+
+Inconsistent Dependencies: Ensure consistency in dependencies. If a component is expected to provide a certain functionality, make sure that the dependent component can access it without issues.
+
+The component design outlined in this section ensures a well-organized and modular backend system for the Community Post Forum. Each component has well-defined responsibilities, promoting separation of concerns and ease of maintenance. The identified relationships and potential points of error guide developers in implementing a robust and reliable system.
+
+ 
 ## Search Functionality Overview
 
 The search functionality is a critical component of the Community Board Forum, allowing users to find posts and information relevant to their interests efficiently. It is implemented following the MVC design pattern, with detailed considerations for the Model, View, and Controller components to ensure a seamless and efficient search experience.
