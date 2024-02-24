@@ -53,8 +53,8 @@ classDiagram
           +String TeamMember(Anita Woodford)
           +String TeamMember(Allan Marina)
           +String TeamMember(Nazanal Laughlin)
-          +String TeamMember(Kristina Hayes)  
-            
+          +String TeamMember(Kristina Hayes)
+          +String TeamMember(Brian Anderson)
       }
       class Database{
           +String Lead(Joshua Bee)
