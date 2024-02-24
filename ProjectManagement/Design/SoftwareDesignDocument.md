@@ -11,6 +11,7 @@
 - George Krenk
 - Allan Marina (Team Lead)
 - Kristina Hayes
+- Brian Anderson
 ### Database
 - Darcy Merilan
 - Andrew Swayze
@@ -72,6 +73,7 @@ CSE 490R Special Topics
   - [Back-End Design (Java in Android Studio)](#back-end-design-java-in-android-studio)
     - [Introduction](#introduction)
     - [Architecture](#architecture)
+    - [User Account Management](#Account-Management)
     - [Search Functionality](#search-functionality)
   - [Search Functionality Overview](#search-functionality-overview)
     - [Model - Class Diagram](#model---class-diagram)
