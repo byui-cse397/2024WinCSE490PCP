@@ -24,7 +24,7 @@ CSE 490R Special Topics
 
 ## Project Management
 - **Project Manager:** [Project Manager's Name]
-- **Team Leads:** [Joshua Bee, ]
+- **Team Leads:** [Joshua Bee, Darcy Merilan, ]
 
 **Version:** 3.0  
 **Date:** [Current Date or "Post-Thursday's Update"]
@@ -617,7 +617,6 @@ Following the data description, the sequence diagram illustrates the interaction
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
 ### Front End :
-(section done by: Darcy Merilan, Bryan Welton, Conner Wadsworth, Angela Slinker, Andrew Swayze ):
 
 
 #### User Account Management 
@@ -655,6 +654,7 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Offers users the option to delete their account.
   - *Elements:* A "Delete Account" button, often accompanied by a confirmation step (e.g., entering a password or answering a security question) to prevent accidental deletions.
   - *Actions:* Confirming account deletion sends a request to the Controller to remove the user's account from the Model.
+### Front End Design Detail:
 
 ---
 
