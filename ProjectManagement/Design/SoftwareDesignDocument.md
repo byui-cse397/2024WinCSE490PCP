@@ -497,7 +497,8 @@ The backend system is structured with several key components:
 
 ### Detailed Class Diagram
 
-<https://raw.githubusercontent.com/byui-cse397/2024WinCSE490PCP/Week06/ProjectManagement/Design/Images/ClassDiagramCommunityPost.png?token=GHSAT0AAAAAACJLYVT5UQ3VWUT725X5R3UGZOZ5ZZQ>
+![ClassDiagramCommunityPost](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/d3436e49-2de3-4d17-9da7-c547264d24e0)
+
 
 ### CommunityController
 
@@ -545,7 +546,7 @@ This section of the SDD focuses on the component design of the Community Post Fo
 
 ### Component Overview
 
-<https://raw.githubusercontent.com/byui-cse397/2024WinCSE490PCP/Week06/ProjectManagement/Design/Images/CommunityPostComponentDiagram.png?token=GHSAT0AAAAAACJLYVT4TCMARTDGRYDK6O5MZOZ5ZBA>
+![CommunityPostComponentDiagram](https://github.com/byui-cse397/2024WinCSE490PCP/assets/43421813/19bbc0c9-cb3f-4fdb-a0b8-23ce190d8942)
 
 ### Community Post System
 
