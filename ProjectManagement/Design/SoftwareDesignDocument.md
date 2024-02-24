@@ -5,7 +5,7 @@
 ## Authors
 
 ### Frontend
-- Darcy Merilan(Team Lead)
+- Darcy Merilan (Team Lead)
 - Andrew Swayze
 - Angela Slinker
 - Conner Wadsworth
