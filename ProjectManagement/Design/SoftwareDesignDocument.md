@@ -5,6 +5,11 @@
 ## Authors
 
 ### Frontend
+- Darcy Merilan
+- Andrew Swayze
+- Angela Slinker
+- Conner Wadsworth
+- Bryan Welton
 ### Backend
 - Jessica Vargas
 - Anita Woodford
@@ -13,11 +18,11 @@
 - Kristina Hayes
 - Brian Anderson
 ### Database
-- Darcy Merilan
-- Andrew Swayze
-- Angela Slinker
-- Conner Wadsworth
-- Bryan Welton
+- Nolan Jeppson
+- Kjellden Knutzen
+- Brian Anderson
+- Claudio Inostroza 
+
 
 ## Submitted to
 Brother William Clements  
