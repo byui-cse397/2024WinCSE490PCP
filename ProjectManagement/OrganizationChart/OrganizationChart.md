@@ -47,11 +47,10 @@ classDiagram
           +String TeamMember(Bryan Welton)
       }
       class BackEnd{
-          +String Lead()
+          +String Lead(Allan Marina)
           +String TeamMember(Jessica Vargas)
           +String TeamMember(George Krenk)
           +String TeamMember(Anita Woodford)
-          +String TeamMember(Allan Marina)
           +String TeamMember(Nazanal Laughlin)
           +String TeamMember(Kristina Hayes)
           +String TeamMember(Brian Anderson)
