@@ -1,4 +1,13 @@
 Title: Software Requirements Specification
+Team Lead: Darcy Merilan
+
+Team Members:
+
+Allan Marina,
+Andrew Swayze,
+Anita Woodford,
+Kristina Hayes,
+Nolan Jeppson,
 
 **Analysis Technique Summary:**
 The analysis of potential scenarios, SWOT analysis, and a prioritized list of features provide comprehensive insights for the university community board app. Non-functional requirements emphasize the importance of security, reliability, availability, usability, scalability, and regulatory compliance. Constraints include security, accessibility, and cultural/language considerations.

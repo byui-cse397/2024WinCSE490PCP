@@ -1,3 +1,6 @@
+# Database White Paper
+Brian Anderson, Jessica Vargas, Kjellden Knutzen, Nazanal Laughlin, Bryan Welton
+
 # Introduction
 
 In the fast-evolving landscape of data analysis, the choice of tools plays a
