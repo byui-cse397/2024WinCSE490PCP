@@ -11,6 +11,7 @@
 - Conner Wadsworth
 - Bryan Welton
 ### Backend
+- Brian Anderson
 - Jessica Vargas
 - Anita Woodford
 - George Krenk
@@ -24,7 +25,7 @@ CSE 490R Special Topics
 
 ## Project Management
 - **Project Manager:** [Project Manager's Name]
-- **Team Leads:** [Joshua Bee, Darcy Merilan, ]
+- **Team Leads:** [Joshua Bee, Darcy Merilan, Allan Marina]
 
 **Version:** 3.0  
 **Date:** [Current Date or "Post-Thursday's Update"]
