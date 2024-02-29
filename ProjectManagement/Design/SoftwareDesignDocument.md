@@ -655,9 +655,6 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Offers users the option to delete their account.
   - *Elements:* A "Delete Account" button, often accompanied by a confirmation step (e.g., entering a password or answering a security question) to prevent accidental deletions.
   - *Actions:* Confirming account deletion sends a request to the Controller to remove the user's account from the Model.
-### Front End Design Detail:
-
----
 
 #### Community Posts 
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
@@ -711,8 +708,20 @@ The search functionality view is responsible for providing users with a user-fri
   - *Description:* Enables users to clear the search form and start a new search.
   - *Elements:* A "Clear" or "Reset" button to clear all entered search criteria.
   - *Actions:* Clicking the "Clear" button sends a request to the controller to reset the search criteria, clearing the form and potentially resetting the displayed results.
+ 
+## Front End Design Detail:
+### User Account Management flow system:
+![User Account Management Flow system](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow.png)
+### Content Page Flow System:
+![Page Navigation](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow%20(1).png)
+
+Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/edit)
+
 ## Development and Runtime Environment Setup
 Preparation for implementation includes setting up Android Studio, configuring MySQL, and preparing AWS environments for both development and operational deployment.
+
+
+
 
 ## Implementation Planning
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
