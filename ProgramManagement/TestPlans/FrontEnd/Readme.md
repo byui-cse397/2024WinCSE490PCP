@@ -3,7 +3,11 @@ Version: 1.0
 
 Team Name:          Front End
 Authors Team Names: 
-* [Team Member Names]
+* Darcy Merilan
+* Angela Slinker
+* Andrew Swayze
+* Conner Wadsworth
+* Bryan Welton
 
 Section 1: Project
 Create an application that helps with finding and providing rides
