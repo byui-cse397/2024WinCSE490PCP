@@ -2,6 +2,7 @@ Test Plan
 Version: 1.0
 
 Team Name:          Front End
+
 Authors Team Names: 
 * Darcy Merilan
 * Angela Slinker
