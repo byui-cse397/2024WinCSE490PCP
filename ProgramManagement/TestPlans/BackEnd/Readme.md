@@ -17,7 +17,7 @@ Section 3: Quality Model
  - [Quality Characteristics mentioned in the SRS]
 
 Section 4: Test Cases
-- [Create User] (https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/Test%20Case%20%231%20-%20Create%20a%20New%20User)
+- [Create User](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/Test%20Case%20%231%20-%20Create%20a%20New%20User)
 - [Login]
 - [Delete User](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/TestPlan-Deletion.md) and Issue #174
 
