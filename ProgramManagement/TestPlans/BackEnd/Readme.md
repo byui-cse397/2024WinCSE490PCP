@@ -4,7 +4,8 @@ Version: 1.0
 Team Name:          Back End
 Authors Team Names: 
 * [Team Member Names]
-* Anita Woodford 
+* Anita Woodford
+* George Krenk
 
 Section 1: Project
 Create an application that helps with finding and providing rides
