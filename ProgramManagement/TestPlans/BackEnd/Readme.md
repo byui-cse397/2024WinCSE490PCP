@@ -23,7 +23,7 @@ Section 4: Test Cases
 
 Section 5: Test Data
 [Location of data used for the tests]
-- [Delete User Test ](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/src/Back-End/test/UserDeletion/userDeletionExamples.py)
+- [Delete User Example Test ](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/src/Back-End/test/UserDeletion/userDeletionExamples.py) and [Delete User Test](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/src/Back-End/test/UserDeletion/deleteUsertest.java)
 
 Section 6: Test harness
 <Any software or setup needed to run the software and tests>
