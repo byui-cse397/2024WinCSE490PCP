@@ -21,6 +21,7 @@ Section 4: Test Cases
 
 Section 5: Test Data
 [Location of data used for the tests]
+- User Deletion []
 
 Section 6: Test harness
 <Any software or setup needed to run the software and tests>
