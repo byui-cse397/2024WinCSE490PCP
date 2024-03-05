@@ -18,7 +18,7 @@ Section 3: Quality Model
 
 Section 4: Test Cases
 - [Create User](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/Test%20Case%20%231%20-%20Create%20a%20New%20User)
-- [Login]
+- [Login](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/Test%20Case%20%232%20-%20User%20Login)
 - [Delete User](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProgramManagement/TestPlans/BackEnd/TestPlan-Deletion.md) and Issue #174
 
 Section 5: Test Data
