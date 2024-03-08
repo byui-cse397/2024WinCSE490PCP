@@ -1,3 +1,5 @@
+package test;
+import User;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.Date;
