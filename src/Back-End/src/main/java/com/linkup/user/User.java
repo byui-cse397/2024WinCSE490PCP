@@ -39,4 +39,11 @@ public class User {
   }
   public boolean isActive() { return isActive; }
   public void setActive(boolean active) { isActive = active; }
+
+  // Method to create a new user account
+  public static User createNewUser(String username, String email, String password) {
+    User newUser = new User(username, email, password);
+    // Here we will add additional logic such as saving the user to a database
+    return newUser;
+  }
 }
