@@ -1,8 +1,10 @@
-package test;
-import User;
+package test.java.com.linkup.Test;
 import static org.junit.Assert.*;
 import org.junit.Test;
+
 import java.util.Date;
+
+import main.java.com.linkup.user.User;
 
 public class UserTest {
   /*
