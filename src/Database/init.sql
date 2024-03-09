@@ -9,6 +9,9 @@ GRANT ALL PRIVILEGES ON linkup_db.* TO 'linkup-admin'@'localhost';
 CREATE USER IF NOT EXISTS 'linkup-user'@'localhost' IDENTIFIED BY 'user';
 GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-user'@'localhost';
 
+CREATE USER IF NOT EXISTS 'linkup-tester'@'localhost' IDENTIFIED BY 'tester';
+GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-user'@'localhost';
+
 FLUSH PRIVILEGES;
 
 ---Table Schema Setup---
