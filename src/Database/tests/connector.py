@@ -13,6 +13,7 @@ from post_has_post_time import HasPostTime
 from post_has_id_pk import HasPostId
 from has_id_field import HasIdField
 from has_password_hash import HasPasswordHashField
+from post_add_to_table import postAddToTableTest
 
 # Misc Imports
 from typing import List
@@ -58,7 +59,7 @@ def get_test_list() -> List[DBTest]:
     # MODEL TESTS
     model_tests: List[DBTest] = [HasUsernameField(), HasIdField(), HasPasswordHashField(),
                                  ExampleTest1(),HasContentText(),HasAccountId(),HasPostTime(),
-                                 HasPostId()]
+                                 HasPostId(), postAddToTableTest()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
