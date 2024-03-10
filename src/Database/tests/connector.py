@@ -7,6 +7,7 @@ from test_runner import TestRunner
 from db_test import DBTest
 from example_test_1 import ExampleTest1
 from has_username_field import HasUsernameField
+from post_has_content_text import HasContentText
 
 # Misc Imports
 from typing import List
@@ -17,7 +18,7 @@ def create_connection() -> MySQLConnection:
     Establishes a connection to the MySQL database.
     """
     connection = mysql.connector.connect(
-        host="localhost", user="linkup-tester", password="tester", database="linkup_db"
+        host="localhost", user="linkup-admin", password="nimda", database="linkup_db"
     )
     return connection
 
@@ -50,7 +51,7 @@ def get_test_list() -> List[DBTest]:
     controller_tests: List[DBTest] = []
 
     # MODEL TESTS
-    model_tests: List[DBTest] = [HasUsernameField(), ExampleTest1()]
+    model_tests: List[DBTest] = [HasUsernameField(), ExampleTest1(), HasContentText()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []

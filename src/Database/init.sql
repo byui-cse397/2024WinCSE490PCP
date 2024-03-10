@@ -22,3 +22,9 @@ CREATE TABLE IF NOT EXISTS Account (
     password_hash VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS Post (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    content_text VARCHAR(800) NOT NULL,
+    FOREIGN KEY (id) references Account(id),
+    post_time time NOT NULL
+);

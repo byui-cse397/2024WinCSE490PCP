@@ -10,8 +10,10 @@ class ExampleTest1(DBTest):
         cursor = connection.cursor()
         try:
             cursor.execute("SELECT 1 FROM Account LIMIT 1")
+            cursor.fetchall()
             # Yay! Data exists!
             return True
+            
         except Error:
             # Oh no! Something went wrong!
             return False
