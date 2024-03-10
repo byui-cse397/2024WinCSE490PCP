@@ -5,7 +5,7 @@ from mysql.connector import MySQLConnection
 # Test classes
 from test_runner import TestRunner
 from db_test import DBTest
-from example_test_1 import ExampleTest1, addToTableTest
+from example_test_1 import ExampleTest1
 from has_username_field import HasUsernameField
 from post_has_content_text import HasContentText
 from post_has_account_id import HasAccountId
