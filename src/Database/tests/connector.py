@@ -54,7 +54,9 @@ def get_test_list() -> List[DBTest]:
     controller_tests: List[DBTest] = []
 
     # MODEL TESTS
-    model_tests: List[DBTest] = [HasUsernameField(), ExampleTest1(), HasContentText(), HasAccountId(), HasPostTime(), HasPostId()]
+    model_tests: List[DBTest] = [HasUsernameField(),
+                                 ExampleTest1(),HasContentText(),HasAccountId(),HasPostTime(),
+                                 HasPostId()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
