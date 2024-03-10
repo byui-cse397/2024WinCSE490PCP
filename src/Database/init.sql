@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Account (
 CREATE TABLE IF NOT EXISTS Post (
     id INT AUTO_INCREMENT PRIMARY KEY,
     content_text VARCHAR(800) NOT NULL,
-    account_id INT NOT NULL,
+    account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
     post_time time NOT NULL,
-    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
 );
