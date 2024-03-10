@@ -7,6 +7,12 @@ from test_runner import TestRunner
 from db_test import DBTest
 from example_test_1 import ExampleTest1, addToTableTest
 from has_username_field import HasUsernameField
+from post_has_content_text import HasContentText
+from post_has_account_id import HasAccountId
+from post_has_post_time import HasPostTime
+from post_has_id_pk import HasPostId
+from has_id_field import HasIdField
+from has_password_hash import HasPasswordHashField
 
 # Misc Imports
 from typing import List
@@ -50,7 +56,9 @@ def get_test_list() -> List[DBTest]:
     controller_tests: List[DBTest] = []
 
     # MODEL TESTS
-    model_tests: List[DBTest] = [HasUsernameField(), ExampleTest1(), addToTableTest() ]
+    model_tests: List[DBTest] = [HasUsernameField(), HasIdField(), HasPasswordHashField(),
+                                 ExampleTest1(),HasContentText(),HasAccountId(),HasPostTime(),
+                                 HasPostId()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []

@@ -13,6 +13,7 @@ class ExampleTest1(DBTest):
             cursor.fetchall()
             # Yay! Data exists!
             return True
+            
         except Error:
             # Oh no! Something went wrong!
             return False
