@@ -10,8 +10,28 @@ class ExampleTest1(DBTest):
         cursor = connection.cursor()
         try:
             cursor.execute("SELECT 1 FROM Account LIMIT 1")
+            cursor.fetchall()
             # Yay! Data exists!
             return True
         except Error:
             # Oh no! Something went wrong!
+            return False
+
+class addToTableTest(DBTest):
+    def _test(self, connection: MySQLConnection):
+        """
+        This will run a test on adding items to a table
+        """
+        cursor = connection.cursor()
+
+        try:
+            sql = "INSERT INTO account (id, username, password_hash) VALUES (%s, %s, %s)"
+            val = (587392, "John", "Testing123")
+            cursor.execute(sql, val)
+
+            connection.commit()
+
+            return True
+
+        except Error:
             return False
