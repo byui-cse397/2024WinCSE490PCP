@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS Account (
 CREATE TABLE IF NOT EXISTS Post (
     id INT AUTO_INCREMENT PRIMARY KEY,
     content_text VARCHAR(800) NOT NULL,
-    FOREIGN KEY (id) references Account(id),
-    post_time time NOT NULL
+    account_id INT NOT NULL,
+    post_time time NOT NULL,
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)
 );
