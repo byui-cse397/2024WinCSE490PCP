@@ -6,6 +6,14 @@ from mysql.connector import MySQLConnection
 from test_runner import TestRunner
 from db_test import DBTest
 from example_test_1 import ExampleTest1
+from has_username_field import HasUsernameField
+from post_has_content_text import HasContentText
+from post_has_account_id import HasAccountId
+from post_has_post_time import HasPostTime
+from post_has_id_pk import HasPostId
+from has_id_field import HasIdField
+from has_password_hash import HasPasswordHashField
+from post_add_to_table import postAddToTableTest
 
 # Misc Imports
 from typing import List
@@ -16,7 +24,7 @@ def create_connection() -> MySQLConnection:
     Establishes a connection to the MySQL database.
     """
     connection = mysql.connector.connect(
-        host="localhost", user="linkup-tester", password="tester", database="linkup_db"
+        host="localhost", user="linkup-admin", password="nimda", database="linkup_db"
     )
     return connection
 
@@ -49,7 +57,9 @@ def get_test_list() -> List[DBTest]:
     controller_tests: List[DBTest] = []
 
     # MODEL TESTS
-    model_tests: List[DBTest] = [ExampleTest1()]
+    model_tests: List[DBTest] = [HasUsernameField(), HasIdField(), HasPasswordHashField(),
+                                 ExampleTest1(),HasContentText(),HasAccountId(),HasPostTime(),
+                                 HasPostId(), postAddToTableTest()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
