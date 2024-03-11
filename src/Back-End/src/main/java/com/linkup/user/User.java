@@ -45,6 +45,7 @@ public class User {
                                    String password) {
     User newUser = new User(username, email, password);
     // Here we will add additional logic such as saving the user to a database
+    // Call the DB View method
     return newUser;
   }
 }
