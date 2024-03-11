@@ -39,10 +39,9 @@ classDiagram
       Project : +PM()
       Project : +Customer(BroClements)
       class FrontEnd{
-          +String Lead()
+          +String Lead(Darcy Merilan)
           +String TeamMember(Andrew Swayze)
           +String TeamMember(Angela Slinker)
-          +String TeamMember(Darcy Merilan)
           +String TeamMember(Conner Wadsworth)
           +String TeamMember(Bryan Welton)
       }
