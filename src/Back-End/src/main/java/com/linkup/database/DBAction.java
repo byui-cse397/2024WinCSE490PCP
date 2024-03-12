@@ -12,7 +12,7 @@ public interface DBAction {
   int getID(); // We use an ID for Reading, Updating and Deleting. Creating can
                // just return 0.
 
-  public static Map<String, String> performDBAction(DBAction obj) {
+  public static String getDBAction(DBAction obj) {
     Map<String, String> colValueMap = new HashMap<>();
 
     Field[] fields = obj.getClass().getDeclaredFields();
@@ -32,7 +32,7 @@ public interface DBAction {
     String id = colValueMap.remove("ID");
     ActionType action = obj.getActionType();
     Table table = obj.getTable();
-    action.performAction(table, colValueMap, id);
-    return colValueMap;
+    String query = action.buildQuery(table, colValueMap, id);
+    return query;
   }
 }

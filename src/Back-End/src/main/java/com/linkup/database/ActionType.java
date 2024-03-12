@@ -4,8 +4,8 @@ import java.util.Map;
 public enum ActionType {
   CREATE {
     @Override
-    public String performAction(Table table, Map<String, String> colValueMap,
-                                String id) {
+    public String buildQuery(Table table, Map<String, String> colValueMap,
+                             String id) {
       StringBuilder columnsBuilder = new StringBuilder();
       for (String columnName : colValueMap.keySet()) {
         if (columnsBuilder.length() > 0) {
@@ -31,8 +31,8 @@ public enum ActionType {
   },
   READ {
     @Override
-    public String performAction(Table table, Map<String, String> colValueMap,
-                                String id) {
+    public String buildQuery(Table table, Map<String, String> colValueMap,
+                             String id) {
       String where = ActionType.buildWhere(id);
       String query = "SELECT * FROM " + table + where;
       return query;
@@ -40,8 +40,8 @@ public enum ActionType {
   },
   UPDATE {
     @Override
-    public String performAction(Table table, Map<String, String> colValueMap,
-                                String id) {
+    public String buildQuery(Table table, Map<String, String> colValueMap,
+                             String id) {
       StringBuilder setClauseBuilder = new StringBuilder("\nSET ");
       for (Map.Entry<String, String> entry : colValueMap.entrySet()) {
         if (setClauseBuilder.length() > 6) {
@@ -61,8 +61,8 @@ public enum ActionType {
   },
   DELETE {
     @Override
-    public String performAction(Table table, Map<String, String> colValueMap,
-                                String id) {
+    public String buildQuery(Table table, Map<String, String> colValueMap,
+                             String id) {
       String where = ActionType.buildWhere(id);
       String query = "DELETE FROM " + table + where;
       return query;
@@ -74,9 +74,8 @@ public enum ActionType {
     return this.name();
   }
 
-  public abstract String performAction(Table table,
-                                       Map<String, String> colValueMap,
-                                       String id);
+  public abstract String buildQuery(Table table,
+                                    Map<String, String> colValueMap, String id);
 
   private static String buildWhere(String id) {
     StringBuilder whereBuilder = new StringBuilder("\nWHERE ");
