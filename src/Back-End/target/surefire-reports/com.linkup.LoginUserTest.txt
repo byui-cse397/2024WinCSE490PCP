@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: com.linkup.LoginUserTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
-testAuthenticateFailureIncorrectUsername(com.linkup.LoginUserTest)  Time elapsed: 0 sec  <<< FAILURE!
+Tests run: 5, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec <<< FAILURE!
+testAuthenticateFailureIncorrectUsername(com.linkup.LoginUserTest)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectUsername(LoginUserTest.java:34)
+	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectUsername(LoginUserTest.java:35)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -35,13 +35,13 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAuthenticateFailureEmptyUsername(com.linkup.LoginUserTest)  Time elapsed: 0 sec  <<< FAILURE!
+testAuthenticateFailureEmptyUsername(com.linkup.LoginUserTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyUsername(LoginUserTest.java:43)
+	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyUsername(LoginUserTest.java:44)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -68,13 +68,13 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAuthenticateFailureIncorrectPassword(com.linkup.LoginUserTest)  Time elapsed: 0 sec  <<< FAILURE!
+testAuthenticateFailureIncorrectPassword(com.linkup.LoginUserTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectPassword(LoginUserTest.java:25)
+	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectPassword(LoginUserTest.java:26)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -101,13 +101,13 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testAuthenticateFailureEmptyPassword(com.linkup.LoginUserTest)  Time elapsed: 0 sec  <<< FAILURE!
+testAuthenticateFailureEmptyPassword(com.linkup.LoginUserTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyPassword(LoginUserTest.java:52)
+	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyPassword(LoginUserTest.java:53)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)

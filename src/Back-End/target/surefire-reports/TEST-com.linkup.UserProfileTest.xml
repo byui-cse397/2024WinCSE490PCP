@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="1" name="com.linkup.UserProfileTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="5" failures="1" name="com.linkup.UserProfileTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="21.0.2+13"/>
@@ -93,7 +93,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="com.linkup.UserProfileTest" name="testSetLastLoginDate" time="0"/>
+  <testcase classname="com.linkup.UserProfileTest" name="testSetLastLoginDate" time="0.001"/>
   <testcase classname="com.linkup.UserProfileTest" name="testSetBio" time="0"/>
-  <testcase classname="com.linkup.UserProfileTest" name="testSetProfilePictureUrl" time="0"/>
+  <testcase classname="com.linkup.UserProfileTest" name="testSetProfilePictureUrl" time="0.001"/>
 </testsuite>

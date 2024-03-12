@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="4" name="com.linkup.LoginUserTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="5" failures="4" name="com.linkup.LoginUserTest" time="0.008" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="21.0.2+13"/>
@@ -57,14 +57,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateSuccess" time="0.001"/>
-  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureIncorrectUsername" time="0">
+  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateSuccess" time="0.003"/>
+  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureIncorrectUsername" time="0.002">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectUsername(LoginUserTest.java:34)
+	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectUsername(LoginUserTest.java:35)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -92,13 +92,13 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureEmptyUsername" time="0">
+  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureEmptyUsername" time="0.001">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyUsername(LoginUserTest.java:43)
+	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyUsername(LoginUserTest.java:44)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -126,13 +126,13 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureIncorrectPassword" time="0">
+  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureIncorrectPassword" time="0.001">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectPassword(LoginUserTest.java:25)
+	at com.linkup.LoginUserTest.testAuthenticateFailureIncorrectPassword(LoginUserTest.java:26)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
@@ -160,13 +160,13 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureEmptyPassword" time="0">
+  <testcase classname="com.linkup.LoginUserTest" name="testAuthenticateFailureEmptyPassword" time="0.001">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertFalse(Assert.java:64)
 	at org.junit.Assert.assertFalse(Assert.java:74)
-	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyPassword(LoginUserTest.java:52)
+	at com.linkup.LoginUserTest.testAuthenticateFailureEmptyPassword(LoginUserTest.java:53)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
