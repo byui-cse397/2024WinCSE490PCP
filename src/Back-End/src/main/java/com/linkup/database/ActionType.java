@@ -83,14 +83,4 @@ public enum ActionType {
     String where = whereBuilder.toString();
     return where;
   }
-
-  // Create enum actions from our hashmap
-  public static ActionType fromString(String str) {
-    for (ActionType actionType : ActionType.values()) {
-      if (actionType.name().equalsIgnoreCase(str)) {
-        return actionType;
-      }
-    }
-    throw new IllegalArgumentException("No enum with name: " + str);
-  }
 }
