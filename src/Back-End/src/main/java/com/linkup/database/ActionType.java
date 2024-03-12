@@ -23,12 +23,12 @@ public enum ActionType {
         valuesBuilder.append("'").append(value).append("'");
       }
       String values = valuesBuilder.toString();
-
       String query = "INSERT INTO " + table + " (" + columns + ")\n"
                      + "VALUES (" + values + ");";
       return query;
     }
   },
+
   READ {
     @Override
     public String buildQuery(Table table, Map<String, String> colValueMap,
@@ -38,6 +38,7 @@ public enum ActionType {
       return query;
     }
   },
+
   UPDATE {
     @Override
     public String buildQuery(Table table, Map<String, String> colValueMap,
@@ -55,10 +56,10 @@ public enum ActionType {
       String setClause = setClauseBuilder.toString();
       String where = ActionType.buildWhere(id);
       String query = "UPDATE " + table + setClause + where;
-
       return query;
     }
   },
+
   DELETE {
     @Override
     public String buildQuery(Table table, Map<String, String> colValueMap,
