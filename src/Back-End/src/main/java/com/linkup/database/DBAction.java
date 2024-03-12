@@ -29,9 +29,10 @@ public interface DBAction {
     }
     colValueMap.remove("ActionType");
     colValueMap.remove("Table");
-    String id = colValueMap.remove("ID");
+    colValueMap.remove("ID");
     ActionType action = obj.getActionType();
     Table table = obj.getTable();
+    String id = String.valueOf(obj.getID());
     String query = action.buildQuery(table, colValueMap, id);
     return query;
   }
