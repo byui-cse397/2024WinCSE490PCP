@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="2" name="com.linkup.UserTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="5" failures="2" name="com.linkup.UserTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="21.0.2+13"/>
@@ -89,7 +89,7 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
   </testcase>
-  <testcase classname="com.linkup.UserTest" name="testUserSettersAndGetters" time="0.001"/>
+  <testcase classname="com.linkup.UserTest" name="testUserSettersAndGetters" time="0"/>
   <testcase classname="com.linkup.UserTest" name="testUserRegistrationDate" time="0"/>
   <testcase classname="com.linkup.UserTest" name="testUserEmailValidation" time="0">
     <failure message="expected:&lt;[test@example.com]&gt; but was:&lt;[invalid-email]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[test@example.com]&gt; but was:&lt;[invalid-email]&gt;
