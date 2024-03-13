@@ -1,4 +1,4 @@
-package test;
+package com.linkup;
 import static org.junit.Assert.*;
 
 import com.linkup.user.User;
