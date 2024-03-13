@@ -30,4 +30,10 @@
     <string name="tempuser">Disusnamhere</string>
     <string name="tempemail">Disemahere</string>
     <string name="tempbio">Disusnamhere</string>
+    <string name="eacctitle">Edit Account Info: </string>
+    <string name="nemail">New email</string>
+    <string name="cusername">Create Username</string>
+    <string name="cpassword">Create Password</string>
+    <string name="saveP">Save Profile</string>
+    <string name="deletebut">Delete Account</string>
 </resources>
