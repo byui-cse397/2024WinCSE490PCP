@@ -1,4 +1,4 @@
-package com.linkupdb.app;
+package com.linkup.sparkInit;
 
 /**
  * Hello world!
@@ -14,7 +14,7 @@ import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 
-public class App {
+public class SparkInit {
   public static void main(String[] args) {
     // Initialize SparkSession
     SparkSession spark =
