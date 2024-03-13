@@ -1,4 +1,4 @@
-package main.java.com.linkup.user;
+package com.linkup.user;
 
 public class LoginUser {
   private String username;

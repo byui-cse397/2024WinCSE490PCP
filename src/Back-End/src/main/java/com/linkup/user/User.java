@@ -1,4 +1,4 @@
-package main.java.com.linkup.user;
+package com.linkup.user;
 import java.util.Date;
 public class User {
   private long id;

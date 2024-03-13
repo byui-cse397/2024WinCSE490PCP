@@ -1,8 +1,8 @@
-package test.java.com.linkup;
+package com.linkup;
 
 import static org.junit.Assert.*;
 
-import main.java.com.linkup.user.LoginUser;
+import com.linkup.user.LoginUser;
 import org.junit.Test;
 
 public class LoginUserTest {
