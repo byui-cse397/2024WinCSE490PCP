@@ -1,4 +1,4 @@
-package com.linkup.user;
+package main.java.com.linkup.user;
 
 public class LoginUser {
   private String username;
@@ -11,5 +11,13 @@ public class LoginUser {
   }
 
   // Method to authenticate the user
-  public boolean authenticate() { return true; }
+  public boolean authenticate() {
+    // Check for empty username or password
+    if (username.isEmpty() || password.isEmpty()) {
+      return false;
+    }
+
+    // Check if the provided username and password match the expected values
+    return username.equals("user123") && password.equals("password123");
+  }
 }

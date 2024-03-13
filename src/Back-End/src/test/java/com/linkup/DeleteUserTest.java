@@ -1,7 +1,7 @@
-package com.linkup;
+package test.java.com.linkup;
 import static org.junit.Assert.*;
 
-import com.linkup.user.DeleteUser;
+import main.java.com.linkup.user.DeleteUser;
 import java.util.Date;
 import org.junit.Test;
 

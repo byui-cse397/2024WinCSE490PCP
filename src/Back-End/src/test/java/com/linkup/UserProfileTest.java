@@ -1,8 +1,8 @@
-package com.linkup;
+package test.java.com.linkup;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import com.linkup.user.UserProfile;
+import main.java.com.linkup.user.UserProfile;
 import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
