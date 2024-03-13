@@ -5,70 +5,117 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/background"
+    tools:context=".Signup">
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dp"
+        android:layout_height="478dp"
+        android:layout_marginTop="164dp"
+        android:background="@drawable/rect_boarder"
+        android:contentDescription="@string/rectback"
+        android:src="@drawable/rounded_boarder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_marginTop="60dp"
-        android:inputType="textEmailAddress"/>
-
-    <EditText
-        android:id="@+id/usernameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Username"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText"
-        app:layout_constraintStart_toStartOf="@id/emailEditText"
-        app:layout_constraintEnd_toEndOf="@id/emailEditText"
-        android:inputType="textPersonName"/>
-
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@id/usernameEditText"
-        app:layout_constraintStart_toStartOf="@id/usernameEditText"
-        app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
-
-    <EditText
-        android:id="@+id/confirmPasswordEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditText"
-        app:layout_constraintStart_toStartOf="@id/passwordEditText"
-        app:layout_constraintEnd_toEndOf="@id/passwordEditText"/>
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/createAccountButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Create Account"
-        app:layout_constraintEnd_toEndOf="@id/confirmPasswordEditText"
-        app:layout_constraintStart_toStartOf="@id/confirmPasswordEditText"
-        app:layout_constraintTop_toBottomOf="@id/confirmPasswordEditText" />
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="356dp"
+        android:text="@string/create_account"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an Account? Please Login Here"
+        android:layout_marginBottom="120dp"
+        android:text="@string/backtolog"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/C_user"
+        android:layout_width="216dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/rect_boarder"
+        android:hint="@string/email"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/C_email"
+        android:layout_width="216dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/rect_boarder"
+        android:hint="@string/confirmuser"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/C_pass"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="232dp"
+        android:background="@drawable/rect_boarder"
+        android:hint="@string/Cpassword"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/C_pass2x"
+        android:layout_width="212dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="304dp"
+        android:background="@drawable/rect_boarder"
+        android:hint="@string/reconfirmpass"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/SIgnuptext"
+        android:layout_width="228dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/SignuoTitle"
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="36dp"/>
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/retlog"
+        android:layout_width="79dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/signuplink"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
