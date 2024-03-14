@@ -1,9 +1,5 @@
 package com.linkup.sparkInit;
 
-/**
- * Hello world!
- *
- */
 import java.util.Arrays;
 import java.util.List;
 import org.apache.spark.sql.Dataset;
@@ -23,22 +19,23 @@ public class SparkInit {
             .master("local[*]") // Use local[*] for local testing
             .getOrCreate();
 
-    // Define the schema for the DataFrame
-    StructType schema = new StructType(new StructField[] {
-        DataTypes.createStructField("Name", DataTypes.StringType, true),
-        DataTypes.createStructField("Age", DataTypes.IntegerType, true)});
+    // Establish a connection to the database
+    String url = "jdbc:mysql://localhost:3306/linkup_db";
+    String user = "linkup-admin";
+    String password = "nimda";
+    String table = "Account";
 
-    // Create a list of rows
-    List<Row> data = Arrays.asList(RowFactory.create("John Doe", 30),
-                                   RowFactory.create("Jane Doe", 25),
-                                   RowFactory.create("Mike Smith", 40));
+    // Load data from the database into a DataFrame
+    Dataset<Row> dbDF = spark.read()
+                            .format("jdbc")
+                            .option("url", url)
+                            .option("dbtable", table)
+                            .option("user", user)
+                            .option("password", password)
+                            .load();
 
-    // Create a DataFrame using the schema and data
-    Dataset<Row> df = spark.createDataFrame(data, schema);
-
-    // Show the DataFrame
-    df.show();
-
+    // Show the DataFrame loaded from the database
+    dbDF.show();
     // Stop the SparkSession
     spark.stop();
   }
