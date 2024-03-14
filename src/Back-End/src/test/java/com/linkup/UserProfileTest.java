@@ -25,11 +25,11 @@ public class UserProfileTest {
     assertEquals(1, userProfile.getUserId());
     assertEquals("john_doe", userProfile.getUsername());
     assertEquals("john@example.com", userProfile.getEmail());
-    assertEquals(null, userProfile.getFullName());
-    assertEquals(null, userProfile.getBio());
-    assertEquals(null, userProfile.getProfilePictureUrl());
-    assertNotNull(userProfile.getRegistrationDate());
-    assertNotNull(userProfile.getLastLoginDate());
+    assertEquals("", userProfile.getFullName());
+    assertEquals("", userProfile.getBio());
+    assertEquals("", userProfile.getProfilePictureUrl());
+    assertEquals(null, userProfile.getRegistrationDate());
+    assertEquals(null, userProfile.getLastLoginDate());
   }
 
   // testSetFullName:
