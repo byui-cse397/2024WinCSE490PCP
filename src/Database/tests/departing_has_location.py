@@ -1,22 +1,22 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
+import pdb
 
-
-class HasPasswordHashField(DBTest):
+class HasDepartLocation(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Account table has a 'password_hash' field.
+        Verify if the Departing table has a 'location' field.
         """
         cursor = connection.cursor()
         try:
-            cursor.execute("DESCRIBE Account")
+            cursor.execute("DESCRIBE Departing")
             columns = cursor.fetchall()
-
+            
             for column in columns:
-                if column[0] == 'password_hash':
-                    # 'password_hash' field found
+                if column[0] == 'location':
+                    # 'location' field found
                     return True
-            # 'password_hash' field not found
+            # 'location' field not found
             return False
         except Error:
             # Error occurred

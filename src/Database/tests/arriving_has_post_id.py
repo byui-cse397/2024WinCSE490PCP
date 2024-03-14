@@ -1,22 +1,21 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-
-class HasPasswordHashField(DBTest):
+class HasArrivePostId(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Account table has a 'password_hash' field.
+        Verify if the Arriving table has a 'post_id' field.
         """
         cursor = connection.cursor()
-        try:
-            cursor.execute("DESCRIBE Account")
-            columns = cursor.fetchall()
 
+        try:
+            cursor.execute("DESCRIBE Arriving")
+            columns = cursor.fetchall()
             for column in columns:
-                if column[0] == 'password_hash':
-                    # 'password_hash' field found
+                if 'post_id' in column:
+                    # 'post_id' field found
                     return True
-            # 'password_hash' field not found
+                # 'post_id' field not found
             return False
         except Error:
             # Error occurred

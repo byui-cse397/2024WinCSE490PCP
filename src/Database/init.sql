@@ -29,3 +29,17 @@ CREATE TABLE IF NOT EXISTS Post (
     post_time time NOT NULL,
     CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
 );
+
+CREATE TABLE IF NOT EXISTS Departing (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    location VARCHAR(255) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES Departing(id)
+);
+
+CREATE TABLE IF NOT EXISTS Arriving (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    location VARCHAR(255) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES Arriving(id)
+);
