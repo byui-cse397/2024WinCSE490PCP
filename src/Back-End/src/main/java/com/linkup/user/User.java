@@ -1,5 +1,9 @@
 package com.linkup.user;
+
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class User {
   private long id;
   private String username;
@@ -25,10 +29,40 @@ public class User {
 
   public void setUsername(String username) { this.username = username; }
   public String getEmail() { return email; }
-  public void setEmail(String email) { this.email = email; }
+  
+  public void setEmail(String email) {
+      // Regular expression to check the email address format
+      // ^ asserts position at start of the string
+      // [a-zA-Z0-9._%+-]+ matches one or more characters including alphanumeric characters, '.', '_', '%', '+', and '-'
+      // @[a-zA-Z0-9.-]+ matches '@' followed by one or more characters including alphanumeric characters, '.' and '-'
+      // \\.[a-zA-Z]{2,}$ ensures the email ends with a '.' followed by 2 or more letters, asserting the position at the end of the string
+      String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
+   // Check if the email address matches the regular expression
+      if(email.matches(emailRegex)) {
+          // If the email is valid, assign it to userEmail
+          this.email = email;
+      }
+  }
+  
   public String getPassword() { return password; }
-  public void setPassword(String password) { this.password = password; }
+  
+  public void setPassword(String password) {
+      // Regular expression to check the password criteria
+      // ^ asserts position at start of the string
+      // (?=.*[0-9]) ensures at least one digit exists
+      // (?=.*[a-zA-Z]) ensures at least one letter exists, either lowercase or uppercase
+      // .{8,} means any character can appear at least 8 times
+      // $ asserts position at the end of the string
+      String passwordRegex = "^(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$";	
+
+      // Check if the password matches the regular expression
+      if(password.matches(passwordRegex)) {
+          // If the password is valid, assign it to userPassword
+          this.password = password;
+      }
+  }
+  
   public Date getRegistrationDate() { return registrationDate; }
   public void setRegistrationDate(Date registrationDate) {
     this.registrationDate = registrationDate;
