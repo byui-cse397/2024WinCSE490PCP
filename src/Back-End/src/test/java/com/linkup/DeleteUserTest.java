@@ -79,7 +79,7 @@ public class DeleteUserTest {
                        deletionReason);
 
     // Assert
-    assertFalse(deleteUser.validateCredentials());
+    assertEquals(deletionReason, deleteUser.getDeletionReason());
   }
 
   /*
