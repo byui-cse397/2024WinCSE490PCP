@@ -1,5 +1,7 @@
 package com.linkup.database;
 
+import com.linkup.database.*;
+import com.linkup.database.dbConnection.*;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +25,24 @@ public interface DBAction {
    *
    */
   public static String performDBAction(DBAction obj) {
+    Map<String, String> colValueMap = objToMap(obj);
+    ActionType action = obj.getActionType();
+    Table table = obj.getTable();
+    String id = String.valueOf(obj.getID());
+    String query = action.buildQuery(table, colValueMap, id);
+    String serialized = xmlQuerySerializer(query);
+    ConnectionManager manager = ConnectionManager.getInstance(null);
+    String result = sendXMLQuery(manager.getConnector(), serialized);
+    return result;
+  }
+
+  /**
+   * Parses our object for the column names in our SQL table.
+   * @param obj
+   * @return
+   *
+   */
+  private static Map<String, String> objToMap(DBAction obj) {
     Map<String, String> colValueMap = new HashMap<>();
 
     Field[] fields = obj.getClass().getDeclaredFields();
@@ -40,14 +60,7 @@ public interface DBAction {
     colValueMap.remove("ActionType");
     colValueMap.remove("Table");
     colValueMap.remove("ID");
-    ActionType action = obj.getActionType();
-    Table table = obj.getTable();
-    String id = String.valueOf(obj.getID());
-    String query = action.buildQuery(table, colValueMap, id);
-    String serialized = xmlQuerySerializer(query);
-    ConnectionManager manager = ConnectionManager.getInstance(null);
-    String result = sendXMLQuery(manager.getConnector(), serialized);
-    return result;
+    return colValueMap;
   }
 
   /**

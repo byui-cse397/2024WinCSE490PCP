@@ -70,7 +70,7 @@ public enum ActionType {
     }
   },
 
-  LOGIN {
+  LOGINALL {
     @Override
     public String buildQuery(Table table, Map<String, String> colValueMap,
                              String id) {

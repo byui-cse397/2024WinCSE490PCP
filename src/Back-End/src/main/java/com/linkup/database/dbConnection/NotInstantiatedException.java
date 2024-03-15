@@ -1,4 +1,4 @@
-package com.linkup.database;
+package com.linkup.database.dbConnection;
 
 public class NotInstantiatedException extends RuntimeException {
   public NotInstantiatedException() {

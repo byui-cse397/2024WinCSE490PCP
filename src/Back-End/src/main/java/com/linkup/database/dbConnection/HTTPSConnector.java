@@ -1,4 +1,4 @@
-package com.linkup.database;
+package com.linkup.database.dbConnection;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

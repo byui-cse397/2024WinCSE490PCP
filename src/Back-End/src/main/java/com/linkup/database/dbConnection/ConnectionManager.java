@@ -1,4 +1,4 @@
-package com.linkup.database;
+package com.linkup.database.dbConnection;
 
 import java.net.URISyntaxException;
 import java.security.InvalidParameterException;

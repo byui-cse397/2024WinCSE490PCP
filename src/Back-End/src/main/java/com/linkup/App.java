@@ -1,7 +1,6 @@
 package com.linkup;
 
-import com.linkup.database.ConnectionManager;
-import com.linkup.database.HTTPSConnector;
+import com.linkup.database.dbConnection.*;
 
 public class App {
   public static void main(String[] args) {
