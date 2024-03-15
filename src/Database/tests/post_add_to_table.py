@@ -7,7 +7,6 @@ class postAddToTableTest(DBTest):
         This will run a test on adding items to a table
         """
 
-        
         cursor = connection.cursor()
 
         try:

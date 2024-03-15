@@ -1,4 +1,4 @@
----Database Connection Setup---
+-- Database Connection Setup --
 
 CREATE DATABASE IF NOT EXISTS linkup_db;
 
@@ -14,7 +14,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-user'@'localhost'
 
 FLUSH PRIVILEGES;
 
----Table Schema Setup---
+-- Table Schema Setup --
 
 CREATE TABLE IF NOT EXISTS Account (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,12 +34,12 @@ CREATE TABLE IF NOT EXISTS Departing (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES Departing(id)
+    CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
 );
 
 CREATE TABLE IF NOT EXISTS Arriving (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES Arriving(id)
+    CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
 );

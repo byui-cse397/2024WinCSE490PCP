@@ -1,7 +1,6 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-
 class ExampleTest1(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
