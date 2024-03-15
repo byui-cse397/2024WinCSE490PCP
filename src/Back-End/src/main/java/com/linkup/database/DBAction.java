@@ -15,12 +15,14 @@ public interface DBAction {
   /**
    * Takes an object that implements the DBAction interface and enables the
    * object to communicate with DB by building a SQL query from the variables
-   * and values the class has implemented.
+   * and values the class has implemented. This method relies on the assumption
+   * that our ConnectionManager has already been resolved, if it hasn't been
+   * resolved, our host won't be resolved here.
    * @param obj The DBAction object to build the SQL query for.
    * @return The xml serialized SQL query for the DBAction object as a String.
    *
    */
-  public static String getDBAction(DBAction obj) {
+  public static String performDBAction(DBAction obj) {
     Map<String, String> colValueMap = new HashMap<>();
 
     Field[] fields = obj.getClass().getDeclaredFields();
@@ -43,6 +45,8 @@ public interface DBAction {
     String id = String.valueOf(obj.getID());
     String query = action.buildQuery(table, colValueMap, id);
     String serialized = xmlQuerySerializer(query);
+    ConnectionManager manager = ConnectionManager.getInstance(null);
+    sendXMLQuery(manager.getConnector(), serialized);
     return serialized;
   }
 
@@ -58,5 +62,10 @@ public interface DBAction {
     StringBuilder sb = new StringBuilder();
     sb.append("<query:string>").append(query).append("</query>");
     return sb.toString();
+  }
+
+  private static String sendXMLQuery(HTTPSConnector dbConnection,
+                                     String query) {
+    return dbConnection.sendRequest(query);
   }
 }

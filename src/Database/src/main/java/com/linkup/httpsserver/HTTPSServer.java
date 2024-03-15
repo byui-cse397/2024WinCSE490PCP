@@ -72,6 +72,7 @@ public class HTTPSServer {
     public void handle(HttpExchange exchange) throws IOException {
       String requestMethod = exchange.getRequestMethod();
       String response = "Command received.";
+      boolean stopServer = false;
       if (requestMethod.equalsIgnoreCase("POST")) {
         // Parse the XML-like command
         String request = new String(exchange.getRequestBody().readAllBytes(),
@@ -82,9 +83,10 @@ public class HTTPSServer {
 
         switch (type) {
         case SYSTEM:
+          System.out.println("Received SYSTEM command: " + node.getValue());
           if (node.getValue().equals("STOP")) {
             System.out.println("Received STOP command. Stopping server.");
-            server.stopServer();
+            stopServer = true;
           }
           break;
         case QUERY:
@@ -97,7 +99,7 @@ public class HTTPSServer {
           }
           break;
         case NULL:
-          System.out.println("Invalid command received.");
+          System.out.println("Invalid command received: " + request);
           break;
         }
       }
@@ -107,6 +109,9 @@ public class HTTPSServer {
       OutputStream os = exchange.getResponseBody();
       os.write(response.getBytes());
       os.close();
+
+      if (stopServer)
+        server.stopServer();
     }
   }
 
