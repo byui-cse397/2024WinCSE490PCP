@@ -39,14 +39,19 @@ public class XMLParser {
       parent.addChild(node);
     }
     if (type.equalsIgnoreCase(XMLType.PARENT.name())) {
-      return parseChildren(node, value);
+      parseChildren(node, value);
+    }
+    if (currentIndex < xml.length()) {
+      String substr = xml.substring(currentIndex, xml.length());
+      XMLParser sibling = new XMLParser(substr, parent);
+      sibling.parse();
     }
     return node;
   }
 
   private String parseTagName() throws IOException {
     int start = currentIndex;
-    while (currentIndex < xml.length() && xml.charAt(currentIndex) != '>' &&
+    while (currentIndex < xml.length() && xml.charAt(currentIndex) != ':' &&
            xml.charAt(currentIndex) != '/') {
       currentIndex++;
     }
@@ -55,11 +60,16 @@ public class XMLParser {
 
   private String parseType() throws IOException {
     skipWhitespace();
-    int start = currentIndex;
-    while (currentIndex < xml.length() && xml.charAt(currentIndex) != ':') {
-      currentIndex++;
+    if (currentIndex < xml.length() && xml.charAt(currentIndex) == ':') {
+      currentIndex++; // Move past the colon
+      int start = currentIndex;
+      while (currentIndex < xml.length() && xml.charAt(currentIndex) != '>') {
+        currentIndex++;
+      }
+      return xml.substring(start, currentIndex);
+    } else {
+      throw new IOException("Malformed XML: Expected colon in tag name.");
     }
-    return xml.substring(start, currentIndex);
   }
 
   private String parseValue(String tagName) throws IOException {
@@ -75,14 +85,13 @@ public class XMLParser {
     if (closingTagIndex == -1) {
       throw new IOException("Closing tag not found for " + tagName);
     }
+    currentIndex = closingTagIndex + closingTag.length();
     return xml.substring(start, closingTagIndex);
   }
 
-  private XMLNode parseChildren(XMLNode node, String substr)
-      throws IOException {
+  private void parseChildren(XMLNode node, String substr) throws IOException {
     XMLParser parser = new XMLParser(substr, node);
-    XMLNode returnNode = parser.parseElement();
-    return returnNode;
+    parser.parse();
   }
 
   private void skipWhitespace() {

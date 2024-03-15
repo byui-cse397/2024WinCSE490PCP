@@ -1,9 +1,7 @@
 package com.linkup.XMLParsing;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class XMLNode {
   private String tagName;
@@ -21,4 +19,20 @@ public class XMLNode {
   public String getTagName() { return this.tagName; }
 
   public Object getValue() { return this.value; }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Tag Name: ").append(tagName).append("\n");
+    sb.append("Value: ").append(value).append("\n");
+    sb.append("Type: ").append(type(value)).append("\n");
+    sb.append("Children: ");
+    for (XMLNode child : children) {
+      sb.append("\n");
+      sb.append(child.toString());
+    }
+    return sb.toString();
+  }
+
+  private String type(Object value) { return value.getClass().getSimpleName(); }
 }

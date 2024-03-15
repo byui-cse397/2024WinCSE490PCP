@@ -1,7 +1,9 @@
 package com.linkup.spark;
 
+import com.linkup.XMLParsing.XMLNode;
 import com.linkup.XMLParsing.XMLParser;
 import com.linkup.httpsserver.*;
+import java.io.IOException;
 import java.util.Map;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -21,15 +23,20 @@ public class SparkInit {
 
     String xml_test =
         "<table:parent><row:parent><column1:int>1</column1><column2:string>Hello</column2></row><row:parent><column1:int>2</column1><column2:string>World</column2></row></table>";
+    System.out.println("Starting XML parsing");
     XMLParser parser = new XMLParser(xml_test, null);
-    KeyGen setupKeys = new KeyGen();
-    DatabaseManager db = new DatabaseManager(url, user, password);
-    System.out.println("Setting up DB...");
+    try {
+      XMLNode node = parser.parse();
+      System.out.println(node.toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    // KeyGen setupKeys = new KeyGen();
+    // DatabaseManager db = new DatabaseManager(url, user, password);
     // db.loadTablesSpark(spark);
-    System.out.println("DB ready!");
 
     // Cleanup
     spark.stop();
-    db.closeConnection();
+    // db.closeConnection();
   }
 }

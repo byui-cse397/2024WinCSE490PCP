@@ -1,6 +1,9 @@
 package com.linkup.httpsserver;
 
+import com.linkup.XMLParsing.XMLNode;
+import com.linkup.XMLParsing.XMLParser;
 import com.linkup.httpsserver.CommandType;
+import com.nimbusds.jose.util.StandardCharset;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpsConfigurator;
@@ -63,27 +66,25 @@ public class HTTPSServer {
       String requestMethod = exchange.getRequestMethod();
       if (requestMethod.equalsIgnoreCase("POST")) {
         // Parse the XML-like command
-        CommandTuple commandTuple =
-            parseCommand(exchange.getRequestBody().readAllBytes());
-        if (commandTuple != null) {
-          CommandType commandType = commandTuple.getCommandType();
-          String commandValue = commandTuple.getCommandValue();
-          switch (commandType) {
-          case SYSTEM:
-            if (commandValue.equals("STOP")) {
-              System.out.println("Received STOP command. Stopping server.");
-              server.stopServer();
-            }
-            break;
-          case QUERY:
-            System.out.println("Received SQL query: " + commandValue);
-            break;
-          case NULL:
-            System.out.println("Invalid command received.");
-            break;
+        String request = new String(exchange.getRequestBody().readAllBytes(),
+                                    StandardCharset.UTF_8);
+        XMLParser parser = new XMLParser(request, null);
+        XMLNode node = parser.parse();
+        CommandType type = CommandType.fromString(node.getTagName());
+
+        switch (type) {
+        case SYSTEM:
+          if (node.getValue().equals("STOP")) {
+            System.out.println("Received STOP command. Stopping server.");
+            server.stopServer();
           }
-        } else {
-          System.out.println("Invalid command format.");
+          break;
+        case QUERY:
+          System.out.println("Received SQL query: " + node.getValue());
+          break;
+        case NULL:
+          System.out.println("Invalid command received.");
+          break;
         }
       }
 
@@ -94,23 +95,6 @@ public class HTTPSServer {
       os.write(response.getBytes());
       os.close();
     }
-  }
-
-  private static CommandTuple parseCommand(byte[] requestBody) {
-    String request = new String(requestBody);
-    int startTag = request.indexOf("<");
-    int endTag = request.indexOf(">");
-    if (startTag != -1 && endTag != -1) {
-      String tag = request.substring(startTag + 1, endTag);
-      int startContent = request.indexOf("<", endTag);
-      int endContent = request.indexOf("</", startContent);
-      if (startContent != -1 && endContent != -1) {
-        String commandType = tag;
-        String commandValue = request.substring(startContent + 1, endContent);
-        return new CommandTuple(CommandType, commandValue);
-      }
-    }
-    return null;
   }
 
   // Method to stop the server
