@@ -68,6 +68,24 @@ public enum ActionType {
       String query = "DELETE FROM " + table + where;
       return query;
     }
+  },
+
+  LOGIN {
+    @Override
+    public String buildQuery(Table table, Map<String, String> colValueMap,
+                             String id) {
+      String username = colValueMap.get("username");
+      String password = colValueMap.get("password");
+      StringBuilder sb = new StringBuilder();
+      sb.append("SELECT * FROM ")
+          .append(table)
+          .append(" WHERE username = ")
+          .append(username)
+          .append(" AND password_hash = ")
+          .append(password);
+      String query = sb.toString();
+      return query;
+    }
   };
 
   @Override

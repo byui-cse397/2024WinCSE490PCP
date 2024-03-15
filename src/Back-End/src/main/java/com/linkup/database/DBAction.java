@@ -46,8 +46,8 @@ public interface DBAction {
     String query = action.buildQuery(table, colValueMap, id);
     String serialized = xmlQuerySerializer(query);
     ConnectionManager manager = ConnectionManager.getInstance(null);
-    sendXMLQuery(manager.getConnector(), serialized);
-    return serialized;
+    String result = sendXMLQuery(manager.getConnector(), serialized);
+    return result;
   }
 
   /**
