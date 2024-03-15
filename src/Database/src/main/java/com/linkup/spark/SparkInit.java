@@ -26,17 +26,21 @@ public class SparkInit {
     String user = "linkup-admin";
     String password = "nimda";
 
-    String xml_test =
-        "<table:parent><row:parent><column1:int>1</column1><column2:string>Hello</column2></row><row:parent><column1:int>2</column1><column2:string>World</column2></row></table>";
-    XMLParser parser = new XMLParser(xml_test, null);
+    String xml_test_query =
+        "<query:string>INSERT INTO account (username, password_hash) VALUES ('user01', 'my_strong_password');</query>";
+    XMLParser parser = new XMLParser(xml_test_query, null);
     try {
       XMLNode node = parser.parse();
       System.out.println(node.toString());
     } catch (IOException e) {
       e.printStackTrace();
     }
-    // KeyGen setupKeys = new KeyGen();
-    // DatabaseManager db = new DatabaseManager(url, user, password);
+    DatabaseManager db = new DatabaseManager(url, user, password);
+    try {
+      HTTPSServer server = new HTTPSServer(db);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     // db.loadTablesSpark(spark);
 
     // Cleanup

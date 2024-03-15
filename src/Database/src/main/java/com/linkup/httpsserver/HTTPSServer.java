@@ -3,6 +3,7 @@ package com.linkup.httpsserver;
 import com.linkup.XMLParsing.XMLNode;
 import com.linkup.XMLParsing.XMLParser;
 import com.linkup.httpsserver.CommandType;
+import com.linkup.spark.DatabaseManager;
 import com.nimbusds.jose.util.StandardCharset;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.security.KeyStore;
+import java.sql.SQLException;
 import java.util.concurrent.Executors;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -24,12 +26,13 @@ public class HTTPSServer {
   private SSLContext context;
   private HttpsServer server; // Make the server a class-level field
 
-  public HTTPSServer() throws Exception {
+  public HTTPSServer(DatabaseManager db) throws Exception {
     // Set up the HTTPS server
     server = HttpsServer.create(new InetSocketAddress(4039), 0);
+    // new KeyGen();
     createSSLContext();
     server.setHttpsConfigurator(new HttpsConfigurator(this.context));
-    server.createContext("/", new MyHandler(this)); // Pass 'this' to MyHandler
+    server.createContext("/", new MyHandler(this, db));
     server.setExecutor(Executors.newCachedThreadPool());
     server.start();
 
@@ -58,12 +61,17 @@ public class HTTPSServer {
 
   static class MyHandler implements HttpHandler {
     private final HTTPSServer server; // Reference to the HTTPSServer instance
+    private DatabaseManager db;
 
-    public MyHandler(HTTPSServer server) { this.server = server; }
+    public MyHandler(HTTPSServer server, DatabaseManager db) {
+      this.server = server;
+      this.db = db;
+    }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
       String requestMethod = exchange.getRequestMethod();
+      String response = "Command received.";
       if (requestMethod.equalsIgnoreCase("POST")) {
         // Parse the XML-like command
         String request = new String(exchange.getRequestBody().readAllBytes(),
@@ -81,6 +89,12 @@ public class HTTPSServer {
           break;
         case QUERY:
           System.out.println("Received SQL query: " + node.getValue());
+          try {
+            response = db.executeQueryJDBC(String.valueOf(node.getValue()));
+          } catch (SQLException e) {
+            e.printStackTrace();
+            response = e.toString();
+          }
           break;
         case NULL:
           System.out.println("Invalid command received.");
@@ -89,7 +103,6 @@ public class HTTPSServer {
       }
 
       // Send a response
-      String response = "Command received.";
       exchange.sendResponseHeaders(200, response.length());
       OutputStream os = exchange.getResponseBody();
       os.write(response.getBytes());
