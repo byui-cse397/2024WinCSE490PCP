@@ -33,7 +33,7 @@ public class ConnectionManager {
       try {
         instance = new ConnectionManager(host);
         HTTPSConnector connector = instance.getConnector();
-        connector.sendRequest("<SYSTEM:String>Testing connection.</SYSTEM>");
+        connector.sendRequest("<SYSTEM:String>Testing connection...</SYSTEM>");
       } catch (URISyntaxException e) {
         System.out.println("Failed to establish connection with database.");
       }
