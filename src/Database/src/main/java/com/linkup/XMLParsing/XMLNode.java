@@ -8,6 +8,13 @@ public class XMLNode {
   private Object value;
   private List<XMLNode> children;
 
+  /**
+   * XMLNode is an object to keep track of the contents of XML-like tags.
+   * @param tagName Stores the name of the tag.
+   * @param type Stores the type of the tag.
+   * @param value Stores the contents of the tag.
+   *
+   */
   public XMLNode(String tagName, String type, String value) {
     this.tagName = tagName;
     this.value = XMLType.parseValue(type, value);

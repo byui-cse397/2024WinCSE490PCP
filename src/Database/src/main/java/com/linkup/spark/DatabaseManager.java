@@ -55,6 +55,14 @@ public class DatabaseManager {
     }
   }
 
+  /**
+   * executeQueryJDBC is a method of dealing with small high-Ops queries where
+   * we're performing some incredibly small CRUD operation.
+   * @param query The MySQL query to be performed against the database.
+   * @return The results of the query serialized as an xml-like string.
+   * @throws SQLException
+   *
+   */
   public String executeQueryJDBC(String query) throws SQLException {
     if (query.trim().toUpperCase().startsWith("SELECT")) {
       try (Statement statement = this.sqlConnection.createStatement();
@@ -70,12 +78,22 @@ public class DatabaseManager {
     }
   }
 
+  /**
+   * For SELECT queries we return all of the rows affected by the query, and
+   * resultSetToString serializes this result set as our xml-like tag
+   * information.
+   * @param resultSet The result of the SQL SELECT statement.
+   * @return The xml-like serialized string of our resultset.
+   * @throws SQLException
+   *
+   */
   private static String resultSetToString(ResultSet resultSet)
       throws SQLException {
     StringBuilder sb = new StringBuilder();
     ResultSetMetaData metaData = resultSet.getMetaData();
     int columnCount = metaData.getColumnCount();
 
+    sb.append("<table:parent>");
     while (resultSet.next()) {
       sb.append("<row>");
       for (int i = 1; i <= columnCount; i++) {
@@ -92,12 +110,11 @@ public class DatabaseManager {
             .append(value == null ? "null" : value.toString())
             .append("</")
             .append(columnName)
-            .append(":")
-            .append(valueType)
             .append(">");
       }
       sb.append("</row>");
     }
+    sb.append("</table>");
     return sb.toString();
   }
 

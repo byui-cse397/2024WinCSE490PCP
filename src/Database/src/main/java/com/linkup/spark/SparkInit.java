@@ -10,6 +10,11 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 public class SparkInit {
+  /**
+   * The entry point for our Database jar.
+   * @param args
+   *
+   */
   public static void main(String[] args) {
     // Initialize SparkSession
     SparkSession spark = SparkSession.builder()
@@ -23,7 +28,6 @@ public class SparkInit {
 
     String xml_test =
         "<table:parent><row:parent><column1:int>1</column1><column2:string>Hello</column2></row><row:parent><column1:int>2</column1><column2:string>World</column2></row></table>";
-    System.out.println("Starting XML parsing");
     XMLParser parser = new XMLParser(xml_test, null);
     try {
       XMLNode node = parser.parse();

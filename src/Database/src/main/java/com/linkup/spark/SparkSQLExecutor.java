@@ -78,8 +78,9 @@ public class SparkSQLExecutor {
 
   private static String datasetToString(Dataset<Row> dataset) {
     StringBuilder sb = new StringBuilder();
+    sb.append("<table:parent>");
     for (Row row : dataset.collectAsList()) {
-      sb.append("<row>");
+      sb.append("<row:parent>");
       for (int i = 0; i < row.size(); i++) {
         String columnName = dataset.columns()[i];
         Object value = row.get(i);
@@ -92,12 +93,11 @@ public class SparkSQLExecutor {
             .append(value.toString())
             .append("</")
             .append(columnName)
-            .append(":")
-            .append(valueType)
             .append(">");
       }
       sb.append("</row>");
     }
+    sb.append("</table>");
     return sb.toString();
   }
 }
