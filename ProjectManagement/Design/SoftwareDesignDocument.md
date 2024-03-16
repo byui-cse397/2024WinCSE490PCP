@@ -522,8 +522,8 @@ Structured to support the application's data needs efficiently, with schemas for
 erDiagram
     ACCOUNT {
         int id PK
-        string username
-        string password_hash
+        varchar username
+        varchar password_hash
     }
     POST {
         int id PK
@@ -536,7 +536,7 @@ erDiagram
 
     COMMENTS {
         int id PK
-        string comment
+        varchar comment
         int post_id FK
     }
 
@@ -544,7 +544,7 @@ erDiagram
 
     DEPARTING {
         int id pk
-        string location
+        varchar location
         int post_id fk
     }
 
@@ -552,7 +552,7 @@ erDiagram
 
     ARRIVING {
         int id pk
-        string location
+        varchar location
         int post_id fk
     }
 
@@ -561,14 +561,14 @@ erDiagram
     COMMUNITY ||--o{ FORUMS : contains
     COMMUNITY {
         int id PK
-        string name
+        varchar name
         shape region
     }
 
     FORUMS ||--o{ POST : contains
     FORUMS {
         int id PK
-        string name
+        varchar name
         int post_id FK
     }
 
