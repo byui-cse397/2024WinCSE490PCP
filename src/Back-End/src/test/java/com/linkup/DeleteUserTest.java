@@ -15,7 +15,7 @@ public class DeleteUserTest {
   @Test
   public void testValidDeletion() {
     // Arrange
-    long userId = 123;
+    int userId = 123456;
     String username = "testUser";
     String email = "test@example.com";
     String password = "password123";
@@ -42,7 +42,7 @@ public class DeleteUserTest {
   @Test
   public void testInvalidPassword() {
     // Arrange
-    long userId = 123;
+    int userId = 123456;
     String username = "testUser";
     String email = "test@example.com";
     String password = "password123";
@@ -66,7 +66,7 @@ public class DeleteUserTest {
   @Test
   public void testEmptyDeletionReason() {
     // Arrange
-    long userId = 123;
+    int userId = 123456;
     String username = "testUser";
     String email = "test@example.com";
     String password = "password123";
@@ -90,7 +90,7 @@ public class DeleteUserTest {
   @Test
   public void testNullDeletionDateBeforeConfirmation() {
     // Arrange
-    long userId = 123;
+    int userId = 123456;
     String username = "testUser";
     String email = "test@example.com";
     String password = "password123";
@@ -114,7 +114,7 @@ public class DeleteUserTest {
   @Test
   public void testDeletionDateAfterConfirmation() {
     // Arrange
-    long userId = 123;
+    int userId = 123456;
     String username = "testUser";
     String email = "test@example.com";
     String password = "password123";

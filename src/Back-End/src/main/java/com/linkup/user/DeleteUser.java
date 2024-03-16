@@ -3,7 +3,7 @@ package com.linkup.user;
 import java.util.Date;
 
 public class DeleteUser {
-  private long userId;
+  private int userId;
   private String username;
   private String email;
   private String password;
@@ -11,7 +11,7 @@ public class DeleteUser {
   private String deletionReason;
   private Date deletionDate;
 
-  public DeleteUser(long userId, String username, String email, String password,
+  public DeleteUser(int userId, String username, String email, String password,
                     String confirmationPassword, String deletionReason) {
     this.userId = userId;
     this.username = username;

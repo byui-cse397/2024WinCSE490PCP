@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
-  private long id;
+  private int id;
   private String username;
   private String email;
   private String password;
@@ -14,16 +14,16 @@ public class User {
   private boolean isActive;
 
   // Constructor
-  public User(String username, String email, String password) {
+  public User(int Id, String username, String email, String password) {
     this.username = username;
+    this.id = Id;
     this.email = email;
     this.password = password;
     this.registrationDate = new Date();
     this.isActive = true;
   }
 
-  public long getId() { return id; }
-  public void setId(long id) { this.id = id; }
+  public int getId() { return id; }
 
   public String getUsername() { return username; }
 
@@ -75,9 +75,9 @@ public class User {
   public void setActive(boolean active) { isActive = active; }
 
   // Method to create a new user account
-  public static User createNewUser(String username, String email,
+  public static User createNewUser(int id, String username, String email,
                                    String password) {
-    User newUser = new User(username, email, password);
+    User newUser = new User(id, username, email, password);
     // Here we will add additional logic such as saving the user to a database
     return newUser;
   }

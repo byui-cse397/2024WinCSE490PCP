@@ -13,7 +13,7 @@ public class UserProfileTest {
 
   @Before
   public void setUp() {
-    userProfile = new UserProfile(1, "john_doe", "john@example.com");
+    userProfile = new UserProfile(123456, "john_doe", "john@example.com");
   }
 
   // testUserProfileInitialization:
@@ -22,7 +22,7 @@ public class UserProfileTest {
   @Test
   public void testUserProfileInitialization() {
     assertNotNull(userProfile);
-    assertEquals(1, userProfile.getUserId());
+    assertEquals(123456, userProfile.getUserId());
     assertEquals("john_doe", userProfile.getUsername());
     assertEquals("john@example.com", userProfile.getEmail());
     assertEquals("", userProfile.getFullName());
