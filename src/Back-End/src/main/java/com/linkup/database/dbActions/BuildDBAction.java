@@ -44,7 +44,10 @@ public abstract class BuildDBAction implements DBActionInterface {
   cleanMap(Map<String, String> colValueMap);
 
   protected Map<String, String> mapHandler(DBActionInterface obj) {
-    return cleanMap(objToMap(obj));
+    Map<String, String> objMap = objToMap(obj);
+    objMap = cleanMap(objMap);
+    objMap = checkForDependencies(objMap);
+    return objMap;
   }
 
   /**
