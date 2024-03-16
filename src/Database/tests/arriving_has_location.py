@@ -13,7 +13,7 @@ class HasArriveLocation(DBTest):
             columns = cursor.fetchall()
             
             for column in columns:
-                if column[0] == 'location':
+                if column[0] == 'location_text':
                     # 'location' field found
                     return True
             # 'location' field not found

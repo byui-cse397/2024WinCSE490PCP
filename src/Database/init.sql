@@ -32,14 +32,45 @@ CREATE TABLE IF NOT EXISTS Post (
 
 CREATE TABLE IF NOT EXISTS Departing (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    location VARCHAR(255) NOT NULL,
+    location_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
     CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
 );
 
 CREATE TABLE IF NOT EXISTS Arriving (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    location VARCHAR(255) NOT NULL,
+    location_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
     CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+);
+
+CREATE TABLE IF NOT EXISTS Forums (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    forum_name VARCHAR(255) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Forum_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+);
+
+CREATE TABLE IF NOT EXISTS Community (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    community_name VARCHAR(255) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Community_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+);
+
+CREATE TABLE IF NOT EXISTS Comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    content_text VARCHAR(255) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Comments_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+);
+
+CREATE TABLE IF NOT EXISTS Messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    message_content VARCHAR(300) NOT NULL,
+    message_time DATETIME NOT NULL,
+    sender_id INT NOT NULL,
+    receiver_id INT NOT NULL,
+    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (account_id) REFERENCES Account(id),
+    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (account_id) REFERENCES Account(id)
 );
