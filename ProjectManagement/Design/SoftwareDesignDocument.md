@@ -529,14 +529,14 @@ erDiagram
         int id PK
         varchar(800) content_text
         int account_id FK
-        timestamp time
+        datetime post_time
     }
     
     ACCOUNT ||--o{ POST : contains
 
     COMMENTS {
         int id PK
-        varchar comment
+        varchar comment_text
         int post_id FK
     }
 
@@ -544,7 +544,7 @@ erDiagram
 
     DEPARTING {
         int id pk
-        varchar location
+        varchar location_text
         int post_id fk
     }
 
@@ -552,7 +552,7 @@ erDiagram
 
     ARRIVING {
         int id pk
-        varchar location
+        varchar location_text
         int post_id fk
     }
 
@@ -561,24 +561,24 @@ erDiagram
     COMMUNITY ||--o{ FORUMS : contains
     COMMUNITY {
         int id PK
-        varchar name
-        shape region
+        varchar community_name
+        varchar region
     }
 
     FORUMS ||--o{ POST : contains
     FORUMS {
         int id PK
-        varchar name
+        varchar forum_name
         int post_id FK
     }
 
-     ACCOUNT ||--o{ MESSAGE: contains
-    MESSAGE{
+     ACCOUNT ||--o{ MESSAGES: contains
+    MESSAGES{
         int id PK
-        int Sender_id FK
-        int Recipient_id FK
-        varchar[300] message
-        timestamp time
+        int sender_id FK
+        int receiver_id FK
+        varchar[300] message_content
+        datetime message_time
     }
 
 ```
