@@ -13,8 +13,9 @@ public enum Table {
   POST {
     public ArrayList<String> getFields() {
       ArrayList<String> list = new ArrayList<>();
-      list.add("content_textaccount_id");
-      list.add("post_time");
+      list.add("content_text");
+		  list.add("account_id");
+		  list.add("post_time");
       return list;
     }
   },
