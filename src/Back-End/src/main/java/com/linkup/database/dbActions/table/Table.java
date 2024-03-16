@@ -3,17 +3,8 @@ package com.linkup.database;
 import java.util.ArrayList;
 
 public enum Table {
-  ACCOUNT {
-    public ArrayList<String> getFields() {
-      ArrayList<String> list = new ArrayList<>();
-      list.add("username");
-      list.add("password_hash");
-      return list;
-    }
-  },
+  ACCOUNT,
   POST;
-
-  public abstract ArrayList<String> getFields();
 
   @Override
   public String toString() {
