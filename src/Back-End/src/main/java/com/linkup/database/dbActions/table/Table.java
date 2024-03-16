@@ -1,4 +1,4 @@
-package com.linkup.database;
+package com.linkup.database.dbActions.table;
 
 import java.util.ArrayList;
 
