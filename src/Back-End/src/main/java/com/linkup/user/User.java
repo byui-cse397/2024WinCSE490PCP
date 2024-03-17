@@ -1,10 +1,13 @@
 package com.linkup.user;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.table.*;
 
-public class User {
+public class User extends CreateDBAction{
   private int id;
   private String username;
   private String email;
@@ -75,10 +78,15 @@ public class User {
   public void setActive(boolean active) { isActive = active; }
 
   // Method to create a new user account
-  public static User createNewUser(int id, String username, String email,
+  public void createNewUser(int id, String username, String email,
                                    String password) {
     User newUser = new User(id, username, email, password);
     // Here we will add additional logic such as saving the user to a database
-    return newUser;
+
+    String query = buildQuery((Map<String, String>) newUser);
+  }
+
+  public Table getTable() {
+    return Table.ACCOUNT;
   }
 }
