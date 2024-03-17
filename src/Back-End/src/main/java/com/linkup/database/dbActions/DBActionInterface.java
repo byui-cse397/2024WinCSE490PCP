@@ -1,6 +1,6 @@
 package com.linkup.database.dbActions;
 
-import com.linkup.database.*;
+import com.linkup.database.table.*;
 
 public interface DBActionInterface {
   Table getTable();

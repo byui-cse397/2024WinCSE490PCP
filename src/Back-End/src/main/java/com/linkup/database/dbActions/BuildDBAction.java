@@ -1,7 +1,7 @@
 package com.linkup.database.dbActions;
 
-import com.linkup.database.*;
 import com.linkup.database.dbConnection.*;
+import com.linkup.database.table.*;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +48,11 @@ public abstract class BuildDBAction implements DBActionInterface {
     objMap = cleanMap(objMap);
     objMap = checkForDependencies(objMap);
     return objMap;
+  }
+
+  protected Map<String, String> checkForDependencies(Map<String, String> map) {
+    System.out.println("Not yet implemented.");
+    return map;
   }
 
   /**
