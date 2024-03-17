@@ -1,8 +1,15 @@
 package com.linkup.common.XMLParsing.parser;
 
-public class IntParser implements Parser<Integer> {
+public class IntParser implements DBResult<Integer> {
   @Override
-  public Integer parse(String input) {
-    return Integer.parseInt(input);
+  public void parse(String input) {
+    result = Integer.parseInt(input);
+  }
+
+  private Integer result;
+
+  @Override
+  public Integer getResult() {
+    return result;
   }
 }

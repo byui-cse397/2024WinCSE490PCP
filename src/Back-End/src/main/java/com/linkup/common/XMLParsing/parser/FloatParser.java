@@ -1,8 +1,15 @@
 package com.linkup.common.XMLParsing.parser;
 
-public class FloatParser implements Parser<Float> {
+public class FloatParser implements DBResult<Float> {
   @Override
-  public Float parse(String input) {
-    return Float.parseFloat(input);
+  public void parse(String input) {
+    result = Float.parseFloat(input);
+  }
+
+  private Float result;
+
+  @Override
+  public Float getResult() {
+    return result;
   }
 }

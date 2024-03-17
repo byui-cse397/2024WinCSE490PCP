@@ -1,5 +1,6 @@
 package com.linkup.database.dbActions;
 
+import com.linkup.common.XMLParsing.parser.*;
 import com.linkup.database.table.*;
 
 public interface DBActionInterface {
@@ -12,8 +13,8 @@ public interface DBActionInterface {
    * that our ConnectionManager has already been resolved, if it hasn't been
    * resolved, our host won't be resolved here.
    * @param obj The DBAction object to build the SQL query for.
-   * @return The xml serialized SQL query for the DBAction object as a String.
+   * @return Returns the parser object with
    *
    */
-  public String performDBAction();
+  public Parser<?> performDBAction();
 }

@@ -1,8 +1,15 @@
 package com.linkup.common.XMLParsing.parser;
 
-public class BoolParser implements Parser<Boolean> {
+public class BoolParser implements DBResult<Boolean> {
   @Override
-  public Boolean parse(String input) {
-    return "TRUE".equalsIgnoreCase(input);
+  public void parse(String input) {
+    result = "TRUE".equalsIgnoreCase(input);
+  }
+
+  private Boolean result;
+
+  @Override
+  public Boolean getResult() {
+    return result;
   }
 }

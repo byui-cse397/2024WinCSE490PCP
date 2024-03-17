@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParserFactory {
-  private static final Map<String, Parser<?>> parsers = new HashMap<>();
+  private static final Map<String, DBResult<?>> parsers = new HashMap<>();
 
   static {
     parsers.put("INT", new IntParser());
@@ -16,8 +16,8 @@ public class ParserFactory {
     parsers.put("BYTE", new ByteParser());
   }
 
-  public static Parser<?> getParser(String type) {
-    Parser<?> parser = parsers.get(type.toUpperCase());
+  public static DBResult<?> getParser(String type) {
+    DBResult<?> parser = parsers.get(type.toUpperCase());
     if (parser == null) {
       throw new IllegalArgumentException("Invalid type: " + type);
     }
