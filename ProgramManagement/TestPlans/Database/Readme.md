@@ -19,15 +19,19 @@ Section 3: Quality Model
  - [Quality Characteristics mentioned in the SRS]
 
 Section 4: Test Cases
-- User Management
-- Post
+- Account Management
+- Post Management
+- Forum Management
+- Comment Management
+- Departing Management
+- Arriving Management
+- Community Management
 
 Section 5: Test Data
-[Location of data used for the tests]
+[Database Test folder](https://github.com/byui-cse397/2024WinCSE490PCP/tree/Week08/src/Database) contains init.sql, and many testing files. 
 
 Section 6: Test harness
-<Any software or setup needed to run the software and tests>
-
+Our DB test runs in python. We are using MySQL. So you must install both of those in order to test our software. You do need to do `pip install mysql-connector-python` and `pip install termcolor` for our testing to run. Just navigate to the link in section 5, and you will find all the code there. Running init.sql will make sure you have a basic version of the DB on your computer, and then running connector.py will actually run all the tests and show the results in green and red, for pass or fail, thanks to `termcolor`.
 
 
 Test Procedure Template
