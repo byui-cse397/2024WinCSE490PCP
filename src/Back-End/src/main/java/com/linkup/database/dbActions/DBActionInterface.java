@@ -13,8 +13,16 @@ public interface DBActionInterface {
    * that our ConnectionManager has already been resolved, if it hasn't been
    * resolved, our host won't be resolved here.
    * @param obj The DBAction object to build the SQL query for.
-   * @return Returns the parser object with
+   * @return Returns a DBResult<T> object, a parsed value associated with the
+   *     query. The validity of these results can be enforced by calling:
+   * T result = OBJECT.performDBAction().getResult();
+   *
+   * CREATE returns an int representing the new UserID
+   * READ returns an XMLNode containing the table values
+   * UPDATE returns an int representing the number of rows affected by the query
+   * DELETE returns an int representing the number of rows affected by the query
+   * LOGIN returns an int representing the UserID
    *
    */
-  public Parser<?> performDBAction();
+  public DBResult<?> performDBAction();
 }
