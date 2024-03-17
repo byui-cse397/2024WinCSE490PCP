@@ -1,8 +1,7 @@
 package com.linkup.httpsserver;
 
-import com.linkup.XMLParsing.XMLNode;
-import com.linkup.XMLParsing.XMLParser;
-import com.linkup.httpsserver.CommandType;
+import com.linkup.common.*;
+import com.linkup.common.XMLParsing.*;
 import com.linkup.spark.DatabaseManager;
 import com.nimbusds.jose.util.StandardCharset;
 import com.sun.net.httpserver.HttpExchange;

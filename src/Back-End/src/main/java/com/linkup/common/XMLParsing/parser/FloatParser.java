@@ -1,4 +1,4 @@
-package com.linkup.XMLParsing.parser;
+package com.linkup.common.XMLParsing.parser;
 
 public class FloatParser implements Parser<Float> {
   @Override

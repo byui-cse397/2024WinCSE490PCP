@@ -1,4 +1,4 @@
-package com.linkup.XMLParsing.parser;
+package com.linkup.common.XMLParsing.parser;
 
 public class DoubleParser implements Parser<Double> {
   @Override

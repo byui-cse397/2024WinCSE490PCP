@@ -1,7 +1,6 @@
 package com.linkup.spark;
 
-import com.linkup.XMLParsing.XMLNode;
-import com.linkup.XMLParsing.XMLParser;
+import com.linkup.common.XMLParsing.*;
 import com.linkup.httpsserver.*;
 import java.io.IOException;
 import java.util.Map;

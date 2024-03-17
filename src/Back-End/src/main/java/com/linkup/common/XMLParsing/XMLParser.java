@@ -1,4 +1,4 @@
-package com.linkup.XMLParsing;
+package com.linkup.common.XMLParsing;
 
 import java.io.IOException;
 

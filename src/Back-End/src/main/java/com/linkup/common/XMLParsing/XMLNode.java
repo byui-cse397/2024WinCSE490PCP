@@ -1,4 +1,4 @@
-package com.linkup.XMLParsing;
+package com.linkup.common.XMLParsing;
 
 import java.util.ArrayList;
 import java.util.List;

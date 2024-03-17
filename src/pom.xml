@@ -6,10 +6,10 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-     <module>Back-End</module>
-     <module>Database</module>
+      <module>Database</module>
+      <module>Back-End</module>
   </modules>
   <properties>
-     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>

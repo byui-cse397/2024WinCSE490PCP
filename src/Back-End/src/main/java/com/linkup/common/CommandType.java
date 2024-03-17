@@ -1,4 +1,4 @@
-package com.linkup.httpsserver;
+package com.linkup.common;
 
 public enum CommandType {
   SYSTEM,

@@ -1,4 +1,4 @@
-package com.linkup.XMLParsing;
+package com.linkup.common.XMLParsing;
 
 public enum XMLType {
   INT {
