@@ -1,5 +1,6 @@
 package com.linkup.database.dbActions;
 
+import com.linkup.common.XMLParsing.parser.DBResult;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.table.*;
 import java.lang.reflect.Field;
@@ -34,11 +35,6 @@ public abstract class BuildDBAction implements DBActionInterface {
   }
 
   protected abstract String queryBuilder();
-
-  public String performDBAction() {
-    String query = queryBuilder();
-    return queryHandler(query);
-  }
 
   protected abstract Map<String, String>
   cleanMap(Map<String, String> colValueMap);

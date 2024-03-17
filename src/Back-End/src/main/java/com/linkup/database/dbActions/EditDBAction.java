@@ -1,5 +1,7 @@
 package com.linkup.database.dbActions;
 
+import com.linkup.common.XMLParsing.parser.DBResult;
+import com.linkup.common.XMLParsing.parser.ParserFactory;
 import java.util.Map;
 
 public abstract class EditDBAction extends BuildDBAction {
@@ -18,5 +20,14 @@ public abstract class EditDBAction extends BuildDBAction {
     colValueMap.remove("Table");
     colValueMap.remove("ID");
     return colValueMap;
+  }
+
+  public DBResult<Integer> performDBAction() {
+    String query = queryBuilder();
+    String queryResults = queryHandler(query);
+    DBResult<Integer> dbResult =
+        (DBResult<Integer>)ParserFactory.getParser("Int");
+    dbResult.parse(queryResults);
+    return dbResult;
   }
 }

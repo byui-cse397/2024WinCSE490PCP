@@ -14,6 +14,7 @@ public class ParserFactory {
     parsers.put("DOUBLE", new DoubleParser());
     parsers.put("CHAR", new CharParser());
     parsers.put("BYTE", new ByteParser());
+    parsers.put("XML", new XMLDBResult());
   }
 
   public static DBResult<?> getParser(String type) {
