@@ -3,7 +3,11 @@ Version: 1.0
 
 Team Name:          Database
 Authors Team Names: 
-* [Team Member Names]
+* Joshua Bee
+* Brian Anderson
+* Kjellden Knutzen
+* Nolan Jeppson
+* Claudio Parra
 
 Section 1: Project
 Create an application that helps with finding and providing rides
