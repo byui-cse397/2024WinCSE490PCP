@@ -1,7 +1,7 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-class HasContentText(DBTest):
+class PostHasContentText(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
         Verify if the Post table has a 'content_text' field.

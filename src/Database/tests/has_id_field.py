@@ -5,11 +5,11 @@ from db_test import DBTest
 class HasIdField(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Account table has a 'username' field.
+        Verify if the Accounts table has a 'username' field.
         """
         cursor = connection.cursor()
         try:
-            cursor.execute("DESCRIBE Account")
+            cursor.execute("DESCRIBE Accounts")
             columns = cursor.fetchall()
             
             for column in columns:
