@@ -6,22 +6,25 @@ from mysql.connector import MySQLConnection
 from test_runner import TestRunner
 from db_test import DBTest
 from example_test_1 import ExampleTest1
-from account_has_username_field import HasUsernameField      # Account
-from account_has_password_hash import HasPasswordHashField   # 
-from Database.tests.account_has_id_field import HasIdField                          # 
-from post_has_content_text import PostHasContentText         # Post
-from post_has_account_id import PostHasAccountId             # 
-from post_has_post_time import HasPostTime                   # 
-from post_has_id_pk import HasPostId                         # 
-from post_add_to_table import postAddToTableTest             # 
-from departing_has_id_pk import HasDepartId          # Departing
-from departing_has_location import HasDepartLocation # 
-from departing_has_post_id import HasDepartPostId    # 
-from arriving_has_id_pk import HasArriveId           # Arriving
-from arriving_has_location import HasArriveLocation  # 
-from arriving_has_post_id import HasArrivePostId     # 
-# Message
-
+from account_has_username_field import HasUsernameField     # Account
+from account_has_password_hash import HasPasswordHashField  # 
+from account_has_id_field import HasIdField                 # 
+from post_has_content_text import PostHasContentText        # Post
+from post_has_account_id import PostHasAccountId            # 
+from post_has_post_time import HasPostTime                  # 
+from post_has_id_pk import HasPostId                        # 
+from post_add_to_table import postAddToTableTest            # 
+from departing_has_id_pk import HasDepartId                 # Departing
+from departing_has_location import HasDepartLocation        # 
+from departing_has_post_id import HasDepartPostId           # 
+from arriving_has_id_pk import HasArriveId                  # Arriving
+from arriving_has_location import HasArriveLocation         # 
+from arriving_has_post_id import HasArrivePostId            # 
+from message_has_id_field import HasMessageId               # Message
+from message_has_sender_id import HasMessageSenderId        #
+from message_has_receiver_id import HasMessageReceiverId    #
+from message_has_message_content import HasMessageContent   #
+from message_has_message_time import HasMessageTime         #
 # Forums
 
 # Community 
@@ -82,7 +85,12 @@ def get_test_list() -> List[DBTest]:
                                  HasDepartPostId(),
                                  HasArriveId(),
                                  HasArriveLocation(), 
-                                 HasArrivePostId()]
+                                 HasArrivePostId(),
+                                 HasMessageId(),
+                                 HasMessageSenderId(),
+                                 HasMessageReceiverId(),
+                                 HasMessageContent(),
+                                 HasMessageTime()]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
