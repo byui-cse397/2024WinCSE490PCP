@@ -1,3 +1,5 @@
+package com.example.comm_board_app;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -29,6 +31,7 @@ public class Signup extends AppCompatActivity {
         passwordEditText = findViewById(R.id.C_pass);
         confirmPasswordEditText = findViewById(R.id.C_pass2x);
 
+        //What Happens when you click the button
         Button createAccountButton = findViewById(R.id.createAccountButton);
         createAccountButton.setOnClickListener(view -> {
             // Get user inputs
@@ -37,7 +40,7 @@ public class Signup extends AppCompatActivity {
             String password = passwordEditText.getText().toString();
             String confirmPassword = confirmPasswordEditText.getText().toString();
 
-            // Validate inputs (You may add more validation)
+            // Validate inputs (error handeling)
             if (email.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(Signup.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             } else if (!password.equals(confirmPassword)) {
@@ -53,7 +56,6 @@ public class Signup extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
                 // Send data to backend using AsyncTask
                 new SendDataToServer().execute(postData.toString());
             }
@@ -109,4 +111,3 @@ public class Signup extends AppCompatActivity {
         }
     }
 }
-
