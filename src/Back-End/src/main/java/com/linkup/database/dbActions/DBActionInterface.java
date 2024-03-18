@@ -4,8 +4,6 @@ import com.linkup.common.XMLParsing.parser.*;
 import com.linkup.database.table.*;
 
 public interface DBActionInterface {
-  Table getTable();
-
   /**
    * Takes an object that implements the DBActionInterface interface and enables
    * the object to communicate with DB by building a SQL query from the
@@ -41,4 +39,6 @@ public interface DBActionInterface {
    *    internal checks have been met
    */
   public DBResult<?> performDBAction();
+
+  Table getTable();
 }
