@@ -15,13 +15,13 @@ public class App {
 
   private static void establishConnection() {
     ConnectionManager.getInstance("https://localhost:4039");
-    System.out.println("Connection established.");
+    System.out.println("Connection established with Database.");
   }
 
   private static void closeConnection() {
     ConnectionManager instance = ConnectionManager.getInstance(null);
     HTTPSConnector connection = instance.getConnector();
     connection.sendRequest("<SYSTEM:string>STOP</SYSTEM>");
-    System.out.println("Closed successfully.");
+    System.out.println("Closed connection with Database successfully.");
   }
 }
