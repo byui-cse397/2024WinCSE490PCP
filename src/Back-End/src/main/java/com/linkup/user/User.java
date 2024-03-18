@@ -1,6 +1,7 @@
 package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 import java.util.Date;
 import java.util.Map;
@@ -121,6 +122,11 @@ public class User extends CreateDBAction {
     String query = buildQuery((Map<String, String>)newUser);
   }
 
-  // Method to specify the table in the database where user data is stored
+    @Override
+    public Boolean checks() throws FrontEndUsageException {
+      return null;
+    }
+
+    // Method to specify the table in the database where user data is stored
   public Table getTable() { return Table.ACCOUNT; }
 }

@@ -1,6 +1,7 @@
 package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 import java.util.Map;
 
@@ -64,6 +65,11 @@ public class UserProfile extends UpdateDBAction{
 
   public void setLastLoginDate(Date lastLoginDate) {
     this.lastLoginDate = lastLoginDate;
+  }
+
+  @Override
+  public Boolean checks() throws FrontEndUsageException {
+    return null;
   }
 
   @Override

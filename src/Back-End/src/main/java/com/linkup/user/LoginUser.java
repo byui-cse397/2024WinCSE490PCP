@@ -1,6 +1,7 @@
 package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
 public class LoginUser extends ReadDBAction {
@@ -34,6 +35,11 @@ public class LoginUser extends ReadDBAction {
 
   // Implement the getID method from IDBasedDBAction
   public int getID() { return this.userId; }
+
+  @Override
+  public Boolean checks() throws FrontEndUsageException {
+    return null;
+  }
 
   // Implement the getTable method from BuildDBAction
   public Table getTable() {

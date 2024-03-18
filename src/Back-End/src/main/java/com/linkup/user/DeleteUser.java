@@ -1,6 +1,7 @@
 package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
 import java.util.Date;
@@ -63,6 +64,11 @@ public class DeleteUser extends DeleteDBAction {
 
   // Getter method to retrieve the deletion date
   public Date getDeletionDate() { return deletionDate; }
+
+  @Override
+  public Boolean checks() throws FrontEndUsageException {
+    return null;
+  }
 
   // Method to specify the table in the database from which the user account should be deleted
   public Table getTable() {
