@@ -24,6 +24,21 @@ public interface DBActionInterface {
    * DELETE returns an int representing the number of rows affected by the query
    * LOGIN returns an int representing the UserID
    *
+   *
+   * If you have questions about how your object can implement the
+   * DBActionInterface consider the developers lifecycle for using
+   * DBActionInterface below:
+   *
+   * 1. Consider the action that you want to implement (CRUD, and extend the
+   * necessary functionality)
+   * 2. Add the table that your query affects in getTable()
+   * 3. Check the Table.java file to see what values performDBAction expects you
+   * to have variables for, and create those variables in your class
+   * 4. Write the logical checks that your functionality should have (I.E.
+   * checking for empty fields like a null value username field for
+   * handling logins)
+   * 5. Add the call internally to your method to .performDBAction() after your
+   * internal checks have been met
    */
   public DBResult<?> performDBAction();
 }
