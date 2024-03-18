@@ -1,0 +1,4 @@
+src/Back-End/target
+src/Database/target
+/src/Database/tests/__pycache__
+.ds_store
