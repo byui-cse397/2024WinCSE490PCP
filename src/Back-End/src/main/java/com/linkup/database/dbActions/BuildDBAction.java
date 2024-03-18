@@ -1,6 +1,5 @@
 package com.linkup.database.dbActions;
 
-import com.linkup.common.XMLParsing.parser.DBResult;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.table.*;
 import java.lang.reflect.Field;
