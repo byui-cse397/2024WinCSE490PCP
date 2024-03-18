@@ -4,6 +4,7 @@ import com.linkup.common.XMLParsing.parser.DBResult;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.table.*;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,14 +48,25 @@ public abstract class BuildDBAction implements DBActionInterface {
   }
 
   protected Map<String, String> checkForDependencies(Map<String, String> map) {
-    System.out.println("Not yet implemented.");
-    return map;
+    Table table = getTable();
+    ArrayList<String> fields = table.getFields();
+    map = renameKeysCaseInsensitively(map, fields);
+    Map<String, String> reducedMap = new HashMap<>();
+    for (String field : fields) {
+      if (map.containsKey(field)) {
+        reducedMap.put(field, map.get(field));
+      } else {
+        throw new IllegalArgumentException("The object" + this.toString() +
+                                           "must have the field: " + field);
+      }
+    }
+    return reducedMap;
   }
 
   /**
    * After building the query we need to serialize it to send to DB,
-   * xmlQuerySerializer enables the user to serialize the DBAction SQL query as
-   * xml-like information.
+   * xmlQuerySerializer enables the user to serialize the DBAction SQL query
+   * as xml-like information.
    * @param query The SQL query to be serialized.
    * @return The serialization compatible SQL query.
    *
@@ -84,5 +96,21 @@ public abstract class BuildDBAction implements DBActionInterface {
         .append("'");
     String where = whereBuilder.toString();
     return where;
+  }
+
+  private static Map<String, String>
+  renameKeysCaseInsensitively(Map<String, String> map,
+                              ArrayList<String> fields) {
+    Map<String, String> tempMap = new HashMap<>();
+    for (String field : fields) {
+      for (Map.Entry<String, String> entry : map.entrySet()) {
+        if (entry.getKey().equalsIgnoreCase(field)) {
+          tempMap.put(field, entry.getValue());
+        }
+      }
+    }
+    map.clear();
+    map.putAll(tempMap);
+    return map;
   }
 }
