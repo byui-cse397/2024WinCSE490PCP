@@ -25,8 +25,9 @@ from message_has_sender_id import HasMessageSenderId        #
 from message_has_receiver_id import HasMessageReceiverId    #
 from message_has_message_content import HasMessageContent   #
 from message_has_message_time import HasMessageTime         #
-# Forums
-
+from forums_has_id import HasForumId                        # Forums
+from forums_has_forum_name import HasForumName              #
+from forums_has_post_id import ForumHasPostId               #
 # Community 
 
 # Comments
@@ -75,22 +76,26 @@ def get_test_list() -> List[DBTest]:
     # MODEL TESTS
     model_tests: List[DBTest] = [HasUsernameField(), HasIdField(), HasPasswordHashField(),
                                  ExampleTest1(),
-                                 PostHasContentText(),
+                                 PostHasContentText(),  # Post
                                  PostHasAccountId(),
                                  HasPostTime(),
                                  HasPostId(),
                                  postAddToTableTest(),
-                                 HasDepartId(),
+                                 HasDepartId(),         # Depart
                                  HasDepartLocation(),
                                  HasDepartPostId(),
-                                 HasArriveId(),
+                                 HasArriveId(),         # Arrive
                                  HasArriveLocation(), 
                                  HasArrivePostId(),
-                                 HasMessageId(),
+                                 HasMessageId(),        # Message
                                  HasMessageSenderId(),
                                  HasMessageReceiverId(),
                                  HasMessageContent(),
-                                 HasMessageTime()]
+                                 HasMessageTime(),
+                                 HasForumId(),          # Forum
+                                 HasForumName(),
+                                 ForumHasPostId()
+                                 ]
 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
