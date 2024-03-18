@@ -1,8 +1,12 @@
 package com.linkup.user;
 
+import com.linkup.database.dbActions.ops.*;
+import com.linkup.database.table.*;
+import java.util.Map;
+
 import java.util.Date;
 
-public class UserProfile {
+public class UserProfile extends UpdateDBAction{
   // Default values for each property
   private int userId = 0;
   private String username = "";
@@ -18,6 +22,11 @@ public class UserProfile {
     this.userId = userId;
     this.username = name;
     this.email = email;
+  }
+
+  // Method to update user profile
+  public void updateProfile() {
+
   }
 
   public int getUserId() { return userId; }
@@ -55,5 +64,15 @@ public class UserProfile {
 
   public void setLastLoginDate(Date lastLoginDate) {
     this.lastLoginDate = lastLoginDate;
+  }
+
+  @Override
+  public Table getTable() {
+    return Table.ACCOUNT;
+  }
+
+  @Override
+  public int getID() {
+    return this.userId; // Return the user ID
   }
 }
