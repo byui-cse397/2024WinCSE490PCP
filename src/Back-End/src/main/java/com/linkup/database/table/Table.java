@@ -14,8 +14,9 @@ public enum Table {
     public ArrayList<String> getFields() {
       ArrayList<String> list = new ArrayList<>();
       list.add("content_text");
-		  list.add("account_id");
-		  list.add("post_time");
+      list.add("accounts_id");
+      list.add("post_time");
+      list.add("community_id");
       return list;
     }
   },
@@ -47,7 +48,6 @@ public enum Table {
     public ArrayList<String> getFields() {
       ArrayList<String> list = new ArrayList<>();
       list.add("community_name");
-      list.add("post_id");
       return list;
     }
   },
@@ -69,8 +69,6 @@ public enum Table {
       return list;
     }
   };
-
-
 
   public abstract ArrayList<String> getFields();
 
