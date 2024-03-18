@@ -7,30 +7,33 @@ from test_runner import TestRunner
 from db_test import DBTest
 from example_test_1 import ExampleTest1
 from account_has_username_field import HasUsernameField     # Account
-from account_has_password_hash import HasPasswordHashField  # 
-from account_has_id_field import HasIdField                 # 
+from account_has_password_hash import HasPasswordHashField   
+from account_has_id_field import HasIdField                  
 from post_has_content_text import PostHasContentText        # Post
-from post_has_account_id import PostHasAccountId            # 
-from post_has_post_time import HasPostTime                  # 
-from post_has_id_pk import HasPostId                        # 
-from post_add_to_table import postAddToTableTest            # 
+from post_has_account_id import PostHasAccountId             
+from post_has_post_time import HasPostTime                   
+from post_has_id_pk import HasPostId        
+from post_has_community_id import PostHasCommunityId                 
+from post_add_to_table import postAddToTableTest             
 from departing_has_id_pk import HasDepartId                 # Departing
-from departing_has_location import HasDepartLocation        # 
-from departing_has_post_id import HasDepartPostId           # 
+from departing_has_location import HasDepartLocation         
+from departing_has_post_id import HasDepartPostId            
 from arriving_has_id_pk import HasArriveId                  # Arriving
-from arriving_has_location import HasArriveLocation         # 
-from arriving_has_post_id import HasArrivePostId            # 
+from arriving_has_location import HasArriveLocation          
+from arriving_has_post_id import HasArrivePostId             
 from message_has_id_field import HasMessageId               # Message
-from message_has_sender_id import HasMessageSenderId        #
-from message_has_receiver_id import HasMessageReceiverId    #
-from message_has_message_content import HasMessageContent   #
-from message_has_message_time import HasMessageTime         #
+from message_has_sender_id import HasMessageSenderId        
+from message_has_receiver_id import HasMessageReceiverId    
+from message_has_message_content import HasMessageContent   
+from message_has_message_time import HasMessageTime         
 from forums_has_id import HasForumId                        # Forums
-from forums_has_forum_name import HasForumName              #
-from forums_has_post_id import ForumHasPostId               #
-# Community 
-
-# Comments
+from forums_has_forum_name import HasForumName              
+from forums_has_post_id import ForumHasPostId               
+from community_has_id import HasCommunityId                 # Community
+from community_has_community_name import HasCommunityName
+from comments_has_id import HasCommentId                    # Comments
+from comments_has_comment_text import HasCommentText
+from comments_has_post_id import CommentHasPostId
 
 # Misc Imports
 from typing import List
@@ -73,30 +76,37 @@ def get_test_list() -> List[DBTest]:
     # CONTROLLER TESTS
     controller_tests: List[DBTest] = []
 
-    # MODEL TESTS
-    model_tests: List[DBTest] = [HasUsernameField(), HasIdField(), HasPasswordHashField(),
-                                 ExampleTest1(),
-                                 PostHasContentText(),  # Post
-                                 PostHasAccountId(),
-                                 HasPostTime(),
-                                 HasPostId(),
-                                 postAddToTableTest(),
-                                 HasDepartId(),         # Depart
-                                 HasDepartLocation(),
-                                 HasDepartPostId(),
-                                 HasArriveId(),         # Arrive
-                                 HasArriveLocation(), 
-                                 HasArrivePostId(),
-                                 HasMessageId(),        # Message
-                                 HasMessageSenderId(),
-                                 HasMessageReceiverId(),
-                                 HasMessageContent(),
-                                 HasMessageTime(),
-                                 HasForumId(),          # Forum
-                                 HasForumName(),
-                                 ForumHasPostId()
-                                 ]
-
+    # MODEL TESTS 
+    model_tests: List[DBTest] = [ExampleTest1(), 
+                                 HasUsernameField(),     # Accounts
+                                 HasIdField(), 
+                                 HasPasswordHashField(), 
+                                 PostHasContentText(),   # Post
+                                 PostHasAccountId(), 
+                                 HasPostTime(), 
+                                 HasPostId(), 
+                                 PostHasCommunityId(), 
+                                 postAddToTableTest(), 
+                                 HasDepartId(),          # Depart
+                                 HasDepartLocation(), 
+                                 HasDepartPostId(), 
+                                 HasArriveId(),          # Arrive
+                                 HasArriveLocation(),  
+                                 HasArrivePostId(), 
+                                 HasMessageId(),         # Message
+                                 HasMessageSenderId(), 
+                                 HasMessageReceiverId(), 
+                                 HasMessageContent(), 
+                                 HasMessageTime(), 
+                                 HasForumId(),           # Forums
+                                 HasForumName(), 
+                                 ForumHasPostId(), 
+                                 HasCommunityId(),       # Community
+                                 HasCommunityName(), 
+                                 HasCommentId(),         # Comments
+                                 HasCommentText(), 
+                                 CommentHasPostId()] 
+ 
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []
     for test_base in test_bases:
