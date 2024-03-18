@@ -1,9 +1,11 @@
 package com.linkup.database.dbActions.ops;
 
+import com.linkup.common.XMLParsing.parser.DBResult;
+import com.linkup.common.XMLParsing.parser.ParserFactory;
 import com.linkup.database.dbActions.*;
 import java.util.Map;
 
-public abstract class CreateDBAction extends InitializerDBAction {
+public abstract class CreateDBAction extends BuildDBAction {
   protected String buildQuery(Map<String, String> colValueMap) {
     StringBuilder columnsBuilder = new StringBuilder();
     for (String columnName : colValueMap.keySet()) {
@@ -25,5 +27,26 @@ public abstract class CreateDBAction extends InitializerDBAction {
     String query = "INSERT INTO " + getTable() + " (" + columns + ")\n"
                    + "VALUES (" + values + ");";
     return query;
+  }
+
+  protected String queryBuilder() {
+    Map<String, String> colValueMap = mapHandler(this);
+    String query = buildQuery(colValueMap);
+    return query;
+  }
+
+  @Override
+  protected Map<String, String> cleanMap(Map<String, String> colValueMap) {
+    colValueMap.remove("Table");
+    return colValueMap;
+  }
+
+  public DBResult<Integer> performDBAction() {
+    String query = queryBuilder();
+    String queryResults = queryHandler(query);
+    DBResult<Integer> dbResult =
+        (DBResult<Integer>)ParserFactory.getParser("Int");
+    dbResult.parse(queryResults);
+    return dbResult;
   }
 }
