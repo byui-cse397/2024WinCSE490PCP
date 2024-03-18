@@ -1,6 +1,7 @@
 package com.linkup.database.dbActions;
 
 import com.linkup.common.XMLParsing.parser.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
 public interface DBActionInterface {
@@ -34,11 +35,13 @@ public interface DBActionInterface {
    *    to have variables for, and create those variables in your class
    * 4. Write the logical checks that your functionality should have (I.E.
    *    checking for empty fields like a null value username field for
-   *    handling logins)
+   *    handling logins), and add those checks to the "checks()" method.
    * 5. Add the call internally to your method to .performDBAction() after your
    *    internal checks have been met
    */
-  public DBResult<?> performDBAction();
+  public DBResult<?> performDBAction() throws FrontEndUsageException;
+
+  Boolean checks() throws FrontEndUsageException;
 
   Table getTable();
 }

@@ -1,6 +1,8 @@
 package com.linkup.database.dbActions;
 
+import com.linkup.common.XMLParsing.parser.DBResult;
 import com.linkup.database.dbConnection.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -111,5 +113,14 @@ public abstract class BuildDBAction implements DBActionInterface {
     map.clear();
     map.putAll(tempMap);
     return map;
+  }
+
+  protected abstract DBResult<?> actionBuilder();
+
+  public DBResult<?> performDBAction() throws FrontEndUsageException {
+    if (!checks()) {
+      return null;
+    }
+    return actionBuilder();
   }
 }

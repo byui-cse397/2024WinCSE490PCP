@@ -41,7 +41,7 @@ public abstract class CreateDBAction extends BuildDBAction {
     return colValueMap;
   }
 
-  public DBResult<Integer> performDBAction() {
+  public DBResult<Integer> actionBuilder() {
     String query = queryBuilder();
     String queryResults = queryHandler(query);
     DBResult<Integer> dbResult =

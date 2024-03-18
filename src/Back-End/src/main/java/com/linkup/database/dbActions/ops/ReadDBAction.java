@@ -25,7 +25,7 @@ public abstract class ReadDBAction extends BuildDBAction {
     return colValueMap;
   }
 
-  public DBResult<XMLNode> performDBAction() {
+  public DBResult<XMLNode> actionBuilder() {
     String query = queryBuilder();
     String queryResults = queryHandler(query);
     DBResult<XMLNode> dbResult =
