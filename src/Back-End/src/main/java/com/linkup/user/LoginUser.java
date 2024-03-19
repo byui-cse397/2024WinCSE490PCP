@@ -26,9 +26,11 @@ public class LoginUser extends ReadDBAction {
     }
 
     // Check if the provided username and password match the expected values
-    String query = buildQuery(this.userId); // Build query to authenticate user from database
+    String query = buildQuery(
+        this.userId); // Build query to authenticate user from database
 
-    System.out.println(query); // Print the authentication query for debugging purposes
+    System.out.println(
+        query); // Print the authentication query for debugging purposes
 
     return true; // Return true indicating successful authentication
   }

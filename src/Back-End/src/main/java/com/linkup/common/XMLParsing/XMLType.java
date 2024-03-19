@@ -1,38 +1,66 @@
 package com.linkup.common.XMLParsing;
 
+import com.linkup.common.XMLParsing.parser.*;
+
 public enum XMLType {
   INT {
-    public Object parse(String input) { return Integer.parseInt(input); }
+    public DBResult<Integer> parse(String input) {
+      IntParser parser = new IntParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   STRING {
-    public Object parse(String input) { return input; }
+    public DBResult<String> parse(String input) {
+      StringParser parser = new StringParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   BOOL {
-    public Object parse(String input) { return "TRUE".equalsIgnoreCase(input); }
+    public DBResult<Boolean> parse(String input) {
+      BoolParser parser = new BoolParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   FLOAT {
-    public Object parse(String input) { return Float.parseFloat(input); }
+    public DBResult<Float> parse(String input) {
+      FloatParser parser = new FloatParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   DOUBLE {
-    public Object parse(String input) { return Double.parseDouble(input); }
+    public DBResult<Double> parse(String input) {
+      DoubleParser parser = new DoubleParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   CHAR {
-    public Object parse(String input) {
-      if (input.length() != 1) {
-        throw new IllegalArgumentException(
-            "Input string must be a single character");
-      }
-      return input.charAt(0);
+    public DBResult<Character> parse(String input) {
+      CharParser parser = new CharParser();
+      parser.parse(input);
+      return parser;
     }
   },
   BYTE {
-    public Object parse(String input) { return Byte.parseByte(input); }
+    public DBResult<Byte> parse(String input) {
+      ByteParser parser = new ByteParser();
+      parser.parse(input);
+      return parser;
+    }
   },
   PARENT {
-    public Object parse(String input) { return input; }
+    public DBResult<XMLNode> parse(String input) {
+      XMLDBResult parser = new XMLDBResult();
+      parser.parse(input);
+      return parser;
+    }
   };
 
-  public abstract Object parse(String input);
+  public abstract DBResult<?> parse(String input);
 
   public static XMLType fromString(String type) {
     for (XMLType xmlType : XMLType.values()) {
@@ -43,7 +71,7 @@ public enum XMLType {
     throw new IllegalArgumentException("Invalid XMLType: " + type);
   }
 
-  public static Object parseValue(String type, String value) {
+  public static DBResult<?> parseValue(String type, String value) {
     XMLType xmlType = fromString(type);
     return xmlType.parse(value);
   }

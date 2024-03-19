@@ -1,9 +1,12 @@
 package com.linkup.database.dbActions;
 
+import com.linkup.common.XMLParsing.XMLNode;
+import com.linkup.common.XMLParsing.XMLParser;
 import com.linkup.common.XMLParsing.parser.DBResult;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -115,9 +118,19 @@ public abstract class BuildDBAction implements DBActionInterface {
     return map;
   }
 
-  protected abstract DBResult<?> actionBuilder();
+  protected XMLNode actionBuilder() {
+    String query = queryBuilder();
+    String queryResults = queryHandler(query);
+    try {
+      XMLNode node = new XMLParser(queryResults, null).parse();
+      return node;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
 
-  public DBResult<?> performDBAction() throws FrontEndUsageException {
+  public XMLNode performDBAction() throws FrontEndUsageException {
     if (!checks()) {
       return null;
     }

@@ -1,7 +1,5 @@
 package com.linkup.database.dbActions.ops;
 
-import com.linkup.common.XMLParsing.parser.DBResult;
-import com.linkup.common.XMLParsing.parser.ParserFactory;
 import com.linkup.database.dbActions.*;
 import java.util.Map;
 
@@ -30,14 +28,5 @@ public abstract class LoginDBAction extends BuildDBAction {
   protected Map<String, String> cleanMap(Map<String, String> colValueMap) {
     colValueMap.remove("Table");
     return colValueMap;
-  }
-
-  public DBResult<Integer> actionBuilder() {
-    String query = queryBuilder();
-    String queryResults = queryHandler(query);
-    DBResult<Integer> dbResult =
-        (DBResult<Integer>)ParserFactory.getParser("Int");
-    dbResult.parse(queryResults);
-    return dbResult;
   }
 }

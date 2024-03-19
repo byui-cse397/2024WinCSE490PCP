@@ -8,36 +8,34 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-  /*
-    The User class represents a user entity with various attributes such as ID, username, email, etc.
-    It provides getter and setter methods to access and modify user information.
-    The createNewUser method is intended to be used for creating a new user account. It currently creates
-      a new User object and assumes additional logic for saving user data to a database, such as building
-      and executing a database query.
-    The getTable method specifies the table in the database where user data is stored.
-    */
+/*
+  The User class represents a user entity with various attributes such as ID,
+  username, email, etc. It provides getter and setter methods to access and
+  modify user information. The createNewUser method is intended to be used for
+  creating a new user account. It currently creates a new User object and
+  assumes additional logic for saving user data to a database, such as building
+    and executing a database query.
+  The getTable method specifies the table in the database where user data is
+  stored.
+  */
 public class User extends CreateDBAction {
   // Member variables to store user information
-  private int id;
+  private String password;
+  private String password_hash;
   private String username;
   private String email;
-  private String password;
   private Date registrationDate;
   private Date lastLoginDate;
   private boolean isActive;
 
   // Constructor to initialize user object with basic information
-  public User(int Id, String username, String email, String password) {
+  public User(String username, String email, String password) {
     this.username = username;
-    this.id = Id;
     this.email = email;
-    this.password = password;
+    this.password_hash = password;
     this.registrationDate = new Date();
     this.isActive = true;
   }
-
-  // Getter method for retrieving user ID
-  public int getId() { return id; }
 
   // Getter method for retrieving username
   public String getUsername() { return username; }
@@ -115,18 +113,18 @@ public class User extends CreateDBAction {
   public void createNewUser(int id, String username, String email,
                             String password) {
     // Create a new user object with provided information
-    User newUser = new User(id, username, email, password);
+    User newUser = new User(username, email, password);
 
-    // Here we would typically add additional logic to save the user to a database
-    // For demonstration, let's assume we are building a query to insert user data into a database
-    String query = buildQuery((Map<String, String>)newUser);
+    // Here we would typically add additional logic to save the user to a
+    // database For demonstration, let's assume we are building a query to
+    // insert user data into a database
   }
 
-    @Override
-    public Boolean checks() throws FrontEndUsageException {
-      return null;
-    }
+  @Override
+  public Boolean checks() throws FrontEndUsageException {
+    return true;
+  }
 
-    // Method to specify the table in the database where user data is stored
+  // Method to specify the table in the database where user data is stored
   public Table getTable() { return Table.ACCOUNT; }
 }

@@ -1,6 +1,6 @@
 package com.linkup.database.dbActions;
 
-import com.linkup.common.XMLParsing.parser.*;
+import com.linkup.common.XMLParsing.XMLNode;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
@@ -17,11 +17,13 @@ public interface DBActionInterface {
    * calling:
    * T result = OBJECT.performDBAction().getResult();
    *
-   * CREATE returns an int representing the new UserID
+   * CREATE returns an XMLNode representing the new UserID
    * READ returns an XMLNode containing the table values
-   * UPDATE returns an int representing the number of rows affected by the query
-   * DELETE returns an int representing the number of rows affected by the query
-   * LOGIN returns an int representing the UserID
+   * UPDATE returns an XMLNode representing the number of rows affected by the
+   * query
+   * DELETE returns an XMLNode representing the number of rows affected by
+   * the query
+   * LOGIN returns an XMLNode representing the matching user(s).
    *
    *
    * If you have questions about how your object can implement the
@@ -39,9 +41,24 @@ public interface DBActionInterface {
    * 5. Add the call internally to your method to .performDBAction() after your
    *    internal checks have been met
    */
-  public DBResult<?> performDBAction() throws FrontEndUsageException;
+  public XMLNode performDBAction() throws FrontEndUsageException;
 
+  /**
+   * Place all of the necessary checks to be run prior to executing
+   * .performDBAction() within the checks method, the method expects to return
+   * true if all tests passed, otherwise it expects some FrontEndUsageError to
+   * be thrown, describing why the check didn't pass.
+   * @return True if all tests passed, otherwise false.
+   * @throws FrontEndUsageException An exception detailing why this object
+   *     shouldn't be added to the database.
+   *
+   */
   Boolean checks() throws FrontEndUsageException;
 
+  /**
+   * Details which table the class action will be performed on.
+   * @return The enum from Table.java where your action should be run.
+   *
+   */
   Table getTable();
 }
