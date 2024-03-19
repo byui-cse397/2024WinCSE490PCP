@@ -23,7 +23,7 @@ public class UserTest {
     String password = "password123";
 
     // Act
-    User user = new User(001, username, email, password);
+    User user = new User(username, email, password);
 
     // Assert
     assertEquals(username, user.getUsername());
@@ -42,7 +42,7 @@ public class UserTest {
   @Test
   public void testUserSettersAndGetters() {
     // Arrange
-    User user = new User(001, "test@example.com", "password123", "password123");
+    User user = new User("testUser", "test@example.com", "password123");
 
     // Act
     user.setActive(false);
@@ -64,7 +64,7 @@ public class UserTest {
   @Test
   public void testUserRegistrationDate() {
     // Arrange
-    User user = new User(001, "test@example.com", "password123", "password123");
+    User user = new User("testUser", "test@example.com", "password123");
     Date registrationDate = user.getRegistrationDate();
 
     // Act
@@ -83,7 +83,7 @@ public class UserTest {
   @Test
   public void testUserEmailValidation() {
     // Arrange
-    User user = new User(001, "test@example.com", "password123", "password123");
+    User user = new User("testUser", "test@example.com", "password123");
 
     // Act
     user.setEmail("invalid-email");
@@ -101,7 +101,7 @@ public class UserTest {
   @Test
   public void testUserPasswordStrength() {
     // Arrange
-    User user = new User(002, "test@example.com", "password123", "password123");
+    User user = new User("testUser", "test@example.com", "password123");
 
     // Act
     user.setPassword("weak");

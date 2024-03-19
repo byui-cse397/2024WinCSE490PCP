@@ -12,7 +12,7 @@ public class App {
     establishConnection();
 
     // @USER_DB_FUNCTIONALITY_TEST
-    User user = new User(001, "user@gmail.com", "password1234", "password123");
+    User user = new User("user@gmail.com", "password1234", "password123");
     try {
       Integer returnValue = (Integer)user.performDBAction().getValue();
       logger.info("Rows updated: " + returnValue);
