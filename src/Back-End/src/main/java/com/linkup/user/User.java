@@ -21,6 +21,7 @@ import java.util.logging.SimpleFormatter;
 public class User extends CreateDBAction {
   private static final Logger logger = Logger.getLogger(User.class.getName());
   // Member variables to store user information
+  private int Id;
   private String password;
   private String password_hash;
   private String username;
@@ -30,7 +31,8 @@ public class User extends CreateDBAction {
   private boolean isActive;
 
   // Constructor to initialize user object with basic information
-  public User(String username, String email, String password) {
+  public User(int id, String username, String email, String password) {
+    this.Id = id;
     this.username = username;
     this.email = email;
     this.password_hash = password;
@@ -127,7 +129,7 @@ public class User extends CreateDBAction {
   public void createNewUser(int id, String username, String email,
                             String password) {
     // Create a new user object with provided information
-    User newUser = new User(username, email, password);
+    User newUser = new User(id, username, email, password);
 
     // Here we would typically add additional logic to save the user to a
     // database For demonstration, let's assume we are building a query to
