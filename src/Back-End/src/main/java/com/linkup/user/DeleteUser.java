@@ -5,8 +5,12 @@ import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DeleteUser extends DeleteDBAction {
+  // Logger for logging messages
+  private static final Logger logger = Logger.getLogger(DeleteUser.class.getName());
   // Member variables to store user information required for deletion
   private int userId;
   private String username;
@@ -29,8 +33,12 @@ public class DeleteUser extends DeleteDBAction {
 
   // Method to initiate the deletion process
   private void deleteAccount(){
+    // Log deletion process initiation
+    logger.info("Initiating account deletion process.");
     // Check if credentials are valid for deletion
     if (!validateCredentials()){
+      // Log invalid credentials for deletion
+      logger.warning("Invalid credentials provided for account deletion.");
       validateCredentials(); // Display error message if credentials are invalid
     } else if (validateCredentials()) {
       confirmDeletion(); // Confirm deletion if credentials are valid
@@ -38,6 +46,7 @@ public class DeleteUser extends DeleteDBAction {
       String query = buildQuery(this.userId); // Build query to delete user account from the database
 
       System.out.println(query); // Print the delete query for debugging purposes
+      logger.info("Deletion query: " + query); // Log deletion query for debugging purposes
     }
   }
 
@@ -56,6 +65,8 @@ public class DeleteUser extends DeleteDBAction {
     // Check if credentials are valid and deletion reason is provided
     if (validateCredentials() && !deletionReason.isEmpty()) {
       deletionDate = new Date();
+      // Log deletion confirmation
+      logger.info("Account deletion confirmed. Reason: " + deletionReason);
     }
   }
 

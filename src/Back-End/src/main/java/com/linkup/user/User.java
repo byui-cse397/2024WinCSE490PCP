@@ -4,9 +4,9 @@ import com.linkup.database.dbActions.ops.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 import java.util.Date;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 /*
   The User class represents a user entity with various attributes such as ID,
@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
   stored.
   */
 public class User extends CreateDBAction {
+  private static final Logger logger = Logger.getLogger(User.class.getName());
   // Member variables to store user information
   private String password;
   private String password_hash;
@@ -35,13 +36,23 @@ public class User extends CreateDBAction {
     this.password_hash = password;
     this.registrationDate = new Date();
     this.isActive = true;
+
+    // Configure logger
+    try {
+      FileHandler fh = new FileHandler("user.log");
+      logger.addHandler(fh);
+      SimpleFormatter formatter = new SimpleFormatter();
+      fh.setFormatter(formatter);
+    } catch (Exception e) {
+      logger.warning("Failed to configure logger: " + e.getMessage());
+    }
   }
 
   // Getter method for retrieving username
   public String getUsername() { return username; }
 
   // Setter method for updating username
-  public void setUsername(String username) { this.username = username; }
+  public void setUsername(String username) { this.username = username; logger.info("Username updated: " + username);}
 
   // Getter method for retrieving email
   public String getEmail() { return email; }
@@ -62,6 +73,7 @@ public class User extends CreateDBAction {
     if (email.matches(emailRegex)) {
       // If the email is valid, assign it to userEmail
       this.email = email;
+      logger.info("Email updated: " + email);
     }
   }
 
@@ -84,6 +96,7 @@ public class User extends CreateDBAction {
     if (password.matches(passwordRegex)) {
       // If the password is valid, assign it to userPassword
       this.password = password;
+      logger.info("Password updated.");
     }
   }
 
@@ -93,6 +106,7 @@ public class User extends CreateDBAction {
   // Setter method for updating registration date
   public void setRegistrationDate(Date registrationDate) {
     this.registrationDate = registrationDate;
+    logger.info("Registration date updated: " + registrationDate);
   }
 
   // Getter method for retrieving last login date
@@ -100,14 +114,14 @@ public class User extends CreateDBAction {
 
   // Setter method for updating last login date
   public void setLastLoginDate(Date lastLoginDate) {
-    this.lastLoginDate = lastLoginDate;
+    this.lastLoginDate = lastLoginDate; logger.info("Last login date updated: " + lastLoginDate);
   }
 
   // Getter method for checking if the user is active
   public boolean isActive() { return isActive; }
 
   // Setter method for updating user activity status
-  public void setActive(boolean active) { isActive = active; }
+  public void setActive(boolean active) { isActive = active; logger.info("User activity status updated: " + active);}
 
   // Method to create a new user account
   public void createNewUser(int id, String username, String email,
@@ -118,6 +132,7 @@ public class User extends CreateDBAction {
     // Here we would typically add additional logic to save the user to a
     // database For demonstration, let's assume we are building a query to
     // insert user data into a database
+    logger.info("New user created: " + newUser.getUsername());
   }
 
   @Override

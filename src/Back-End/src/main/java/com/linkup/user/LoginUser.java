@@ -3,8 +3,12 @@ package com.linkup.user;
 import com.linkup.database.dbActions.ops.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginUser extends ReadDBAction {
+  // Logger for logging messages
+  private static final Logger logger = Logger.getLogger(LoginUser.class.getName());
 
   // Member variables to store user information required for login
   private int userId;
@@ -22,15 +26,19 @@ public class LoginUser extends ReadDBAction {
   public boolean authenticate() {
     // Check for empty username or password
     if (username.isEmpty() || password.isEmpty()) {
+      // Log empty username or password
+      logger.warning("Empty username or password provided for authentication.");
       return false; // Return false if username or password is empty
+
     }
 
     // Check if the provided username and password match the expected values
     String query = buildQuery(
         this.userId); // Build query to authenticate user from database
 
-    System.out.println(
-        query); // Print the authentication query for debugging purposes
+    logger.info("Authentication query: " + query); // Log the authentication query for debugging purposes
+    //System.out.println(
+        //query); // Print the authentication query for debugging purposes
 
     return true; // Return true indicating successful authentication
   }
