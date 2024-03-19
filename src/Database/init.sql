@@ -65,13 +65,3 @@ CREATE TABLE IF NOT EXISTS Comments (
     post_id INT NOT NULL,
     CONSTRAINT fk_Comments_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
 );
-
-CREATE TABLE IF NOT EXISTS Messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    message_content VARCHAR(300) NOT NULL,
-    message_time DATETIME NOT NULL,
-    sender_id INT NOT NULL,
-    receiver_id INT NOT NULL,
-    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (account_id) REFERENCES Account(id),
-    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (account_id) REFERENCES Account(id)
-);
