@@ -16,52 +16,52 @@ FLUSH PRIVILEGES;
 
 -- Table Schema Setup --
 
-CREATE TABLE IF NOT EXISTS Account (
+CREATE TABLE IF NOT EXISTS ACCOUNT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Post (
+CREATE TABLE IF NOT EXISTS POST (
     id INT AUTO_INCREMENT PRIMARY KEY,
     content_text VARCHAR(800) NOT NULL,
     account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
     post_time DATETIME NOT NULL,
-    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES ACCOUNT(id)-- Create the actual foreign key relationship
 );
 
-CREATE TABLE IF NOT EXISTS Departing (
+CREATE TABLE IF NOT EXISTS DEPARTING (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+    CONSTRAINT fk_Departing_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS Arriving (
+CREATE TABLE IF NOT EXISTS ARRIVING (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+    CONSTRAINT fk_Arriving_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS Forums (
+CREATE TABLE IF NOT EXISTS FORUMS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     forum_name VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Forum_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+    CONSTRAINT fk_Forum_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS Community (
+CREATE TABLE IF NOT EXISTS COMMUNITY (
     id INT AUTO_INCREMENT PRIMARY KEY,
     community_name VARCHAR(255) NOT NULL,
 --    region VARCHAR(30) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Community_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+    CONSTRAINT fk_Community_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS Comments (
+CREATE TABLE IF NOT EXISTS COMMENTS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     comment_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
-    CONSTRAINT fk_Comments_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+    CONSTRAINT fk_Comments_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );

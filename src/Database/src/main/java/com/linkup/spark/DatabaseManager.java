@@ -72,7 +72,7 @@ public class DatabaseManager {
     } else {
       try (Statement statement = this.sqlConnection.createStatement()) {
         int rowsAffected = statement.executeUpdate(query);
-        return "<rowsChanged>" + String.valueOf(rowsAffected) +
+        return "<rowsChanged:int>" + String.valueOf(rowsAffected) +
             "</rowsChanged>";
       }
     }
@@ -95,7 +95,7 @@ public class DatabaseManager {
 
     sb.append("<table:parent>");
     while (resultSet.next()) {
-      sb.append("<row>");
+      sb.append("<row:parent>");
       for (int i = 1; i <= columnCount; i++) {
         String columnName = metaData.getColumnName(i);
         Object value = resultSet.getObject(i);

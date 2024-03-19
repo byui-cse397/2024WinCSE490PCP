@@ -17,6 +17,8 @@ import java.net.InetSocketAddress;
 import java.security.KeyStore;
 import java.sql.SQLException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
@@ -24,11 +26,12 @@ import javax.net.ssl.TrustManagerFactory;
 public class HTTPSServer {
   private SSLContext context;
   private HttpsServer server; // Make the server a class-level field
-
+  private final ScheduledExecutorService scheduler =
+      Executors.newScheduledThreadPool(1);
   public HTTPSServer(DatabaseManager db) throws Exception {
     // Set up the HTTPS server
     server = HttpsServer.create(new InetSocketAddress(4039), 0);
-    // new KeyGen();
+    new KeyGen();
     createSSLContext();
     server.setHttpsConfigurator(new HttpsConfigurator(this.context));
     server.createContext("/", new MyHandler(this, db));
@@ -109,8 +112,10 @@ public class HTTPSServer {
       os.write(response.getBytes());
       os.close();
 
-      if (stopServer)
-        server.stopServer();
+      if (stopServer) {
+        System.out.println(
+            "Stopping the server still needs to be implemented!");
+      }
     }
   }
 
