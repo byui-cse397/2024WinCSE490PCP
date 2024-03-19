@@ -1,4 +1,5 @@
 src/Back-End/target
 src/Database/target
+src/Database/keystore.jks
 /src/Database/tests/__pycache__
 .ds_store
