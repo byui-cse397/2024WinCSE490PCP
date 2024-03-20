@@ -5,6 +5,7 @@ import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.user.DeleteUser;
 import com.linkup.user.User;
+import com.linkup.user.UserProfile;
 
 public class App {
   private static final Logger logger = Logger.getLogger(App.class.getName());
@@ -31,7 +32,14 @@ public class App {
       if (e.getMessage().contains("password"))
         System.out.println("Confirmation Password was incorrect");
     }
-    // Do the rest of backend
+
+    UserProfile editProfile = new UserProfile(1, "username", "email@email.com");
+    try {
+      editProfile.performDBAction();
+    } catch (FrontEndUsageException e) {
+      if (e.getMessage().contains("password"))
+        System.out.println("Confirmation Password was incorrect");
+    }
 
     // Stop database server and close connection:
     closeConnection();
