@@ -63,8 +63,10 @@ public enum XMLType {
   public abstract DBResult<?> parse(String input);
 
   public static XMLType fromString(String type) {
+    String lowerCaseType = type.toLowerCase();
     for (XMLType xmlType : XMLType.values()) {
-      if (xmlType.name().equalsIgnoreCase(type)) {
+      if (xmlType.name().toLowerCase().startsWith(
+              lowerCaseType.substring(0, 3))) {
         return xmlType;
       }
     }

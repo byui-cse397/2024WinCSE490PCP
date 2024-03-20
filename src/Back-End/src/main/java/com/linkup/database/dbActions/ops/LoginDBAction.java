@@ -6,14 +6,15 @@ import java.util.Map;
 public abstract class LoginDBAction extends BuildDBAction {
   protected String buildQuery(Map<String, String> colValueMap) {
     String username = colValueMap.get("username");
-    String password = colValueMap.get("password");
+    String password = colValueMap.get("password_hash");
     StringBuilder sb = new StringBuilder();
     sb.append("SELECT * FROM ")
         .append(getTable())
-        .append(" WHERE username = ")
+        .append(" WHERE username = '")
         .append(username)
-        .append(" AND password_hash = ")
-        .append(password);
+        .append("' AND password_hash = '")
+        .append(password)
+        .append("';");
     String query = sb.toString();
     return query;
   }
