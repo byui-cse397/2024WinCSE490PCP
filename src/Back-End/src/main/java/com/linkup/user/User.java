@@ -4,6 +4,8 @@ import com.linkup.database.dbActions.ops.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -124,14 +126,20 @@ public class User extends CreateDBAction {
   public void setActive(boolean active) { isActive = active; logger.info("User activity status updated: " + active);}
 
   // Method to create a new user account
-  public void createNewUser(int id, String username, String email,
+  public void createNewUser( String username, String email,
                             String password) {
     // Create a new user object with provided information
     User newUser = new User(username, email, password);
 
     // Here we would typically add additional logic to save the user to a
-    // database For demonstration, let's assume we are building a query to
-    // insert user data into a database
+    // database For demonstration, let's assume we are building a query to// insert user data into a database
+//    // Map user attributes to column-value pairs
+//    Map<String, String> colValueMap = new HashMap<>();
+//    colValueMap.put("Username", newUser.getUsername());
+//    colValueMap.put("Email", newUser.getEmail());
+//    colValueMap.put("Password", newUser.getPassword()); // Storing password hash in the database is recommended
+
+
     logger.info("New user created: " + newUser.getUsername());
   }
 

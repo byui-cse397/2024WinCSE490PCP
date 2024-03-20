@@ -3,6 +3,7 @@ import java.util.logging.*;
 
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
+import com.linkup.user.DeleteUser;
 import com.linkup.user.User;
 
 public class App {
@@ -20,6 +21,15 @@ public class App {
     } catch (FrontEndUsageException e) {
       e.printStackTrace();
       logger.log(Level.SEVERE, "Error performing database action", e);
+    }
+
+    DeleteUser removal = new DeleteUser(1, "user", "email", "password", "confirmationPassword",
+                    "I'm a bad person");
+    try {
+      removal.performDBAction();
+    } catch (FrontEndUsageException e) {
+      if (e.getMessage().contains("password"))
+        System.out.println("Confirmation Password was incorrect");
     }
     // Do the rest of backend
 

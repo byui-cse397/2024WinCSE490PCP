@@ -32,23 +32,20 @@ public class DeleteUser extends DeleteDBAction {
   }
 
   // Method to initiate the deletion process
-  private void deleteAccount(){
-    // Log deletion process initiation
-    logger.info("Initiating account deletion process.");
+  private Boolean deleteAccount() {
+    Boolean delete_flag = true;
     // Check if credentials are valid for deletion
-    if (!validateCredentials()){
-      // Log invalid credentials for deletion
-      logger.warning("Invalid credentials provided for account deletion.");
-      validateCredentials(); // Display error message if credentials are invalid
-    } else if (validateCredentials()) {
+    Boolean credentials = validateCredentials();
+    if (!credentials) {
+      delete_flag = false;
+    } else {
       confirmDeletion(); // Confirm deletion if credentials are valid
       // Check if the provided username and password match the expected values
-      String query = buildQuery(this.userId); // Build query to delete user account from the database
-
-      System.out.println(query); // Print the delete query for debugging purposes
-      logger.info("Deletion query: " + query); // Log deletion query for debugging purposes
+      // Log user deletion
     }
+    return delete_flag;
   }
+
 
   // Method to execute the deletion process
   public void execute(){
@@ -78,8 +75,15 @@ public class DeleteUser extends DeleteDBAction {
 
   @Override
   public Boolean checks() throws FrontEndUsageException {
-    return null;
+    Boolean delete = deleteAccount();
+    if (!delete) {
+      throw new FrontEndUsageException("Confirmation password was invalid.") {
+
+      };
+    }
+    return delete;
   }
+
 
   // Method to specify the table in the database from which the user account should be deleted
   public Table getTable() {
