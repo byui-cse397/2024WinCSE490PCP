@@ -6,7 +6,7 @@ import java.util.Map;
 public abstract class ReadDBAction extends BuildDBAction {
   protected String buildQuery(int id) {
     String where = BuildDBAction.buildWhere(id);
-    String query = "SELECT * FROM " + getTable() + where;
+    String query = "SELECT * FROM " + getTable() + where + ";";
     return query;
   }
 

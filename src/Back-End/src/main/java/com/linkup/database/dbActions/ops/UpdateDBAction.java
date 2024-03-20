@@ -17,7 +17,7 @@ public abstract class UpdateDBAction extends BuildDBAction {
     }
     String setClause = setClauseBuilder.toString();
     String where = BuildDBAction.buildWhere(id);
-    String query = "UPDATE " + getTable() + setClause + where;
+    String query = "UPDATE " + getTable() + setClause + where + ";";
     return query;
   }
 

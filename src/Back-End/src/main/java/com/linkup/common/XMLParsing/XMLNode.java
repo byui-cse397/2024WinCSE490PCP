@@ -2,12 +2,11 @@ package com.linkup.common.XMLParsing;
 
 import com.linkup.common.XMLParsing.parser.DBResult;
 import java.util.ArrayList;
-import java.util.List;
 
 public class XMLNode {
   private String tagName;
   private DBResult<?> value;
-  private List<XMLNode> children;
+  private ArrayList<XMLNode> children;
 
   /**
    * XMLNode is an object to keep track of the contents of XML-like tags.
@@ -19,7 +18,7 @@ public class XMLNode {
   public XMLNode(String tagName, String type, String value) {
     this.tagName = tagName;
     this.value = XMLType.parseValue(type, value);
-    this.children = new ArrayList<>();
+    this.children = new ArrayList<XMLNode>();
   }
 
   public void addChild(XMLNode child) { children.add(child); }
@@ -27,6 +26,8 @@ public class XMLNode {
   public String getTagName() { return this.tagName; }
 
   public Object getValue() { return this.value.getResult(); }
+
+  public ArrayList<XMLNode> getChildren() { return this.children; }
 
   @Override
   public String toString() {

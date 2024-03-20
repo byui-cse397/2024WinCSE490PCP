@@ -6,20 +6,23 @@ import com.linkup.database.table.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoginUser extends ReadDBAction {
+public class LoginUser extends LoginDBAction {
   // Logger for logging messages
-  private static final Logger logger = Logger.getLogger(LoginUser.class.getName());
+  private static final Logger logger =
+      Logger.getLogger(LoginUser.class.getName());
 
   // Member variables to store user information required for login
   private int userId;
   private String username;
   private String password;
+  private String password_hash;
 
   // Constructor to initialize user information
   public LoginUser(int Id, String username, String password) {
     this.userId = Id;
     this.username = username;
     this.password = password;
+    this.password_hash = password;
   }
 
   // Method to authenticate the user
@@ -29,16 +32,11 @@ public class LoginUser extends ReadDBAction {
       // Log empty username or password
       logger.warning("Empty username or password provided for authentication.");
       return false; // Return false if username or password is empty
-
     }
 
     // Check if the provided username and password match the expected values
-    String query = buildQuery(
-        this.userId); // Build query to authenticate user from database
-
-    logger.info("Authentication query: " + query); // Log the authentication query for debugging purposes
-    //System.out.println(
-        //query); // Print the authentication query for debugging purposes
+    // System.out.println(
+    // query); // Print the authentication query for debugging purposes
 
     return true; // Return true indicating successful authentication
   }
@@ -48,7 +46,7 @@ public class LoginUser extends ReadDBAction {
 
   @Override
   public Boolean checks() throws FrontEndUsageException {
-    return null;
+    return true;
   }
 
   // Implement the getTable method from BuildDBAction

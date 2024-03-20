@@ -6,7 +6,7 @@ import java.util.Map;
 public abstract class DeleteDBAction extends BuildDBAction {
   protected String buildQuery(int id) {
     String where = BuildDBAction.buildWhere(id);
-    String query = "DELETE FROM " + getTable() + where;
+    String query = "DELETE FROM " + getTable() + where + ";";
     return query;
   }
 
