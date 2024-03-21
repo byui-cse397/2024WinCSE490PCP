@@ -1,5 +1,6 @@
 package com.linkup;
 import com.linkup.common.XMLParsing.XMLNode;
+import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.user.LoginUser;
@@ -15,10 +16,10 @@ public class App {
     // @LOGIN_DB_FUNCTIONALITY_TEST
     LoginUser login = new LoginUser(-999, "username_001", "password_001");
     try {
-      XMLNode node = (XMLNode)login.performDBAction().getValue();
-      System.out.println("Login output: " + node.toString());
+      XMLNode<XMLParent> node = login.performDBAction();
+      System.out.println("Login output: \n" + node.toString());
       System.out.println("Double checking... children count: " +
-                         node.getChildren().size());
+                         node.getValue().getChildren().size());
 
     } catch (FrontEndUsageException e) {
       e.printStackTrace();
@@ -28,8 +29,8 @@ public class App {
     // @USER_DB_FUNCTIONALITY_TEST
     User user = new User("username_001", "email@domain.com", "password_001");
     try {
-      Integer returnValue = (Integer)user.performDBAction().getValue();
-      logger.info("Rows updated: " + returnValue);
+      XMLNode<Integer> node = user.performDBAction();
+      logger.info("Rows updated: " + node.getValue());
       // System.out.println("Rows updated: " + returnValue);
     } catch (FrontEndUsageException e) {
       e.printStackTrace();

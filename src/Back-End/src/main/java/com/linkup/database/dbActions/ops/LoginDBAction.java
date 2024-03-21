@@ -1,6 +1,9 @@
 package com.linkup.database.dbActions.ops;
 
+import com.linkup.common.XMLParsing.XMLNode;
+import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.database.dbActions.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import java.util.Map;
 
 public abstract class LoginDBAction extends BuildDBAction {
@@ -29,5 +32,12 @@ public abstract class LoginDBAction extends BuildDBAction {
   protected Map<String, String> cleanMap(Map<String, String> colValueMap) {
     colValueMap.remove("Table");
     return colValueMap;
+  }
+
+  public XMLNode<XMLParent> performDBAction() throws FrontEndUsageException {
+    if (checks()) {
+      return (XMLNode<XMLParent>)actionBuilder();
+    }
+    return null;
   }
 }
