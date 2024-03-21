@@ -68,7 +68,7 @@ public class UserManager {
     LoginUser login = new LoginUser(-999, username, password);
     XMLNode<XMLParent> node = login.performDBAction();
     ArrayList<XMLNode<?>> rows = node.getValue().getChildren();
-    XMLNode<XMLParent> first_result = (XMLNode<XMLParent>)rows.getFirst();
+    XMLNode<XMLParent> first_result = (XMLNode<XMLParent>)rows.get(0);
     ArrayList<XMLNode<?>> first_items = first_result.getValue().getChildren();
     for (XMLNode<?> item : first_items) {
       if (item.getTagName().toUpperCase().equals("ID")) {
