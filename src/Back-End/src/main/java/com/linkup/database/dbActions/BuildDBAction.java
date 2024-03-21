@@ -118,22 +118,15 @@ public abstract class BuildDBAction implements DBActionInterface {
     return map;
   }
 
-  protected XMLNode actionBuilder() {
+  protected XMLNode<?> actionBuilder() {
     String query = queryBuilder();
     String queryResults = queryHandler(query);
     try {
-      XMLNode node = new XMLParser(queryResults, null).parse();
+      XMLNode<?> node = new XMLParser(queryResults, null).parse();
       return node;
     } catch (IOException e) {
       e.printStackTrace();
     }
     return null;
-  }
-
-  public XMLNode performDBAction() throws FrontEndUsageException {
-    if (!checks()) {
-      return null;
-    }
-    return actionBuilder();
   }
 }

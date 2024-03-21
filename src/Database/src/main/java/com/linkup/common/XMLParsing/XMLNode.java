@@ -1,11 +1,12 @@
 package com.linkup.common.XMLParsing;
 
+import com.linkup.common.XMLParsing.parser.DBResult;
 import java.util.ArrayList;
 import java.util.List;
 
 public class XMLNode {
   private String tagName;
-  private Object value;
+  private DBResult<?> value;
   private List<XMLNode> children;
 
   /**
@@ -25,7 +26,7 @@ public class XMLNode {
 
   public String getTagName() { return this.tagName; }
 
-  public Object getValue() { return this.value; }
+  public Object getValue() { return this.value.getResult(); }
 
   @Override
   public String toString() {

@@ -17,13 +17,14 @@ public interface DBActionInterface {
    * calling:
    * T result = OBJECT.performDBAction().getResult();
    *
-   * CREATE returns an XMLNode representing the new UserID
-   * READ returns an XMLNode containing the table values
-   * UPDATE returns an XMLNode representing the number of rows affected by the
-   * query
-   * DELETE returns an XMLNode representing the number of rows affected by
-   * the query
-   * LOGIN returns an XMLNode representing the matching user(s).
+   * CREATE returns an XMLNode<XMLParent> representing the new UserID
+   * READ returns an XMLNode<XMLParent> containing the table values
+   * UPDATE returns an XMLNode<Integer> representing the number of rows affected
+   * by the query
+   * DELETE returns an XMLNode<Integer> representing the number of
+   * rows affected by the query
+   * LOGIN returns an XMLNode<XMLParent> representing
+   * the matching user(s).
    *
    *
    * If you have questions about how your object can implement the
@@ -41,7 +42,7 @@ public interface DBActionInterface {
    * 5. Add the call internally to your method to .performDBAction() after your
    *    internal checks have been met
    */
-  public XMLNode performDBAction() throws FrontEndUsageException;
+  public XMLNode<?> performDBAction() throws FrontEndUsageException;
 
   /**
    * Place all of the necessary checks to be run prior to executing

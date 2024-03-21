@@ -1,7 +1,15 @@
 package com.linkup.common.XMLParsing.parser;
 
-public interface DBResult<T> {
-  void parse(String input);
+public abstract class DBResult<T> {
+  protected T result;
 
-  T getResult();
+  public DBResult(String input) { this.parse(input); }
+
+  abstract T parser(String input);
+
+  private void parse(String input) {
+    T result = parser(input);
+    this.result = result;
+  }
+  public T getResult() { return result; }
 }

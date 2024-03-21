@@ -21,7 +21,7 @@ public class LoginUserTest {
   // incorrect password.
   @Test
   public void testAuthenticateFailureIncorrectPassword() {
-    LoginUser loginUser = new LoginUser(123456,"user123", "wrongpassword");
+    LoginUser loginUser = new LoginUser(123456, "user123", "wrongpassword");
     assertFalse(loginUser.authenticate());
   }
 
@@ -30,7 +30,7 @@ public class LoginUserTest {
   // incorrect username.
   @Test
   public void testAuthenticateFailureIncorrectUsername() {
-    LoginUser loginUser = new LoginUser(123456,"invaliduser", "password123");
+    LoginUser loginUser = new LoginUser(123456, "invaliduser", "password123");
     assertFalse(loginUser.authenticate());
   }
 
@@ -39,7 +39,7 @@ public class LoginUserTest {
   // username.
   @Test
   public void testAuthenticateFailureEmptyUsername() {
-    LoginUser loginUser = new LoginUser(123456,"", "password123");
+    LoginUser loginUser = new LoginUser(123456, "", "password123");
     assertFalse(loginUser.authenticate());
   }
 
@@ -48,7 +48,7 @@ public class LoginUserTest {
   // password.
   @Test
   public void testAuthenticateFailureEmptyPassword() {
-    LoginUser loginUser = new LoginUser(123456,"user123", "");
+    LoginUser loginUser = new LoginUser(123456, "user123", "");
     assertFalse(loginUser.authenticate());
   }
 }

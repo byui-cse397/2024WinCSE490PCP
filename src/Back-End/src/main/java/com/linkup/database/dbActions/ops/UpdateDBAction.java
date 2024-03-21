@@ -1,6 +1,8 @@
 package com.linkup.database.dbActions.ops;
 
+import com.linkup.common.XMLParsing.XMLNode;
 import com.linkup.database.dbActions.*;
+import com.linkup.database.exceptions.FrontEndUsageException;
 import java.util.Map;
 
 public abstract class UpdateDBAction extends BuildDBAction {
@@ -17,7 +19,7 @@ public abstract class UpdateDBAction extends BuildDBAction {
     }
     String setClause = setClauseBuilder.toString();
     String where = BuildDBAction.buildWhere(id);
-    String query = "UPDATE " + getTable() + setClause + where;
+    String query = "UPDATE " + getTable() + setClause + where + ";";
     return query;
   }
 
@@ -34,5 +36,12 @@ public abstract class UpdateDBAction extends BuildDBAction {
     colValueMap.remove("Table");
     colValueMap.remove("ID");
     return colValueMap;
+  }
+
+  public XMLNode<Integer> performDBAction() throws FrontEndUsageException {
+    if (checks()) {
+      return (XMLNode<Integer>)actionBuilder();
+    }
+    return null;
   }
 }
