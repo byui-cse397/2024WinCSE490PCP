@@ -9,7 +9,7 @@ class HasUsernameField(DBTest):
         """
         cursor = connection.cursor()
         try:
-            cursor.execute("DESCRIBE Account")
+            cursor.execute("DESCRIBE Accounts")
             columns = cursor.fetchall()
             
             for column in columns:
