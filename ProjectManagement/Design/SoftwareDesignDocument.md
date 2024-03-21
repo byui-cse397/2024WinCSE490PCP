@@ -584,8 +584,14 @@ erDiagram
         varchar[300] message_content
         datetime message_time
     }
-
 ```
+### Account Sequence Diagram
+![Account Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Account.drawio.png)
+### Post Sequence Diagram
+![Post Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Post.drawio.png)
+### Community Sequence Diagram
+![Community Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Community.drawio.png)
+
 ## 5. Detailed System Design
 
 ### Main Feature: User Login
