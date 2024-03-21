@@ -1,43 +1,28 @@
 package com.linkup;
-import com.linkup.common.XMLParsing.XMLNode;
-import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
-import com.linkup.user.LoginUser;
-import com.linkup.user.User;
+import com.linkup.user.UserManager;
 import java.util.logging.*;
 
 public class App {
-  private static final Logger logger = Logger.getLogger(App.class.getName());
+  static Logger logger;
   public static void main(String[] args) {
+    // Setup logging:
+    logger = LoggingManager.getLogger();
     // Resolve database host:
     establishConnection();
 
-    // @LOGIN_DB_FUNCTIONALITY_TEST
-    LoginUser login = new LoginUser(-999, "username_001", "password_001");
+    UserManager manager = new UserManager();
     try {
-      XMLNode<XMLParent> node = login.performDBAction();
-      System.out.println("Login output: \n" + node.toString());
-      System.out.println("Double checking... children count: " +
-                         node.getValue().getChildren().size());
-
+      Integer userID = manager.createNewUser("username_002", "email@domain.net",
+                                             "password_002");
+      StringBuilder sb = new StringBuilder();
+      sb.append("User ").append(userID).append(
+          " created and logged in successfully.");
+      System.out.println(sb.toString());
     } catch (FrontEndUsageException e) {
-      e.printStackTrace();
-      logger.log(Level.SEVERE, "Error performing database action", e);
+      // parse this message and send it to FE
     }
-
-    // @USER_DB_FUNCTIONALITY_TEST
-    User user = new User("username_001", "email@domain.com", "password_001");
-    try {
-      XMLNode<Integer> node = user.performDBAction();
-      logger.info("Rows updated: " + node.getValue());
-      // System.out.println("Rows updated: " + returnValue);
-    } catch (FrontEndUsageException e) {
-      e.printStackTrace();
-      logger.log(Level.SEVERE, "Error performing database action", e);
-    }
-
-    // Do the rest of backend
 
     // Stop database server and close connection:
     closeConnection();
