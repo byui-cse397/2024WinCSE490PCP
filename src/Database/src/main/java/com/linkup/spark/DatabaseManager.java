@@ -102,7 +102,6 @@ public class DatabaseManager {
     int results = 0;
     while (resultSet.next()) {
       ++results;
-      System.out.println("Results: " + results);
       sb.append("<row:parent>");
       for (int i = 1; i <= columnCount; i++) {
         String columnName = metaData.getColumnName(i);
