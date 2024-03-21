@@ -17,7 +17,7 @@ public interface DBActionInterface {
    * calling:
    * T result = OBJECT.performDBAction().getResult();
    *
-   * CREATE returns an XMLNode<XMLParent> representing the new UserID
+   * CREATE returns an XMLNode<Integer> representing the new UserID
    * READ returns an XMLNode<XMLParent> containing the table values
    * UPDATE returns an XMLNode<Integer> representing the number of rows affected
    * by the query
