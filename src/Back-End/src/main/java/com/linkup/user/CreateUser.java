@@ -10,7 +10,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-/*
+/**
   The User class represents a user entity with various attributes such as ID,
   username, email, etc. It provides getter and setter methods to access and
   modify user information. The createNewUser method is intended to be used for

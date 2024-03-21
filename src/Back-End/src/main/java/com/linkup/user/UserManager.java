@@ -8,15 +8,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.*;
 
+/**
+ * Manages user-related operations such as login and user creation.
+ */
 public class UserManager {
   HashMap<Integer, User> activeUsers;
   private Logger logger;
 
+  /**
+   * Constructor to initialize the UserManager.
+   */
   public UserManager() {
     logger = LoggingManager.getLogger();
     activeUsers = new HashMap<>();
   }
 
+  /**
+   * Handles user login by validating credentials and creating a new User object if successful.
+   * @param username The username of the user trying to log in.
+   * @param password The password of the user trying to log in.
+   * @return The userID of the logged-in user.
+   * @throws FrontEndUsageException If there is a front-end usage exception.
+   */
   public Integer loginHandler(String username, String password)
       throws FrontEndUsageException {
     Integer request = loginRequest(username, password);
@@ -27,6 +40,14 @@ public class UserManager {
     return request;
   }
 
+  /**
+   * Creates a new user by invoking the CreateUser action and handling the login process.
+   * @param username The username of the new user.
+   * @param email The email of the new user.
+   * @param password The password of the new user.
+   * @return The userID of the newly created user.
+   * @throws FrontEndUsageException If there is a front-end usage exception.
+   */
   public Integer createNewUser(String username, String email, String password)
       throws FrontEndUsageException {
     User.Create(username, email, password);
@@ -34,6 +55,13 @@ public class UserManager {
     return userID;
   }
 
+  /**
+   * Sends a login request to the database to authenticate the user and retrieve their userID.
+   * @param username The username of the user trying to log in.
+   * @param password The password of the user trying to log in.
+   * @return The userID of the logged-in user.
+   * @throws FrontEndUsageException If there is a front-end usage exception.
+   */
   private Integer loginRequest(String username, String password)
       throws FrontEndUsageException {
     Integer id = null;
@@ -50,6 +78,10 @@ public class UserManager {
     return id;
   }
 
-  // Method to get a user by userID
+  /**
+   * Retrieves a user by their userID.
+   * @param userID The userID of the user to retrieve.
+   * @return The User object corresponding to the userID.
+   */
   public User getUserById(Integer userID) { return activeUsers.get(userID); }
 }
