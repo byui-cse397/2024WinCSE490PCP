@@ -1,21 +1,21 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-class PostHasAccountId(DBTest):
+class HasMessageContent(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Post table has a 'account_id' field.
+        Verify if the Messages table has a 'message_content' field.
         """
         cursor = connection.cursor()
 
         try:
-            cursor.execute("DESCRIBE Post")
+            cursor.execute("DESCRIBE Messages")
             columns = cursor.fetchall()
             for column in columns:
-                if 'accounts_id' in column:
-                    # 'account_id' field found
+                if 'message_content' in column:
+                    # 'message_content' field found
                     return True
-                # 'account_id' field not found
+                # 'message_content' field not found
             return False
         except Error:
             # Error occurred

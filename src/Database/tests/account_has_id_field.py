@@ -1,21 +1,22 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-class PostHasAccountId(DBTest):
+
+class HasIdField(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Post table has a 'account_id' field.
+        Verify if the Accounts table has a 'username' field.
         """
         cursor = connection.cursor()
-
         try:
-            cursor.execute("DESCRIBE Post")
+            cursor.execute("DESCRIBE Accounts")
             columns = cursor.fetchall()
+            
             for column in columns:
-                if 'accounts_id' in column:
-                    # 'account_id' field found
+                if column[0] == 'id':
+                    # 'username' field found
                     return True
-                # 'account_id' field not found
+            # 'username' field not found
             return False
         except Error:
             # Error occurred

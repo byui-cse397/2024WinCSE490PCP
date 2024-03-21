@@ -1,21 +1,21 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-class PostHasAccountId(DBTest):
+class HasCommentText(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Post table has a 'account_id' field.
+        Verify if the Comments table has a 'comment_text' field.
         """
         cursor = connection.cursor()
 
         try:
-            cursor.execute("DESCRIBE Post")
+            cursor.execute("DESCRIBE Comments")
             columns = cursor.fetchall()
             for column in columns:
-                if 'accounts_id' in column:
-                    # 'account_id' field found
+                if 'comment_text' in column:
+                    # 'comment_text' field found
                     return True
-                # 'account_id' field not found
+                # 'comment_text' field not found
             return False
         except Error:
             # Error occurred

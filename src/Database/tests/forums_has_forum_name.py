@@ -1,22 +1,21 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-
-class HasIdField(DBTest):
+class HasForumName(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Account table has a 'username' field.
+        Verify if the Forum table has a 'forum_name' field.
         """
         cursor = connection.cursor()
+
         try:
-            cursor.execute("DESCRIBE Accounts")
+            cursor.execute("DESCRIBE Forums")
             columns = cursor.fetchall()
-            
             for column in columns:
-                if column[0] == 'id':
-                    # 'username' field found
+                if 'forum_name' in column:
+                    # 'forum_name' field found
                     return True
-            # 'username' field not found
+                # 'forum_name' field not found
             return False
         except Error:
             # Error occurred

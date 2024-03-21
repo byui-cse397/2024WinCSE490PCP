@@ -1,21 +1,21 @@
 from mysql.connector import MySQLConnection, Error
 from db_test import DBTest
 
-class PostHasAccountId(DBTest):
+class HasCommunityName(DBTest):
     def _test(self, connection: MySQLConnection) -> bool:
         """
-        Verify if the Post table has a 'account_id' field.
+        Verify if the Community table has a 'community_name' field.
         """
         cursor = connection.cursor()
 
         try:
-            cursor.execute("DESCRIBE Post")
+            cursor.execute("DESCRIBE Community")
             columns = cursor.fetchall()
             for column in columns:
-                if 'accounts_id' in column:
-                    # 'account_id' field found
+                if 'community_name' in column:
+                    # 'community_name' field found
                     return True
-                # 'account_id' field not found
+                # 'community_name' field not found
             return False
         except Error:
             # Error occurred
