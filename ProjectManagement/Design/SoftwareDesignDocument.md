@@ -17,7 +17,11 @@
 - George Krenk
 - Allan Marina (Team Lead)
 ### Database
-
+- Joshua Bee
+- Brian Anderson
+- Nolan Jeppson
+- Kjellden Knutzen
+- Claudio Parra
 
 ## Submitted to
 Brother William Clements  
