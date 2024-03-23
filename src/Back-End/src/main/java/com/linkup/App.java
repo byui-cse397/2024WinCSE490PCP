@@ -1,7 +1,9 @@
 package com.linkup;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
+import com.linkup.frontendConnector.FrontendConnector;
 import com.linkup.user.UserManager;
+import java.io.IOException;
 import java.util.logging.*;
 
 /**
@@ -18,6 +20,15 @@ public class App {
    */
   public static void main(String[] args) {
     // Setup logging:
+    //
+    System.out.println("Starting connection");
+    try {
+      FrontendConnector connector = new FrontendConnector();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    /*
     logger = LoggingManager.getLogger();
     // Resolve database host:
     establishConnection();
@@ -34,11 +45,13 @@ public class App {
           " created and logged in successfully.");
       System.out.println(sb.toString());
     } catch (FrontEndUsageException e) {
-      // Handle frontend usage exception by parsing the message and sending it to the frontend
+      // Handle frontend usage exception by parsing the message and sending it
+      // to the frontend
     }
 
     // Stop database server and close connection:
     closeConnection();
+    */
   }
 
   /**
