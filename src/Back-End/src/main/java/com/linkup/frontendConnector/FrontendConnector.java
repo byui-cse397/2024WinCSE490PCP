@@ -1,5 +1,6 @@
 package com.linkup.frontendConnector;
 
+import com.linkup.database.exceptions.FrontEndUsageException;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -36,11 +37,19 @@ public class FrontendConnector {
         }
       }
       String requestBodyString = requestBodyBuilder.toString();
-      System.out.println("Request body: " + requestBodyString);
 
-      // Prepare response
-      String response = "Received " + requestMethod +
-                        " request with body: " + requestBodyString;
+      String response;
+      try {
+        FrontendResponseParser.parseMessage(requestBodyString);
+        response = "<Backend:String>200</Backend>";
+      } catch (FrontEndUsageException e) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<FEError:String>")
+            .append(e.getMessage())
+            .append("</FEError>");
+        response = sb.toString();
+      }
+
       exchange.sendResponseHeaders(200, response.length());
       try (OutputStream responseBody = exchange.getResponseBody()) {
         responseBody.write(response.getBytes(StandardCharsets.UTF_8));
