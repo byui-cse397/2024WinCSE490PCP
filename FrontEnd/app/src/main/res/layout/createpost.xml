@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createpost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:textAlignment="center">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="728dp"
+        android:layout_height="1114dp"
+        android:layout_marginEnd="36dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.662"
+        app:srcCompat="@drawable/rounded_border"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="680dp"
+        android:layout_height="876dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/rect_boarder"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="414dp"
+        android:layout_height="96dp"
+        android:text="@string/poster"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.906" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="273dp"
+        android:layout_height="58dp"
+        android:text="@string/Goback"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.468" />
+
+    <TextView
+        android:id="@+id/CreatePostPageTitle"
+        android:layout_width="433dp"
+        android:layout_height="73dp"
+        android:text="@string/CpostTitle"
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.432"
+        tools:ignore="TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/CreatePostTitle"
+        android:layout_width="473dp"
+        android:layout_height="60dp"
+        android:autofillHints=""
+        android:background="@drawable/rounded_border"
+        android:ems="10"
+        android:hint="@string/CpostName"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColorHint="#78909C"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <EditText
+        android:id="@+id/CreatePostBox"
+        android:layout_width="595dp"
+        android:layout_height="700dp"
+        android:autofillHints=""
+        android:background="@drawable/rounded_border"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/Cpostdescription"
+        android:inputType="textMultiLine"
+        android:textColorHint="#78909C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/CreatePostTitle"
+        app:layout_constraintVertical_bias="0.268" />
+</androidx.constraintlayout.widget.ConstraintLayout>
