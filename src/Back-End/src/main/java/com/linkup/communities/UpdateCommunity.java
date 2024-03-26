@@ -6,11 +6,13 @@ import com.linkup.database.table.Table;
 
 public class UpdateCommunity extends UpdateDBAction {
   String community_name;
+  Integer parent_account_id;
   int Id;
 
   public int getID() { return Id; }
 
-  public UpdateCommunity(String newCommunityName, Integer communityID) {
+  public UpdateCommunity(String newCommunityName, Integer communityID,
+                         Integer parent_account_id) {
     this.community_name = newCommunityName;
     this.Id = communityID;
   }

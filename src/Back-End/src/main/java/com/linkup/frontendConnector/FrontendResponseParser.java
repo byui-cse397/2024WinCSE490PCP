@@ -3,6 +3,7 @@ package com.linkup.frontendConnector;
 import com.linkup.common.XMLParsing.XMLNode;
 import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.common.XMLParsing.XMLParser;
+import com.linkup.communities.CommunityManager;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.user.UserManager;
 import java.io.IOException;
@@ -15,7 +16,6 @@ public class FrontendResponseParser {
   // parseMessage doesn't return anything, but probably should...
   public static void parseMessage(String message)
       throws FrontEndUsageException {
-    UserManager manager = UserManager.getManager();
     try {
       Map<String, String> map = new HashMap<String, String>();
       XMLParser parser = new XMLParser(message, null);
@@ -27,11 +27,24 @@ public class FrontendResponseParser {
 
       switch (node.getTagName()) {
       case "userLogin":
-        manager.loginHandler(map.get("username"), map.get("password_hash"));
+        UserManager.loginHandler(map.get("username"), map.get("password_hash"));
         break;
       case "userCreate":
-        manager.createNewUser(map.get("username"), map.get("email"),
-                              map.get("password_hash"));
+        UserManager.createNewUser(map.get("username"), map.get("email"),
+                                  map.get("password_hash"));
+        break;
+      case "communityCreate":
+        CommunityManager.CreateCommunity(map.get("community_name"),
+                                         map.get("username"));
+        break;
+      case "communityDelete":
+        CommunityManager.DeleteCommunity("community_name");
+        break;
+
+      case "communityUpdate":
+        CommunityManager.transferCommunityOwnership("community_name",
+                                                    "username");
+        break;
 
       default:
         throw new FrontEndUsageException(

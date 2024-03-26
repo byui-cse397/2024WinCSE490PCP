@@ -13,7 +13,6 @@ import java.util.logging.*;
  */
 public class UserManager {
   static UserManager manager;
-  HashMap<Integer, User> activeUsers;
   private Logger logger;
 
   /**
@@ -22,7 +21,6 @@ public class UserManager {
   public UserManager() {
     if (manager == null) {
       logger = LoggingManager.getLogger();
-      activeUsers = new HashMap<>();
       manager = this;
     }
   }
@@ -40,12 +38,12 @@ public class UserManager {
    * @return The userID of the logged-in user.
    * @throws FrontEndUsageException If there is a front-end usage exception.
    */
-  public Integer loginHandler(String username, String password)
+  public static Integer loginHandler(String username, String password)
       throws FrontEndUsageException {
     Integer request = loginRequest(username, password);
     if (request != null) {
       User user = new User(request);
-      activeUsers.put(request, user);
+      // TODO: Update user last request (new field in account table?)
     }
     return request;
   }
@@ -59,7 +57,8 @@ public class UserManager {
    * @return The userID of the newly created user.
    * @throws FrontEndUsageException If there is a front-end usage exception.
    */
-  public Integer createNewUser(String username, String email, String password)
+  public static Integer createNewUser(String username, String email,
+                                      String password)
       throws FrontEndUsageException {
     User.Create(username, email, password);
     Integer userID = loginHandler(username, password);
@@ -74,7 +73,7 @@ public class UserManager {
    * @return The userID of the logged-in user.
    * @throws FrontEndUsageException If there is a front-end usage exception.
    */
-  private Integer loginRequest(String username, String password)
+  private static Integer loginRequest(String username, String password)
       throws FrontEndUsageException {
     Integer id = null;
     LoginUser login = new LoginUser(-999, username, password);
@@ -90,10 +89,20 @@ public class UserManager {
     return id;
   }
 
-  /**
-   * Retrieves a user by their userID.
-   * @param userID The userID of the user to retrieve.
-   * @return The User object corresponding to the userID.
-   */
-  public User getUserById(Integer userID) { return activeUsers.get(userID); }
+  public static Integer lookupIdByUsername(String username)
+      throws FrontEndUsageException {
+    FindUser finder = new FindUser(username);
+    XMLNode<XMLParent> userParentNode = finder.performDBAction();
+    for (XMLNode<?> childNode :
+         ((XMLNode<XMLParent>)userParentNode.getValue().getChildren().get(0))
+             .getValue()
+             .getChildren()) {
+      if ("id".equals(childNode.getTagName())) {
+        return (Integer)childNode.getValue();
+      }
+    }
+    throw new FrontEndUsageException("Invalid username was supplied.") {
+
+    };
+  }
 }

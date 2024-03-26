@@ -2,6 +2,7 @@ package com.linkup.user;
 
 import com.linkup.LoggingManager;
 import com.linkup.common.XMLParsing.XMLNode;
+import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import java.time.Instant;
 import java.util.logging.*;
@@ -23,6 +24,8 @@ public class User {
     this.userID = userID;
     this.lastActionTime = Instant.now();
   }
+
+  public Integer getUserId() { return userID; }
 
   /**
    * Creates a new user with the provided username, email, and password.

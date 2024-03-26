@@ -6,9 +6,11 @@ import com.linkup.database.table.Table;
 
 public class CreateCommunity extends CreateDBAction {
   String community_name;
+  Integer parent_account_id;
 
-  public CreateCommunity(String communityName) {
+  public CreateCommunity(String communityName, Integer userId) {
     this.community_name = communityName;
+    parent_account_id = userId;
   }
   @Override
   public Table getTable() {
