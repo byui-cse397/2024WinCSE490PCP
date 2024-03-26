@@ -10,29 +10,8 @@ import java.util.Map;
  * Abstract class for handling login database actions.
  * Contains methods to build login queries and perform database actions.
  */
-public abstract class LoginDBAction extends BuildDBAction {
-  /**
-   * Builds a login query based on the provided username and password hash.
-   * @param colValueMap Map containing username and password hash.
-   * @return The constructed SQL query for login.
-   */
-  protected String buildQuery(Map<String, String> colValueMap) {
-    // Retrieve username and password hash from the map
-    String username = colValueMap.get("username");
-    String password = colValueMap.get("password_hash");
-
-    // Construct the SQL query for login
-    StringBuilder sb = new StringBuilder();
-    sb.append("SELECT * FROM ")
-        .append(getTable())
-        .append(" WHERE username = '")
-        .append(username)
-        .append("' AND password_hash = '")
-        .append(password)
-        .append("';");
-    String query = sb.toString();
-    return query;
-  }
+public abstract class FindDBAction extends BuildDBAction {
+  protected abstract String buildQuery(Map<String, String> colValueMap);
 
   /**
    * Builds the login query and returns it.

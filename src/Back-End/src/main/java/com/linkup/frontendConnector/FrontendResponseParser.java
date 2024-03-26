@@ -26,10 +26,10 @@ public class FrontendResponseParser {
       }
 
       switch (node.getTagName()) {
-      case "login":
+      case "userLogin":
         manager.loginHandler(map.get("username"), map.get("password_hash"));
         break;
-      case "create":
+      case "userCreate":
         manager.createNewUser(map.get("username"), map.get("email"),
                               map.get("password_hash"));
 

@@ -3,6 +3,7 @@ package com.linkup.user;
 import com.linkup.database.dbActions.ops.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,7 +11,7 @@ import java.util.logging.Logger;
  * Represents a class for authenticating user login.
  * Extends LoginDBAction abstract class.
  */
-public class LoginUser extends LoginDBAction {
+public class LoginUser extends FindDBAction {
   // Logger for logging messages
   private static final Logger logger =
       Logger.getLogger(LoginUser.class.getName());
@@ -76,5 +77,28 @@ public class LoginUser extends LoginDBAction {
   public Table getTable() {
     // return the name of the table in the database
     return Table.ACCOUNT;
+  }
+
+  /**
+   * Builds a login query based on the provided username and password hash.
+   * @param colValueMap Map containing username and password hash.
+   * @return The constructed SQL query for login.
+   */
+  protected String buildQuery(Map<String, String> colValueMap) {
+    // Retrieve username and password hash from the map
+    String username = colValueMap.get("username");
+    String password = colValueMap.get("password_hash");
+
+    // Construct the SQL query for login
+    StringBuilder sb = new StringBuilder();
+    sb.append("SELECT * FROM ")
+        .append(getTable())
+        .append(" WHERE username = '")
+        .append(username)
+        .append("' AND password_hash = '")
+        .append(password)
+        .append("';");
+    String query = sb.toString();
+    return query;
   }
 }
