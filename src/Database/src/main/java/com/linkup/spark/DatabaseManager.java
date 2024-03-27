@@ -67,13 +67,17 @@ public class DatabaseManager {
     if (query.trim().toUpperCase().startsWith("SELECT")) {
       try (Statement statement = this.sqlConnection.createStatement();
            ResultSet resultSet = statement.executeQuery(query)) {
-        return resultSetToString(resultSet);
+        String resultString = resultSetToString(resultSet);
+        System.out.println("Sending to backend: " + resultString);
+        return resultString;
       }
     } else {
       try (Statement statement = this.sqlConnection.createStatement()) {
         int rowsAffected = statement.executeUpdate(query);
-        return "<rowsChanged>" + String.valueOf(rowsAffected) +
-            "</rowsChanged>";
+        String resultString = "<rowsChanged:int>" +
+                              String.valueOf(rowsAffected) + "</rowsChanged>";
+        System.out.println(resultString);
+        return resultString;
       }
     }
   }
@@ -89,13 +93,16 @@ public class DatabaseManager {
    */
   private static String resultSetToString(ResultSet resultSet)
       throws SQLException {
+    StringBuilder tableWrapper = new StringBuilder();
     StringBuilder sb = new StringBuilder();
     ResultSetMetaData metaData = resultSet.getMetaData();
     int columnCount = metaData.getColumnCount();
 
-    sb.append("<table:parent>");
+    tableWrapper.append("<table:parent>");
+    int results = 0;
     while (resultSet.next()) {
-      sb.append("<row>");
+      ++results;
+      sb.append("<row:parent>");
       for (int i = 1; i <= columnCount; i++) {
         String columnName = metaData.getColumnName(i);
         Object value = resultSet.getObject(i);
@@ -114,8 +121,10 @@ public class DatabaseManager {
       }
       sb.append("</row>");
     }
-    sb.append("</table>");
-    return sb.toString();
+    if (results == 0)
+      return "<table:parent><row:parent><null:string>null</null></row></table>";
+    tableWrapper.append(sb.toString()).append("</table>");
+    return tableWrapper.toString();
   }
 
   public void closeConnection() {

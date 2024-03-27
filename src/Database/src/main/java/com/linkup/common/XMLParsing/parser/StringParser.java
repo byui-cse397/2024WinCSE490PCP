@@ -1,15 +1,7 @@
 package com.linkup.common.XMLParsing.parser;
 
-public class StringParser implements DBResult<String> {
-  @Override
-  public void parse(String input) {
-    result = input;
-  }
+public class StringParser extends DBResult<String> {
+  public StringParser(String input) { super(input); }
 
-  private String result;
-
-  @Override
-  public String getResult() {
-    return result;
-  }
+  public String parser(String input) { return input; }
 }

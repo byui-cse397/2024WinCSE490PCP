@@ -5,7 +5,7 @@ import java.io.IOException;
 public class XMLParser {
   private String xml;
   private int currentIndex;
-  private XMLNode parent;
+  private XMLNode<XMLParent> parent;
 
   /**
    * XMLParser takes an XML-like string of the form <name:type>value</name> and
@@ -15,12 +15,10 @@ public class XMLParser {
    * @param parent The parent node (if any) for parents to add their children.
    *
    */
-  public XMLParser(String xml, XMLNode parent) {
+  public XMLParser(String xml, XMLNode<XMLParent> parent) {
     this.xml = xml;
     this.currentIndex = 0;
-    if (parent != null) {
-      this.parent = parent;
-    }
+    this.parent = parent;
   }
 
   /**
@@ -31,7 +29,7 @@ public class XMLParser {
    * @throws IOException
    *
    */
-  public XMLNode parse() throws IOException {
+  public XMLNode<?> parse() throws IOException {
     skipWhitespace();
     if (currentIndex >= xml.length()) {
       throw new IOException("Unexpected end of XML document.");
@@ -46,7 +44,7 @@ public class XMLParser {
    * @throws IOException
    *
    */
-  private XMLNode parseElement() throws IOException {
+  private XMLNode<?> parseElement() throws IOException {
     if (xml.charAt(currentIndex) != '<') {
       throw new IOException("Expected '<' at index " + currentIndex);
     }
@@ -55,13 +53,42 @@ public class XMLParser {
 
     String tagName = parseTagName();
     String type = parseType();
+    String code = type.substring(0, 3).toUpperCase();
     String value = parseValue(tagName);
-    XMLNode node = new XMLNode(tagName, type, value);
-    if (parent != null) {
-      parent.addChild(node);
+    XMLNode<?> node;
+    switch (code) {
+    case "INT":
+      node = new XMLNode<Integer>(tagName, type, value);
+      break;
+    case "BOO":
+      node = new XMLNode<Boolean>(tagName, type, value);
+      break;
+    case "BYT":
+      node = new XMLNode<Byte>(tagName, type, value);
+      break;
+    case "CHA":
+      node = new XMLNode<Character>(tagName, type, value);
+      break;
+    case "DOU":
+      node = new XMLNode<Double>(tagName, type, value);
+      break;
+    case "STR":
+      node = new XMLNode<String>(tagName, type, value);
+      break;
+    case "FLO":
+      node = new XMLNode<Float>(tagName, type, value);
+      break;
+    case "PAR":
+      XMLNode<XMLParent> parentNode =
+          new XMLNode<XMLParent>(tagName, type, value);
+      parseChildren(value, parentNode);
+      node = parentNode;
+      break;
+    default:
+      throw new IOException("Type " + type + " not implemented.");
     }
-    if (type.equalsIgnoreCase(XMLType.PARENT.name())) {
-      parseChildren(node, value);
+    if (parent != null) {
+      parent.getValue().addChild(node);
     }
     if (currentIndex < xml.length()) {
       String substr = xml.substring(currentIndex, xml.length());
@@ -138,8 +165,9 @@ public class XMLParser {
    * @throws IOException
    *
    */
-  private void parseChildren(XMLNode node, String substr) throws IOException {
-    XMLParser parser = new XMLParser(substr, node);
+  private void parseChildren(String substr, XMLNode<XMLParent> parent)
+      throws IOException {
+    XMLParser parser = new XMLParser(substr, parent);
     parser.parse();
   }
 

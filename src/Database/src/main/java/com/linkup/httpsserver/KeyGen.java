@@ -7,9 +7,7 @@ public class KeyGen {
   public KeyGen() {
     String password = "LinkupDBHTTPSServer";
     ArrayList<String[]> commands = new ArrayList<String[]>();
-    String[] cleanup = {"rm", "keystore.jks", "selfsigned.crt"};
-    String[] remove_old_crt = {"keytool",    "-delete",    "-alias",
-                               "selfsigned", "-storepass", password};
+    String[] cleanup = {"rm", "keystore.jks"};
     String[] keystore = {
         "keytool",
         "-genkey",
@@ -28,18 +26,8 @@ public class KeyGen {
         "-dname",
         "CN=linkup db, OU=db O=linkup, L=Rexburg, ST=Idaho, C=ID"};
 
-    String[] crt = {"keytool",    "-export",        "-alias",    "selfsigned",
-                    "-file",      "selfsigned.crt", "-keystore", "keystore.jks",
-                    "-storepass", password};
-
-    String[] importcrt = {"keytool",    "-import", "-alias",
-                          "selfsigned", "-file",   "selfsigned.crt",
-                          "-storepass", password,  "-noprompt"};
     commands.add(cleanup);
-    commands.add(remove_old_crt);
     commands.add(keystore);
-    commands.add(crt);
-    commands.add(importcrt);
 
     for (String[] command : commands) {
       ProcessBuilder processBuilder = new ProcessBuilder(command);
