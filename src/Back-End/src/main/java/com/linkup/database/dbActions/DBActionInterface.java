@@ -23,7 +23,7 @@ public interface DBActionInterface {
    * by the query
    * DELETE returns an XMLNode<Integer> representing the number of
    * rows affected by the query
-   * LOGIN returns an XMLNode<XMLParent> representing
+   * FIND returns an XMLNode<XMLParent> representing
    * the matching user(s).
    *
    *

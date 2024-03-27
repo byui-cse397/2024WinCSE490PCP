@@ -21,24 +21,24 @@ public class App {
   public static void main(String[] args) {
     // Setup logging:
     //
+    /*
     System.out.println("Starting connection");
     try {
       FrontendConnector connector = new FrontendConnector();
     } catch (IOException e) {
       e.printStackTrace();
     }
+    */
 
-    /*
     logger = LoggingManager.getLogger();
     // Resolve database host:
     establishConnection();
 
     // Create a new user:
-    UserManager manager = new UserManager();
     try {
       // Attempt to create a new user and retrieve the user ID
-      Integer userID = manager.createNewUser("username_002", "email@domain.net",
-                                             "password_002");
+      Integer userID = UserManager.createNewUser(
+          "username_002", "email@domain.net", "password_002");
       // Log successful user creation and login
       StringBuilder sb = new StringBuilder();
       sb.append("User ").append(userID).append(
@@ -51,7 +51,6 @@ public class App {
 
     // Stop database server and close connection:
     closeConnection();
-    */
   }
 
   /**

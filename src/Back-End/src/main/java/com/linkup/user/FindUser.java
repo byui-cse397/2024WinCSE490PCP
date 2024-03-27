@@ -2,9 +2,15 @@ package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.FindDBAction;
 import com.linkup.database.exceptions.FrontEndUsageException;
+import com.linkup.database.table.Table;
 import java.util.Map;
 
 public class FindUser extends FindDBAction {
+
+  @Override
+  public Table getTable() {
+    return Table.ACCOUNT;
+  }
   private String username;
 
   public FindUser(String username) { this.username = username; }

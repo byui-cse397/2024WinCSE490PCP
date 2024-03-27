@@ -24,7 +24,6 @@ public class FrontendResponseParser {
       for (XMLNode<?> datum : data) {
         map.put(datum.getTagName(), datum.getValue().toString());
       }
-
       switch (node.getTagName()) {
       case "userLogin":
         UserManager.loginHandler(map.get("username"), map.get("password_hash"));
