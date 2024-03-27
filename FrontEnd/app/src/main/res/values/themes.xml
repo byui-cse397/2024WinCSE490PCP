@@ -4,6 +4,9 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
+    <style name="CustomButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_color</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
     <style name="Theme.LinkUp" parent="Base.Theme.LinkUp" />
 </resources>

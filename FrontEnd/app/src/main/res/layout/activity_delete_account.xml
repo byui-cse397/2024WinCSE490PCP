@@ -37,9 +37,11 @@
 
         <Button
             android:id="@+id/yesButton"
+            style="@style/CustomButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/D_yes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/noButton"
@@ -47,9 +49,11 @@
 
         <Button
             android:id="@+id/noButton"
+            style="@style/CustomButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/D_No"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

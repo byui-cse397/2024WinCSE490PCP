@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="728dp"
-        android:layout_height="1114dp"
+        android:layout_width="358dp"
+        android:layout_height="628dp"
         android:layout_marginEnd="36dp"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.119"
-        app:srcCompat="@drawable/rect_boarder"
+        app:srcCompat="@drawable/rect_border"
         android:contentDescription="TODO"
         tools:ignore="ContentDescription,HardcodedText" />
 
@@ -41,6 +41,7 @@
         android:layout_height="96dp"
         android:text="@string/poster"
         android:textSize="34sp"
+        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"

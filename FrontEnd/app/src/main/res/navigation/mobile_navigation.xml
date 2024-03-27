@@ -24,6 +24,6 @@
 <!--        tools:layout="@layout/fragment_notifications" />-->
     <activity
         android:id="@+id/login"
-        android:name="com.example.comm_board_app.Login"
+        android:name="com.example.linkup.Login"
         android:label="Login" />
 </navigation>

@@ -12,7 +12,7 @@
         android:layout_width="358dp"
         android:layout_height="628dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="256dp"
-        android:text="@string/reconfirmpass"
+        android:text="@string/confirmpass"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -101,6 +101,7 @@
         android:layout_marginEnd="136dp"
         android:layout_marginBottom="32dp"
         android:text="@string/deletebut"
+        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -144,6 +145,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="84dp"
         android:text="@string/saveP"
+        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

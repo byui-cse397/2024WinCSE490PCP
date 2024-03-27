@@ -54,7 +54,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="48dp"
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:ems="10"
         android:hint="@string/username"
         android:inputType="text"
@@ -74,7 +74,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="48dp"
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="text"
@@ -97,6 +97,7 @@
         android:background="@drawable/rounded_button"
         android:text="@string/signin_button"
         android:textAlignment="center"
+        style="@style/CustomButtonStyle"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/pass_entry" />
@@ -121,6 +122,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/signuplink"
+        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView" />
 

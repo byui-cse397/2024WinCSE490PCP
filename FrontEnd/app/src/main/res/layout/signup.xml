@@ -13,7 +13,7 @@
         android:layout_width="320dp"
         android:layout_height="478dp"
         android:layout_marginTop="164dp"
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,13 +23,16 @@
 
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="356dp"
-        android:text="@string/create_account"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:layout_width="79dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/signuplink"
+        android:textSize="12sp"
+        style="@style/CustomButtonStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/loginTextView"
@@ -49,7 +52,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="76dp"
         android:autofillHints=""
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:hint="@string/confirmuser"
         android:textColor="#212121"
         app:layout_constraintBottom_toTopOf="@+id/C_email"
@@ -66,7 +69,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="160dp"
         android:autofillHints="Tester"
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColor="#212121"
@@ -83,7 +86,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="232dp"
         android:autofillHints=""
-        android:background="@drawable/rect_boarder"
+        android:background="@drawable/rect_border"
         android:hint="@string/cpass"
         android:textColor="#212121"
         app:layout_constraintBottom_toTopOf="@+id/C_pass2x"
@@ -100,8 +103,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="292dp"
         android:autofillHints="Reconfirm Your Password"
-        android:background="@drawable/rect_boarder"
-        android:hint="@string/reconfirmpass"
+        android:background="@drawable/rect_border"
+        android:hint="@string/confirmpass"
         android:textColor="#212121"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -121,17 +124,5 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextSizeCheck" />
-
-    <Button
-        android:id="@+id/retlog"
-        android:layout_width="79dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/signuplink"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
