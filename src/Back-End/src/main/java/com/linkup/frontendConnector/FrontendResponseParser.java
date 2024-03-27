@@ -5,6 +5,7 @@ import com.linkup.common.XMLParsing.XMLParent;
 import com.linkup.common.XMLParsing.XMLParser;
 import com.linkup.communities.CommunityManager;
 import com.linkup.database.exceptions.FrontEndUsageException;
+import com.linkup.posts.PostManager;
 import com.linkup.user.UserManager;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,28 @@ public class FrontendResponseParser {
                                                     map.get("username"));
         break;
 
+      case "postCreate":
+        PostManager.createNewPost(map.get("post_text"), map.get("username"),
+                                  map.get("community_name"));
+        break;
+      case "postUpdate":
+        PostManager.updatePost(map.get("post_id"), map.get("post_text"),
+                               map.get("username"), map.get("community_name"));
+        break;
+
+      case "postDelete":
+        PostManager.deletePost(map.get("post_id"));
+        break;
+      case "postRead":
+        PostManager.readPost(map.get("post_id"));
+        break;
+      case "postFindFromCommunity":
+        PostManager.findPostsFromCommunity(map.get("community_name"));
+        break;
+
+      case "postFindFromAccount":
+        PostManager.findPostsFromAccount(map.get("username"));
+        break;
       default:
         throw new FrontEndUsageException(
             "Front end action type not implemented.") {};
