@@ -35,7 +35,7 @@ public class FindUser extends FindDBAction {
     StringBuilder sb = new StringBuilder();
     sb.append("SELECT * FROM ")
         .append(getTable())
-        .append(" WHERE username = '")
+        .append(" WHERE username REGEXP '")
         .append(username)
         .append("';");
     String query = sb.toString();
