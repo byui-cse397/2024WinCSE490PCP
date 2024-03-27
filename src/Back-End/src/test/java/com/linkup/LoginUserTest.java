@@ -1,49 +1,55 @@
 package com.linkup;
+
 import java.util.logging.*;
 
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.user.LoginUser;
 
-import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import static org.junit.Assert.*;
-
 import com.linkup.common.XMLParsing.*;
 import com.linkup.common.XMLParsing.parser.*;
+
+import org.junit.Test;
 
 public class LoginUserTest {
 	private static final Logger logger = Logger.getLogger(App.class.getName());
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	    // Resolve database host:
-	    establishConnection();
-	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	    // Stop database server and close connection:
-	    closeConnection();
-	}
-
-  // Test case for successful authentication
-  // This test case checks if the user can successfully authenticate with the
-  // correct username and password.
-  @Test
-  public void testAuthenticateSuccess() {
-    LoginUser loginUser = new LoginUser(123456, "user123", "password123");
-    
-	try {
-		XMLNode result = loginUser.performDBAction();
-	} catch (FrontEndUsageException e) {
+	// Test case for successful authentication
+	// This test case checks if the user can successfully authenticate with the
+	// correct username and password.
+	@Test
+	public void testAuthenticateSuccess() {
+		// First, establish connection with the DB
+		establishDBConnection();
+		
+		// Then first create a user.
+	    User user = new User("user123", "user123@gmail.com", "password123");
+	    try {
+	      Integer returnValue = (Integer)user.performDBAction().getValue();
+	      logger.info("Rows updated: " + returnValue);
+	      System.out.println("Rows updated: " + returnValue);
+	    } catch (FrontEndUsageException e) {
 	      e.printStackTrace();
-	      logger.log(Level.SEVERE, "Error performing database action", e);
-	}
+	      logger.log(Level.SEVERE, "Error Creating User", e);
+	      throw e;
+	    }
+		
+	    // User login attempt
+		LoginUser loginUser = new LoginUser(123456, "user123", "password123");
+		
+		try {
+			XMLNode result = (XMLNode) loginUser.performDBAction().getValue();
+		} catch (FrontEndUsageException e) {
+			e.printStackTrace();
+			logger.log(Level.SEVERE, "Error performing database action", e);
+			throw e;
+		}
 
-    //assertTrue(loginUser.authenticate());
-  }
+		// Delete the user
+		
+		// And finally, close the connection with the DB
+		closeDBConnection();
+	}
 
 //  // Test case for unsuccessful authentication (incorrect password)
 //  // This test case checks if the user fails to authenticate due to an
@@ -52,7 +58,7 @@ public class LoginUserTest {
 //  public void testAuthenticateFailureIncorrectPassword() {
 //    LoginUser loginUser = new LoginUser(123456,"user123", "wrongpassword");
 //    assertFalse(loginUser.authenticate());
-//  }
+//  }establishConnectionestablishConnection
 //
 //  // Test case for unsuccessful authentication (incorrect username)
 //  // This test case checks if the user fails to authenticate due to an
@@ -80,18 +86,18 @@ public class LoginUserTest {
 //    LoginUser loginUser = new LoginUser(123456,"user123", "");
 //    assertFalse(loginUser.authenticate());
 //  }
-//
-//  private static void establishConnection() {
-//    ConnectionManager.getInstance("https://localhost:3306");
-//    //System.out.println("Connection established with Database.");
-//    logger.info("Connection established with Database.");
-//  }
-//
-//  private static void closeConnection() {
-//    ConnectionManager instance = ConnectionManager.getInstance(null);
-//    HTTPSConnector connection = instance.getConnector();
-//    connection.sendRequest("<SYSTEM:string>STOP</SYSTEM>");
-//    //System.out.println("Closed connection with Database successfully.");
-//    logger.info("Closed connection with Database successfully.");
-//  }
+
+	private static void establishDBConnection() {
+		ConnectionManager.getInstance("https://localhost:4039");
+		// System.out.println("Connection established with Database.");
+		logger.info("Connection established with Database.");
+	}
+
+	private static void closeDBConnection() {
+		ConnectionManager instance = ConnectionManager.getInstance(null);
+		HTTPSConnector connection = instance.getConnector();
+		connection.sendRequest("<SYSTEM:string>STOP</SYSTEM>");
+		// System.out.println("Closed connection with Database successfully.");
+		logger.info("Closed connection with Database successfully.");
+	}
 }
