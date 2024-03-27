@@ -5,7 +5,9 @@
     android:id="@+id/editaccount"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:padding="16dp"
+    tools:context=".EditAccountActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -30,9 +32,7 @@
         android:hint="@string/cusername"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/usertitle"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
 
@@ -52,10 +52,9 @@
         android:id="@+id/usertitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="100dp"
         android:text="@string/displayuser"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/cemail"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
 
@@ -63,11 +62,9 @@
         android:id="@+id/cpasstitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="252dp"
         android:text="@string/confirmpass"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.549"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/editNpass"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
 
@@ -75,11 +72,10 @@
         android:id="@+id/passtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="180dp"
         android:text="@string/Conpassword"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="@+id/editUsname"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
 
@@ -96,12 +92,13 @@
 
     <Button
         android:id="@+id/dprofile"
+        style="@style/CustomButtonStyleRed"
         android:layout_width="140dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/deletebut"
-        style="@style/CustomButtonStyle"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -116,8 +113,7 @@
         android:hint="@string/nemail"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/emailtitle"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextFields,TextContrastCheck" />
 
@@ -129,23 +125,21 @@
         android:autofillHints="no"
         android:background="@color/background"
         android:ems="10"
-        android:hint="@string/cpassword"
+        android:hint="@string/password"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/passtitle"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/sprofile"
+        style="@style/CustomButtonStyle"
         android:layout_width="201dp"
         android:layout_height="55dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="76dp"
         android:text="@string/saveP"
-        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -153,10 +147,10 @@
         android:id="@+id/emailtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="@string/displayemail"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
@@ -167,13 +161,11 @@
         android:layout_marginTop="272dp"
         android:background="@color/background"
         android:ems="10"
-        android:hint="@string/Conpassword"
+        android:hint="@string/password"
         android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/cpasstitle"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 

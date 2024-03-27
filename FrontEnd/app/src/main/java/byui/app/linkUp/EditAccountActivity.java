@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class editaccount extends AppCompatActivity {
+public class EditAccountActivity extends AppCompatActivity {
 
     EditText usernameEditText, emailEditText, bioEditText;
     TextView usernameTextView, emailTextView, bioTextView;
@@ -29,52 +30,54 @@ public class editaccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editaccount);
 
+        usernameEditText = (EditText) findViewById(R.id.editUsname);
+        emailEditText = (EditText) findViewById(R.id.cemail);
+        bioEditText = (EditText) findViewById(R.id.editTextText3);
 
-        usernameEditText = findViewById(R.id.editUsname);
-        emailEditText = findViewById(R.id.cemail);
-        bioEditText = findViewById(R.id.editTextText3);
+        usernameTextView = (TextView) findViewById(R.id.usertitle);
+        emailTextView = (TextView) findViewById(R.id.emailtitle);
+        bioTextView = (TextView) findViewById(R.id.biotitle);
 
-        usernameTextView = findViewById(R.id.usertitle);
-        emailTextView = findViewById(R.id.emailtitle);
-        bioTextView = findViewById(R.id.biotitle);
+        saveProfileButton = (Button) findViewById(R.id.sprofile);
+        deleteProfileButton = (Button) findViewById(R.id.dprofile);
 
-        saveProfileButton = findViewById(R.id.sprofile);
-        deleteProfileButton = findViewById(R.id.dprofile);
-
-        // Assuming we have a method to fetch user data, populate the fields
-        // We will need to implement this based on how our data is stored/retrieved
         fetchUserData();
+        setupSaveProfileButton();
+        setupDeleteProfileButton();
+    }
 
-        saveProfileButton.setOnClickListener(view -> {
-            // Get user inputs
+
+    private void setupSaveProfileButton() {
+        saveProfileButton.setOnClickListener(v -> {
             String username = usernameEditText.getText().toString();
             String email = emailEditText.getText().toString();
             String bio = bioEditText.getText().toString();
 
-            // Validate inputs
             if (username.isEmpty() || email.isEmpty()) {
-                Toast.makeText(editaccount.this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditAccountActivity.this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
             } else {
-                // If inputs are valid, prepare data to send to backend
                 JSONObject postData = new JSONObject();
                 try {
                     postData.put("username", username);
                     postData.put("email", email);
                     postData.put("bio", bio);
-                    // We can add other data here if needed
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                // Send data to backend
                 new SendDataToServer().execute(postData.toString());
             }
         });
+    }
 
+    private void setupDeleteProfileButton() {
+        deleteProfileButton.setOnClickListener(v -> {
+            // Implement delete logic here
+        });
     }
 
     private void fetchUserData() {
-        // This is a placeholder to fetch user data
+        // Placeholder to fetch user data
     }
 
     private class SendDataToServer extends AsyncTask<String, Void, Boolean> {
@@ -83,7 +86,7 @@ public class editaccount extends AppCompatActivity {
         protected Boolean doInBackground(String... strings) {
             HttpURLConnection urlConnection = null;
             try {
-                URL url = new URL("#"); // Update with whatever our URL is
+                URL url = new URL("#"); // Update with your URL
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("POST");
                 urlConnection.setRequestProperty("Content-Type", "application/json");
@@ -109,9 +112,9 @@ public class editaccount extends AppCompatActivity {
         @Override
         protected void onPostExecute(Boolean success) {
             if (success) {
-                Toast.makeText(editaccount.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditAccountActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(editaccount.this, "Failed to update profile. Please try again later.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditAccountActivity.this, "Failed to update profile. Please try again later.", Toast.LENGTH_SHORT).show();
             }
         }
     }

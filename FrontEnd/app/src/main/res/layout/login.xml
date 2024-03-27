@@ -5,9 +5,9 @@
     android:id="@+id/loginwelcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/background"
-    tools:context=".Login">
+    android:padding="16dp"
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/textwelcome"
@@ -28,24 +28,24 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="32dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotemp"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/logotemp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_marginTop="24dp"
+        android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textwelcome"
-        android:contentDescription="@string/rectback" />
+        app:layout_constraintTop_toBottomOf="@+id/textwelcome" />
 
     <EditText
         android:id="@+id/User_n_entry"
@@ -54,6 +54,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="48dp"
+        android:autofillHints=""
         android:background="@drawable/rect_border"
         android:ems="10"
         android:hint="@string/username"
@@ -64,8 +65,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textwelcome"
-        tools:ignore="VisualLintTextFieldSize"
-        android:autofillHints="" />
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/pass_entry"
@@ -74,6 +74,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="48dp"
+        android:autofillHints=""
         android:background="@drawable/rect_border"
         android:ems="10"
         android:hint="@string/password"
@@ -84,11 +85,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/User_n_entry"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/User_n_entry" />
+
+    <TextView
+        android:id="@+id/signin_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="145dp"
+        android:text="@string/signin_error"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button" />
 
     <Button
         android:id="@+id/signin_button"
+        style="@style/CustomButtonStyle"
         android:layout_width="208dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -97,7 +113,6 @@
         android:background="@drawable/rounded_button"
         android:text="@string/signin_button"
         android:textAlignment="center"
-        style="@style/CustomButtonStyle"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/pass_entry" />
@@ -117,12 +132,12 @@
 
     <Button
         android:id="@+id/tosignup"
+        style="@style/CustomButtonStyle"
         android:layout_width="79dp"
         android:layout_height="48dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/signuplink"
-        style="@style/CustomButtonStyle"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView" />
 

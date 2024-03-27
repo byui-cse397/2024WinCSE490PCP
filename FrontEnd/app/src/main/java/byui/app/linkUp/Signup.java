@@ -103,7 +103,7 @@ public class Signup extends AppCompatActivity {
             if (success) {
                 Toast.makeText(Signup.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                 // Redirect to Login activity or any other activity
-                startActivity(new Intent(Signup.this, Login.class));
+                startActivity(new Intent(Signup.this, LoginActivity.class));
                 finish();
             } else {
                 Toast.makeText(Signup.this, "Failed to create account. Please try again later.", Toast.LENGTH_SHORT).show();
