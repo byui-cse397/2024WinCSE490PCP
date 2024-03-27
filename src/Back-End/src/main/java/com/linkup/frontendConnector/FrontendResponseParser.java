@@ -37,12 +37,12 @@ public class FrontendResponseParser {
                                          map.get("username"));
         break;
       case "communityDelete":
-        CommunityManager.DeleteCommunity("community_name");
+        CommunityManager.DeleteCommunity(map.get("community_name"));
         break;
 
       case "communityUpdate":
-        CommunityManager.transferCommunityOwnership("community_name",
-                                                    "username");
+        CommunityManager.transferCommunityOwnership(map.get("community_name"),
+                                                    map.get("username"));
         break;
 
       default:
