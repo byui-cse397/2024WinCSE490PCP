@@ -76,7 +76,7 @@ public class UserManager {
   private static Integer loginRequest(String username, String password)
       throws FrontEndUsageException {
     Integer id = null;
-    LoginUser login = new LoginUser(-999, username, password);
+    LoginUser login = new LoginUser(username, password);
     XMLNode<XMLParent> node = login.performDBAction();
     ArrayList<XMLNode<?>> rows = node.getValue().getChildren();
     XMLNode<XMLParent> first_result = (XMLNode<XMLParent>)rows.get(0);
