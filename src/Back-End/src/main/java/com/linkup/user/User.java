@@ -55,12 +55,12 @@ public class User {
   /**
    * Updates user information.
    */
-  public void Update() throws FrontEndUsageException {
+  public XMLNode<Integer> Update() throws FrontEndUsageException {
     UpdateUser updateUser = new UpdateUser(userID, "username", "password_hasth");
     updateLastActionTime();
     XMLNode<Integer> node = updateUser.performDBAction();
-    node.getValue();
     logger.log(Level.INFO, node.toString());
+    return node;
   }
 
   /**
