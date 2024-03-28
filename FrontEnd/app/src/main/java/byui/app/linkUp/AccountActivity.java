@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Accountpage extends AppCompatActivity {
+public class AccountActivity extends AppCompatActivity {
 
     // EditText fields for user input
     private EditText usernameEditText;

@@ -73,6 +73,8 @@ public class EditAccountActivity extends AppCompatActivity {
     private void setupDeleteProfileButton() {
         deleteProfileButton.setOnClickListener(v -> {
             // Implement delete logic here
+            Intent intent = new Intent(EditAccountActivity.this, DeleteActivity.class);
+            startActivity(intent);
         });
     }
 

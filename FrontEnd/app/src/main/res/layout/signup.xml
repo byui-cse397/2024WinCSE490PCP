@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".Signup">
+    tools:context=".SignupActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -21,15 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--        TODO: UPDATE TEXT IN BUTTON    -->
+
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="79dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/signuplink"
-        android:textSize="12sp"
         style="@style/CustomButtonStyle"
+        android:layout_width="157dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="72dp"
+        android:text="@string/create_account_link"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         tools:ignore="SmallSp" />
@@ -46,11 +48,25 @@
         app:layout_constraintHorizontal_bias="0.343"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/toLogin"
+        style="@style/CustomButtonStyle"
+        android:layout_width="79dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/loginLink"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        tools:ignore="SmallSp" />
+
     <EditText
         android:id="@+id/C_user"
         android:layout_width="216dp"
         android:layout_height="50dp"
         android:layout_marginTop="76dp"
+        android:layout_marginBottom="23dp"
         android:autofillHints=""
         android:background="@drawable/rect_border"
         android:hint="@string/confirmuser"
@@ -68,6 +84,7 @@
         android:layout_width="216dp"
         android:layout_height="48dp"
         android:layout_marginTop="160dp"
+        android:layout_marginBottom="23dp"
         android:autofillHints="Tester"
         android:background="@drawable/rect_border"
         android:hint="@string/email"
@@ -85,6 +102,7 @@
         android:layout_width="213dp"
         android:layout_height="48dp"
         android:layout_marginTop="232dp"
+        android:layout_marginBottom="24dp"
         android:autofillHints=""
         android:background="@drawable/rect_border"
         android:hint="@string/cpass"
@@ -112,7 +130,7 @@
         tools:ignore="TextFields,TextSizeCheck,TextContrastCheck" />
 
     <TextView
-        android:id="@+id/SIgnuptext"
+        android:id="@+id/Signuptext"
         android:layout_width="228dp"
         android:layout_height="78dp"
         android:layout_marginStart="96dp"

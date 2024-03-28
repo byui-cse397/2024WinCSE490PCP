@@ -24,7 +24,15 @@
         <activity android:name=".EditAccountActivity"
             android:screenOrientation="unspecified">
         </activity>
-
+        <activity android:name=".DeleteActivity"
+            android:screenOrientation="unspecified">
+        </activity>
+        <activity android:name=".SignupActivity"
+            android:screenOrientation="unspecified">
+        </activity>
+        <activity android:name=".AccountActivity"
+            android:screenOrientation="unspecified">
+        </activity>
     </application>
 
 </manifest>

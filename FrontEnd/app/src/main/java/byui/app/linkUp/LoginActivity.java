@@ -52,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Navigate to SignUpActivity
                 // Assume SignUpActivity is another activity you have for users to sign up
-//                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
 
             }
         });

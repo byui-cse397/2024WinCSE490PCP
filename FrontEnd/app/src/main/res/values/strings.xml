@@ -3,7 +3,10 @@
     <string name="welcome_text">Welcome to our Community!</string>
     <string name="signin_button">Sign In</string>
     <string name="signuppreview">No Account? Please signup </string>
-    <string name="signuplink"> Here</string>
+    <string name="signuplink">Here</string>
+    <string name="loginLink">Here</string>
+    <string name="create_account_link">Create Account</string>
+    <string name="cancel">Cancel</string>
     <string name="username">Username</string>
     <string name="todo">TODO</string>
     <string name="password">Password</string>

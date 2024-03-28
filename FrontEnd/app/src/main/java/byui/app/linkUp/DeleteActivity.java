@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class deletepage extends AppCompatActivity {
+public class DeleteActivity extends AppCompatActivity {
 
     // EditText field for reason input
     private EditText reasonEditText;
@@ -34,7 +34,8 @@ public class deletepage extends AppCompatActivity {
             public void onClick(View view) {
                 // Get reason for account deletion
                 String reason = reasonEditText.getText().toString();
-
+                Intent deleteIntent = new Intent(DeleteActivity.this, LoginActivity.class);
+                startActivity(deleteIntent);
                 // Validate input (if necessary)
 
                 // Send data to backend server
@@ -47,8 +48,10 @@ public class deletepage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate back to Accountpage activity
-                Intent accountIntent = new Intent(deletepage.this, Accountpage.class);
+                Intent accountIntent = new Intent(DeleteActivity.this, AccountActivity.class);
                 startActivity(accountIntent);
+
+                // Include popup activity to verify one more time
             }
         });
     }
