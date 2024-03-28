@@ -72,9 +72,6 @@ public class XMLParser {
     case "DOU":
       node = new XMLNode<Double>(tagName, type, value);
       break;
-    case "STR":
-      node = new XMLNode<String>(tagName, type, value);
-      break;
     case "FLO":
       node = new XMLNode<Float>(tagName, type, value);
       break;
@@ -85,7 +82,8 @@ public class XMLParser {
       node = parentNode;
       break;
     default:
-      throw new IOException("Type " + type + " not implemented.");
+      node = new XMLNode<String>(tagName, type, value);
+      break;
     }
     if (parent != null) {
       parent.getValue().addChild(node);

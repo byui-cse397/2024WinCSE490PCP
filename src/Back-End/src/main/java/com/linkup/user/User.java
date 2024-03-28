@@ -47,7 +47,7 @@ public class User {
     ReadUser readUser = new ReadUser(userID);
     updateLastActionTime();
     XMLNode<XMLParent> node = readUser.performDBAction();
-    XMLParent parent  = node.getValue();
+    XMLParent parent = node.getValue();
     logger.log(Level.INFO, parent.toString());
     return node;
   }
@@ -56,7 +56,8 @@ public class User {
    * Updates user information.
    */
   public XMLNode<Integer> Update() throws FrontEndUsageException {
-    UpdateUser updateUser = new UpdateUser(userID, "username", "password_hasth");
+    UpdateUser updateUser =
+        new UpdateUser(userID, "username", "password_hasth");
     updateLastActionTime();
     XMLNode<Integer> node = updateUser.performDBAction();
     logger.log(Level.INFO, node.toString());

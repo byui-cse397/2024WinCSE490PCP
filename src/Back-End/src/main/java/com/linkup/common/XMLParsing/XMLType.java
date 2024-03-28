@@ -62,7 +62,7 @@ public enum XMLType {
         return xmlType;
       }
     }
-    throw new IllegalArgumentException("Invalid XMLType: " + type);
+    return XMLType.STRING;
   }
 
   public static DBResult<?> parseValue(String type, String value) {

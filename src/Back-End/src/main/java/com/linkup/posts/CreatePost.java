@@ -18,7 +18,7 @@ public class CreatePost extends CreateDBAction {
     Community_id = communityId;
     LocalDateTime now = LocalDateTime.now();
     DateTimeFormatter formatter =
-        DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     Post_time = now.format(formatter).toString();
   }
 
