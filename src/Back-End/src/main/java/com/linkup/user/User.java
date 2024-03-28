@@ -70,8 +70,7 @@ public class User {
    */
   public void Delete() throws FrontEndUsageException {
     DeleteUser deletion =
-        new DeleteUser(userID, "user", "email", "password",
-                       "confirmationPassword", "A really terrible reason");
+        new DeleteUser(userID, "password_hash", "confirmPassword_hash");
     updateLastActionTime();
     XMLNode<Integer> node = deletion.performDBAction();
     node.getValue();
