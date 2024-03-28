@@ -15,13 +15,20 @@ public class SearchManager {
         this.community = community;
     }
 
-    public void search() throws FrontEndUsageException {
-    	FindUser findUser = new FindUser(this.user);
-    	FindCommunity findCommunity = new FindCommunity(this.community);
-    	
-    	XMLNode<XMLParent> parentNode = findUser.performDBAction();
-        XMLNode<XMLParent> parentNode1 = findCommunity.performDBAction();
-        System.out.println(parentNode.getValue());
-        System.out.println(parentNode1.getValue());
+    public XMLNode<XMLParent> search(FILTER operation) throws FrontEndUsageException {
+    	if(operation == FILTER.USER){
+        	FindUser findUser = new FindUser(this.user);
+        	return findUser.performDBAction();
+    	}else {
+        	FindCommunity findCommunity = new FindCommunity(this.community);
+        	return findCommunity.performDBAction();
+    	}
+
     }
+    
+    static enum FILTER {
+        USER,
+        COMMUNITY,
+      }
 }
+
