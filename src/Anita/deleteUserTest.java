@@ -1,108 +1,132 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import static org.junit.Assert.*;
 
-public class DeleteUserAccountTest {
+import java.util.Date;
+import org.junit.Test;
 
-  // Method to run the test
-  public void runTest() {
-    try {
-      // Establish database connection
-      Connection connection = DriverManager.getConnection(
-          "jdbc:mysql://localhost:3306/your_database", "username", "password");
+public class DeleteUserTest {
+  /*
+    testValidDeletion:
+      Tests if a user account can be successfully deleted with valid deletion
+    credentials and confirms that the deletion date is set.
+  */
 
-      // Test preconditions
-      if (!isBackendServerRunning()) {
-        System.out.println(
-            "Backend server is not running correctly. Test failed.");
-        return;
-      }
+  @Test
+  public void testValidDeletion() {
+    // Arrange
+    long userId = 123;
+    String username = "testUser";
+    String email = "test@example.com";
+    String password = "password123";
+    String confirmationPassword = "password123";
+    String deletionReason = "Account closure";
 
-      int userIdToDelete = 123; // Change to the actual user ID
+    // Act
+    DeleteUser deleteUser =
+        new DeleteUser(userId, username, email, password, confirmationPassword,
+                       deletionReason);
+    deleteUser.confirmDeletion();
 
-      if (!isUserExisting(userIdToDelete, connection)) {
-        System.out.println("User to be deleted does not exist. Test failed.");
-        return;
-      }
-
-      if (!isUserAuthenticatedAndAuthorized(userIdToDelete)) {
-        System.out.println(
-            "User requesting deletion is not authenticated or authorized. Test failed.");
-        return;
-      }
-
-      // Test steps
-      if (!sendDeleteRequest(userIdToDelete, connection)) {
-        System.out.println("Error sending delete request. Test failed.");
-        return;
-      }
-
-      // Expected results
-      if (!isUserDeleted(userIdToDelete, connection)) {
-        System.out.println(
-            "User account was not deleted successfully. Test failed.");
-        return;
-      }
-
-      System.out.println("Test passed successfully.");
-
-      // Close database connection
-      connection.close();
-
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+    // Assert
+    assertEquals(deletionReason, deleteUser.getDeletionReason());
+    assertNotNull(deleteUser.getDeletionDate());
   }
 
-  // Check if backend server is running correctly
-  private boolean isBackendServerRunning() {
-    // Implementation specific to your project
-    return true;
+  /*
+    testInvalidPassword:
+      Tests if deletion fails when the confirmation password doesn't match the
+    user's password.
+  */
+
+  @Test
+  public void testInvalidPassword() {
+    // Arrange
+    long userId = 123;
+    String username = "testUser";
+    String email = "test@example.com";
+    String password = "password123";
+    String confirmationPassword = "invalidPassword";
+    String deletionReason = "Account closure";
+
+    // Act
+    DeleteUser deleteUser =
+        new DeleteUser(userId, username, email, password, confirmationPassword,
+                       deletionReason);
+
+    // Assert
+    assertFalse(deleteUser.validateCredentials());
   }
 
-  // Check if user exists in the system
-  private boolean isUserExisting(int userId, Connection connection)
-      throws SQLException {
-    try (PreparedStatement statement = connection.prepareStatement(
-             "SELECT COUNT(*) FROM users WHERE id = ?")) {
-      statement.setInt(1, userId);
-      try (ResultSet resultSet = statement.executeQuery()) {
-        return resultSet.next() && resultSet.getInt(1) > 0;
-      }
-    }
+  /*
+    testEmptyDeletionReason:
+      Tests if deletion fails when the deletion reason is empty.
+  */
+
+  @Test
+  public void testEmptyDeletionReason() {
+    // Arrange
+    long userId = 123;
+    String username = "testUser";
+    String email = "test@example.com";
+    String password = "password123";
+    String confirmationPassword = "password123";
+    String deletionReason = "";
+
+    // Act
+    DeleteUser deleteUser =
+        new DeleteUser(userId, username, email, password, confirmationPassword,
+                       deletionReason);
+
+    // Assert
+    assertFalse(deleteUser.validateCredentials());
   }
 
-  // Check if user is authenticated and authorized for deletion
-  private boolean isUserAuthenticatedAndAuthorized(int userIdToDelete) {
-    // Implementation specific to your project
-    return true;
+  /*
+    testNullDeletionDateBeforeConfirmation:
+      Tests if the deletion date is null before the deletion is confirmed.
+  */
+
+  @Test
+  public void testNullDeletionDateBeforeConfirmation() {
+    // Arrange
+    long userId = 123;
+    String username = "testUser";
+    String email = "test@example.com";
+    String password = "password123";
+    String confirmationPassword = "password123";
+    String deletionReason = "Account closure";
+
+    // Act
+    DeleteUser deleteUser =
+        new DeleteUser(userId, username, email, password, confirmationPassword,
+                       deletionReason);
+
+    // Assert
+    assertNull(deleteUser.getDeletionDate());
   }
 
-  // Send DELETE request to backend API endpoint for account deletion
-  private boolean sendDeleteRequest(int userIdToDelete, Connection connection)
-      throws SQLException {
-    try (PreparedStatement statement =
-             connection.prepareStatement("DELETE FROM users WHERE id = ?")) {
-      statement.setInt(1, userIdToDelete);
-      return statement.executeUpdate() > 0;
-    }
-  }
+  /*
+    testDeletionDateAfterConfirmation:
+      Tests if the deletion date is set after the deletion is confirmed.
+  */
 
-  // Check if user account is deleted successfully
-  private boolean isUserDeleted(int userId, Connection connection)
-      throws SQLException {
-    try (PreparedStatement statement = connection.prepareStatement(
-             "SELECT COUNT(*) FROM users WHERE id = ?")) {
-      statement.setInt(1, userId);
-      try (ResultSet resultSet = statement.executeQuery()) {
-        return resultSet.next() && resultSet.getInt(1) == 0;
-      }
-    }
-  }
+  @Test
+  public void testDeletionDateAfterConfirmation() {
+    // Arrange
+    long userId = 123;
+    String username = "testUser";
+    String email = "test@example.com";
+    String password = "password123";
+    String confirmationPassword = "password123";
+    String deletionReason = "Account closure";
 
-  public static void main(String[] args) {
-    DeleteUserAccountTest test = new DeleteUserAccountTest();
-    test.runTest();
+    // Act
+    DeleteUser deleteUser =
+        new DeleteUser(userId, username, email, password, confirmationPassword,
+                       deletionReason);
+    deleteUser.confirmDeletion();
+    Date deletionDate = deleteUser.getDeletionDate();
+
+    // Assert
+    assertNotNull(deletionDate);
   }
 }
