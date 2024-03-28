@@ -56,7 +56,7 @@ public class User {
    * Updates user information.
    */
   public XMLNode<Integer> Update() throws FrontEndUsageException {
-    UpdateUser updateUser = new UpdateUser(userID, "username", "password_hasth");
+    UpdateUser updateUser = new UpdateUser(userID, "username", "password_hash");
     updateLastActionTime();
     XMLNode<Integer> node = updateUser.performDBAction();
     logger.log(Level.INFO, node.toString());
@@ -69,8 +69,8 @@ public class User {
    */
   public void Delete() throws FrontEndUsageException {
     DeleteUser deletion =
-        new DeleteUser(userID, "user", "email", "password",
-                       "confirmationPassword", "A really terrible reason");
+        new DeleteUser(userID, "password_hash",
+                       "confirmPassword_hash");
     updateLastActionTime();
     XMLNode<Integer> node = deletion.performDBAction();
     node.getValue();
