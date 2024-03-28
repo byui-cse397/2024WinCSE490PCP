@@ -12,6 +12,7 @@ public class FindUser extends FindDBAction {
     return Table.ACCOUNT;
   }
   private String username;
+  private String password_hash;
 
   public FindUser(String username) { this.username = username; }
 

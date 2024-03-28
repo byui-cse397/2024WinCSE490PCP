@@ -22,13 +22,12 @@ public class CommunityManager {
     if (communityID <= 0) {
       return null;
     }
-    XMLNode<XMLParent> parentNode =
-        (XMLNode<XMLParent>)Community.CommunityReader(communityID)
-            .getValue()
-            .getChildren()
-            .get(0);
-    for (XMLNode<?> child : parentNode.getValue().getChildren()) {
-      if (child.getTagName() == "id") {
+    XMLNode<XMLParent> tableNode =
+        (XMLNode<XMLParent>)Community.CommunityReader(communityID);
+    XMLNode<XMLParent> rowNode =
+        (XMLNode<XMLParent>)tableNode.getValue().getChildren().get(0);
+    for (XMLNode<?> child : rowNode.getValue().getChildren()) {
+      if (child.getTagName().equalsIgnoreCase("id")) {
         return (Integer)child.getValue();
       }
     }
@@ -41,25 +40,26 @@ public class CommunityManager {
     if (communityID <= 0) {
       return null;
     }
-    XMLNode<XMLParent> parentNode =
-        (XMLNode<XMLParent>)Community.CommunityReader(communityID)
-            .getValue()
-            .getChildren()
-            .get(0);
-    for (XMLNode<?> child : parentNode.getValue().getChildren()) {
-      if (child.getTagName() == "parent_account_id") {
+    XMLNode<XMLParent> tableNode =
+        (XMLNode<XMLParent>)Community.CommunityReader(communityID);
+    XMLNode<XMLParent> rowNode =
+        (XMLNode<XMLParent>)tableNode.getValue().getChildren().get(0);
+    for (XMLNode<?> child : rowNode.getValue().getChildren()) {
+      if (child.getTagName().equalsIgnoreCase("parent_account_id")) {
         return (Integer)child.getValue();
       }
     }
     return 0;
   }
 
-  public static void transferCommunityOwnership(String communityName,
-                                                String newUsername)
+  public static Integer transferCommunityOwnership(String communityName,
+                                                   String newUsername)
       throws FrontEndUsageException {
     Integer newUserId = UserManager.lookupIdByUsername(newUsername);
     Integer communityId = Community.CommunityFinder(communityName);
-    Community.CommunityUpdater(communityName, communityId, newUserId);
+    Integer rowsAffected =
+        Community.CommunityUpdater(communityName, communityId, newUserId);
+    return rowsAffected;
   }
 
   public static Integer DeleteCommunity(String communityName)
@@ -96,11 +96,16 @@ public class CommunityManager {
     private static Integer CommunityFinder(String communityName)
         throws FrontEndUsageException {
       FindCommunity finder = new FindCommunity(communityName);
-      XMLNode<XMLParent> parentNode = finder.performDBAction();
-      XMLNode<Integer> child =
-          (XMLNode<Integer>)parentNode.getValue().getChildren().get(0);
-      Integer communityID = child.getValue();
-      return communityID;
+      XMLNode<XMLParent> tableNode = finder.performDBAction();
+      XMLNode<XMLParent> rowNode =
+          (XMLNode<XMLParent>)tableNode.getValue().getChildren().get(0);
+      Integer communityId = null;
+      for (XMLNode<?> node : rowNode.getValue().getChildren()) {
+        if (node.getTagName().equalsIgnoreCase("id")) {
+          communityId = (Integer)node.getValue();
+        }
+      }
+      return communityId;
     }
 
     private static Integer CommunityDeleter(Integer communityId)

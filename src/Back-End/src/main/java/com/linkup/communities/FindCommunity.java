@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class FindCommunity extends FindDBAction {
   String community_name;
+  Integer parent_account_id;
 
   public FindCommunity(String communityName) {
     this.community_name = communityName;
