@@ -42,7 +42,6 @@ public class User {
 
   /**
    * Reads user information.
-   * TODO: Implement Read functionality.
    */
   public XMLNode<XMLParent> read() throws FrontEndUsageException {
     ReadUser readUser = new ReadUser(userID);
@@ -55,7 +54,6 @@ public class User {
 
   /**
    * Updates user information.
-   * TODO: Implement Update functionality.
    */
   public void Update() throws FrontEndUsageException {
     UpdateUser updateUser = new UpdateUser(userID, "username", "password_hasth");
