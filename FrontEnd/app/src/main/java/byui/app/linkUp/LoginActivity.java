@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (validateCredentials(username, password)) {
                 // Start MainActivity on successful login
-                Intent intent = new Intent(LoginActivity.this, posthomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
                 startActivity(intent);
                 finish(); // Finish LoginActivity so it's removed from the back stack
             } else {

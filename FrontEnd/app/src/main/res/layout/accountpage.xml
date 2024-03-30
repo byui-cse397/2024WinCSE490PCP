@@ -10,33 +10,33 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="382dp"
-        android:layout_height="593dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="359dp"
+        android:layout_height="559dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="84dp"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/beditaccount"
+        android:id="@+id/canceleditaccount"
         style="@style/CustomButtonStyleRed"
         android:layout_width="103dp"
         android:layout_height="48dp"
         android:layout_marginStart="152dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="84dp"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/cancel_edit_account"
+        android:id="@+id/save_edit_account"
         style="@style/CustomButtonStyle"
         android:layout_width="165dp"
         android:layout_height="53dp"
         android:layout_marginStart="120dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="132dp"
         android:text="@string/emabutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -57,7 +57,7 @@
         android:id="@+id/displayuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="56dp"
         android:text="@string/displayuser"
         android:textSize="24sp"
@@ -68,53 +68,10 @@
         android:id="@+id/displayemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="128dp"
         android:text="@string/displayemail"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/userdisplayer"
-        android:layout_width="187dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:hint="@string/tempuser"
-        android:inputType="text"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:autofillHints="" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="230dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="20dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/tempemail"
-        android:inputType="text"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="331dp"
-        android:layout_height="217dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="240dp"
-        android:autofillHints=""
-        android:background="@drawable/rounded_border"
-        android:ems="10"
-        android:hint="@string/biotext"
-        android:inputType="text"
-        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
@@ -140,5 +97,42 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="181dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/tempuser"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/displayuser"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="184dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/tempemail"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/displayemail"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="320dp"
+        android:layout_height="216dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_border"
+        android:text="@string/tempbio"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/biotitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

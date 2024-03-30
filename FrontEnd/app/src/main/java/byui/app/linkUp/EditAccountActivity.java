@@ -32,7 +32,7 @@ public class EditAccountActivity extends AppCompatActivity {
 
         usernameEditText = (EditText) findViewById(R.id.editUsname);
         emailEditText = (EditText) findViewById(R.id.cemail);
-        bioEditText = (EditText) findViewById(R.id.editTextText3);
+        bioEditText = (EditText) findViewById(R.id.editbio);
 
         usernameTextView = (TextView) findViewById(R.id.usertitle);
         emailTextView = (TextView) findViewById(R.id.emailtitle);

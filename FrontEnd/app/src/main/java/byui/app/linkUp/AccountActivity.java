@@ -26,11 +26,11 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.accountpage);
 
         // Initialize EditText fields
-        usernameEditText = findViewById(R.id.userdisplayer);
-        emailEditText = findViewById(R.id.editTextText2);
-        bioEditText = findViewById(R.id.editTextText3);
+//        usernameEditText = findViewById(R.id.userdisplayer);
+//        emailEditText = findViewById(R.id.editTextText2);
+//        bioEditText = findViewById(R.id.editTextText3);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button saveButton = findViewById(R.id.beditaccount);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button saveButton = findViewById(R.id.canceleditaccount);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
