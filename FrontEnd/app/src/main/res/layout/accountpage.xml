@@ -23,7 +23,7 @@
         android:id="@+id/beditaccount"
         style="@style/CustomButtonStyleRed"
         android:layout_width="103dp"
-        android:layout_height="37dp"
+        android:layout_height="48dp"
         android:layout_marginStart="152dp"
         android:layout_marginBottom="56dp"
         android:text="@string/cancel"
@@ -128,5 +128,17 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,6 @@
 <!--        tools:layout="@layout/fragment_notifications" />-->
     <activity
         android:id="@+id/login"
-        android:name="com.example.linkup.Login"
+        android:name="byui.app.linkUp.LoginActivity"
         android:label="Login" />
 </navigation>

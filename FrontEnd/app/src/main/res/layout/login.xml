@@ -96,6 +96,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="145dp"
         android:text="@string/signin_error"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.538"
