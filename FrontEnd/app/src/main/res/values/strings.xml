@@ -45,4 +45,7 @@
     <string name="CpostName">Post Name?</string>
     <string name="Cpostdescription">What is your post About? Please be descriptive!</string>
     <string name="signin_error">Username or Password Incorrect. Please try again. </string>
+    <string name="AccountButtonText">Account</string>
+    <string name="CreatePostButton">Create Post</string>
+    <string name="LogoutButton">Logout</string>
 </resources>
