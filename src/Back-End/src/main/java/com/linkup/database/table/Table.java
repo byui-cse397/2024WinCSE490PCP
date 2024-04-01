@@ -16,6 +16,7 @@ public enum Table {
       list.add("content_text");
       list.add("accounts_id");
       list.add("post_time");
+      list.add("community_id");
       return list;
     }
   },

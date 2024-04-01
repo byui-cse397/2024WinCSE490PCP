@@ -18,11 +18,17 @@ FLUSH PRIVILEGES;
 
 -- Table Schema Setup --
 
-CREATE TABLE IF NOT EXISTS ACCOUNT (
+CREATE TABLE IF NOT EXISTS Account (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL
     jk
+);
+
+CREATE TABLE IF NOT EXISTS Community (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    community_name VARCHAR(255) NOT NULL
+--    region VARCHAR(30) NOT NULL,
 );
 
 CREATE TABLE IF NOT EXISTS COMMUNITY (
@@ -36,11 +42,9 @@ CREATE TABLE IF NOT EXISTS COMMUNITY (
 CREATE TABLE IF NOT EXISTS POST (
     id INT AUTO_INCREMENT PRIMARY KEY,
     content_text VARCHAR(800) NOT NULL,
-    accounts_id INT NOT NULL,
+    account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
     post_time DATETIME NOT NULL,
-    community_id int,
-    CONSTRAINT fk_Post_Accounts FOREIGN KEY (accounts_id) REFERENCES ACCOUNT(id),
-    CONSTRAINT fk_Post_Community FOREIGN KEY (community_id) REFERENCES COMMUNITY(id)
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
 );
 
 CREATE TABLE IF NOT EXISTS DEPARTING (
@@ -64,7 +68,15 @@ CREATE TABLE IF NOT EXISTS FORUMS (
     CONSTRAINT fk_Forum_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS COMMENTS (
+CREATE TABLE IF NOT EXISTS Community (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    community_name VARCHAR(255) NOT NULL,
+--    region VARCHAR(30) NOT NULL,
+    post_id INT NOT NULL,
+    CONSTRAINT fk_Community_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
+);
+
+CREATE TABLE IF NOT EXISTS Comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     comment_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
@@ -77,6 +89,6 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
     message_time DATETIME NOT NULL,
     sender_id INT NOT NULL,
     receiver_id INT NOT NULL,
-    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (sender_id) REFERENCES ACCOUNT(id),
-    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (receiver_id) REFERENCES ACCOUNT(id)
+    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (account_id) REFERENCES Account(id),
+    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (account_id) REFERENCES Account(id)
 );
