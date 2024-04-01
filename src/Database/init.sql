@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS POST (
     content_text VARCHAR(800) NOT NULL,
     account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
     post_time DATETIME NOT NULL,
-    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES ACCOUNT(id)-- Create the actual foreign key relationship
 );
 
 CREATE TABLE IF NOT EXISTS DEPARTING (
@@ -74,7 +74,5 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
     message_content VARCHAR(300) NOT NULL,
     message_time DATETIME NOT NULL,
     sender_id INT NOT NULL,
-    receiver_id INT NOT NULL,
-    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (account_id) REFERENCES Account(id),
-    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (account_id) REFERENCES Account(id)
+    receiver_id INT NOT NULL
 );
