@@ -196,6 +196,7 @@ The back-end system plays a critical role in managing the Community Board Forum'
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
+
 ### Delete Account
 
 This diagram represents the deletion of a user's account.
@@ -457,6 +458,7 @@ The **Controller** component orchestrates the sequence of operations involved in
   - **Model Processing:** The Model processes registration data, executing necessary operations such as data validation, storage, and error handling.
   - **Response:** The Controller updates the View to inform the user of the registration outcome, ensuring a clear and informative user experience.
 
+
 ### Search Functionality 
 * View: Description of the API endpoints that serve the search functionality to the front end.
   
@@ -468,7 +470,6 @@ The **Controller** component orchestrates the sequence of operations involved in
 * Model: Details on how search queries are constructed and executed against the database.
   This may include:
   - Data conversion and formatting.Communication with file storage if relevant.
-
 
 ## Search Functionality Overview
 
@@ -607,6 +608,7 @@ Involves user credentials (username/password) and session management for maintai
 
 #### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
+
 ### Search Functionality
 
 #### Data Description
@@ -729,9 +731,6 @@ Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/
 
 ## Development and Runtime Environment Setup
 Preparation for implementation includes setting up Android Studio, configuring MySQL, and preparing AWS environments for both development and operational deployment.
-
-
-
 
 ## Implementation Planning
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
