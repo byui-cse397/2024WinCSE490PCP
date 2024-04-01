@@ -12,11 +12,13 @@ import java.util.Map;
 public abstract class CreateDBAction extends BuildDBAction {
   /**
    * Builds an SQL query to insert a new record into the database table.
-   * @param colValueMap A map containing column names and corresponding values for the new record.
+   * @param colValueMap A map containing column names and corresponding values
+   *     for the new record.
    * @return A string representing the SQL query to insert the new record.
    */
   protected String buildQuery(Map<String, String> colValueMap) {
-    // Initialize a StringBuilder to construct the column names part of the SQL query
+    // Initialize a StringBuilder to construct the column names part of the SQL
+    // query
     StringBuilder columnsBuilder = new StringBuilder();
 
     // Iterate over the keys (column names) in the colValueMap
@@ -46,14 +48,16 @@ public abstract class CreateDBAction extends BuildDBAction {
     // Convert the StringBuilder to a string representing the values
     String values = valuesBuilder.toString();
 
-    // Construct the SQL query to insert the new record using the table name, columns, and values
+    // Construct the SQL query to insert the new record using the table name,
+    // columns, and values
     String query = "INSERT INTO " + getTable() + " (" + columns + ")\n"
                    + "VALUES (" + values + ");";
     return query;
   }
 
   /**
-   * Constructs the SQL query to perform the database action based on provided column-value mappings.
+   * Constructs the SQL query to perform the database action based on provided
+   * column-value mappings.
    * @return A string representing the SQL query.
    */
   protected String queryBuilder() {
@@ -65,7 +69,8 @@ public abstract class CreateDBAction extends BuildDBAction {
   }
 
   /**
-   * Removes the "Table" key from the column-value map to prevent unnecessary database operations.
+   * Removes the "Table" key from the column-value map to prevent unnecessary
+   * database operations.
    * @param colValueMap A map containing column names and corresponding values.
    * @return The cleaned column-value map.
    */
@@ -82,7 +87,8 @@ public abstract class CreateDBAction extends BuildDBAction {
    * @throws FrontEndUsageException If there is a frontend usage exception.
    */
   public XMLNode<Integer> performDBAction() throws FrontEndUsageException {
-    // Check if the necessary conditions for performing the database action are met
+    // Check if the necessary conditions for performing the database action are
+    // met
     if (checks()) {
       // Build and execute the database action, then return the result
       return (XMLNode<Integer>)actionBuilder();

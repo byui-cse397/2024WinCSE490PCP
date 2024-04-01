@@ -11,7 +11,8 @@ import java.util.Map;
  */
 public abstract class DeleteDBAction extends BuildDBAction {
   /**
-   * Builds an SQL query to delete a record from the database table based on its ID.
+   * Builds an SQL query to delete a record from the database table based on its
+   * ID.
    * @param id The ID of the record to be deleted.
    * @return A string representing the SQL query to delete the record.
    */
@@ -37,7 +38,8 @@ public abstract class DeleteDBAction extends BuildDBAction {
   }
 
   /**
-   * Removes the "ID" key from the column-value map to prevent unnecessary database operations.
+   * Removes the "ID" key from the column-value map to prevent unnecessary
+   * database operations.
    * @param colValueMap A map containing column names and corresponding values.
    * @return The cleaned column-value map.
    */

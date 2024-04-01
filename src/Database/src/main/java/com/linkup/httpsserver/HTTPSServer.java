@@ -80,7 +80,7 @@ public class HTTPSServer {
         String request = new String(exchange.getRequestBody().readAllBytes(),
                                     StandardCharset.UTF_8);
         XMLParser parser = new XMLParser(request, null);
-        XMLNode node = parser.parse();
+        XMLNode<?> node = parser.parse();
         CommandType type = CommandType.fromString(node.getTagName());
 
         switch (type) {

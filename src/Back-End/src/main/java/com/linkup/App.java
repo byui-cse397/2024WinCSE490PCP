@@ -1,7 +1,9 @@
 package com.linkup;
+import com.linkup.communities.CommunityManager;
 import com.linkup.database.dbConnection.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.frontendConnector.FrontendConnector;
+import com.linkup.posts.PostManager;
 import com.linkup.user.UserManager;
 import java.io.IOException;
 import java.util.logging.*;
@@ -21,36 +23,29 @@ public class App {
   public static void main(String[] args) {
     // Setup logging:
     //
-    /*
     System.out.println("Starting connection");
     try {
       FrontendConnector connector = new FrontendConnector();
     } catch (IOException e) {
       e.printStackTrace();
     }
-    */
 
     logger = LoggingManager.getLogger();
     // Resolve database host:
     establishConnection();
 
-    // Create a new user:
+    /*
     try {
-      // Attempt to create a new user and retrieve the user ID
-      Integer userID = UserManager.createNewUser(
-          "username_002", "email@domain.net", "password_002");
-      // Log successful user creation and login
-      StringBuilder sb = new StringBuilder();
-      sb.append("User ").append(userID).append(
-          " created and logged in successfully.");
-      System.out.println(sb.toString());
+      Integer post = PostManager.createNewPost("dummy", "dummy", "dummy");
     } catch (FrontEndUsageException e) {
+      e.printStackTrace();
       // Handle frontend usage exception by parsing the message and sending it
       // to the frontend
     }
 
     // Stop database server and close connection:
     closeConnection();
+  */
   }
 
   /**

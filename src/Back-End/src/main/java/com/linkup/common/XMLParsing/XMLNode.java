@@ -5,6 +5,7 @@ import com.linkup.common.XMLParsing.parser.DBResult;
 public class XMLNode<T> {
   private String tagName;
   private T value;
+  private String type;
 
   /**
    * XMLNode is an object to keep track of the contents of XML-like tags.
@@ -14,6 +15,7 @@ public class XMLNode<T> {
    */
   public XMLNode(String tagName, String type, String value) {
     this.tagName = tagName;
+    this.type = type;
     DBResult<T> parser = (DBResult<T>)XMLType.parseValue(type, value);
     this.value = (T)parser.getResult();
   }
@@ -27,8 +29,15 @@ public class XMLNode<T> {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Tag Name: ").append(tagName).append("\n");
-    sb.append("Value: ").append(value.toString()).append("\n");
+    sb.append("<")
+        .append(tagName)
+        .append(":")
+        .append(type)
+        .append(">")
+        .append(value.toString())
+        .append("</")
+        .append(tagName)
+        .append(">");
     return sb.toString();
   }
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class FindCommunity extends FindDBAction {
   String community_name;
+  Integer parent_account_id;
 
   public FindCommunity(String communityName) {
     this.community_name = communityName;
@@ -25,7 +26,7 @@ public class FindCommunity extends FindDBAction {
     StringBuilder sb = new StringBuilder();
     sb.append("SELECT * FROM ")
         .append(getTable())
-        .append(" WHERE community_name = '")
+        .append(" WHERE community_name REGEXP '")
         .append(communityName)
         .append("';");
     String query = sb.toString();

@@ -12,6 +12,7 @@ public class CreateCommunity extends CreateDBAction {
     this.community_name = communityName;
     parent_account_id = userId;
   }
+
   @Override
   public Table getTable() {
     return Table.COMMUNITY;

@@ -42,20 +42,26 @@ public class User {
 
   /**
    * Reads user information.
-   * TODO: Implement Read functionality.
    */
-  public void Read() {
-    // TODO: Read implementation
+  public XMLNode<XMLParent> read() throws FrontEndUsageException {
+    ReadUser readUser = new ReadUser(userID);
     updateLastActionTime();
+    XMLNode<XMLParent> node = readUser.performDBAction();
+    XMLParent parent = node.getValue();
+    logger.log(Level.INFO, parent.toString());
+    return node;
   }
 
   /**
    * Updates user information.
-   * TODO: Implement Update functionality.
    */
-  public void Update() {
-    // TODO: Update Implementation
+  public XMLNode<Integer> Update() throws FrontEndUsageException {
+    UpdateUser updateUser =
+        new UpdateUser(userID, "username", "password_hasth");
     updateLastActionTime();
+    XMLNode<Integer> node = updateUser.performDBAction();
+    logger.log(Level.INFO, node.toString());
+    return node;
   }
 
   /**
@@ -64,21 +70,11 @@ public class User {
    */
   public void Delete() throws FrontEndUsageException {
     DeleteUser deletion =
-        new DeleteUser(userID, "user", "email", "password",
-                       "confirmationPassword", "A really terrible reason");
+        new DeleteUser(userID, "password_hash", "confirmPassword_hash");
     updateLastActionTime();
     XMLNode<Integer> node = deletion.performDBAction();
-    Integer rowsDeleted = node.getValue();
-    if (rowsDeleted == 1) {
-      return;
-    }
-    StringBuilder sb = new StringBuilder();
-    sb.append("DeleteUser operation returned ")
-        .append(rowsDeleted)
-        .append(" rows were deleted for userID ")
-        .append(userID)
-        .append(". This means that unique IDs are not being enforced.");
-    logger.log(Level.WARNING, sb.toString());
+    node.getValue();
+    logger.log(Level.WARNING, node.toString());
   }
 
   /**
