@@ -1,50 +1,94 @@
 package com.linkup.user;
-import java.util.Date;
+
+import com.linkup.LoggingManager;
+import com.linkup.common.XMLParsing.XMLNode;
+import com.linkup.common.XMLParsing.XMLParent;
+import com.linkup.database.exceptions.FrontEndUsageException;
+import java.time.Instant;
+import java.util.logging.*;
+
+/**
+ * Represents a user in the community board application.
+ */
 public class User {
-  private long id;
-  private String username;
-  private String email;
-  private String password;
-  private Date registrationDate;
-  private Date lastLoginDate;
-  private boolean isActive;
+  private Logger logger;
+  private Integer userID;
+  private Instant lastActionTime;
 
-  // Constructor
-  public User(String username, String email, String password) {
-    this.username = username;
-    this.email = email;
-    this.password = password;
-    this.registrationDate = new Date();
-    this.isActive = true;
+  /**
+   * Constructor to initialize a User object with a given userID.
+   * @param userID The unique identifier for the user.
+   */
+  public User(Integer userID) {
+    logger = LoggingManager.getLogger();
+    this.userID = userID;
+    this.lastActionTime = Instant.now();
   }
 
-  public long getId() { return id; }
-  public void setId(long id) { this.id = id; }
+  public Integer getUserId() { return userID; }
 
-  public String getUsername() { return username; }
-
-  public void setUsername(String username) { this.username = username; }
-  public String getEmail() { return email; }
-  public void setEmail(String email) { this.email = email; }
-
-  public String getPassword() { return password; }
-  public void setPassword(String password) { this.password = password; }
-  public Date getRegistrationDate() { return registrationDate; }
-  public void setRegistrationDate(Date registrationDate) {
-    this.registrationDate = registrationDate;
+  /**
+   * Creates a new user with the provided username, email, and password.
+   * @param username The username of the new user.
+   * @param email The email of the new user.
+   * @param password The password of the new user.
+   * @throws FrontEndUsageException If there is a front-end usage exception.
+   */
+  public static void Create(String username, String email, String password)
+      throws FrontEndUsageException {
+    CreateUser user = new CreateUser(username, email, password);
+    user.performDBAction();
   }
-  public Date getLastLoginDate() { return lastLoginDate; }
-  public void setLastLoginDate(Date lastLoginDate) {
-    this.lastLoginDate = lastLoginDate;
-  }
-  public boolean isActive() { return isActive; }
-  public void setActive(boolean active) { isActive = active; }
 
-  // Method to create a new user account
-  public static User createNewUser(String username, String email,
-                                   String password) {
-    User newUser = new User(username, email, password);
-    // Here we will add additional logic such as saving the user to a database
-    return newUser;
+  /**
+   * Reads user information.
+   * TODO: Implement Read functionality.
+   */
+  public void Read() {
+    // TODO: Read implementation
+    updateLastActionTime();
   }
+
+  /**
+   * Updates user information.
+   * TODO: Implement Update functionality.
+   */
+  public void Update() {
+    // TODO: Update Implementation
+    updateLastActionTime();
+  }
+
+  /**
+   * Deletes the user.
+   * @throws FrontEndUsageException If there is a front-end usage exception.
+   */
+  public void Delete() throws FrontEndUsageException {
+    DeleteUser deletion =
+        new DeleteUser(userID, "user", "email", "password",
+                       "confirmationPassword", "A really terrible reason");
+    updateLastActionTime();
+    XMLNode<Integer> node = deletion.performDBAction();
+    Integer rowsDeleted = node.getValue();
+    if (rowsDeleted == 1) {
+      return;
+    }
+    StringBuilder sb = new StringBuilder();
+    sb.append("DeleteUser operation returned ")
+        .append(rowsDeleted)
+        .append(" rows were deleted for userID ")
+        .append(userID)
+        .append(". This means that unique IDs are not being enforced.");
+    logger.log(Level.WARNING, sb.toString());
+  }
+
+  /**
+   * Updates the last action time to the current time.
+   */
+  private void updateLastActionTime() { lastActionTime = Instant.now(); }
+
+  /**
+   * Retrieves the last action time of the user.
+   * @return The last action time.
+   */
+  public Instant getLastActionTime() { return lastActionTime; }
 }

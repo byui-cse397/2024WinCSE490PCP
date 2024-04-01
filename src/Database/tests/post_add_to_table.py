@@ -7,16 +7,10 @@ class postAddToTableTest(DBTest):
         This will run a test on adding items to a table
         """
 
-        
         cursor = connection.cursor()
 
         try:
-            # uncomment this to add the test user 
-            # sql = "INSERT INTO account (id, username, password_hash) VALUES (%s, %s, %s)"
-            # val = (12345, "John", "Testing123")
-            # cursor.execute(sql, val)
-
-            # connection.commit()
+            # This test will not pass unless the account_id actually exists in the database
 
             sql = "INSERT INTO post (content_text, account_id, post_time) VALUES (%s, %s, NOW())"
             val = ("We are learning how to code", 12345)
