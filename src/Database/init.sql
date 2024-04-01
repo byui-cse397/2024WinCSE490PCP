@@ -21,16 +21,16 @@ FLUSH PRIVILEGES;
 CREATE TABLE IF NOT EXISTS ACCOUNT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL
-    jk
+    password_hash VARCHAR(255) NOT NULL,
+    UNIQUE (username)
 );
 
 CREATE TABLE IF NOT EXISTS COMMUNITY (
     id INT AUTO_INCREMENT PRIMARY KEY,
     community_name VARCHAR(255) NOT NULL,
     parent_account_id INT,
-    FOREIGN KEY (parent_account_id) REFERENCES ACCOUNT(id) ON DELETE CASCADE
-    
+    FOREIGN KEY (parent_account_id) REFERENCES ACCOUNT(id) ON DELETE CASCADE,
+    UNIQUE (community_name)
 );
 
 CREATE TABLE IF NOT EXISTS POST (
