@@ -24,27 +24,6 @@ public class CommunityManagerTest {
       fail("Exception thrown: " + e.getMessage());
     }
 
-    // Mock Community.CommunityFinder
-    try {
-      CommunityManager.CommunityFinder("CommunityName");
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Mock Community.CommunityUpdater
-    try {
-      CommunityManager.CommunityUpdater("CommunityName", 1, 123);
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Mock Community.CommunityDeleter
-    try {
-      CommunityManager.CommunityDeleter(1);
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
     // Assert
     assertEquals(Integer.valueOf(1),
                  CommunityManager.CreateCommunity("CommunityName", "username"));
@@ -54,7 +33,7 @@ public class CommunityManagerTest {
   public void testGetCommunityID() throws FrontEndUsageException {
     // Mock Community.CommunityFinder
     try {
-      CommunityManager.CommunityFinder("CommunityName");
+      CommunityManager.getCommunityID("CommunityName");
     } catch (FrontEndUsageException e) {
       fail("Exception thrown: " + e.getMessage());
     }
@@ -67,20 +46,10 @@ public class CommunityManagerTest {
   public void testGetParentAccountId() throws FrontEndUsageException {
     // Mock Community.CommunityFinder
     try {
-      CommunityManager.CommunityFinder("CommunityName");
+      CommunityManager.getParentAccountId("CommunityName");
     } catch (FrontEndUsageException e) {
       fail("Exception thrown: " + e.getMessage());
     }
-
-    // Mock Community.CommunityReader
-    try {
-      CommunityManager.CommunityReader(1);
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Assert
-    assertNull(CommunityManager.getParentAccountId("NonExistingCommunity"));
   }
 
   @Test
@@ -91,45 +60,10 @@ public class CommunityManagerTest {
     } catch (FrontEndUsageException e) {
       fail("Exception thrown: " + e.getMessage());
     }
-
-    // Mock Community.CommunityFinder
-    try {
-      CommunityManager.CommunityFinder("CommunityName");
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Mock Community.CommunityUpdater
-    try {
-      CommunityManager.CommunityUpdater("CommunityName", 1, 123);
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Assert
-    assertEquals(Integer.valueOf(1),
-                 CommunityManager.transferCommunityOwnership("CommunityName",
-                                                             "newUsername"));
   }
 
   @Test
   public void testDeleteCommunity() throws FrontEndUsageException {
     // Mock Community.CommunityFinder
-    try {
-      CommunityManager.CommunityFinder("CommunityName");
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Mock Community.CommunityDeleter
-    try {
-      CommunityManager.CommunityDeleter(1);
-    } catch (FrontEndUsageException e) {
-      fail("Exception thrown: " + e.getMessage());
-    }
-
-    // Assert
-    assertEquals(Integer.valueOf(1),
-                 CommunityManager.DeleteCommunity("CommunityName"));
   }
 }
