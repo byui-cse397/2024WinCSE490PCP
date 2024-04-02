@@ -5,60 +5,50 @@ import com.linkup.database.dbActions.ops.*;
 import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.*;
 
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Represents a class for deleting user accounts from the database.
  * Extends DeleteDBAction abstract class.
  */
-  public class DeleteUser extends DeleteDBAction {
-    private Integer userId;
-    private String password_Hash;
-    private String confirmPassword_Hash;
+public class DeleteUser extends DeleteDBAction {
+  private int userId;
+  private String username;
+  private String password_Hash;
+  private String delete_Reason;
 
-  /**
-   * Constructor to initialize user information required for deletion.
-   * @param userId The ID of the user account to be deleted.
-   * @param password_hash The password of the user account.
-   * @param confirmPassword_hash The confirmation password for deletion.
-   */
-    public DeleteUser( int userId, String password_Hash, String confirmPassword_Hash){
-      this.userId = userId;
-      this.password_Hash = password_Hash;
-      this.confirmPassword_Hash = confirmPassword_Hash;
 
-    }
+  public DeleteUser( int userId, String username, String password_Hash, String delete_Reason){
+    this.userId = userId;
+    this.username = username;
+    this.password_Hash = password_Hash;
+    this.delete_Reason = delete_Reason;
 
-    public int getID(){
-      return userId;
-    }
+  }
 
-    public String getPassword_Hash() {
-      return password_Hash;
-    }
+  public int getID(){
+    return userId;
+  }
 
-    public String getConfirmPassword_Hash(){
-      return confirmPassword_Hash;
-    }
+  public String getUsername(){
+    return username;
+  }
 
-    @Override
-    public Table getTable() {
-      return Table.ACCOUNT;
-    }
+  public String getpasswordHash() {
+    return password_Hash;
+  }
+
+  public String deletionReason(){
+    return delete_Reason;
+  }
 
   @Override
+  public Table getTable() {
+    return Table.ACCOUNT;
+  }
+
   public Boolean checks() throws FrontEndUsageException {
-    nullIdCheck();
     return true;
   }
 
-  public void nullIdCheck() throws FrontEndUsageException {
-    if (this.userId == null) {
-      throw new FrontEndUsageException("Cannot read user from null ID.") {
+}
 
-      };
-    }
-    }
-  }
