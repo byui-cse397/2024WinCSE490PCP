@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.LinkUp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/background</item>
+        <item name="colorPrimaryVariant">@color/background</item>
+    </style>
+
+    <!-- This defines the color scheme of regular blue buttons -->
+    <style name="CustomButtonStyle" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_color</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+    <!-- This defines the color scheme of red buttons -->
+    <style name="CustomButtonStyleRed" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_color_red</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+    <style name="Theme.LinkUp" parent="Base.Theme.LinkUp" />
+</resources>

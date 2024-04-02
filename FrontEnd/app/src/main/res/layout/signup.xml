@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".SignupActivity">
+
+    <!--        TODO: UPDATE TEXT IN BUTTON    -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="336dp"
+        android:layout_height="516dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/rect_border"
+        android:contentDescription="@string/rectback"
+        android:src="@drawable/rounded_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/toLogin"
+        style="@style/CustomButtonStyle"
+        android:layout_width="282dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="48dp"
+        android:background="@android:color/transparent"
+        android:text="@string/backtolog"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        tools:ignore="SmallSp" />
+
+    <EditText
+        android:id="@+id/C_pass"
+        android:layout_width="213dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@drawable/rect_border"
+        android:hint="@string/cpass"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/C_email"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/C_user"
+        android:layout_width="216dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints=""
+        android:background="@drawable/rect_border"
+        android:hint="@string/confirmuser"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/C_email"
+        android:layout_width="216dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="Tester"
+        android:background="@drawable/rect_border"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/C_user" />
+
+    <EditText
+        android:id="@+id/C_pass2x"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="Reconfirm Your Password"
+        android:background="@drawable/rect_border"
+        android:hint="@string/confirmpass"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/C_pass"
+        tools:ignore="TextFields,TextSizeCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/createAccountButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="116dp"
+        android:text="@string/create_account_link"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/Signuptext"
+        android:layout_width="228dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/SignupTitle"
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
