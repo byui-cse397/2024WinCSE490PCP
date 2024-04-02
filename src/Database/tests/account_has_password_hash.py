@@ -9,7 +9,7 @@ class HasPasswordHashField(DBTest):
         """
         cursor = connection.cursor()
         try:
-            cursor.execute("DESCRIBE Accounts")
+            cursor.execute("DESCRIBE Account")
             columns = cursor.fetchall()
 
             for column in columns:

@@ -8,7 +8,7 @@ class ExampleTest1(DBTest):
         """
         cursor = connection.cursor()
         try:
-            cursor.execute("SELECT 1 FROM Accounts LIMIT 1")
+            cursor.execute("SELECT 1 FROM Account LIMIT 1")
             cursor.fetchall()
             # Yay! Data exists!
             return True

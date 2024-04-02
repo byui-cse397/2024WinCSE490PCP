@@ -58,8 +58,7 @@ public class DeleteActivity extends AppCompatActivity {
 
     // Method to send reason for account deletion to backend server
     private void sendDataToBackend(String reason) {
-        // You will replace "http://your-backend-url.com/api/delete_account" with your actual backend URL
-        String backendUrl = "http://your-backend-url.com/api/delete_account";
+        String backendUrl = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
         try {
             URL url = new URL(backendUrl);

@@ -21,7 +21,25 @@ public class FindPost extends FindDBAction {
 
   @Override
   public Boolean checks() throws FrontEndUsageException {
+    nullValueCheck();
+    validValueCheck();
     return true;
+  }
+
+  private void nullValueCheck() throws FrontEndUsageException {
+    if (this.filterValue == null) {
+      throw new FrontEndUsageException("") {
+
+      };
+    }
+  }
+
+  private void validValueCheck() throws FrontEndUsageException {
+    if (!(this.filterValue > 0)) {
+      throw new FrontEndUsageException("ID value must be greater than 0.") {
+
+      };
+    }
   }
 
   @Override
@@ -40,7 +58,7 @@ public class FindPost extends FindDBAction {
     return query;
   }
 
-  static enum FILTER {
+  public static enum FILTER {
     ACCOUNTS,
     COMMUNITY,
   }
