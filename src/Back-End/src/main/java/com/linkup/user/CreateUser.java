@@ -21,7 +21,8 @@ import java.util.logging.SimpleFormatter;
   stored.
   */
 public class CreateUser extends CreateDBAction {
-  private static final Logger logger = Logger.getLogger(User.class.getName());
+  private static final Logger logger =
+      Logger.getLogger(CreateUser.class.getName());
   // Member variables to store user information
   private String password;
   private String password_hash;
