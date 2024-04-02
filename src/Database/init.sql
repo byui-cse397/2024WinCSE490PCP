@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS Account (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL
-    jk
 );
 
 CREATE TABLE IF NOT EXISTS Community (
@@ -36,7 +35,6 @@ CREATE TABLE IF NOT EXISTS COMMUNITY (
     community_name VARCHAR(255) NOT NULL,
     parent_account_id INT,
     FOREIGN KEY (parent_account_id) REFERENCES ACCOUNT(id) ON DELETE CASCADE
-    
 );
 
 CREATE TABLE IF NOT EXISTS POST (
@@ -89,6 +87,6 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
     message_time DATETIME NOT NULL,
     sender_id INT NOT NULL,
     receiver_id INT NOT NULL,
-    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (account_id) REFERENCES Account(id),
-    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (account_id) REFERENCES Account(id)
+    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (sender_id) REFERENCES Account(id),
+    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (receiver_id) REFERENCES Account(id)
 );

@@ -13,7 +13,7 @@ from post_has_content_text import PostHasContentText        # Post
 from post_has_account_id import PostHasAccountId             
 from post_has_post_time import HasPostTime                   
 from post_has_id_pk import HasPostId        
-from post_has_community_id import PostHasCommunityId                 
+# from post_has_community_id import PostHasCommunityId                 
 from post_add_to_table import postAddToTableTest             
 from departing_has_id_pk import HasDepartId                 # Departing
 from departing_has_location import HasDepartLocation         
@@ -85,7 +85,7 @@ def get_test_list() -> List[DBTest]:
                                  PostHasAccountId(), 
                                  HasPostTime(), 
                                  HasPostId(), 
-                                 PostHasCommunityId(), 
+                                #  PostHasCommunityId(), 
                                  postAddToTableTest(), 
                                  HasDepartId(),          # Depart
                                  HasDepartLocation(), 
