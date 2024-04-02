@@ -2,7 +2,6 @@ package byui.app.linkUp;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,26 +30,22 @@ public class AccountActivity extends AppCompatActivity {
         bioEditText = findViewById(R.id.editTextText3);
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button saveButton = findViewById(R.id.beditaccount);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get user input values
-                String username = usernameEditText.getText().toString();
-                String email = emailEditText.getText().toString();
-                String bio = bioEditText.getText().toString();
+        saveButton.setOnClickListener(view -> {
+            // Get user input values
+            String username = usernameEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String bio = bioEditText.getText().toString();
 
-                // Validate input (you can add your validation logic here)
+            // Validate input (you can add your validation logic here)
 
-                // Send data to backend server
-                sendDataToBackend(username, email, bio);
-            }
+            // Send data to backend server
+            sendDataToBackend(username, email, bio);
         });
     }
 
     // Method to send user data to backend server
     private void sendDataToBackend(String username, String email, String bio) {
-        // You will replace "http://your-backend-url.com/api/endpoint" with your actual backend URL
-        String backendUrl = "http://your-backend-url.com/api/endpoint";
+        String backendUrl = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
         try {
             URL url = new URL(backendUrl);
