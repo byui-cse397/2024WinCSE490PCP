@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="358dp"
-        android:layout_height="628dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="375dp"
+        android:layout_height="585dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rect_border"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
@@ -21,11 +21,137 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/passtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:text="@string/Conpassword"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="@+id/editUsname"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/biotitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="156dp"
+        android:text="@string/biotitle"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/sprofile"
+        style="@style/CustomButtonStyle"
+        android:layout_width="199dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="124dp"
+        android:text="@string/saveP"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editNpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:autofillHints="no"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/passtitle"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <EditText
+        android:id="@+id/editbio"
+        android:layout_width="277dp"
+        android:layout_height="123dp"
+        android:layout_marginBottom="176dp"
+        android:autofillHints="@string/biotext"
+        android:background="@drawable/rounded_border"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/biotext"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/emailtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/displayemail"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/confirmNpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="268dp"
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/cpasstitle"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/cpasstitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:text="@string/confirmpass"
+        app:layout_constraintStart_toStartOf="@+id/editNpass"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/cemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autofillHints=""
+        android:background="@color/background"
+        android:ems="10"
+        android:hint="@string/nemail"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/emailtitle"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextFields,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/usertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/displayuser"
+        app:layout_constraintStart_toStartOf="@+id/cemail"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
     <EditText
         android:id="@+id/editUsname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="116dp"
         android:autofillHints="no"
         android:background="@color/background"
         android:ems="10"
@@ -40,149 +166,34 @@
         android:id="@+id/Eaccountname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="96dp"
         android:text="@string/eacctitle"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
-    <TextView
-        android:id="@+id/usertitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/displayuser"
-        app:layout_constraintStart_toStartOf="@+id/cemail"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/cpasstitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:text="@string/confirmpass"
-        app:layout_constraintStart_toStartOf="@+id/editNpass"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/passtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:text="@string/Conpassword"
-        android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/editUsname"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/biotitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:layout_marginEnd="148dp"
-        android:text="@string/biotitle"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
     <Button
         android:id="@+id/dprofile"
         style="@style/CustomButtonStyleRed"
-        android:layout_width="140dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="36dp"
-        android:text="@string/deletebut"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/cemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:autofillHints=""
-        android:background="@color/background"
-        android:ems="10"
-        android:hint="@string/nemail"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/emailtitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextFields,TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/editNpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:autofillHints="no"
-        android:background="@color/background"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/passtitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/sprofile"
-        style="@style/CustomButtonStyle"
-        android:layout_width="201dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="100dp"
+        android:layout_width="175dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="104dp"
         android:layout_marginBottom="76dp"
-        android:text="@string/saveP"
+        android:text="@string/deletebut"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/emailtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/displayemail"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/confirmNpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
-        android:background="@color/background"
-        android:ems="10"
-        android:hint="@string/password"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/cpasstitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
-
-    <EditText
-        android:id="@+id/editbio"
-        android:layout_width="259dp"
-        android:layout_height="125dp"
-        android:layout_marginBottom="152dp"
-        android:autofillHints="@string/biotext"
-        android:background="@drawable/rounded_border"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/biotext"
-        android:inputType="textMultiLine"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="371dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="632dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

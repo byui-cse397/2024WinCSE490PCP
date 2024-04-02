@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import byui.app.linkUp.databinding.LoginBinding;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,14 +34,17 @@ public class LoginActivity extends AppCompatActivity {
                 String password = binding.passEntry.getText().toString().trim();
 
             // Assume a method validateCredentials exists and returns true if the credentials are valid
+
+            TextView signin_error = findViewById(R.id.signin_error);
+
             if (validateCredentials(username, password)) {
                 // Start MainActivity on successful login
-                Intent intent = new Intent(LoginActivity.this, EditAccountActivity.class);
+                Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
                 startActivity(intent);
                 finish(); // Finish LoginActivity so it's removed from the back stack
             } else {
                 // Show error message
-
+                signin_error.setVisibility(View.VISIBLE);
             }
             }
         });

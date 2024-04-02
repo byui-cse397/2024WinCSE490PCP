@@ -2,7 +2,7 @@
     <string name="app_name">LinkUp</string>
     <string name="welcome_text">Welcome to our Community!</string>
     <string name="signin_button">Sign In</string>
-    <string name="signuppreview">No Account? Please signup </string>
+    <string name="signuppreview">No Account? Click here to signup </string>
     <string name="signuplink">Here</string>
     <string name="loginLink">Here</string>
     <string name="create_account_link">Create Account</string>
@@ -17,7 +17,7 @@
     <string name="cpass">Password</string>
     <string name="confirmpass">Confirm your password</string>
     <string name="confirmuser">Username</string>
-    <string name="backtolog">Already have a account? Sign in </string>
+    <string name="backtolog">Already have a account? Click me to Sign in </string>
     <string name="SignupTitle">Lets get you signed up</string>
     <string name="create_account">Create Account</string>
     <string name="Delete_text">Are you sure you want to delete your Account?</string>
@@ -32,7 +32,7 @@
     <string name="biotext">Tell us about yourself</string>
     <string name="tempuser">Disusnamhere</string>
     <string name="tempemail">Disemahere</string>
-    <string name="tempbio">Disusnamhere</string>
+    <string name="tempbio">Disuserbiohere</string>
     <string name="eacctitle">Edit Account Info: </string>
     <string name="nemail">New email</string>
     <string name="cusername">Create Username</string>

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class posthome extends AppCompatActivity {
+public class posthomeActivity extends AppCompatActivity {
 
     Button toCreatePostButton, toAccountPageButton, toLogoutButton;
 
@@ -17,16 +17,16 @@ public class posthome extends AppCompatActivity {
         setContentView(R.layout.posthome);
 
         
-        toCreatePostButton = findViewById(R.id.tocreatepost);
-        toAccountPageButton = findViewById(R.id.toaccountpage);
-        toLogoutButton = findViewById(R.id.tologout);
+//        toCreatePostButton = findViewById(R.id.tocreatepost);
+//        toAccountPageButton = findViewById(R.id.toaccountpage);
+//        toLogoutButton = findViewById(R.id.tologout);
 
        
         toCreatePostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start create post activity
-                Intent intent = new Intent(posthome.this, createpost.class);
+                Intent intent = new Intent(posthomeActivity.this, createpost.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class posthome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start account page activity
-                Intent intent = new Intent(posthome.this, Accountpage.class);
+                Intent intent = new Intent(posthomeActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class posthome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start login activity
-                Intent intent = new Intent(posthome.this, Login.class);
+                Intent intent = new Intent(posthomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 // Finish current activity
                 finish();
