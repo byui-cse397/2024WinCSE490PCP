@@ -1,4 +1,4 @@
-package com.linkup;
+package com.linkup.PostTest;
 
 import static org.junit.Assert.*;
 
