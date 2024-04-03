@@ -1,4 +1,3 @@
-// Anita Woodford and Allan
 package com.linkup.user;
 
 import com.linkup.database.dbActions.ops.*;
@@ -10,29 +9,51 @@ import com.linkup.database.table.*;
  * Extends DeleteDBAction abstract class.
  */
 public class DeleteUser extends DeleteDBAction {
-  private int userId;
-  private String username;
+  private Integer userId;
   private String password_Hash;
-  private String delete_Reason;
+  private String confirmPassword_Hash;
 
-  public DeleteUser(int userId, String password_Hash, String delete_Reason) {
+  /**
+   * Constructor to initialize user information required for deletion.
+   * @param userId The ID of the user account to be deleted.
+   * @param password_Hash The password of the user account.
+   * @param confirmPassword_Hash The confirmation password for deletion.
+   */
+  public DeleteUser( int userId, String password_Hash, String confirmPassword_Hash){
     this.userId = userId;
     this.password_Hash = password_Hash;
-    this.delete_Reason = delete_Reason;
+    this.confirmPassword_Hash = confirmPassword_Hash;
+
   }
 
-  public int getID() { return userId; }
+  public int getID(){
+    return userId;
+  }
 
-  public String getUsername() { return username; }
+  public String getPassword_Hash() {
+    return password_Hash;
+  }
 
-  public String getpasswordHash() { return password_Hash; }
-
-  public String deletionReason() { return delete_Reason; }
+  public String getConfirmPassword_Hash(){
+    return confirmPassword_Hash;
+  }
 
   @Override
   public Table getTable() {
     return Table.ACCOUNT;
   }
 
-  public Boolean checks() throws FrontEndUsageException { return true; }
+  @Override
+  public Boolean checks() throws FrontEndUsageException {
+    nullIdCheck();
+    return true;
+  }
+
+  public void nullIdCheck() throws FrontEndUsageException {
+    if (this.userId == null) {
+      throw new FrontEndUsageException("Cannot read user from null ID.") {
+
+      };
+    }
+  }
 }
