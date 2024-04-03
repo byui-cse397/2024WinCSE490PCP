@@ -41,10 +41,6 @@ public class UserManager {
   public static Integer loginHandler(String username, String password)
       throws FrontEndUsageException {
     Integer request = loginRequest(username, password);
-    if (request != null) {
-      User user = new User(request);
-      // TODO: Update user last request (new field in account table?)
-    }
     return request;
   }
 
@@ -104,5 +100,56 @@ public class UserManager {
     throw new FrontEndUsageException("Invalid username was supplied.") {
 
     };
+  }
+
+  public static class User {
+    // TODO: Handle user actions based off of login time.
+    /**
+     * Creates a new user with the provided username, email, and password.
+     * @param username The username of the new user.
+     * @param email The email of the new user.
+     * @param password The password of the new user.
+     * @throws FrontEndUsageException If there is a front-end usage exception.
+     */
+    public static XMLNode<Integer> Create(String username, String email,
+                                          String password)
+        throws FrontEndUsageException {
+      CreateUser user = new CreateUser(username, email, password);
+      XMLNode<Integer> node = user.performDBAction();
+      return node;
+    }
+
+    /**
+     * Reads user information.
+     */
+    public static XMLNode<XMLParent> read(Integer userID)
+        throws FrontEndUsageException {
+      ReadUser readUser = new ReadUser(userID);
+      XMLNode<XMLParent> node = readUser.performDBAction();
+      return node;
+    }
+
+    /**
+     * Updates user information.
+     */
+    public static XMLNode<Integer> Update(Integer userID)
+        throws FrontEndUsageException {
+      UpdateUser updateUser =
+          new UpdateUser(userID, "username", "password_hash");
+      XMLNode<Integer> node = updateUser.performDBAction();
+      return node;
+    }
+
+    /**
+     * Deletes the user.
+     * @throws FrontEndUsageException If there is a front-end usage exception.
+     */
+    public void Delete(Integer userId, String password_Hash,
+                       String delete_Reason) throws FrontEndUsageException {
+      DeleteUser deletion =
+          new DeleteUser(userId, password_Hash, delete_Reason);
+      XMLNode<Integer> node = deletion.performDBAction();
+      node.getValue();
+    }
   }
 }

@@ -18,23 +18,20 @@ FLUSH PRIVILEGES;
 
 -- Table Schema Setup --
 
-CREATE TABLE IF NOT EXISTS Account (
+CREATE TABLE IF NOT EXISTS ACCOUNT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    UNIQUE (username)
     password_hash VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS Community (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    community_name VARCHAR(255) NOT NULL
---    region VARCHAR(30) NOT NULL,
 );
 
 CREATE TABLE IF NOT EXISTS COMMUNITY (
     id INT AUTO_INCREMENT PRIMARY KEY,
     community_name VARCHAR(255) NOT NULL,
     parent_account_id INT,
-    FOREIGN KEY (parent_account_id) REFERENCES ACCOUNT(id) ON DELETE CASCADE
+    FOREIGN KEY (parent_account_id) REFERENCES ACCOUNT(id) ON DELETE CASCADE,
+    UNIQUE (community_name)
 );
 
 CREATE TABLE IF NOT EXISTS POST (
@@ -42,7 +39,7 @@ CREATE TABLE IF NOT EXISTS POST (
     content_text VARCHAR(800) NOT NULL,
     account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
     post_time DATETIME NOT NULL,
-    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES Account(id)-- Create the actual foreign key relationship
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES ACCOUNT(id)-- Create the actual foreign key relationship
 );
 
 CREATE TABLE IF NOT EXISTS DEPARTING (
@@ -66,15 +63,7 @@ CREATE TABLE IF NOT EXISTS FORUMS (
     CONSTRAINT fk_Forum_Post_Id FOREIGN KEY (post_id) REFERENCES POST(id)
 );
 
-CREATE TABLE IF NOT EXISTS Community (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    community_name VARCHAR(255) NOT NULL,
---    region VARCHAR(30) NOT NULL,
-    post_id INT NOT NULL,
-    CONSTRAINT fk_Community_Post_Id FOREIGN KEY (post_id) REFERENCES Post(id)
-);
-
-CREATE TABLE IF NOT EXISTS Comments (
+CREATE TABLE IF NOT EXISTS COMMENTS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     comment_text VARCHAR(255) NOT NULL,
     post_id INT NOT NULL,
@@ -86,7 +75,5 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
     message_content VARCHAR(300) NOT NULL,
     message_time DATETIME NOT NULL,
     sender_id INT NOT NULL,
-    receiver_id INT NOT NULL,
-    CONSTRAINT fk_Messages_sender_id FOREIGN KEY (sender_id) REFERENCES Account(id),
-    CONSTRAINT fk_Messages_receiver_id FOREIGN KEY (receiver_id) REFERENCES Account(id)
+    receiver_id INT NOT NULL
 );
