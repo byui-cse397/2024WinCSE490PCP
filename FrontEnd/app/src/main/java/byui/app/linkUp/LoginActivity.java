@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
             TextView signin_error = findViewById(R.id.signin_error);
 
-            if (validateCredentials(username, password)) {
+            if (loginHandler(username, password)) {
                 // Start MainActivity on successful login
                 Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
                 startActivity(intent);
@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validateCredentials(String username, String password) {
+    private boolean loginHandler(String username, String password) {
         // Implement your validation logic here
         // This is just a placeholder for demonstration
         return true;
