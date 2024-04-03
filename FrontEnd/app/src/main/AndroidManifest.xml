@@ -33,7 +33,10 @@
         <activity android:name=".AccountActivity"
             android:screenOrientation="unspecified">
         </activity>
-        <activity android:name=".posthomeActivity"
+        <activity android:name=".PosthomeActivity"
+            android:screenOrientation="unspecified">
+        </activity>
+        <activity android:name=".createpost"
             android:screenOrientation="unspecified">
         </activity>
     </application>

@@ -48,4 +48,7 @@
     <string name="AccountButtonText">Account</string>
     <string name="CreatePostButton">Create Post</string>
     <string name="LogoutButton">Logout</string>
+    <string name="Temppostdescrip">Temppostdescrip</string>
+    <string name="Temppostitle">Temppostname</string>
+    <string name="NullPostText">There is no Post here at this time</string>
 </resources>

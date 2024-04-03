@@ -1,11 +1,10 @@
 package byui.app.linkUp;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView; // Import TextView instead of EditText
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -15,37 +14,53 @@ import java.util.Map;
 
 public class AccountActivity extends AppCompatActivity {
 
-    // EditText fields for user input
-    private EditText usernameEditText;
-    private EditText emailEditText;
-    private EditText bioEditText;
+    // TextView fields for displaying user information
+    private TextView usernameTextView;
+    private TextView emailTextView;
+    private TextView bioTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accountpage);
 
-        // Initialize EditText fields
-//        usernameEditText = findViewById(R.id.userdisplayer);
-//        emailEditText = findViewById(R.id.editTextText2);
-//        bioEditText = findViewById(R.id.editTextText3);
+        // Initialize TextView fields
+        usernameTextView = findViewById(R.id.textView);
+        emailTextView = findViewById(R.id.textView2);
+        bioTextView = findViewById(R.id.textView3);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button saveButton = findViewById(R.id.canceleditaccount);
+        Button cancelButton = findViewById(R.id.cea); // Assuming this is the cancel button
+        Button saveButton = findViewById(R.id.save_edit_account); // Corrected ID for save button
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Get user input values
-                String username = usernameEditText.getText().toString();
-                String email = emailEditText.getText().toString();
-                String bio = bioEditText.getText().toString();
+                String username = usernameTextView.getText().toString();
+                String email = emailTextView.getText().toString();
+                String bio = bioTextView.getText().toString();
 
                 // Validate input (you can add your validation logic here)
 
                 // Send data to backend server
                 sendDataToBackend(username, email, bio);
+
+                // Open the EditAccountActivity
+                Intent intent = new Intent(AccountActivity.this, EditAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Open the PosthomeActivity
+                Intent intent = new Intent(AccountActivity.this, PosthomeActivity.class);
+                startActivity(intent);
             }
         });
     }
+
 
     // Method to send user data to backend server
     private void sendDataToBackend(String username, String email, String bio) {

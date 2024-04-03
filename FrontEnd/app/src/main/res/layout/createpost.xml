@@ -24,10 +24,10 @@
         android:id="@+id/backtohomepage"
         android:layout_width="273dp"
         android:layout_height="58dp"
+        android:layout_marginTop="8dp"
         android:text="@string/Goback"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poster" />
 

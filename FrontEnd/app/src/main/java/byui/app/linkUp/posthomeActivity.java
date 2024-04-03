@@ -5,52 +5,70 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class posthomeActivity extends AppCompatActivity {
+class PosthomeActivity extends AppCompatActivity {
 
-    Button toCreatePostButton, toAccountPageButton, toLogoutButton;
+    TextView NullPost;
+    TextView Postmade;
+    Button toAccountButton;
+    Button toLoginButton;
+    Button createPostButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.posthome);
 
-        
-//        toCreatePostButton = findViewById(R.id.tocreatepost);
-//        toAccountPageButton = findViewById(R.id.toaccountpage);
-//        toLogoutButton = findViewById(R.id.tologout);
+        NullPost = findViewById(R.id.NullPost);
+        Postmade = findViewById(R.id.Postmade);
+        toAccountButton = findViewById(R.id.toaccountbutton);
+        toLoginButton = findViewById(R.id.tologinbutton);
+        createPostButton = findViewById(R.id.Createpostbutton);
 
-       
-        toCreatePostButton.setOnClickListener(new View.OnClickListener() {
+        // Initially, set NullPost visible and Postmade invisible
+        NullPost.setVisibility(View.VISIBLE);
+        Postmade.setVisibility(View.GONE);
+
+        createPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start create post activity
-                Intent intent = new Intent(posthomeActivity.this, createpost.class);
+                // Start Createpost activity
+                Intent intent = new Intent(PosthomeActivity.this, createpost.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+
+        toAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start AccountActivity
+                Intent intent = new Intent(PosthomeActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
 
-        
-        toAccountPageButton.setOnClickListener(new View.OnClickListener() {
+        toLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start account page activity
-                Intent intent = new Intent(posthomeActivity.this, AccountActivity.class);
+                // Start LoginActivity
+                Intent intent = new Intent(PosthomeActivity.this, LoginActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        
-        toLogoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start login activity
-                Intent intent = new Intent(posthomeActivity.this, LoginActivity.class);
-                startActivity(intent);
-                // Finish current activity
-                finish();
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // Update Postmade text and visibility
+            String postTitle = data.getStringExtra("postTitle");
+            Postmade.setText(postTitle);
+            Postmade.setVisibility(View.VISIBLE);
+            NullPost.setVisibility(View.GONE);
+        }
+    }
 }
+
