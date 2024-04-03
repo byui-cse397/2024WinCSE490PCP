@@ -144,11 +144,10 @@ public class UserManager {
      * Deletes the user.
      * @throws FrontEndUsageException If there is a front-end usage exception.
      */
-    public static XMLNode<Integer> Delete(Integer userID, String password_Hash,
-                                          String confirmPassword_Hash)
+    public static XMLNode<Integer> Delete(Integer userID)
             throws FrontEndUsageException {
       DeleteUser delete =
-          new DeleteUser(userID, password_Hash, confirmPassword_Hash);
+          new DeleteUser(userID, "password_Hash", "confirmPassword_Hash");
       XMLNode<Integer> node = delete.performDBAction();
       return node;
     }
