@@ -1,6 +1,6 @@
-package com.linkup.common.XMLParsing;
+package byui.app.linkUp.common.XMLParsing;
 
-import com.linkup.common.XMLParsing.parser.*;
+import byui.app.linkUp.common.XMLParsing.parser.*;
 
 public enum XMLType {
   INT {

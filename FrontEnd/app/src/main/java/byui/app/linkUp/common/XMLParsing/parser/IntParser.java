@@ -1,4 +1,4 @@
-package com.linkup.common.XMLParsing.parser;
+package byui.app.linkUp.common.XMLParsing.parser;
 
 public class IntParser extends DBResult<Integer> {
   public IntParser(String input) { super(input); }

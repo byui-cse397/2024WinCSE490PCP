@@ -1,6 +1,6 @@
-package com.linkup.common.XMLParsing;
+package byui.app.linkUp.common.XMLParsing;
 
-import com.linkup.common.XMLParsing.parser.DBResult;
+import byui.app.linkUp.common.XMLParsing.parser.DBResult;
 
 public class XMLNode<T> {
   private String tagName;

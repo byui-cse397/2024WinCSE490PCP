@@ -1,4 +1,4 @@
-package com.linkup.common;
+package byui.app.linkUp.common;
 
 public enum CommandType {
   SYSTEM,

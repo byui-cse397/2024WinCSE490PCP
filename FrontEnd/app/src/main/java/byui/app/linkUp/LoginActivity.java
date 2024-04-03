@@ -63,6 +63,16 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private static Integer toBackend(string username, string password) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<userLogin:parent><username:string>")
+                .append(username)
+                .append("</username>")
+                .append("<password_hash:string>")
+                .append(password)
+                .append("</password_hash>");
+    }
+
     private boolean loginHandler(String username, String password) {
         // Implement your validation logic here
         // This is just a placeholder for demonstration

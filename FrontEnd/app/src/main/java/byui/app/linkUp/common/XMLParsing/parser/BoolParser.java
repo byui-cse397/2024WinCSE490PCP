@@ -1,4 +1,4 @@
-package com.linkup.common.XMLParsing.parser;
+package byui.app.linkUp.common.XMLParsing.parser;
 
 public class BoolParser extends DBResult<Boolean> {
   public BoolParser(String input) { super(input); }

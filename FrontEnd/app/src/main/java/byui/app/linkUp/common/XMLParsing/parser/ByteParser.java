@@ -1,4 +1,4 @@
-package com.linkup.common.XMLParsing.parser;
+package byui.app.linkUp.common.XMLParsing.parser;
 
 public class ByteParser extends DBResult<Byte> {
   public ByteParser(String input) { super(input); }

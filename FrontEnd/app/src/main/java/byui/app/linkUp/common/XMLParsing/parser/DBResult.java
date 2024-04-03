@@ -1,4 +1,4 @@
-package com.linkup.common.XMLParsing.parser;
+package byui.app.linkUp.common.XMLParsing.parser;
 
 public abstract class DBResult<T> {
   protected T result;

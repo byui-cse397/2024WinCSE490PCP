@@ -1,6 +1,6 @@
-package com.linkup.common.XMLParsing.parser;
+package byui.app.linkUp.common.XMLParsing.parser;
 
-import com.linkup.common.XMLParsing.XMLParent;
+import byui.app.linkUp.common.XMLParsing.XMLParent;
 
 public class XMLParentParser extends DBResult<XMLParent> {
   public XMLParentParser(String input) { super(input); }

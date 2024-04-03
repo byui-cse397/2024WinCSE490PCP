@@ -1,5 +1,4 @@
-package com.linkup.common.XMLParsing.parser;
-
+package byui.app.linkUp.common.XMLParsing.parser;
 public class FloatParser extends DBResult<Float> {
   public FloatParser(String input) { super(input); }
 
