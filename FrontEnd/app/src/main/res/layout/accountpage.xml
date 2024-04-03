@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/canceleditaccount"
+        android:id="@+id/cea"
         style="@style/CustomButtonStyleRed"
         android:layout_width="103dp"
         android:layout_height="48dp"
