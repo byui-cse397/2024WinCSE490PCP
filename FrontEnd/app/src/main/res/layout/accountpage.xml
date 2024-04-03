@@ -24,11 +24,14 @@
         style="@style/CustomButtonStyleRed"
         android:layout_width="103dp"
         android:layout_height="48dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <Button
         android:id="@+id/save_edit_account"
