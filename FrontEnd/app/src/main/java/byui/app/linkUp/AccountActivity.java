@@ -49,8 +49,7 @@ public class AccountActivity extends AppCompatActivity {
 
     // Method to send user data to backend server
     private void sendDataToBackend(String username, String email, String bio) {
-        // You will replace "http://your-backend-url.com/api/endpoint" with your actual backend URL
-        String backendUrl = "http://your-backend-url.com/api/endpoint";
+        String backendUrl = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
         try {
             URL url = new URL(backendUrl);

@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.334" />
 
     <ImageView
-        android:id="@+id/apptemplogo"
+        android:id="@+id/linkUp_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
