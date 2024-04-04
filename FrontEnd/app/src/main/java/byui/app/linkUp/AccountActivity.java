@@ -25,26 +25,18 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.accountpage);
 
         // Initialize TextView fields
-        usernameTextView = findViewById(R.id.textView);
+        usernameTextView = findViewById(R.id.usnView);
         emailTextView = findViewById(R.id.textView2);
-        bioTextView = findViewById(R.id.textView3);
+        bioTextView = findViewById(R.id.bioView);
+
+
 
         Button cancelButton = findViewById(R.id.cea); // Assuming this is the cancel button
-        Button saveButton = findViewById(R.id.save_edit_account); // Corrected ID for save button
+        Button saveButton = findViewById(R.id.edit_account); // Corrected ID for save button
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get user input values
-                String username = usernameTextView.getText().toString();
-                String email = emailTextView.getText().toString();
-                String bio = bioTextView.getText().toString();
-
-                // Validate input (you can add your validation logic here)
-
-                // Send data to backend server
-                sendDataToBackend(username, email, bio);
-
                 // Open the EditAccountActivity
                 Intent intent = new Intent(AccountActivity.this, EditAccountActivity.class);
                 startActivity(intent);
@@ -55,7 +47,7 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Open the PosthomeActivity
-                Intent intent = new Intent(AccountActivity.this, PosthomeActivity.class);
+                Intent intent = new Intent(AccountActivity.this, PostHomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,10 +65,11 @@ public class AccountActivity extends AppCompatActivity {
             connection.setDoOutput(true);
 
             // Construct request body
+            // In future iterations, this should include user_id for the request
             Map<String, String> postData = new HashMap<>();
-            postData.put("username", username);
+            postData.put("username", "username");
             postData.put("email", email);
-            postData.put("bio", bio);
+            // postData.put("bio", bio);
 
             StringBuilder requestBody = new StringBuilder();
             for (Map.Entry<String, String> entry : postData.entrySet()) {

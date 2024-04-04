@@ -1,148 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/loginwelcome"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    android:padding="16dp"
-    tools:context=".LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textwelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_text"
-        android:textColor="#212121"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334" />
+    <data>
 
-    <ImageView
-        android:id="@+id/linkUp_logo"
-        android:layout_width="168dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/linkup_transparent_bg" />
+    </data>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/rectback"
-        android:src="@drawable/rounded_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textwelcome" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loginwelcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:padding="16dp"
+        tools:context=".LoginActivity">
 
-    <EditText
-        android:id="@+id/User_n_entry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="33dp"
-        android:autofillHints=""
-        android:background="@drawable/rect_border"
-        android:ems="10"
-        android:hint="@string/username"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="VisualLintTextFieldSize" />
+        <TextView
+            android:id="@+id/textwelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="@string/welcome_text"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="@+id/LinkUp"
+            app:layout_constraintStart_toStartOf="@+id/LinkUp"
+            app:layout_constraintBottom_toTopOf="@id/imageView" />
 
-    <EditText
-        android:id="@+id/pass_entry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="33dp"
-        android:autofillHints=""
-        android:background="@drawable/rect_border"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColorHint="#5C5656"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/User_n_entry" />
+        <ImageView
+            android:id="@+id/linkUp_logo"
+            android:layout_width="168dp"
+            android:layout_height="122dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".1"
+            app:srcCompat="@drawable/linkup_transparent_bg" />
 
-    <TextView
-        android:id="@+id/signin_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="145dp"
-        android:text="@string/signin_error"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/signin_button" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:contentDescription="@string/rectback"
+            android:src="@drawable/rounded_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LinkUp"
+            app:layout_constraintVertical_bias="0.35" />
 
-    <Button
-        android:id="@+id/signin_button"
-        style="@style/CustomButtonStyle"
-        android:layout_width="208dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="51dp"
-        android:background="@drawable/rounded_button"
-        android:text="@string/signin_button"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/pass_entry" />
+        <EditText
+            android:id="@+id/User_n_entry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:autofillHints=""
+            android:background="@drawable/rect_border"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@id/pass_entry"
+            tools:ignore="VisualLintTextFieldSize" />
 
-    <Button
-        android:id="@+id/tosignup"
-        style="@style/CustomButtonStyle"
-        android:layout_width="280dp"
-        android:layout_height="43dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:text="@string/signuppreview"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView" />
+        <EditText
+            android:id="@+id/pass_entry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:autofillHints=""
+            android:background="@drawable/rect_border"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#5C5656"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@id/signin_button"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/User_n_entry" />
 
-    <TextView
-        android:id="@+id/LinkUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:fontFamily="sans-serif-black"
-        android:text="LinkUp"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/textwelcome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linkUp_logo" />
+        <TextView
+            android:id="@+id/signin_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="145dp"
+            android:text="@string/signin_error"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/signin_button" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/signin_button"
+            style="@style/CustomButtonStyle"
+            android:layout_width="208dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/signin_button"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/tosignup"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/pass_entry" />
+
+        <Button
+            android:id="@+id/tosignup"
+            style="@style/CustomButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:background="@android:color/transparent"
+            android:text="@string/signuppreview"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/LinkUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/app_name"
+            android:textSize="60sp"
+            app:layout_constraintEnd_toEndOf="@+id/linkUp_logo"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/linkUp_logo"
+            app:layout_constraintTop_toBottomOf="@+id/linkUp_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

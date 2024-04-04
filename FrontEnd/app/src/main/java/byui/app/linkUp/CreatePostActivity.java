@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class createpost extends AppCompatActivity {
+public class CreatePostActivity extends AppCompatActivity {
 
     EditText createPostTitle;
     EditText createPostBox;

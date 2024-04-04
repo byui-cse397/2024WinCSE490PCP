@@ -1,5 +1,8 @@
 package byui.app.linkUp.FrontendSender;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -7,12 +10,16 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import byui.app.linkUp.common.XMLParsing.XMLParent;
 
 public class FrontendSender {
 
-    private static final String BACKEND_URL = "http://ec2-3-92-170-69.compute-1.amazonaws.com"; // Replace this with your backend URL
+    private static final String BACKEND_URL = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
-    public static void sendDataToBackend(String xmlMessage) {
+    public static void sendDataToBackend(String actionType, Map<String, String> data) {
+        String xmlMessage = createXmlMessage(actionType, data);
         try {
             URL url = new URL(BACKEND_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -38,8 +45,6 @@ public class FrontendSender {
 
                 // Process the XML response from the backend
                 System.out.println("Response from backend: " + response.toString());
-                // Here, you might parse the XML response and handle it according to your application's logic
-
             } else {
                 // Handle error response from backend
                 System.out.println("Error sending data to backend. Response code: " + responseCode);
@@ -50,14 +55,23 @@ public class FrontendSender {
         }
     }
 
-    public static void main(String[] args) {
-        // Example XML message construction
-        String xmlMessage = "<userLogin>"
-                + "<username>john_doe</username>"
-                + "<password_hash>password123</password_hash>"
-                + "</userLogin>";
-
-        // Send data to backend
-        sendDataToBackend(xmlMessage);
+    private static String createXmlMessage(String actionType, Map<String, String> data) {
+        StringBuilder xml = new StringBuilder("<" + actionType + ":parent>");
+        data.forEach((key, value) -> xml.append("<").append(key).append(":").append(data.getClass().getName().toLowerCase()).append(">").append(value).append("</").append(key).append(">"));
+        xml.append("</").append(actionType).append(">");
+        return xml.toString();
     }
+
+
+//    public static void main(String[] args) {
+//        Map<String, String> data = new HashMap<>();
+//        data.put("username", "john_doe");
+//        data.put("password_hash", "password123");
+//        data.put("post_text", "post example");
+//        data.put("community_name", "community");
+//        data.put("email", "email@email.com");
+//
+//        //Defined on each page with a static key
+//        sendDataToBackend("userLogin", data);
+//    }
 }

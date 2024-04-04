@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-class PosthomeActivity extends AppCompatActivity {
+class PostHomeActivity extends AppCompatActivity {
 
     TextView NullPost;
     TextView Postmade;
@@ -35,7 +35,7 @@ class PosthomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start Createpost activity
-                Intent intent = new Intent(PosthomeActivity.this, createpost.class);
+                Intent intent = new Intent(PostHomeActivity.this, CreatePostActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -44,7 +44,7 @@ class PosthomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start AccountActivity
-                Intent intent = new Intent(PosthomeActivity.this, AccountActivity.class);
+                Intent intent = new Intent(PostHomeActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ class PosthomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start LoginActivity
-                Intent intent = new Intent(PosthomeActivity.this, LoginActivity.class);
+                Intent intent = new Intent(PostHomeActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -18,5 +18,11 @@
         <item name="cornerRadius">20dp</item>
     </style>
 
+    <!-- This defines the color scheme of cancel buttons -->
+    <style name="CustomButtonStyleBack" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/button_color_back</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
     <style name="Theme.LinkUp" parent="Base.Theme.LinkUp" />
 </resources>

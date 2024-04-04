@@ -11,179 +11,183 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="381dp"
-        android:layout_height="617dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rect_border"
+        android:layout_width="377dp"
+        android:layout_height="700dp"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496" />
 
     <TextView
         android:id="@+id/passtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="20dp"
         android:text="@string/Conpassword"
         android:textAlignment="viewStart"
-        app:layout_constraintStart_toStartOf="@+id/editUsname"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/editNpass"
+        app:layout_constraintTop_toBottomOf="@+id/editUsname"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/biotitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="20dp"
         android:text="@string/biotitle"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/editbio"
+        app:layout_constraintTop_toBottomOf="@+id/confirmNpass" />
 
     <Button
         android:id="@+id/sprofile"
         style="@style/CustomButtonStyle"
         android:layout_width="199dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="124dp"
         android:text="@string/saveP"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_edit"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/editbio" />
+
+    <Button
+        android:id="@+id/cancel_edit"
+        style="@style/CustomButtonStyleBack"
+        android:layout_width="103dp"
+        android:layout_height="48dp"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/sprofile"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/sprofile"
+        app:layout_constraintTop_toTopOf="@+id/sprofile" />
 
     <EditText
         android:id="@+id/editNpass"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
         android:autofillHints="no"
-        android:background="@color/background"
-        android:ems="10"
+        android:background="@drawable/rounded_border"
         android:hint="@string/password"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/passtitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="@+id/confirmNpass"
+        app:layout_constraintTop_toBottomOf="@+id/passtitle"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/editbio"
-        android:layout_width="277dp"
-        android:layout_height="123dp"
-        android:layout_marginBottom="176dp"
+        android:layout_width="340dp"
+        android:layout_height="168dp"
         android:autofillHints="@string/biotext"
         android:background="@drawable/rounded_border"
-        android:ems="10"
-        android:gravity="start|top"
         android:hint="@string/biotext"
         android:inputType="textMultiLine"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="@+id/cemail"
+        app:layout_constraintTop_toBottomOf="@+id/biotitle" />
 
     <TextView
         android:id="@+id/emailtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/displayemail"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/cemail"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/confirmNpass"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
-        android:background="@color/background"
-        android:ems="10"
+        android:background="@drawable/rounded_border"
         android:hint="@string/password"
         android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/cpasstitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="@+id/editbio"
+        app:layout_constraintTop_toBottomOf="@id/cpasstitle"
+        app:layout_constraintVertical_bias="0.228"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/cpasstitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="20dp"
         android:text="@string/confirmpass"
-        app:layout_constraintStart_toStartOf="@+id/editNpass"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/confirmNpass"
+        app:layout_constraintTop_toBottomOf="@+id/editNpass"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/cemail"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:autofillHints=""
-        android:background="@color/background"
-        android:ems="10"
+        android:background="@drawable/rounded_border"
         android:hint="@string/nemail"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/emailtitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/emailtitle"
         tools:ignore="TextFields,TextContrastCheck" />
 
     <TextView
         android:id="@+id/usertitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="16dp"
         android:text="@string/displayuser"
-        app:layout_constraintStart_toStartOf="@+id/cemail"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/editUsname"
+        app:layout_constraintTop_toBottomOf="@+id/cemail"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/editUsname"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
         android:autofillHints="no"
-        android:background="@color/background"
-        android:ems="10"
+        android:background="@drawable/rounded_border"
         android:hint="@string/cusername"
         android:inputType="text"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/usertitle"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:padding="12dp"
+
+        app:layout_constraintStart_toStartOf="@+id/editNpass"
+        app:layout_constraintTop_toBottomOf="@+id/usertitle"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/Eaccountname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
         android:text="@string/eacctitle"
-        android:textSize="24sp"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/dprofile"
         style="@style/CustomButtonStyleRed"
-        android:layout_width="175dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="76dp"
+        android:layout_width="129dp"
+        android:layout_height="40dp"
         android:text="@string/deletebut"
-        android:textSize="16sp"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

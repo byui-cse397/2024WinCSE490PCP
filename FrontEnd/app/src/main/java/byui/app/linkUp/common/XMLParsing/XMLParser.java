@@ -24,7 +24,7 @@ public class XMLParser {
   /**
    * Perform the parse action and retrieve the XMLNode containing the structure
    * of the XML-like query.
-   * @return XMLNode, contianing children nodes (if any) and the values within
+   * @return XMLNode, containing children nodes (if any) and the values within
    *     the xml query.
    * @throws IOException
    *
@@ -38,7 +38,7 @@ public class XMLParser {
   }
 
   /**
-   * The recurrsive loop of our parser, breaks our xml tags down to names,
+   * The recursive loop of our parser, breaks our xml tags down to names,
    * types, and values.
    * @return The parent XMLNode.
    * @throws IOException
