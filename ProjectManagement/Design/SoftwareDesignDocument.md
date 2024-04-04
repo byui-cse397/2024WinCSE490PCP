@@ -47,6 +47,7 @@ CSE 490R Special Topics
 | 02/18/2024 | 2.0     | Minor updates and corrections. Enhanced the Architecture section, added preliminary details to the Design Considerations, and revised the Introduction for clarity. |
 | 02/19/2024 | 3.0     | Today's updates include: Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to visually support the Search Functionality descriptions. |
 | TBD        | 4.0     | Comprehensive review and update based on feedback. Enhanced security considerations, refined data models, and expanded the Appendix with additional resources. |
+| 04/04/2024|5.0| Added info from the code that was not listed. User Account Management Security and Privacy, data collection and storage
 
 
 
@@ -113,7 +114,7 @@ CSE 490R Special Topics
         - [Update:](#update-2)
         - [Delete:](#delete-2)
   - [Development and Runtime Environment Setup](#development-and-runtime-environment-setup)
-  - [Implementation Planning](#implementation-planning)
+  - [6.Implementation Planning](#implementation-planning)
   - [8. Appendices](#8-appendices)
 
 ## 4. References
@@ -181,6 +182,8 @@ Android Studio is designated for integrated development, with MySQL for data man
 ## 4. Architecture
 
 ### System Architecture Overview
+The system architecture encompasses teh intergration fo various functionalities, including robust user account manangement. This ensures the secure and efficient handling of user registerations with the system. 
+
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
 
 ## Front-End Design(Android Studio)
@@ -595,10 +598,32 @@ erDiagram
 
 ## 5. Detailed System Design
 
-### Main Feature: User Login
+### User Registration and Account Creation
+
+#### Overview :
+The 'createUser' class is desinged to encapsulate the functionality related to registering and adding new users tothe system. Its primary reesponsbilities are:
+
+- **Collecting User Date**: Gathering information from the user such as username , email,password. 
+- **Validating Input**: All information gathered from the user will meet certain criteria, such as password complexity requriemetns, valid email format, and uniqueness of the username within the system. 
+- **Password Hashing**: Securely handles te user's password by applying hashing functions before storage. This security measure will prevent storing passwords in plain text. 
+- **Pesisting User Data**: Saves the valiadated adn process user data in the database, creating a new user account within the system 
+- **Error Handling**: Provides feedback for any errors encountered during the registration process.
+- **User Feedback**: Communictes the success of the account creation precess to the user and possibly guiding them to the next step,such as logging in or verifying their email address. 
+
+#### User Entity Representation 
+A detailed description of the entity is provided, including attributes such as 'username' , 'email', 'password_hash', 'registrationDate', 'lastLoginDate', and 'isActive'. This entity captures user information and status within the system. 
+
+#### Validation Mechanisms
+The system utilizes regular expressions to validate user inputs during the registration procese. The email address is checked against a pattern that ensures it conforms to tstandard email formatting. Similarly, the password is validated to ensure it meets the specified security criteria, including length and character composition. 
+
+#### Logging Strategy 
+A comprehensive logging strategy is outlined, where system actions relate to user account managment(such as update to username, email, password, and account status) are logged for auditing and monitoring purposes, This approach aids in debugging and ensures accountablility within the system. 
+
+#### Database Schema Design
+The document details the database schema, particularly focusing on the "ACCOUNT" table, which stores user information. This section specifies the table's structure, including fields for storing usernames, hashed passwords, email addresses, registration dates, and activity statuses, aligning with the system's data managements. 
 
 #### Sub-Features Breakdown
-1. **User Authentication**
+   - **User Authentication**
    - **Model (DB):** Manages user credentials and session data.
    - **View (FE):** Displays login UI and feedback.
    - **Controller (BE):** Handles authentication logic.
@@ -732,9 +757,18 @@ Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/
 ## Development and Runtime Environment Setup
 Preparation for implementation includes setting up Android Studio, configuring MySQL, and preparing AWS environments for both development and operational deployment.
 
-## Implementation Planning
+## 6. Implementation Planning
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
+
+### User account Creation Process
+The plan for implementing the user account creation feature is detailed, referncing the 'createNewUser' method. It includes steps for user input validation, password hashing, loggin of keys actions, and data storage in the 'ACCOUNT' table. This process ensures the secure and efficient handling of user registrations. 
+
 - **Classes for Implementation:** Detailed planning for the classes involved in the login feature is required, focusing on MVC implementation across the FE, BE, and DB.
+
+## 7. Password Handling
+This secton descxribes teh system's approach to securing user passwords, emphasizing the use of hashing algorithms for password storage. It outlines the criteria for paassword strength and the validation process to ensure user security. 
+
+By incorporating these updates, teh SRS and SDD will accurately reflect the functionalities and design considerations of the 'CreateUser' class, ensuring a comprehensive and clear documentation of the systmes requirements and design. 
 
 ## 8. Appendices
 Includes installation guides, class diagrams, interface definitions, and detailed instructions tailored to the Android and MySQL setup, ensuring readiness for the project's implementation phase.
