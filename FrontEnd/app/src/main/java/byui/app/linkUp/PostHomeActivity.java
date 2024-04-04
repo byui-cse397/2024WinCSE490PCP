@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-class PostHomeActivity extends AppCompatActivity {
+public class PostHomeActivity extends AppCompatActivity {
 
     TextView NullPost;
     TextView Postmade;
