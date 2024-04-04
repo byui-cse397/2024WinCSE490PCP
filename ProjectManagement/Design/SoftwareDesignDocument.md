@@ -47,7 +47,7 @@ CSE 490R Special Topics
 | 02/18/2024 | 2.0     | Minor updates and corrections. Enhanced the Architecture section, added preliminary details to the Design Considerations, and revised the Introduction for clarity. |
 | 02/19/2024 | 3.0     | Today's updates include: Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to visually support the Search Functionality descriptions. |
 | TBD        | 4.0     | Comprehensive review and update based on feedback. Enhanced security considerations, refined data models, and expanded the Appendix with additional resources. |
-| 04/04/2024|5.0| Added info from the code that was not listed. User Account Management Security and Privacy, data collection and storage
+| 04/04/2024|5.0| Added info from the code that was not listed. User Account Management Security and Privacy, data collection and storage added 'CreateUser' information.|
 
 
 
@@ -184,6 +184,16 @@ The application's successful operation depends on the Android operating environm
 
 ### Development Environment Setup
 Android Studio is designated for integrated development, with MySQL for data management. The backend services will be hosted on AWS, utilizing Linux-based/Ubuntu servers.
+
+#### Required Software and Tool
+- JDK 11: [Download link](https://...) https://www.oracle.com/java/technologies/downloads/
+- MySQL Server 8.0.23: [Installation guide](https://...)(https://dev.mysql.com/downloads/mysql/)
+- IntelliJ IDEA , Eclipse, or Visual Studio for development.
+
+### Library Dependencies
+
+
+### Security Considerations
 
 ## 4. Architecture
 
