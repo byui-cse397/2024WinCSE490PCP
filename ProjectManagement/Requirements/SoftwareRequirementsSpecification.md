@@ -675,6 +675,8 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.2.1 The system shall ask user to enter password and login.<br>
 3.1.2.2 The system shall ask the user for two authentications.<br>
 3.1.2.3 The user profile shall have Authorization.<br>
+3.1.2.4 The system shall enforce strong password policies, requiring passwords to have at least one digit and one letter and a minimum length of 8 characters.<br>
+3.1.2.5 User email addresses shall be validated against a standard email format to ensure data integrity.<br>
 
 ### 3.1.3 Community and Connectivity
 3.1.3.1 The system shall allow users access to the community post page.<br>
@@ -714,6 +716,9 @@ These system interfaces collectively facilitate the functionality and interactio
 ### 3.2.4 Storage
 3.2.4.1 The system shall store the characters and dates in the cache to allow the user to return to the app. 
 
+### 3.2.5 Secure Hashing 
+3.2.5.1 The system shall implement secure hashing of user passwords before storing them in the database to enhance security.
+
 ## 3.3 Usability Requirements
 
 ### 3.3.1 Onboarding Tutorial
@@ -729,6 +734,9 @@ These system interfaces collectively facilitate the functionality and interactio
 
 ### 3.3.5 Organization
 3.3.5.1 When using List View mode, posts shall be automatically organized by date. 
+
+### 3.3.6 Error Messages
+3.3.6.1 The system shall provide clear error messages and feedback for user registration attempts, including invalid email formats and password strength failures.
 
 ## 3.4 Interface Requirements
 
