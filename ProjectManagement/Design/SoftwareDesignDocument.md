@@ -176,6 +176,12 @@ The Community Board Forum is transitioning to an Android application to directly
 ### Assumptions and Dependencies
 The application's successful operation depends on the Android operating environment, reliable internet connectivity, and the availability of AWS services for backend and database hosting.
 
+#### CreateUser Dependencies
+- **Java Development Kit(JDK)**: Version 11 or above.
+- **Logging Framework**: Utilizes 'java.util.logging'.
+- **Password Hashing Library**: Bcrypt for Java, ensuring secure password storage.
+- **Datavase Connectivity**: JDBC driver for MySQL version 8.0.23.
+
 ### Development Environment Setup
 Android Studio is designated for integrated development, with MySQL for data management. The backend services will be hosted on AWS, utilizing Linux-based/Ubuntu servers.
 
@@ -185,6 +191,9 @@ Android Studio is designated for integrated development, with MySQL for data man
 The system architecture encompasses teh intergration fo various functionalities, including robust user account manangement. This ensures the secure and efficient handling of user registerations with the system. 
 
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
+
+#### Security Architeture
+The `CreateUser` class incorporates secure practices for user registration, including password hashing with Bcrypt and input validation using regex, to uphold the system's integrity and confidentiality requirements.
 
 ## Front-End Design(Android Studio)
 Focuses on delivering a seamless user experience with a native Android application, implementing views for user interaction and controllers for handling user input and system responses.
