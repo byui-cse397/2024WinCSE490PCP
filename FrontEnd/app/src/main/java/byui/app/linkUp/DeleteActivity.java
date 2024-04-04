@@ -6,97 +6,102 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
 
 public class DeleteActivity extends AppCompatActivity {
 
-    // EditText field for reason input
     private EditText reasonEditText;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_account);
+        setContentView(R.layout.activity_delete_account); // Ensure this matches your layout file name
 
-        // Initialize EditText field
-        reasonEditText = findViewById(R.id.reasonEditText);
+        reasonEditText = findViewById(R.id.reasonEditText); // Ensure this ID matches in your layout
 
         Button deleteButton = findViewById(R.id.yesButton);
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get reason for account deletion
-                String reason = reasonEditText.getText().toString();
-                Intent deleteIntent = new Intent(DeleteActivity.this, LoginActivity.class);
-                startActivity(deleteIntent);
-                // Validate input (if necessary)
+        deleteButton.setOnClickListener(view -> {
+            String reason = reasonEditText.getText().toString().trim();
 
-                // Send data to backend server
-                sendDataToBackend(reason);
+
+//            TODO: Figure this out how to send the reason if it's provided
+            if (reason != null) {
+                // Send reason if it is provided
             }
+
+            sendDataToBackend(reason);
+
+            Intent deleteIntent = new Intent(DeleteActivity.this, LoginActivity.class);
+            startActivity(deleteIntent);
         });
 
         Button returnButton = findViewById(R.id.noButton);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Navigate back to Accountpage activity
-                Intent accountIntent = new Intent(DeleteActivity.this, AccountActivity.class);
-                startActivity(accountIntent);
-
-                // Include popup activity to verify one more time
-            }
-        });
+        returnButton.setOnClickListener(view -> new AlertDialog.Builder(DeleteActivity.this)
+                .setTitle("Cancel Deletion")
+                .setMessage("Are you sure you want to cancel account deletion?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    Intent accountIntent = new Intent(DeleteActivity.this, AccountActivity.class);
+                    startActivity(accountIntent);
+                })
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .show());
     }
 
-    // Method to send reason for account deletion to backend server
     private void sendDataToBackend(String reason) {
         String backendUrl = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
+        HttpURLConnection connection = null;
         try {
             URL url = new URL(backendUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
+            connection.setRequestProperty("Content-Type", "application/xml; charset=UTF-8");
 
-            // Construct request body
-            Map<String, String> postData = new HashMap<>();
-            postData.put("reason", reason);
+            // Construct XML data
+            String xmlData = "<deleteRequest>" +
+                    "<reason>" + reason + "</reason>" +
+                    "</deleteRequest>";
 
-            StringBuilder requestBody = new StringBuilder();
-            for (Map.Entry<String, String> entry : postData.entrySet()) {
-                if (requestBody.length() != 0) {
-                    requestBody.append("&");
-                }
-                requestBody.append(entry.getKey()).append("=").append(entry.getValue());
+            try (OutputStream os = connection.getOutputStream()) {
+                byte[] input = xmlData.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
             }
 
-            // Write request body to connection
-            OutputStream os = connection.getOutputStream();
-            os.write(requestBody.toString().getBytes());
-            os.flush();
-            os.close();
 
-            // Check response code
             int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                // Request was successful, handle response (if any)
+                // Account deleted successfully, navigate to login screen
+                runOnUiThread(() -> Toast.makeText(DeleteActivity.this, "Account deleted successfully.", Toast.LENGTH_LONG).show());
+                Intent toHomeIntent = new Intent(DeleteActivity.this, LoginActivity.class);
+                startActivity(toHomeIntent);
             } else {
-                // Error handling
+                // Similarly, switch to UI thread to show error
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Show an error message using Toast
+                        Toast.makeText(DeleteActivity.this, "Failed to delete account. Please try again.", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
-            // Close connection
             connection.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
-            // Error handling
+            runOnUiThread(() -> Toast.makeText(DeleteActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show());
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
     }
 }

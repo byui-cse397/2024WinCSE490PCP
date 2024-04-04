@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">LinkUp</string>
     <string name="welcome_text">Welcome to our Community!</string>
     <string name="signin_button">Sign In</string>
@@ -17,7 +17,7 @@
     <string name="cpass">Password</string>
     <string name="confirmpass">Confirm your password</string>
     <string name="confirmuser">Username</string>
-    <string name="backtolog">Already have a account? Click HERE to sign in!</string>
+    <string name="backtolog">Already have an account? Click HERE to sign in!</string>
     <string name="SignupTitle">Let\'s get you signed up!</string>
     <string name="create_account">Create Account</string>
     <string name="Delete_text">Are you sure you want to delete your Account?</string>
@@ -48,4 +48,8 @@
     <string name="AccountButtonText">Account</string>
     <string name="CreatePostButton">Create Post</string>
     <string name="LogoutButton">Logout</string>
+    <string name="Temppostdescrip">Temppostdescrip</string>
+    <string name="Temppostitle">Temppostname</string>
+    <string name="NullPostText">There is no Post here at this time</string>
+    <string name="home">Home</string>
 </resources>

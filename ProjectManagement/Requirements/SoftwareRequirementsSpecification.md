@@ -781,12 +781,12 @@ These system interfaces collectively facilitate the functionality and interactio
 4.1.1.6 If the system allows the user to search for post it passes verification; otherwise, it faiverification.<br>
 
 ### 4.1.2 Security & Data Collection
-4.1.2.1 If the system asks the user to enter password and login it passes verification; otherwi
+4.1.2.1 If the system asks the user to enter password and login it passes verification; otherwise
 it fails verification.<br>
 4.1.2.2 If the system asks the user for two authentications it passes verification; otherwise,
 fails verification.<br>
 4.1.2.3 If the system gives the user authorization it passes verification; otherwise, it fa
-verificati<br>
+verification<br>
 
 ### 4.1.3 Communication and Connectivity
 4.1.3.1 If the system allows users access to the community post page it passes verification; otherwise, it fails verification.<br>

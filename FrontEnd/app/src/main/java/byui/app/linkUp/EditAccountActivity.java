@@ -44,7 +44,10 @@ public class EditAccountActivity extends AppCompatActivity {
         fetchUserData();
         setupSaveProfileButton();
         setupDeleteProfileButton();
+        //setupCancelEditButton();
     }
+
+
 
 
     private void setupSaveProfileButton() {

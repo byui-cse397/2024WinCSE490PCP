@@ -696,13 +696,13 @@ The components and pages that display community posts, comments, and the interfa
 ---
 
 #### Search Functionality 
-The system must provide users with the ability to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information.
+The system must provide users with the ability to search for specific users, communities and posts based on criteria such as names and keywords, facilitating efficient discovery of relevant information.
 
 ##### View:
 The search functionality view is responsible for providing users with a user-friendly interface to perform searches. This includes input fields for entering search criteria, search result display, and any additional features that enhance the search experience. The view communicates user input to the controller, which then processes the search query and updates the view with the relevant results.
 ##### Create:
 - *Search Form*
-  - *Description:* Allows users to input search criteria such as destination, category, and timestamp.
+  - *Description:* Allows users to input search criteria such as user names and keywords.
   - *Elements:* Text inputs, dropdowns, or other input fields for specifying search criteria. A submit button to initiate the search.
   - *Actions:* When the user submits the search form, the view sends the search criteria to the controller, which processes the request and queries the model for matching posts.
 ##### Read:
@@ -720,7 +720,7 @@ The search functionality view is responsible for providing users with a user-fri
   - *Description:* Enables users to clear the search form and start a new search.
   - *Elements:* A "Clear" or "Reset" button to clear all entered search criteria.
   - *Actions:* Clicking the "Clear" button sends a request to the controller to reset the search criteria, clearing the form and potentially resetting the displayed results.
- 
+
 ## Front End Design Detail:
 ### User Account Management flow system:
 ![User Account Management Flow system](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow.png)

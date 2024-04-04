@@ -8,96 +8,80 @@
     android:background="@color/background"
     android:paddingTop="?attr/actionBarSize"
     android:textAlignment="center"
-    tools:showIn=".activity_delete_account" >
+    tools:showIn=".activity_delete_account">
 
+    <TextView
+        android:id="@+id/deleteAccountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Delete_text"
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/reasonEditText"
+        app:layout_constraintTop_toBottomOf="@+id/linkUp_logo" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/backdrop"
-        android:layout_width="414dp"
-        android:layout_height="650dp"
-        android:paddingTop="?attr/actionBarSize"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/yesButton"
+        style="@style/CustomButtonStyleRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/D_yes"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toStartOf="@id/noButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reasonEditText" />
+
+    <Button
+        android:id="@+id/noButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="151dp"
+        android:layout_height="77dp"
+        android:text="@string/D_No"
+        android:textSize="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/yesButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@id/yesButton"
+        app:layout_constraintTop_toTopOf="@+id/yesButton" />
+
+    <ImageView
+        android:id="@+id/linkUp_logo"
+        android:layout_width="183dp"
+        android:layout_height="163dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/deleteAccountTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:context=".DeleteAccountActivity"
-        tools:ignore="TextSizeCheck">
+        app:srcCompat="@drawable/linkup_transparent_bg" />
 
-        <TextView
-            android:id="@+id/deleteAccountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Delete_text"
-            android:textAlignment="center"
-            android:textColor="#424242"
-            android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/templogo" />
+    <EditText
+        android:id="@+id/reasonEditText"
+        android:layout_width="336dp"
+        android:layout_height="182dp"
+        android:layout_marginBottom="144dp"
+        android:background="@drawable/rounded_border"
+        android:gravity="start|top"
+        android:hint="@string/D_reason"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deleteAccountTextView"/>
 
-        <Button
-            android:id="@+id/yesButton"
-            style="@style/CustomButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="80dp"
-            android:text="@string/D_yes"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/noButton"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/noButton"
-            style="@style/CustomButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="80dp"
-            android:text="@string/D_No"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/yesButton" />
-
-        <ImageView
-            android:id="@+id/templogo"
-            android:layout_width="183dp"
-            android:layout_height="163dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="112dp"
-            android:contentDescription="@string/todo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logotemp" />
-
-        <EditText
-            android:id="@+id/reasonEditText"
-            android:layout_width="305dp"
-            android:layout_height="182dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_border"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/D_reason"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deleteAccountTextView" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="415dp"
-            android:layout_height="74dp"
-            android:background="?android:attr/windowBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="415dp"
+        android:layout_height="74dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

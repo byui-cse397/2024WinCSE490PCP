@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/loginwelcome">
+
+    <fragment
+        android:id="@+id/loginwelcome"
+        android:name="byui.app.linkUp.LoginFragment"
+        android:label="@string/loginLink"
+        tools:layout="@layout/login" />
 
 <!--    <fragment-->
-<!--        android:id="@+id/navigation_home"-->
-<!--        android:name="byui.app.linkUp.ui.home.HomeFragment"-->
-<!--        android:label="@string/title_home"-->
-<!--        tools:layout="@layout/fragment_home" />-->
-
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_dashboard"-->
+<!--        android:id="@+id/createpost"-->
 <!--        android:name="byui.app.linkUp.ui.dashboard.DashboardFragment"-->
 <!--        android:label="@string/title_dashboard"-->
 <!--        tools:layout="@layout/fragment_dashboard" />-->
@@ -22,8 +22,16 @@
 <!--        android:name="byui.app.linkUp.ui.notifications.NotificationsFragment"-->
 <!--        android:label="@string/title_notifications"-->
 <!--        tools:layout="@layout/fragment_notifications" />-->
-    <activity
-        android:id="@+id/login"
-        android:name="byui.app.linkUp.LoginActivity"
-        android:label="Login" />
+
+<!--    <activity-->
+<!--        android:id="@+id/login"-->
+<!--        android:name="byui.app.linkUp.LoginActivity"-->
+<!--        tools:layout="@layout/login"-->
+<!--        android:label="Login" />-->
+
+<!--    <activity-->
+<!--        android:id="@+id/login"-->
+<!--        android:name="byui.app.linkUp.LoginActivity"-->
+<!--        tools:layout="@layout/login"-->
+<!--        android:label="Login" />-->
 </navigation>
