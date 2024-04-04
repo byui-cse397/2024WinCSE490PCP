@@ -18,7 +18,26 @@ public class FindCommunity extends FindDBAction {
     return Table.COMMUNITY;
   }
 
-  public Boolean checks() throws FrontEndUsageException { return true; }
+  public void emptyCommunityNameCheck() throws FrontEndUsageException {
+    if (this.community_name.isEmpty()) {
+      throw new FrontEndUsageException("Cannot find an empty community_name.") {
+
+      };
+    }
+  }
+
+  public void nullParentAccountIdCheck() throws FrontEndUsageException {
+    if ((this.parent_account_id == null | this.parent_account_id == 0)) {
+      throw new FrontEndUsageException("Cannot find from empty parentId.") {
+
+      };
+    }
+  }
+
+  public Boolean checks() throws FrontEndUsageException {
+    emptyCommunityNameCheck();
+    return true;
+  }
 
   protected String buildQuery(Map<String, String> colValueMap) {
     String communityName = colValueMap.get("community_name");

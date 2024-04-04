@@ -5,7 +5,7 @@ import com.linkup.database.exceptions.FrontEndUsageException;
 import com.linkup.database.table.Table;
 
 public class DeleteCommunity extends DeleteDBAction {
-  int Id;
+  Integer Id;
 
   public int getID() { return Id; }
 
@@ -16,5 +16,17 @@ public class DeleteCommunity extends DeleteDBAction {
     return Table.COMMUNITY;
   }
 
-  public Boolean checks() throws FrontEndUsageException { return true; }
+  public void nullCommunityIdCheck() throws FrontEndUsageException {
+    if (Id == null | Id == 0) {
+      throw new FrontEndUsageException(
+          "Id cannot be null in community deletion.") {
+
+      };
+    }
+  }
+
+  public Boolean checks() throws FrontEndUsageException {
+    nullCommunityIdCheck();
+    return true;
+  }
 }

@@ -84,7 +84,7 @@ public class CreateUser extends CreateDBAction {
   }
 
   // Getter method for retrieving password
-  public String getPassword() { return password; }
+  public String getPassword() { return password_hash; }
 
   // Setter method for updating password
   public void setPassword(String password) {

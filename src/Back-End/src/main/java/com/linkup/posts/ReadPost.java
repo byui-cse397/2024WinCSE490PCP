@@ -22,13 +22,23 @@ public class ReadPost extends ReadDBAction {
   @Override
   public Boolean checks() throws FrontEndUsageException {
     nullPostIDCheck();
+    emptyPostIDCheck();
     return true;
   }
 
   public void nullPostIDCheck() throws FrontEndUsageException {
-    if (postId == null | postId == 0) {
+    if (postId == null) {
       throw new FrontEndUsageException(
-          "PostId cannot be null in post reading.") {
+          "PostId cannot be null in post deletion.") {
+
+      };
+    }
+  }
+
+  public void emptyPostIDCheck() throws FrontEndUsageException {
+    if (postId < 1) {
+      throw new FrontEndUsageException(
+          "PostId cannot be less than 1 in post deletion.") {
 
       };
     }

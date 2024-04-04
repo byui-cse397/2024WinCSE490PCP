@@ -20,18 +20,26 @@ public class CreateCommunity extends CreateDBAction {
 
   public Boolean checks() throws FrontEndUsageException {
     nullNameCheck();
+    emptyNameCheck();
     nameTooLongCheck();
     return true;
   }
 
-  private void nullNameCheck() throws FrontEndUsageException {
-    if (this.community_name == null) {
+  private void emptyNameCheck() throws FrontEndUsageException {
+    if (this.community_name.isEmpty()) {
       throw new FrontEndUsageException("Community must have a name.") {
 
       };
     }
   }
 
+  private void nullNameCheck() throws FrontEndUsageException {
+    if (this.community_name == null) {
+      throw new FrontEndUsageException("Community name was null.") {
+
+      };
+    }
+  }
   private void nameTooLongCheck() throws FrontEndUsageException {
     if (community_name.length() > 255) {
       throw new FrontEndUsageException("Community name is too long.") {

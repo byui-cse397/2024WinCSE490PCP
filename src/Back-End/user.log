@@ -1,6 +1,4 @@
-Mar 28, 2024 3:01:30 PM com.linkup.user.CreateUser setActive
+Apr 03, 2024 11:55:48 PM com.linkup.user.CreateUser setActive
 INFO: User activity status updated: false
-Mar 28, 2024 3:01:30 PM com.linkup.user.CreateUser setLastLoginDate
-INFO: Last login date updated: Thu Mar 28 15:01:30 MST 2024
-Mar 28, 2024 3:01:30 PM com.linkup.user.CreateUser setRegistrationDate
-INFO: Registration date updated: Thu Mar 28 15:01:30 MST 2024
+Apr 03, 2024 11:55:48 PM com.linkup.user.CreateUser setLastLoginDate
+INFO: Last login date updated: Wed Apr 03 23:55:48 MDT 2024

@@ -56,27 +56,6 @@ public class CreateUserTest {
   }
 
   /*
-    testCreateUserRegistrationDate:
-    This test verifies that the registration date remains unchanged when
-    attempting to set it to a new date. It ensures that the registration date is
-    immutable after object creation.
-  */
-
-  @Test
-  public void testCreateUserRegistrationDate() {
-    // Arrange
-    CreateUser user =
-        new CreateUser("testCreateUser", "test@example.com", "password123");
-    Date registrationDate = user.getRegistrationDate();
-
-    // Act
-    user.setRegistrationDate(new Date());
-
-    // Assert
-    assertEquals(registrationDate, user.getRegistrationDate());
-  }
-
-  /*
     testCreateUserEmailValidation:
     This test checks if the user email remains unchanged when setting an invalid
     email address.

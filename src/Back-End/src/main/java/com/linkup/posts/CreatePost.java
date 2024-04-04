@@ -30,21 +30,32 @@ public class CreatePost extends CreateDBAction {
   @Override
   public Boolean checks() throws FrontEndUsageException {
     nullPostTextCheck();
+    emptyPostTextCheck();
     nullAccountIDCheck();
+    emptyAccountIDCheck();
     nullCommunityIDCheck();
+    emptyCommunityIDCheck();
     return true;
   }
 
   public void nullPostTextCheck() throws FrontEndUsageException {
-    if (Content_text == null | Content_text.length() == 0) {
+    if (Content_text == null) {
       throw new FrontEndUsageException("Post text cannot be null.") {
 
       };
     }
   }
 
+  public void emptyPostTextCheck() throws FrontEndUsageException {
+    if (Content_text.length() == 0) {
+      throw new FrontEndUsageException("Post text cannot be empty.") {
+
+      };
+    }
+  }
+
   public void nullAccountIDCheck() throws FrontEndUsageException {
-    if (Accounts_id == null | Accounts_id == 0) {
+    if (Accounts_id == null) {
       throw new FrontEndUsageException(
           "Account Id cannot be null in post creation.") {
 
@@ -52,10 +63,28 @@ public class CreatePost extends CreateDBAction {
     }
   }
 
+  public void emptyAccountIDCheck() throws FrontEndUsageException {
+    if (Accounts_id < 1) {
+      throw new FrontEndUsageException(
+          "Account Id cannot be less than 1 in post creation.") {
+
+      };
+    }
+  }
+
   public void nullCommunityIDCheck() throws FrontEndUsageException {
-    if (Community_id == null | Community_id == 0) {
+    if (Community_id == null) {
       throw new FrontEndUsageException(
           "Community Id cannot be null in post creation.") {
+
+      };
+    }
+  }
+
+  public void emptyCommunityIDCheck() throws FrontEndUsageException {
+    if (Community_id < 1) {
+      throw new FrontEndUsageException(
+          "Community Id cannot be less than 1 in post creation.") {
 
       };
     }
