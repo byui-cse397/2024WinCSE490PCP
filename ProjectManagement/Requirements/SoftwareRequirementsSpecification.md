@@ -380,21 +380,18 @@ The community post feature must be scalable and maintainable within the MVC fram
 
 
 ### 1.1.4. Search Functionality
-The current system is equipped with a search functionality that allows users to locate users and communities through regular expression (regex) based searches.
-
-The system shall provide a search functionality that enables users to retrieve posts by matching specific keywords. This search capability shall be similar to the existing regular expression (regex) based search mechanisms employed for names and communities. However, it shall be scoped to limit searches within the context of a specific community or user profile, rather than across the entire database of stored posts. To maintain system performance and relevancy of search results, the system shall also implement a constraint on the maximum number of search results returned (designated as 'n'). This limit will ensure that searches within a community context are both efficient and pertinent to the user's query.
-
+The system must provide users with the ability to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information.
 #### Introduction
 
-This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the search functionality within an application. The purpose of this functionality is to allow users to efficiently locate users, communities, and eventually posts within said users and communities.
+This section of the Software Requirements Specification (SRS) document outlines the detailed requirements for the search functionality within an application. The purpose of this functionality is to allow users to efficiently locate specific posts based on various criteria such as destination, category, and timestamp.
 
 #### 1.1.4.1 Scope
 
-The search functionality aims to enhance user experience by providing an efficient mechanism to locate specific users, communities, and posts based on predefined criteria. It will support the application's overall goal of facilitating information discovery and engagement among users.
+The search functionality aims to enhance user experience by providing an efficient mechanism to locate specific posts based on predefined criteria. It will support the application's overall goal of facilitating information discovery and engagement among users.
 
 #### 1.1.4.2 User Needs
 
-Users need to quickly and efficiently find users, communities, and posts relevant to their interests or information needs based on specific criteria such as user name, community name and keywords in post's content.
+Users need to quickly and efficiently find posts relevant to their interests or information needs based on specific criteria like destination, category, and timestamp.
 
 #### 1.1.4.3 Assumptions and Dependencies
 
@@ -643,12 +640,12 @@ These system interfaces collectively facilitate the functionality and interactio
 | Span of Time              | A period of time in which something happens. Specifically, this will be used to find certain travel events.                                                   |
 | Supporting Cause          | Agreeing with an idea or goal among people.                                                                                                                   |
 | System                    | All components/parts of the application.                                                                                                                      |
-| Search                    | The feature enabling users to search for specific users, communities, and posts based on criteria such as keywords, facilitating efficient discovery of relevant information within the community. |
+| Search                    | The feature enabling users to search for specific posts based on criteria such as destination, category, and timestamp, facilitating efficient discovery of relevant information within the community. |
 | SMS Sharing               | The option within the system to share selected posts via text messages for communication purposes, utilizing the Short Message Service (SMS) to exchange short text messages between mobile devices. |
 | Tag                       | A label attached to some aspect of an entry for the purposes of searching for that entry. For instance, a tag might be a person’s name in a post.             |
 | Timeline                  | A graphic representation of the passage of time from a list of events.                                                                                         |
 | Tutorial / Onboarding     | A series of images and/or text that teach the user how to use the desired software.                                                                            |
-| Upload                    | To transfer (data|
+| Upload                    | To transfer (data
 
 # 2 References
 2.1 Brigham Young University of Idaho CSE 430 SRS Document Submitted 2022
@@ -672,7 +669,7 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.1.2 The system shall allow the user to have access to view the community forum page.<br>
 3.1.1.3 The system shall allow the user to add social media accounts. <br>
 3.1.1.4 The system shall allow the user to view history of posts and last view items.<br>
-3.1.1.5 The system shall allow user to search for a user, community, or a post.<br>
+3.1.1.5 The system shall allow user to search for post.<br>
 
 ### 3.1.2 Security & Data Collection
 3.1.2.1 The system shall ask user to enter password and login.<br>
@@ -695,10 +692,9 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.3.13 The system shall allow post to have timestamps. <br>
 3.1.3.14 The system shall allow post to have ratings. <br>
 3.1.3.15 The system shall allow post to have passengers<br>
-
 ### 3.1.4 Content Management 
  3.1.4.1 The system shall allow the user to view a search menu.
- 3.1.4.2 The system shall allow the user to retrieve and search for a user, a community, or a post.  
+ 3.1.4.2 The system shall allow the user to retrieve and search for a post.  
  3.1.4.3 The system shall allow users to search for categories. 
  3.1.4.4 The system shall allow users to search for rides.
  3.1.4.5 The system shall allow users to search for people.
@@ -777,20 +773,20 @@ These system interfaces collectively facilitate the functionality and interactio
 ## 4.1 Functions
 
 ### 4.1.1 User Friendly Customization
-4.1.1.1 If the system allows the user to enter password and login, it passes verification otherwise, it fails verification.<br>
-4.1.1.2 If the system allows access to view the community forum page it passes verification otherwise, it fails verification.<br>
-4.1.1.3 If the system allows the user to add social media accounts it passes verification otherwise, it fails verification.<br>
+4.1.1.1 If the system allows the user to enter password and login, it passes verificatiootherwise, it fails verification.<br>
+4.1.1.2 If the system allows access to view the community forum page it passes verificatiootherwise, it fails verification.<br>
+4.1.1.3 If the system allows the user to add social media accounts it passes verificatiootherwise, it fails verification.<br>
 4.1.1.4 
-4.1.1.5 If the system allows the user to view history of posts and last view items it pass verification; otherwise, it fails verification.<br>
-4.1.1.6 If the system allows the user to search for users, communities, or posts it passes verification; otherwise, it fail verification.<br>
+4.1.1.5 If the system allows the user to view history of posts and last view items it passverification; otherwise, it fails verification.<br>
+4.1.1.6 If the system allows the user to search for post it passes verification; otherwise, it faiverification.<br>
 
 ### 4.1.2 Security & Data Collection
-4.1.2.1 If the system asks the user to enter password and login it passes verification; otherwi
+4.1.2.1 If the system asks the user to enter password and login it passes verification; otherwise
 it fails verification.<br>
 4.1.2.2 If the system asks the user for two authentications it passes verification; otherwise,
 fails verification.<br>
 4.1.2.3 If the system gives the user authorization it passes verification; otherwise, it fa
-verificati<br>
+verification<br>
 
 ### 4.1.3 Communication and Connectivity
 4.1.3.1 If the system allows users access to the community post page it passes verification; otherwise, it fails verification.<br>
