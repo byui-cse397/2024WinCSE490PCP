@@ -181,12 +181,15 @@ The application's successful operation depends on the Android operating environm
 - **Logging Framework**: Utilizes 'java.util.logging'.
 - **Password Hashing Library**: Bcrypt for Java, ensuring secure password storage.
 - **Datavase Connectivity**: JDBC driver for MySQL version 8.0.23.
+- **Frontend Cryptography Libraries**: Include cryptographic libraries such as `crypto-js` for password hashing within the frontend. This ensures that passwords are hashed before being transmitted over the network.
 
 ### Development Environment Setup
 Android Studio is designated for integrated development, with MySQL for data management. The backend services will be hosted on AWS, utilizing Linux-based/Ubuntu servers.
 
-#### Required Software and Tool
-- JDK 11: [Download link](https://...) https://www.oracle.com/java/technologies/downloads/
+#### Backend Development Environment Setup
+To support the 'CreateUser' functionality and other system requirements, the development environment must include the following configurations and tools:
+##### Required Software and Tool
+- JDK: Install version 11 or higher.  [Download link](https://www.oracle.com/java/technologies/downloads/
 - MySQL Server 8.0.23: [Installation guide](https://...)(https://dev.mysql.com/downloads/mysql/)
 - IntelliJ IDEA , Eclipse, or Visual Studio for development.
 
@@ -202,11 +205,12 @@ The system architecture encompasses teh intergration fo various functionalities,
 
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
 
-#### Security Architeture
-The `CreateUser` class incorporates secure practices for user registration, including password hashing with Bcrypt and input validation using regex, to uphold the system's integrity and confidentiality requirements.
-
 ## Front-End Design(Android Studio)
 Focuses on delivering a seamless user experience with a native Android application, implementing views for user interaction and controllers for handling user input and system responses.
+
+#### Security Architeture
+The decision to implement password hashing on the front end forms a crucial part of our security architecture. This approach is primarily adopted to enhance security by ensuring that user passwords are never transmitted in plain text over the network, significantly reducing the risk of exposure during data transmission.
+
 
 ## Back-End Design (Java in Android Studio)
 Utilizes Java for creating robust back-end logic, including APIs for data manipulation and communication with the MySQL database, following the controller component of MVC.
@@ -624,7 +628,7 @@ The 'createUser' class is desinged to encapsulate the functionality related to r
 
 - **Collecting User Date**: Gathering information from the user such as username , email,password. 
 - **Validating Input**: All information gathered from the user will meet certain criteria, such as password complexity requriemetns, valid email format, and uniqueness of the username within the system. 
-- **Password Hashing**: Securely handles te user's password by applying hashing functions before storage. This security measure will prevent storing passwords in plain text. 
+- **Password Hashing**: Securely handles te user's password by applying hashing functions in the frontend before submission to the backend. This security measure will prevent storing passwords in plain text. 
 - **Pesisting User Data**: Saves the valiadated adn process user data in the database, creating a new user account within the system 
 - **Error Handling**: Provides feedback for any errors encountered during the registration process.
 - **User Feedback**: Communictes the success of the account creation precess to the user and possibly guiding them to the next step,such as logging in or verifying their email address. 
@@ -780,12 +784,12 @@ Preparation for implementation includes setting up Android Studio, configuring M
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
 
 ### User account Creation Process
-The plan for implementing the user account creation feature is detailed, referncing the 'createNewUser' method. It includes steps for user input validation, password hashing, loggin of keys actions, and data storage in the 'ACCOUNT' table. This process ensures the secure and efficient handling of user registrations. 
+The plan for implementing the user account creation feature is detailed, referncing the 'createNewUser' method. It includes steps for user input validation, password hashing, logging of keys actions, and data storage in the 'ACCOUNT' table. This process ensures the secure and efficient handling of user registrations. 
 
 - **Classes for Implementation:** Detailed planning for the classes involved in the login feature is required, focusing on MVC implementation across the FE, BE, and DB.
 
 ## 7. Password Handling
-This secton descxribes teh system's approach to securing user passwords, emphasizing the use of hashing algorithms for password storage. It outlines the criteria for paassword strength and the validation process to ensure user security. 
+This secton describes the system's approach to securing user passwords, emphasizing the use of hashing algorithms for password storage. It outlines the criteria for paassword strength and the validation process to ensure user security. 
 
 By incorporating these updates, teh SRS and SDD will accurately reflect the functionalities and design considerations of the 'CreateUser' class, ensuring a comprehensive and clear documentation of the systmes requirements and design. 
 
