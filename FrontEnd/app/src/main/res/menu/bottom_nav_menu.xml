@@ -13,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="@string/CreatePostButton"
-        android:background="@color/button_color" />
+        android:text="@string/CreatePostButton" />
 
     <item
         android:id="@+id/loginwelcome"
