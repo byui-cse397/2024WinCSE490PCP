@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class PostHomeActivity extends AppCompatActivity {
 
     TextView NullPost;
@@ -15,6 +17,8 @@ public class PostHomeActivity extends AppCompatActivity {
     Button toAccountButton;
     Button toLoginButton;
     Button createPostButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,27 @@ public class PostHomeActivity extends AppCompatActivity {
         // Initially, set NullPost visible and Postmade invisible
         NullPost.setVisibility(View.VISIBLE);
         Postmade.setVisibility(View.GONE);
+
+
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+//        navView.setOnNavigationItemSelectedListener(item -> {
+//            Intent intent;
+//            switch (item.getItemId()) {
+//                case R.id.navigation_home:
+//                    // This is the current activity. No need to start a new one if it's already here.
+//                    // intent = new Intent(PostHomeActivity.this, PostHomeActivity.class);
+//                    break;
+//                case R.id.create_post:
+//                    intent = new Intent(PostHomeActivity.this, CreatePostActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.loginwelcome:
+//                    intent = new Intent(PostHomeActivity.this, LoginActivity.class);
+//                    startActivity(intent);
+//                    break;
+//            }
+//            return true;
+//        });
 
         createPostButton.setOnClickListener(new View.OnClickListener() {
             @Override

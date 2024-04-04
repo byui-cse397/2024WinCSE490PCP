@@ -72,11 +72,11 @@ public class SignupActivity extends AppCompatActivity {
                 data.put("password_hash", hashedPassword);
 
                 FrontendSender.sendDataToBackend("userCreate", data);
-                return true;
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
+            return true;
         }
 
         @Override

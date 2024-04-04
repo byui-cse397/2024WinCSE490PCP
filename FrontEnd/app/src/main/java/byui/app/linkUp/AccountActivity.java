@@ -1,10 +1,15 @@
 package byui.app.linkUp;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView; // Import TextView instead of EditText
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import byui.app.linkUp.R;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -29,10 +34,32 @@ public class AccountActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.textView2);
         bioTextView = findViewById(R.id.bioView);
 
-
+        BottomNavigationView navView = findViewById(R.id.nav_view);
 
         Button cancelButton = findViewById(R.id.cea); // Assuming this is the cancel button
         Button saveButton = findViewById(R.id.edit_account); // Corrected ID for save button
+
+//        navView.setOnNavigationItemSelectedListener(item -> {
+//            Intent intent; // Declare a common Intent variable
+//            switch (item.getItemId()) {
+//                case R.id.posthome:
+//                    intent = new Intent(this, PostHomeActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.create_post:
+//                    intent = new Intent(this, CreatePostActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.account_page:
+//                    intent = new Intent(this, LoginActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                default:
+//                    return false;
+//            }
+//            finish(); // Optional: if you don't want to recreate the activity if it's already running
+//            return true;
+//        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

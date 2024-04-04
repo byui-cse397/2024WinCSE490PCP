@@ -52,4 +52,5 @@
     <string name="Temppostitle">Temppostname</string>
     <string name="NullPostText">There is no Post here at this time</string>
     <string name="home">Home</string>
+    <string name="account">Account</string>
 </resources>
