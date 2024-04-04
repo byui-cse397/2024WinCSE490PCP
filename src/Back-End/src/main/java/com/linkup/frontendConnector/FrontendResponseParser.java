@@ -37,6 +37,16 @@ public class FrontendResponseParser {
             map.get("username"), map.get("email"), map.get("password_hash"));
         result = new XMLNode<Integer>("user_id", "integer", userId.toString());
         break;
+      case "userRead":
+        result = UserManager.readUser(map.get("username"));
+        break;
+      case "userDelete":
+        rowsAffected = UserManager.removeUser(
+            map.get("username"), map.get("password_hash"),
+            map.get("confirmation_password_hash"));
+        result = new XMLNode<Integer>("rows_affected", "integer",
+                                      rowsAffected.toString());
+
       case "communityCreate":
         Integer communityId = CommunityManager.CreateCommunity(
             map.get("community_name"), map.get("username"));

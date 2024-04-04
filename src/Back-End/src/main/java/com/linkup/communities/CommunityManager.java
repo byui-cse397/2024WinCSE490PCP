@@ -11,15 +11,13 @@ public class CommunityManager {
     Integer userId = UserManager.lookupIdByUsername(username);
     Community.CommunityCreator(communityName, userId);
     Integer communityID = Community.CommunityFinder(communityName);
-    Integer rows_affected =
-        Community.CommunityCreator(communityName, communityID);
-    return rows_affected;
+    return communityID;
   }
 
   public static Integer getCommunityID(String communityName)
       throws FrontEndUsageException {
     Integer communityID = Community.CommunityFinder(communityName);
-    if (communityID <= 0) {
+    if (communityID < 1) {
       return null;
     }
     XMLNode<XMLParent> tableNode =
@@ -37,7 +35,7 @@ public class CommunityManager {
   public static Integer getParentAccountId(String communityName)
       throws FrontEndUsageException {
     Integer communityID = Community.CommunityFinder(communityName);
-    if (communityID <= 0) {
+    if (communityID < 1) {
       return null;
     }
     XMLNode<XMLParent> tableNode =

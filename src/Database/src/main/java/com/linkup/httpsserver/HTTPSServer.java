@@ -97,8 +97,11 @@ public class HTTPSServer {
             response = db.executeQueryJDBC(String.valueOf(node.getValue()));
           } catch (SQLException e) {
             e.printStackTrace();
-            XMLNode<String> responseNode = new XMLNode<String>("BEError", "string", e.toString());
-            response = responseNode.toString();
+            StringBuilder sb = new StringBuilder();
+            sb.append("<FEError:string>")
+                .append(e.toString())
+                .append("</FEError>");
+            response = sb.toString();
           }
           break;
         case NULL:

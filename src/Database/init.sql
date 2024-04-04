@@ -1,10 +1,12 @@
 -- Database Connection Setup --
--- DROP DATABASE linkup_db;
--- Database Connection Setup --
+-- DROP DATABASE IF EXISTS linkup_db; 
 
 CREATE DATABASE IF NOT EXISTS linkup_db;
 
 USE linkup_db;
+
+-- User Management --
+
 CREATE USER IF NOT EXISTS 'linkup-admin'@'localhost' IDENTIFIED BY 'nimda';
 GRANT ALL PRIVILEGES ON linkup_db.* TO 'linkup-admin'@'localhost';
 
@@ -12,7 +14,7 @@ CREATE USER IF NOT EXISTS 'linkup-user'@'localhost' IDENTIFIED BY 'user';
 GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-user'@'localhost';
 
 CREATE USER IF NOT EXISTS 'linkup-tester'@'localhost' IDENTIFIED BY 'tester';
-GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON linkup_db.* TO 'linkup-tester'@'localhost'; -- Corrected the user name here
 
 FLUSH PRIVILEGES;
 
@@ -22,8 +24,7 @@ CREATE TABLE IF NOT EXISTS ACCOUNT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    UNIQUE (username)
-    password_hash VARCHAR(255) NOT NULL
+    UNIQUE (username) 
 );
 
 CREATE TABLE IF NOT EXISTS COMMUNITY (
@@ -37,9 +38,11 @@ CREATE TABLE IF NOT EXISTS COMMUNITY (
 CREATE TABLE IF NOT EXISTS POST (
     id INT AUTO_INCREMENT PRIMARY KEY,
     content_text VARCHAR(800) NOT NULL,
-    account_id INT NOT NULL, -- Alias, so I dont have to use id for primary and foreign key, which would cause issues
+    account_id INT NOT NULL,
+    community_id INT NOT NULL,
     post_time DATETIME NOT NULL,
-    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES ACCOUNT(id)-- Create the actual foreign key relationship
+    CONSTRAINT fk_Post_Account FOREIGN KEY (account_id) REFERENCES ACCOUNT(id),
+    CONSTRAINT fk_Post_Community FOREIGN KEY (community_id) REFERENCES COMMUNITY(id)
 );
 
 CREATE TABLE IF NOT EXISTS DEPARTING (

@@ -12,24 +12,7 @@ import java.util.logging.*;
  * Manages user-related operations such as login and user creation.
  */
 public class UserManager {
-  static UserManager manager;
   private Logger logger;
-
-  /**
-   * Constructor to initialize the UserManager.
-   */
-  public UserManager() {
-    if (manager == null) {
-      logger = LoggingManager.getLogger();
-      manager = this;
-    }
-  }
-
-  public static UserManager getManager() {
-    new UserManager();
-    return manager;
-  }
-
   /**
    * Handles user login by validating credentials and creating a new User object
    * if successful.
@@ -102,6 +85,22 @@ public class UserManager {
     };
   }
 
+  public static Integer removeUser(String username, String password_hash,
+                                   String confirmPassword_Hash)
+      throws FrontEndUsageException {
+    Integer userId = lookupIdByUsername(username);
+    XMLNode<Integer> node =
+        User.Delete(userId, password_hash, confirmPassword_Hash);
+    return node.getValue();
+  }
+
+  public static XMLNode<XMLParent> readUser(String username)
+      throws FrontEndUsageException {
+    Integer userId = lookupIdByUsername(username);
+    XMLNode<XMLParent> node = User.read(userId);
+    return node;
+  }
+
   public static class User {
     // TODO: Handle user actions based off of login time.
     /**
@@ -144,10 +143,11 @@ public class UserManager {
      * Deletes the user.
      * @throws FrontEndUsageException If there is a front-end usage exception.
      */
-    public static XMLNode<Integer> Delete(Integer userID)
+    public static XMLNode<Integer> Delete(Integer userID, String password_hash,
+                                          String confirmPassword_Hash)
         throws FrontEndUsageException {
       DeleteUser delete =
-          new DeleteUser(userID, "password_Hash", "confirmPassword_Hash");
+          new DeleteUser(userID, password_hash, confirmPassword_Hash);
       XMLNode<Integer> node = delete.performDBAction();
       return node;
     }
