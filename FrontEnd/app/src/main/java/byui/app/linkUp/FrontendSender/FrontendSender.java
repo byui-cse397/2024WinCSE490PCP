@@ -1,7 +1,6 @@
 package byui.app.linkUp.FrontendSender;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,15 +9,17 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Map;
-import byui.app.linkUp.common.XMLParsing.XMLParent;
+
+import byui.app.linkUp.GlobalUserID;
+import byui.app.linkUp.LinkUpApplication;
 
 public class FrontendSender {
 
     private static final String BACKEND_URL = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
     public static void sendDataToBackend(String actionType, Map<String, String> data) {
+        System.out.println(data);
         String xmlMessage = createXmlMessage(actionType, data);
         try {
             URL url = new URL(BACKEND_URL);
@@ -45,6 +46,7 @@ public class FrontendSender {
 
                 // Process the XML response from the backend
                 System.out.println("Response from backend: " + response.toString());
+                GlobalUserID.setUserID(responseCode);
             } else {
                 // Handle error response from backend
                 System.out.println("Error sending data to backend. Response code: " + responseCode);

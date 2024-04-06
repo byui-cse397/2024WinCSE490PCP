@@ -1,15 +1,22 @@
 package byui.app.linkUp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import byui.app.linkUp.FrontendSender.FrontendSender;
 import byui.app.linkUp.databinding.LoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
-  // Using View Binding to access the layout's views
   private LoginBinding binding;
 
   @Override
@@ -19,66 +26,59 @@ public class LoginActivity extends AppCompatActivity {
     View view = binding.getRoot();
     setContentView(view);
 
-    // Setup listeners for your buttons
     setupLoginButton();
     setupSignUpButton();
   }
 
   private void setupLoginButton() {
-    binding.signinButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        // Implement your login logic here
-        // For example, validate the username and password
-        String username = binding.UserNEntry.getText().toString().trim();
-        String password = binding.passEntry.getText().toString().trim();
+    binding.signinButton.setOnClickListener(v -> {
+      String username = binding.UserNEntry.getText().toString().trim();
+      String password = binding.passEntry.getText().toString().trim();
 
-        // Assume a method validateCredentials exists and returns true if the
-        // credentials are valid
-
-        TextView signin_error = findViewById(R.id.signin_error);
-
-        if (loginHandler(username, password)) {
-          // Start MainActivity on successful login
-          Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
-          startActivity(intent);
-          finish(); // Finish LoginActivity so it's removed from the back stack
-        } else {
-          // Show error message
-          signin_error.setVisibility(View.VISIBLE);
-        }
-      }
+      new LoginTask().execute(username, password);
     });
   }
 
   private void setupSignUpButton() {
-    binding.tosignup.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        // Navigate to SignUpActivity
-        // Assume SignUpActivity is another activity you have for users to sign
-        // up
-        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-        startActivity(intent);
-      }
+    binding.tosignup.setOnClickListener(v -> {
+      Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+      startActivity(intent);
     });
   }
 
-//  private static Integer toBackend(String username, String password) {
-//    StringBuilder sb = new StringBuilder();
-//    sb.append("<userLogin:parent><username:string>")
-//        .append(username)
-//        .append("</username>")
-//        .append("<password_hash:string>")
-//        .append(password)
-//        .append("</password_hash></userLogin>");
-//    String sendString = sb.toString();
-//    // send sendString
-//  }
+  private class LoginTask extends AsyncTask<String, Void, Boolean> {
 
-    private boolean loginHandler(String username, String password) {
-        // Implement your validation logic here
-        // This is just a placeholder for demonstration
-        return true;
+    @Override
+    protected Boolean doInBackground(String... params) {
+      try {
+        String username = params[0];
+        String password = params[1];
+        String hashedPassword = HashUtil.hashPassword(password);
+
+        Map<String, String> data = new HashMap<>();
+        data.put("username", username);
+        data.put("password_hash", hashedPassword);
+
+        FrontendSender.sendDataToBackend("userLogin", data);
+      } catch (Exception e) {
+        e.printStackTrace();
+        return false;
+      }
+      return true;
     }
+
+    @Override
+    protected void onPostExecute(Boolean success) {
+      if (success) {
+        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
+        startActivity(intent);
+        finish();
+      } else {
+        TextView signin_error = findViewById(R.id.signin_error);
+        signin_error.setVisibility(View.VISIBLE);
+        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+      }
+    }
+  }
 }

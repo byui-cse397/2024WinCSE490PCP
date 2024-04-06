@@ -1,5 +1,6 @@
 package byui.app.linkUp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,16 +38,21 @@ public class SignupActivity extends AppCompatActivity {
             } else if (!password.equals(confirmPassword)) {
                 Toast.makeText(SignupActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             } else {
-                new AlertDialog.Builder(SignupActivity.this)
-                        .setTitle("Confirm Account Creation")
-                        .setMessage("Are you sure you want to create this account?")
-                        .setPositiveButton("Yes", (dialogInterface, i) -> {
-                            new SendDataToServer().execute(email, username, password);
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                showConfirmationDialog(email, username, password);
             }
         });
+    }
+
+    private void showConfirmationDialog(String email, String username, String password) {
+        new AlertDialog.Builder(SignupActivity.this)
+                .setTitle("Confirm Account Creation")
+                .setMessage("Are you sure you want to create this account?")
+                .setPositiveButton("Yes", (dialogInterface, i) -> {
+                    System.out.println("Positive button clicked");
+                    new SendDataToServer().execute(email, username, password);
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     private void gotoLoginButton() {

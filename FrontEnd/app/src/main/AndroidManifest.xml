@@ -3,9 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="byui.app.linkUp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:name=".LinkUp"
+        android:name=".LinkUpApplication"
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +22,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,3 +36,4 @@
     </application>
 
 </manifest>
+
