@@ -11,7 +11,7 @@ class departingAddTest(DBTest):
         cursor = connection.cursor()
         connection.autocommit = False
         try:
-            post_id = 5 # IMPORTANT: Need a valid Post ID for this to pass
+            post_id = 1 # IMPORTANT: Need a valid Post ID for this to pass
             
             sql = "INSERT INTO departing (location_text, post_id) VALUES (%s, %s)"
             val = (location_text, post_id)
