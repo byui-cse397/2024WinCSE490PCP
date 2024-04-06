@@ -84,6 +84,7 @@ User registration and email verification are high-priority components of the app
 - **FR3**: The Model shall trigger the email service to send a verification email to the user's provided email address.
 - **FR4**: The View shall display a confirmation message indicating that the registration process is successful and instruct the user to check their email for verification instructions.
 
+
 ### 1.1.2.1.7 User Interfaces (MVC Perspective)
 
 - The View will include a user registration form with fields for user details such as name, email, and password.
@@ -108,7 +109,7 @@ User registration and email verification are high-priority components of the app
 
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
-- 
+
 
 ### 1.1.2.2 Registration
 
@@ -697,12 +698,17 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.3.13 The system shall allow post to have timestamps. <br>
 3.1.3.14 The system shall allow post to have ratings. <br>
 3.1.3.15 The system shall allow post to have passengers<br>
+
 ### 3.1.4 Content Management 
  3.1.4.1 The system shall allow the user to view a search menu.
  3.1.4.2 The system shall allow the user to retrieve and search for a post.  
  3.1.4.3 The system shall allow users to search for categories. 
  3.1.4.4 The system shall allow users to search for rides.
  3.1.4.5 The system shall allow users to search for people.
+
+ ### 3.1.5 User Authentication and Search
+3.1.5.1 The system should allow authenticated users to search for other users by username.
+3.1.5.2 It must ensure that only authenticated and authorized users can perform a search to enhance privacy and security.
 
 ## 3.2 Performance Requirements
 
@@ -721,6 +727,12 @@ These system interfaces collectively facilitate the functionality and interactio
 
 ### 3.2.5 Secure Hashing 
 3.2.5.1 The system shall implement secure hashing of user passwords before storing them in the database to enhance security.
+
+### 3.2.6 Security Requirements
+#### 3.2.6.1 Input Validation
+3.2.6.1.1 The system must validate input data to ensure the search operation does not lead to security vulnerabilities.
+#### 3.2.6.2 Error Handling 
+3.2.6.2.1 Proper error messages should be displayed when a search cannot be completed due to missing or invalid input. 
 
 ## 3.3 Usability Requirements
 
@@ -777,10 +789,9 @@ These system interfaces collectively facilitate the functionality and interactio
       3.6.1.2 
 
 ## 3.7 Logical Database Requirements
+  3.7.1 The system should maintain a secure database containing user information, including usernames and hashed passwords.
+  3.7.2 Usernames must be unique within the system to ensure accurate search results.
 
-### 3.7.1 Each post hall have a date associated with it. (R) 
-      3.7.1.1 
-      3.7.1.2
 
 # 4 Verification
 
