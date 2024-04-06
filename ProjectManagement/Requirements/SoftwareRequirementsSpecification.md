@@ -731,6 +731,7 @@ These system interfaces collectively facilitate the functionality and interactio
 ### 3.2.6 Security Requirements
 #### 3.2.6.1 Input Validation
 3.2.6.1.1 The system must validate input data to ensure the search operation does not lead to security vulnerabilities.
+
 #### 3.2.6.2 Error Handling 
 3.2.6.2.1 Proper error messages should be displayed when a search cannot be completed due to missing or invalid input. 
 
