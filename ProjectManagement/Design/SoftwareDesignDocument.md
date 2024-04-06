@@ -560,6 +560,7 @@ erDiagram
         int id PK
         varchar(800) content_text
         int account_id FK
+        int community_id FK
         datetime post_time
     }
     
@@ -593,7 +594,7 @@ erDiagram
     COMMUNITY {
         int id PK
         varchar community_name
-        varchar region
+        int parent_account_id FK
     }
 
     FORUMS ||--o{ POST : contains
