@@ -79,4 +79,5 @@ CREATE TABLE IF NOT EXISTS MESSAGES (
     message_time DATETIME NOT NULL,
     sender_id INT NOT NULL,
     receiver_id INT NOT NULL
+    -- add foreign key for sender and receiver id's
 );
