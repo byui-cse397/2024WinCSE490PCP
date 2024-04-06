@@ -14,9 +14,9 @@ class postAddToTableTest(DBTest):
         try:
             # This test will not pass unless the account_id actually exists in the database
 
-            sql = "INSERT INTO post (content_text, account_id, post_time) VALUES (%s, %s, %s)"
+            sql = "INSERT INTO post (content_text, account_id, community_id, post_time) VALUES (%s, %s, %s, %s)"
             timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-            val = ("We are learning how to code", 1, timestamp)
+            val = ("We are learning how to code", 1, 1, timestamp)
             
             cursor.execute(sql, val)
             connection.commit()
