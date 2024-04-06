@@ -1,10 +1,12 @@
-# Software Design Description (SDD) for Community Board Forum
+**Software Design Description (SDD) for Community Board Forum**
 
 **Document Identifier:** SDD-CBF-003
 
-## Authors
+# 1. Front Matter
 
-### Frontend
+## 1.1 Authors
+
+###  Frontend
 - Darcy Merilan (Team Lead)
 - Andrew Swayze
 - Angela Slinker
@@ -23,23 +25,22 @@
 - Kjellden Knutzen
 - Claudio Parra
 
-## Submitted to
+**Submitted to**
 Brother William Clements  
 CSE 490R Special Topics
 
-## Project Management
+**Project Management**
 - **Project Manager:** [Project Manager's Name]
 - **Team Leads:** [Joshua Bee, Darcy Merilan, Allan Marina]
 
-**Version:** 3.0  
+**Version:** 6.0  
 **Date:** [Current Date or "Post-Thursday's Update"]
 
 ---
 
 
-## Revision History
+## 1.2 Revision History
 ===============
-## Revision History
 
 | Date       | Version | Description of Changes                                      |
 |------------|---------|-------------------------------------------------------------|
@@ -53,47 +54,75 @@ CSE 490R Special Topics
 
 **Date:** 02/19/2024
 
-## Table of Contents
-- [Software Design Description (SDD) for Community Board Forum](#software-design-description-sdd-for-community-board-forum)
-  - [Authors](#authors)
-  - [Submitted to](#submitted-to)
-  - [Project Management](#project-management)
-  - [Revision History](#revision-history)
-  - [Revision History](#revision-history-1)
-  - [Table of Contents](#table-of-contents)
-  - [4. References](#4-references)
-  - [Details](#details)
-  - [1. Introduction](#1-introduction)
-    - [Purpose](#purpose)
-    - [Scope](#scope)
-  - [Glossary](#glossary)
-  - [Overview](#overview)
-  - [2. System Overview](#2-system-overview)
-  - [3. Design Considerations](#3-design-considerations)
-    - [Assumptions and Dependencies](#assumptions-and-dependencies)
-    - [Development Environment Setup](#development-environment-setup)
-  - [4. Architecture](#4-architecture)
-    - [System Architecture Overview](#system-architecture-overview)
-  - [Front-End Design(Android Studio)](#front-end-designandroid-studio)
-  - [Back-End Design (Java in Android Studio)](#back-end-design-java-in-android-studio)
+## 1.3 Table of Contents
+- [1. Front Matter](#1-front-matter)
+  - [1.1 Authors](#11-authors)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [Database](#database)
+  - [1.2 Revision History](#12-revision-history)
+  - [1.3 Table of Contents](#13-table-of-contents)
+  - [1.4 References](#14-references)
+- [Details](#details)
+- [2. Introduction](#2-introduction)
+  - [2.1 Purpose](#21-purpose)
+  - [2.2 Scope](#22-scope)
+  - [2.3 Glossary](#23-glossary)
+  - [2.4 Overview](#24-overview)
+- [3. System Overview](#3-system-overview)
+- [4. Design Considerations](#4-design-considerations)
+  - [4.1 Assumptions and Dependencies](#41-assumptions-and-dependencies)
+    - [4.1.1 CreateUser Dependencies](#411-createuser-dependencies)
+  - [4.2 Development Environment Setup](#42-development-environment-setup)
+    - [Backend Development Environment Setup](#backend-development-environment-setup)
+      - [Required Software and Tool](#required-software-and-tool)
+  - [4.3 Security Considerations](#43-security-considerations)
+- [5. Architecture](#5-architecture)
+  - [5.1 System Architecture Overview](#51-system-architecture-overview)
+  - [5.2 Front-End Design(Android Studio)](#52-front-end-designandroid-studio)
+    - [Security Architeture](#security-architeture)
+  - [5.3 Back-End Design (Java in Android Studio)](#53-back-end-design-java-in-android-studio)
     - [Introduction](#introduction)
     - [Architecture](#architecture)
+    - [Delete Account](#delete-account)
+    - [Login Functionality](#login-functionality)
+    - [Login Functionality Overview](#login-functionality-overview)
+    - [Model - Class Diagram](#model---class-diagram)
+    - [Registration Functionality](#registration-functionality)
+  - [Registration Functionality Overview](#registration-functionality-overview)
+    - [Model – Process Flow Diagram](#model--process-flow-diagram)
+  - [Controller](#controller)
     - [Search Functionality](#search-functionality)
   - [Search Functionality Overview](#search-functionality-overview)
-    - [Model - Class Diagram](#model---class-diagram)
+    - [Model - Class Diagram](#model---class-diagram-1)
     - [Back-End System Processing of Search Requests](#back-end-system-processing-of-search-requests)
     - [View - Process Flow Diagram](#view---process-flow-diagram)
     - [Controller - Process Flow Diagram](#controller---process-flow-diagram)
-  - [Database Design (MySQL)](#database-design-mysql)
-  - [5. Detailed System Design](#5-detailed-system-design)
-    - [Main Feature: User Login](#main-feature-user-login)
+  - [5.4 Database Design (MySQL)](#54-database-design-mysql)
+    - [Account Sequence Diagram](#account-sequence-diagram)
+    - [Post Sequence Diagram](#post-sequence-diagram)
+    - [Community Sequence Diagram](#community-sequence-diagram)
+  - [6. Detailed System Design](#6-detailed-system-design)
+    - [6.1 User Registration and Account Creation](#61-user-registration-and-account-creation)
+      - [Overview :](#overview-)
+      - [User Entity Representation](#user-entity-representation)
+      - [Validation Mechanisms](#validation-mechanisms)
+      - [Logging Strategy](#logging-strategy)
+      - [Database Schema Design](#database-schema-design)
       - [Sub-Features Breakdown](#sub-features-breakdown)
       - [Data Description](#data-description)
       - [Collaboration Requirements](#collaboration-requirements)
-    - [Search Functionality](#search-functionality-1)
+    - [6.2 DeleteUser Class](#62-deleteuser-class)
+      - [Overview:](#overview)
+      - [Class Responsibilities:](#class-responsibilities)
+      - [Attributes:](#attributes)
+      - [Methods:](#methods)
+      - [Interaction with Database:](#interaction-with-database)
+      - [Security Measures:](#security-measures)
+    - [6.3 Search Functionality](#63-search-functionality)
       - [Data Description](#data-description-1)
       - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
-    - [Front End :](#front-end-)
+    - [7 Front End :](#7-front-end-)
       - [User Account Management](#user-account-management)
         - [Security:](#security)
         - [View:](#view)
@@ -107,17 +136,26 @@ CSE 490R Special Topics
         - [Read:](#read-1)
         - [Update:](#update-1)
         - [Delete:](#delete-1)
-      - [Search Functionality](#search-functionality-2)
+      - [Search Functionality](#search-functionality-1)
         - [View:](#view-2)
         - [Create:](#create-2)
         - [Read:](#read-2)
         - [Update:](#update-2)
         - [Delete:](#delete-2)
-  - [Development and Runtime Environment Setup](#development-and-runtime-environment-setup)
-  - [6.Implementation Planning](#implementation-planning)
-  - [8. Appendices](#8-appendices)
+  - [Front End Design Detail:](#front-end-design-detail)
+    - [User Account Management flow system:](#user-account-management-flow-system)
+    - [Content Page Flow System:](#content-page-flow-system)
+  - [8 Development and Runtime Environment Setup](#8-development-and-runtime-environment-setup)
+  - [9. Implementation Planning](#9-implementation-planning)
+    - [User account Creation Process](#user-account-creation-process)
+  - [10. Password Handling](#10-password-handling)
+  - [11. Appendices](#11-appendices)
 
-## 4. References
+
+
+
+
+## 1.4 References
 
 The following references were used in the preparation of this Software Design Description (SDD) document:
 
@@ -131,16 +169,16 @@ The following references were used in the preparation of this Software Design De
 
 Please note that the URLs and access dates are fictional and provided for illustrative purposes only.
 
-## Details
-## 1. Introduction
+# Details
+# 2. Introduction
 
-### Purpose
+## 2.1 Purpose
 This document provides a detailed design overview for the Community Board Forum, an Android application aimed at facilitating community engagement and interaction. It serves as a blueprint for development, detailing the application's architecture, components, and interaction flows in adherence to the Model-View-Controller (MVC) design pattern.
 
-### Scope
+## 2.2 Scope
 The application will support functionalities such as user registration and login, post creation and management, commenting, and searching, with a focus on mobile usability and performance.
 
-## Glossary
+## 2.3 Glossary
 
 This section provides definitions for terms, acronyms, and abbreviations used throughout the Software Design Description (SDD) document to ensure clarity for all readers.
 
@@ -164,55 +202,53 @@ This section provides definitions for terms, acronyms, and abbreviations used th
 Please note that this glossary is not exhaustive and may be updated as the project evolves and new terms are introduced or existing definitions are revised.
 
 
-## Overview 
+## 2.4 Overview 
 The document is structured to guide the development process across the front-end, back-end, and database components, emphasizing detailed feature breakdowns and MVC implementation for each sub-feature.
 
-## 2. System Overview
+# 3. System Overview
 
 The Community Board Forum is transitioning to an Android application to directly target mobile users. This change impacts the development strategy, focusing on Android Studio for both front-end and back-end development, with MySQL for database management. The architecture supports modular development and scalability, adhering to MVC principles.
 
-## 3. Design Considerations
+# 4. Design Considerations
 
-### Assumptions and Dependencies
+## 4.1 Assumptions and Dependencies
 The application's successful operation depends on the Android operating environment, reliable internet connectivity, and the availability of AWS services for backend and database hosting.
 
-#### CreateUser Dependencies
+### 4.1.1 CreateUser Dependencies
 - **Java Development Kit(JDK)**: Version 11 or above.
 - **Logging Framework**: Utilizes 'java.util.logging'.
 - **Password Hashing Library**: Bcrypt for Java, ensuring secure password storage.
 - **Datavase Connectivity**: JDBC driver for MySQL version 8.0.23.
 - **Frontend Cryptography Libraries**: Include cryptographic libraries such as `crypto-js` for password hashing within the frontend. This ensures that passwords are hashed before being transmitted over the network.
 
-### Development Environment Setup
+## 4.2 Development Environment Setup
 Android Studio is designated for integrated development, with MySQL for data management. The backend services will be hosted on AWS, utilizing Linux-based/Ubuntu servers.
 
-#### Backend Development Environment Setup
+### Backend Development Environment Setup
 To support the 'CreateUser' functionality and other system requirements, the development environment must include the following configurations and tools:
-##### Required Software and Tool
+
+#### Required Software and Tool
 - JDK: Install version 11 or higher.  [Download link](https://www.oracle.com/java/technologies/downloads/
 - MySQL Server 8.0.23: [Installation guide](https://...)(https://dev.mysql.com/downloads/mysql/)
 - IntelliJ IDEA , Eclipse, or Visual Studio for development.
 
-### Library Dependencies
+## 4.3 Security Considerations
 
+# 5. Architecture
 
-### Security Considerations
-
-## 4. Architecture
-
-### System Architecture Overview
+## 5.1 System Architecture Overview
 The system architecture encompasses teh intergration fo various functionalities, including robust user account manangement. This ensures the secure and efficient handling of user registerations with the system. 
 
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
 
-## Front-End Design(Android Studio)
+## 5.2 Front-End Design(Android Studio)
 Focuses on delivering a seamless user experience with a native Android application, implementing views for user interaction and controllers for handling user input and system responses.
 
-#### Security Architeture
+### Security Architeture
 The decision to implement password hashing on the front end forms a crucial part of our security architecture. This approach is primarily adopted to enhance security by ensuring that user passwords are never transmitted in plain text over the network, significantly reducing the risk of exposure during data transmission.
 
 
-## Back-End Design (Java in Android Studio)
+## 5.3 Back-End Design (Java in Android Studio)
 Utilizes Java for creating robust back-end logic, including APIs for data manipulation and communication with the MySQL database, following the controller component of MVC.
 
 ### Introduction 
@@ -462,7 +498,7 @@ The View component of the user registration feature provides an intuitive and us
     - **Forgot Password**: A link to initiate the password recovery process.
     - **Contact Support**: In case users encounter issues during the registration process, a link or button is provided to contact support for assistance.
 
-##Controller
+## Controller
 
 The **Controller** component orchestrates the sequence of operations involved in processing user registration attempts, ensuring seamless interaction between the View and Model while managing data flow effectively. For the user registration feature, the Controller executes the following tasks:
 
@@ -546,7 +582,7 @@ The Controller acts as the intermediary between the View and Model, processing u
 - **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
-## Database Design (MySQL)
+## 5.4 Database Design (MySQL)
 Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
 
 ```mermaid
@@ -620,9 +656,9 @@ erDiagram
 ### Community Sequence Diagram
 ![Community Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Community.drawio.png)
 
-## 5. Detailed System Design
+## 6. Detailed System Design
 
-### User Registration and Account Creation
+### 6.1 User Registration and Account Creation
 
 #### Overview :
 The 'createUser' class is desinged to encapsulate the functionality related to registering and adding new users tothe system. Its primary reesponsbilities are:
@@ -658,7 +694,32 @@ Involves user credentials (username/password) and session management for maintai
 #### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
 
-### Search Functionality
+### 6.2 DeleteUser Class
+
+#### Overview:
+The DeleteUser class facilitates the deletion of user accounts from the system. To ensure account security, DeleteUser requires verification of the user's password before proceeding with the deletion.
+
+#### Class Responsibilities:
+- Verify the user's identity by comparing the provided password hash with the one stored in the database.
+- Remove all user data from the database upon successful authentication.
+- Provide feedback on the success or failure of the account deletion process.
+
+#### Attributes:
+- **userId**: The integer identifies the user's account that needs to be deleted.
+- **password_Hash**: String containing the hash of the password provided by the user for verification.
+- **confirmPassword_Hash**: String containing the hash of the confirmation password for additional verification.
+
+#### Methods:
+- nullIdCheck(): Ensures the userId is not null, throwing a FrontEndUsageException if it is.
+
+#### Interaction with Database:
+This class interacts with the ACCOUNT table in the database, specifically targeting the record associated with the userId. Upon successful verification, it issues a delete command to remove the user's record and all related data.
+
+#### Security Measures:
+- The class implements secure password verification to prevent unauthorized account deletion.
+- Utilizes secure communication channels to protect user data during the deletion process.
+
+### 6.3 Search Functionality
 
 #### Data Description
 Here, you would describe the types of data involved in the search functionality, such as user credentials (username/password), search criteria (destination, category, timestamp), and how this data is managed and utilized within the system.
@@ -678,7 +739,7 @@ Following the data description, the sequence diagram illustrates the interaction
 
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
-### Front End :
+### 7 Front End :
 
 
 #### User Account Management 
@@ -778,10 +839,10 @@ The search functionality view is responsible for providing users with a user-fri
 
 Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/edit)
 
-## Development and Runtime Environment Setup
+## 8 Development and Runtime Environment Setup
 Preparation for implementation includes setting up Android Studio, configuring MySQL, and preparing AWS environments for both development and operational deployment.
 
-## 6. Implementation Planning
+## 9. Implementation Planning
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
 
 ### User account Creation Process
@@ -789,11 +850,11 @@ The plan for implementing the user account creation feature is detailed, refernc
 
 - **Classes for Implementation:** Detailed planning for the classes involved in the login feature is required, focusing on MVC implementation across the FE, BE, and DB.
 
-## 7. Password Handling
+## 10. Password Handling
 This secton describes the system's approach to securing user passwords, emphasizing the use of hashing algorithms for password storage. It outlines the criteria for paassword strength and the validation process to ensure user security. 
 
 By incorporating these updates, teh SRS and SDD will accurately reflect the functionalities and design considerations of the 'CreateUser' class, ensuring a comprehensive and clear documentation of the systmes requirements and design. 
 
-## 8. Appendices
+## 11. Appendices
 Includes installation guides, class diagrams, interface definitions, and detailed instructions tailored to the Android and MySQL setup, ensuring readiness for the project's implementation phase.
 
