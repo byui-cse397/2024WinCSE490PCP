@@ -129,34 +129,35 @@ CSE 490R Special Topics
       - [6.3.7 Security Measure](#637-security-measure)
       - [Data Description](#data-description-1)
       - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
-    - [7 Front End :](#7-front-end-)
-      - [User Account Management](#user-account-management)
-        - [Security:](#security)
-        - [View:](#view)
-        - [Create:](#create)
-        - [Read:](#read)
-        - [Update:](#update)
-        - [Delete:](#delete)
-      - [Community Posts](#community-posts)
-        - [View:](#view-1)
-        - [Create:](#create-1)
-        - [Read:](#read-1)
-        - [Update:](#update-1)
-        - [Delete:](#delete-1)
-      - [Search Functionality](#search-functionality-1)
-        - [View:](#view-2)
-        - [Create:](#create-2)
-        - [Read:](#read-2)
-        - [Update:](#update-2)
-        - [Delete:](#delete-2)
-  - [Front End Design Detail:](#front-end-design-detail)
-    - [User Account Management flow system:](#user-account-management-flow-system)
-    - [Content Page Flow System:](#content-page-flow-system)
+  - [7 Front End :](#7-front-end-)
+    - [7.1 User Account Management](#71-user-account-management)
+      - [7.1.1 Security:](#711-security)
+      - [7.1.2 View:](#712-view)
+      - [7.1.3 Create:](#713-create)
+      - [7.1.4 Read:](#714-read)
+      - [7.1.5 Update:](#715-update)
+      - [7.1.6 Delete:](#716-delete)
+    - [7.2 Community Posts](#72-community-posts)
+      - [7.2.1 View:](#721-view)
+      - [7.2.2 Create:](#722-create)
+      - [7.2.3 Read:](#723-read)
+      - [7.2.4 Update:](#724-update)
+      - [7.2.4 Delete:](#724-delete)
+    - [7.3 Search Functionality](#73-search-functionality)
+      - [7.3.1 View:](#731-view)
+      - [7.3.2 Create:](#732-create)
+      - [7.3.3 Read:](#733-read)
+      - [7.3.4 Update:](#734-update)
+      - [7.3.5 Delete:](#735-delete)
+    - [7.4 Front End Design Detail:](#74-front-end-design-detail)
+      - [7.4.1 User Account Management flow system:](#741-user-account-management-flow-system)
+    - [7.4.2 Content Page Flow System:](#742-content-page-flow-system)
   - [8 Development and Runtime Environment Setup](#8-development-and-runtime-environment-setup)
   - [9. Implementation Planning](#9-implementation-planning)
     - [User account Creation Process](#user-account-creation-process)
   - [10. Password Handling](#10-password-handling)
   - [11. Appendices](#11-appendices)
+
 
 
 ## 1.4 References
@@ -773,21 +774,21 @@ Following the data description, the sequence diagram illustrates the interaction
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
 
-### 7 Front End :
+## 7 Front End :
 
-#### User Account Management 
+### 7.1 User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
 
-##### Security:
+#### 7.1.1 Security:
 The backend program will look for and report on suspicious activity that could be linked to a potential bot. This program will look for repeated suspicious sign-in attempts or bot-like behavior within an account (high post frequency, high comment frequency, etc). When these are seen, the program will alert the owner of the account (in the case of bot-like attempts trying to sign in) and warn the owner of this app of the behavior. If serious or repeated enough, this could put a block on the account until everything is figured out.
-##### View:
+#### 7.1.2 View:
 The user interface elements for account registration, login, profile management, and account settings. This includes forms for input, pages for viewing and editing user profiles, and menus for accessing account settings. The View listens for user actions (e.g., button clicks, form submissions) and communicates these actions to the Controller.
-##### Create:
+#### 7.1.3 Create:
 - *Registration Form*
   - *Description:* Allows new users to create an account by entering their details, such as username, email, and password.
   - *Elements:* Text inputs for username, email, password, and possibly captcha or security questions for bot protection and user verification. A submit button to send the registration request.
   - *Actions:* When the user fills out the form and clicks the submit button, the View sends this information to the Controller to process the account creation.
-##### Read:
+#### 7.1.4 Read:
 - *Login Form*
   - *Description:* Enables users to access their account by providing their credentials.
   - *Elements:* Text inputs for username/email and password, with a submit button for logging in. Links for "Forgot password" or "Register" for navigation to other views.
@@ -796,7 +797,7 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Displays the user's profile information, including username, email, and any additional details like bio or profile picture.
   - *Elements:* Text and possibly images showing the user's information. May include an "Edit Profile" button to navigate to the Update view.
   - *Actions:* Viewing the profile does not directly interact with the Controller but may involve fetching updated information from the Model through the Controller.
-##### Update:
+#### 7.1.5 Update:
 - *Profile Edit Form*
   - *Description:* Allows users to update their profile information, such as email, bio, and profile picture.
   - *Elements:* Pre-filled text inputs and file upload inputs with the user's current information, and a submit button to apply changes.
@@ -805,32 +806,32 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Provides a way for users to change their password.
   - *Elements:* Text inputs for the old password, new password, and new password confirmation. A submit button to apply the password change.
   - *Actions:* On submission, the View sends the password details to the Controller, which handles the password update process.
-##### Delete:
+#### 7.1.6 Delete:
 - *Account Deletion Option*
   - *Description:* Offers users the option to delete their account.
   - *Elements:* A "Delete Account" button, often accompanied by a confirmation step (e.g., entering a password or answering a security question) to prevent accidental deletions.
   - *Actions:* Confirming account deletion sends a request to the Controller to remove the user's account from the Model.
 
-#### Community Posts 
+### 7.2 Community Posts 
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
-##### View:
+#### 7.2.1 View:
 The components and pages that display community posts, comments, and the interface for creating and editing posts. This includes the post feed, individual post views, and forms for post creation and editing. The View updates in response to user interactions and data changes, informing the Controller of user actions like post submissions or comment additions.
-##### Create: 
+#### 7.2.2 Create: 
 - *Create Post Form*
   - *Description:* Allows users to create new posts by entering details such as start and stop destinations, description, category, timestamp, rating, and available passenger seats. 
   - *Elements:* Input fields, dropdowns, or other UI elements for each post attribute. A submit button to create the post. 
   - *Actions:* When the user submits the create post form, the view sends the post details to the controller, which processes the request and adds the new post to the model.
-##### Read:
+#### 7.2.3 Read:
 - *Post Feed*
   - *Description:* Displays community posts in a feed format, allowing users to easily browse through available options.
   - *Elements:* A list or grid displaying posts with summarized information. Each post may include start and stop destinations, description, category, timestamp, rating, and available passenger seats.
   - *Actions:* Viewing the post feed involves fetching and displaying data from the model. Users can click on individual posts to view more details.
-##### Update:
+#### 7.2.4 Update:
 - *Edit Post Form*
   - *Description:* Enables post creators to update their posts by modifying details such as start and stop destinations, description, category, timestamp, rating, and available passenger seats.
   - *Elements:* Pre-filled input fields and dropdowns with the current post details. A submit button to apply the changes.
   - *Actions:* Submitting the updated information sends it to the controller, which processes the update requests and modifies the model to reflect the changes.
-##### Delete:
+#### 7.2.4 Delete:
 - *Delete Post Option*
   - *Description:* Provides users with the option to delete their own posts, preventing accidental deletions through a confirmation step.
   - *Elements:* A "Delete Post" button, accompanied by a confirmation modal or dialog. Users may need to confirm the deletion by entering a password or answering a security question.
@@ -838,36 +839,36 @@ The components and pages that display community posts, comments, and the interfa
 
 ---
 
-#### Search Functionality 
+### 7.3 Search Functionality 
 The system must provide users with the ability to search for specific users, communities and posts based on criteria such as names and keywords, facilitating efficient discovery of relevant information.
 
-##### View:
+#### 7.3.1 View:
 The search functionality view is responsible for providing users with a user-friendly interface to perform searches. This includes input fields for entering search criteria, search result display, and any additional features that enhance the search experience. The view communicates user input to the controller, which then processes the search query and updates the view with the relevant results.
-##### Create:
+#### 7.3.2 Create:
 - *Search Form*
   - *Description:* Allows users to input search criteria such as user names and keywords.
   - *Elements:* Text inputs, dropdowns, or other input fields for specifying search criteria. A submit button to initiate the search.
   - *Actions:* When the user submits the search form, the view sends the search criteria to the controller, which processes the request and queries the model for matching posts.
-##### Read:
+#### 7.3.3 Read:
 - *Search Results*
   - *Description:* Displays the search results based on the specified criteria.
   - *Elements:* A list or grid displaying relevant posts that match the search criteria. Each result should provide a summary of the post.
   - *Actions:* Viewing search results doesn't directly interact with the controller but involves fetching and displaying data from the model based on the search criteria.
-##### Update:
+#### 7.3.4 Update:
 - *Refine Search Options*
   - *Description:* Allows users to modify their search criteria without starting a new search.
   - *Elements:* Additional controls or filters to refine the ongoing search, such as adjusting timestamps, changing categories, or adding/removing criteria.
   - *Actions:* When the user modifies the search options, the view sends the updated criteria to the controller, which reprocesses the search and
-##### Delete:
+#### 7.3.5 Delete:
 - **Clear Search Form**
   - *Description:* Enables users to clear the search form and start a new search.
   - *Elements:* A "Clear" or "Reset" button to clear all entered search criteria.
   - *Actions:* Clicking the "Clear" button sends a request to the controller to reset the search criteria, clearing the form and potentially resetting the displayed results.
 
-## Front End Design Detail:
-### User Account Management flow system:
+### 7.4 Front End Design Detail:
+#### 7.4.1 User Account Management flow system:
 ![User Account Management Flow system](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow.png)
-### Content Page Flow System:
+### 7.4.2 Content Page Flow System:
 ![Page Navigation](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow%20(1).png)
 
 Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/edit)
