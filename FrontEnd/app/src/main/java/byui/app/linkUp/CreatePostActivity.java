@@ -22,7 +22,7 @@ public class CreatePostActivity extends AppCompatActivity {
         createPostTitle = findViewById(R.id.CreatePostTitle);
         createPostBox = findViewById(R.id.CreatePostBox);
         posterButton = findViewById(R.id.poster);
-        backToHomeButton = findViewById(R.id.backtohomepage);
+        backToHomeButton = findViewById(R.id.backtohome);
 
         posterButton.setOnClickListener(new View.OnClickListener() {
             @Override

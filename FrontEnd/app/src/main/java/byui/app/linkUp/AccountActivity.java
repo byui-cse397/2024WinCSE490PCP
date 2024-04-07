@@ -41,8 +41,8 @@ public class AccountActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        Button cancelButton = findViewById(R.id.cea); // Assuming this is the cancel button
-        Button saveButton = findViewById(R.id.edit_account); // Corrected ID for save button
+        Button homeButton = findViewById(R.id.cea);
+        Button saveButton = findViewById(R.id.edit_account);
 
 //        navView.setOnNavigationItemSelectedListener(item -> {
 //            Intent intent; // Declare a common Intent variable
@@ -75,7 +75,7 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open the PosthomeActivity

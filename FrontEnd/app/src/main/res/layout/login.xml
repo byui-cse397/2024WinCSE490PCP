@@ -41,7 +41,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="350dp"
+            android:layout_width="377dp"
             android:layout_height="350dp"
             android:contentDescription="@string/rectback"
             android:src="@drawable/rounded_border"

@@ -1,5 +1,7 @@
 package byui.app.linkUp.FrontendSender;
 
+import static byui.app.linkUp.GlobalUserID.getUserID;
+
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -19,6 +21,7 @@ public class FrontendSender {
     private static final String BACKEND_URL = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
     public static void sendDataToBackend(String actionType, Map<String, String> data) {
+        // TODO: REMOVE SYSTEM MESSAGE BEFORE PUBLISHING
         System.out.println(data);
         String xmlMessage = createXmlMessage(actionType, data);
         try {
@@ -46,7 +49,46 @@ public class FrontendSender {
 
                 // Process the XML response from the backend
                 System.out.println("Response from backend: " + response.toString());
-                GlobalUserID.setUserID(responseCode);
+                GlobalUserID.setUserID(Integer.parseInt(response.toString()));
+            } else {
+                // Handle error response from backend
+                System.out.println("Error sending data to backend. Response code: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle exception
+        }
+    }
+
+    public static void getDataFromBackend() {
+//        int user_id = GlobalUserID.getUserID();
+//        System.out.println(user_id);
+//        String xmlMessage = createXmlMessage();
+        try {
+            URL url = new URL(BACKEND_URL);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/xml");
+            connection.setDoOutput(true);
+
+//            try (OutputStream outputStream = connection.getOutputStream();
+//                 OutputStreamWriter writer = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)) {
+//                writer.write(xmlMessage);
+//            }
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                // Read response from backend
+                StringBuilder response = new StringBuilder();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                }
+
+                // Process the XML response from the backend
+                System.out.println("Response from backend: " + response.toString());
             } else {
                 // Handle error response from backend
                 System.out.println("Error sending data to backend. Response code: " + responseCode);

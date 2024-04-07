@@ -23,19 +23,16 @@ public class PostHomeActivity extends AppCompatActivity {
     int postCounter = 0;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.posthome);
 
+
         NullPost = findViewById(R.id.NullPost);
         Postmade = findViewById(R.id.Postmade);
         temppostTitle = findViewById(R.id.tempostTitle);
-        toAccountButton = findViewById(R.id.toaccountbutton);
-        toLoginButton = findViewById(R.id.tologinbutton);
-        createPostButton = findViewById(R.id.Createpostbutton);
 
         // Initially, set NullPost visible and Postmade/temppostTitle invisible
         NullPost.setVisibility(View.VISIBLE);

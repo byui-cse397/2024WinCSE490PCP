@@ -6,8 +6,9 @@ public class GlobalUserID {
 
     public static int getUserID() throws UsernameException {
         if (GlobalUserID.user_id == -1) {
-            throw new UsernameException("Username has not been set yet.");
+            throw new UsernameException("User not found in system.");
         }
+        System.out.println("This is the Global Variable: " + user_id);
         return GlobalUserID.user_id;
     }
 
