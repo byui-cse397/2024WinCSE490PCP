@@ -102,33 +102,33 @@ CSE 490R Special Topics
     - [Account Sequence Diagram](#account-sequence-diagram)
     - [Post Sequence Diagram](#post-sequence-diagram)
     - [Community Sequence Diagram](#community-sequence-diagram)
-  - [6. Detailed System Design](#6-detailed-system-design)
-    - [6.1 User Registration and Account Creation](#61-user-registration-and-account-creation)
-      - [Overview :](#overview-)
-      - [User Entity Representation](#user-entity-representation)
-      - [Validation Mechanisms](#validation-mechanisms)
-      - [Logging Strategy](#logging-strategy)
-      - [Database Schema Design](#database-schema-design)
-      - [Sub-Features Breakdown](#sub-features-breakdown)
-      - [Data Description](#data-description)
-      - [Collaboration Requirements](#collaboration-requirements)
-    - [6.2 DeleteUser Class](#62-deleteuser-class)
-      - [6.2.1 Overview:](#621-overview)
-      - [6.2.2 Class Responsibilities:](#622-class-responsibilities)
-      - [6.2.3 Attributes:](#623-attributes)
-      - [6.2.4 Methods:](#624-methods)
-      - [6.2.5 Interaction with Database:](#625-interaction-with-database)
-      - [6.2.6 Security Measures:](#626-security-measures)
-    - [6.3 Search Functionality](#63-search-functionality)
-      - [6.3.1 OverView 'FindUser' Class Implementation](#631-overview-finduser-class-implementation)
-      - [6.3.2 Class Responsibilities](#632-class-responsibilities)
-      - [6.3.3 Attributes](#633-attributes)
-      - [6.3.4 Methods](#634-methods)
-      - [6.3.5 Interactions with Database](#635-interactions-with-database)
-      - [6.3.6 Error Handling](#636-error-handling)
-      - [6.3.7 Security Measure](#637-security-measure)
-      - [Data Description](#data-description-1)
-      - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
+- [6. Detailed System Design](#6-detailed-system-design)
+  - [6.1 User Registration and Account Creation](#61-user-registration-and-account-creation)
+    - [Overview :](#overview-)
+    - [User Entity Representation](#user-entity-representation)
+    - [Validation Mechanisms](#validation-mechanisms)
+    - [Logging Strategy](#logging-strategy)
+    - [Database Schema Design](#database-schema-design)
+    - [Sub-Features Breakdown](#sub-features-breakdown)
+    - [Data Description](#data-description)
+    - [Collaboration Requirements](#collaboration-requirements)
+  - [6.2 DeleteUser Class](#62-deleteuser-class)
+    - [6.2.1 Overview:](#621-overview)
+    - [6.2.2 Class Responsibilities:](#622-class-responsibilities)
+    - [6.2.3 Attributes:](#623-attributes)
+    - [6.2.4 Methods:](#624-methods)
+    - [6.2.5 Interaction with Database:](#625-interaction-with-database)
+    - [6.2.6 Security Measures:](#626-security-measures)
+  - [6.3 Search Functionality](#63-search-functionality)
+    - [6.3.1 OverView 'FindUser' Class Implementation](#631-overview-finduser-class-implementation)
+    - [6.3.2 Class Responsibilities](#632-class-responsibilities)
+    - [6.3.3 Attributes](#633-attributes)
+    - [6.3.4 Methods](#634-methods)
+    - [6.3.5 Interactions with Database](#635-interactions-with-database)
+    - [6.3.6 Error Handling](#636-error-handling)
+    - [6.3.7 Security Measure](#637-security-measure)
+    - [Data Description](#data-description-1)
+    - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
   - [7 Front End :](#7-front-end-)
     - [7.1 User Account Management](#71-user-account-management)
       - [7.1.1 Security:](#711-security)
@@ -663,11 +663,11 @@ erDiagram
 ### Community Sequence Diagram
 ![Community Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Community.drawio.png)
 
-## 6. Detailed System Design
+# 6. Detailed System Design
 
-### 6.1 User Registration and Account Creation
+## 6.1 User Registration and Account Creation
 
-#### Overview :
+### Overview :
 The 'createUser' class is desinged to encapsulate the functionality related to registering and adding new users tothe system. Its primary reesponsbilities are:
 
 - **Collecting User Date**: Gathering information from the user such as username , email,password. 
@@ -677,90 +677,90 @@ The 'createUser' class is desinged to encapsulate the functionality related to r
 - **Error Handling**: Provides feedback for any errors encountered during the registration process.
 - **User Feedback**: Communictes the success of the account creation precess to the user and possibly guiding them to the next step,such as logging in or verifying their email address. 
 
-#### User Entity Representation 
+### User Entity Representation 
 A detailed description of the entity is provided, including attributes such as 'username' , 'email', 'password_hash', 'registrationDate', 'lastLoginDate', and 'isActive'. This entity captures user information and status within the system. 
 
-#### Validation Mechanisms
+### Validation Mechanisms
 The system utilizes regular expressions to validate user inputs during the registration procese. The email address is checked against a pattern that ensures it conforms to tstandard email formatting. Similarly, the password is validated to ensure it meets the specified security criteria, including length and character composition. 
 
-#### Logging Strategy 
+### Logging Strategy 
 A comprehensive logging strategy is outlined, where system actions relate to user account managment(such as update to username, email, password, and account status) are logged for auditing and monitoring purposes, This approach aids in debugging and ensures accountablility within the system. 
 
-#### Database Schema Design
+### Database Schema Design
 The document details the database schema, particularly focusing on the "ACCOUNT" table, which stores user information. This section specifies the table's structure, including fields for storing usernames, hashed passwords, email addresses, registration dates, and activity statuses, aligning with the system's data managements. 
 
-#### Sub-Features Breakdown
+### Sub-Features Breakdown
    - **User Authentication**
    - **Model (DB):** Manages user credentials and session data.
    - **View (FE):** Displays login UI and feedback.
    - **Controller (BE):** Handles authentication logic.
 
-#### Data Description
+### Data Description
 Involves user credentials (username/password) and session management for maintaining login states.
 
-#### Collaboration Requirements
+### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
 
-### 6.2 DeleteUser Class
+## 6.2 DeleteUser Class
 
-#### 6.2.1 Overview:
+### 6.2.1 Overview:
 The DeleteUser class facilitates the deletion of user accounts from the system. To ensure account security, DeleteUser requires verification of the user's password before proceeding with the deletion.
 
-#### 6.2.2 Class Responsibilities:
+### 6.2.2 Class Responsibilities:
 - Verify the user's identity by comparing the provided password hash with the one stored in the database.
 - Remove all user data from the database upon successful authentication.
 - Provide feedback on the success or failure of the account deletion process.
 
-#### 6.2.3 Attributes:
+### 6.2.3 Attributes:
 - **userId**: The integer identifies the user's account that needs to be deleted.
 - **password_Hash**: String containing the hash of the password provided by the user for verification.
 - **confirmPassword_Hash**: String containing the hash of the confirmation password for additional verification.
 
-#### 6.2.4 Methods:
+### 6.2.4 Methods:
 - nullIdCheck(): Ensures the userId is not null, throwing a FrontEndUsageException if it is.
 
-#### 6.2.5 Interaction with Database:
+### 6.2.5 Interaction with Database:
 This class interacts with the ACCOUNT table in the database, specifically targeting the record associated with the userId. Upon successful verification, it issues a delete command to remove the user's record and all related data.
 
-#### 6.2.6 Security Measures:
+### 6.2.6 Security Measures:
 - The class implements secure password verification to prevent unauthorized account deletion.
 - Utilizes secure communication channels to protect user data during the deletion process.
 
-### 6.3 Search Functionality
+## 6.3 Search Functionality
 
-#### 6.3.1 OverView 'FindUser' Class Implementation
+### 6.3.1 OverView 'FindUser' Class Implementation
 The FindUser class is central to the system's ability to search for users by username. It extends the FindDBAction abstract class, inheriting the capability to execute database search operations.
 
-#### 6.3.2 Class Responsibilities
+### 6.3.2 Class Responsibilities
 
-#### 6.3.3 Attributes
+### 6.3.3 Attributes
 
-#### 6.3.4 Methods
+### 6.3.4 Methods
 - getTable(): Specifies the database table (ACCOUNT) targeted for the search, ensuring that queries are executed against the correct data set.
 - checks(): Performs preliminary checks before executing the search query. This includes invoking nullUserCheck to validate that the username input is not null or empty.
 - nullUserCheck(): Throws a FrontEndUsageException if the username input is null or empty, preventing the query from executing with invalid parameters.
 - buildQuery(Map<String, String> colValueMap): Constructs the SQL query for searching the database. It uses a regular expression (REGEXP) to match the username, enhancing the flexibility of search operations.
 
-#### 6.3.5 Interactions with Database
+### 6.3.5 Interactions with Database
 The ACCOUNT table within the database schema is crucial for storing user information.
 - username: A unique identifier for each user, used as the primary search parameter.
 - password_hash: Stores the hashed version of the user's password, reinforcing security by avoiding plain text storage.
 
-#### 6.3.6 Error Handling 
+### 6.3.6 Error Handling 
 The FindUser class implements specific error-handling strategies to manage null or empty username inputs gracefully.
 - Invoking the nullUserCheck method ensures that the search operation only proceeds with valid input, reducing the risk of errors or security vulnerabilities.
 
-#### 6.3.7 Security Measure 
+### 6.3.7 Security Measure 
 **User Authentication:** Before performing a search operation, the system verifies the user's identity to ensure that only authorized users can execute searches.
 **Input Validation:** The nullUserCheck method is part of our input validation strategy. It ensures the integrity of search parameters, preventing SQL injection and other security threats.
 **Regular Expressions in Queries:** Using regular expressions (REGEXP) for username searches adds an extra layer of flexibility and security. It allows for precise matching criteria without exposing the system to injection attacks.
 
-#### Data Description
+### Data Description
 Here, you would describe the types of data involved in the search functionality, such as user credentials (username/password), search criteria (destination, category, timestamp), and how this data is managed and utilized within the system.
 
 After providing a thorough understanding of the data aspects, you then introduce the sequence diagram to visually represent how this data is processed within the MVC framework of your application.
 
-#### Search Functionality Sequence Diagram
+### Search Functionality Sequence Diagram
 Following the data description, the sequence diagram illustrates the interactions for the search functionality within the Community Board Forum. This visualization helps in understanding the dynamic process from when a user initiates a search query to when the results are displayed.
 
 - **Stimulus/Response Sequences (MVC Framework):**
