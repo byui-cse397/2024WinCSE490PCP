@@ -9,31 +9,38 @@ from example_test_1 import ExampleTest1
 from account_has_username_field import HasUsernameField     # Account
 from account_has_password_hash import HasPasswordHashField   
 from account_has_id_field import HasIdField                  
+from account_add import accountAddTest
 from post_has_content_text import PostHasContentText        # Post
 from post_has_account_id import PostHasAccountId             
 from post_has_post_time import HasPostTime                   
 from post_has_id_pk import HasPostId        
-# from post_has_community_id import PostHasCommunityId                 
+from post_has_community_id import PostHasCommunityId                 
 from post_add_to_table import postAddToTableTest             
 from departing_has_id_pk import HasDepartId                 # Departing
 from departing_has_location import HasDepartLocation         
-from departing_has_post_id import HasDepartPostId            
+from departing_has_post_id import HasDepartPostId
+from departing_add import departingAddTest
 from arriving_has_id_pk import HasArriveId                  # Arriving
 from arriving_has_location import HasArriveLocation          
-from arriving_has_post_id import HasArrivePostId             
+from arriving_has_post_id import HasArrivePostId
+from arriving_add import arrivingAddTest 
 from message_has_id_field import HasMessageId               # Message
 from message_has_sender_id import HasMessageSenderId        
 from message_has_receiver_id import HasMessageReceiverId    
 from message_has_message_content import HasMessageContent   
-from message_has_message_time import HasMessageTime         
+from message_has_message_time import HasMessageTime
+# from message_add import messagesAddTest # Messages in INIT needs foreign keys for this to work. 
 from forums_has_id import HasForumId                        # Forums
 from forums_has_forum_name import HasForumName              
-from forums_has_post_id import ForumHasPostId               
+from forums_has_post_id import ForumHasPostId
+from forums_add import forumsAddTest
 from community_has_id import HasCommunityId                 # Community
 from community_has_community_name import HasCommunityName
+from community_add import communityAddTest
 from comments_has_id import HasCommentId                    # Comments
 from comments_has_comment_text import HasCommentText
 from comments_has_post_id import CommentHasPostId
+from comment_add import commentAddTest
 
 # Misc Imports
 from typing import List
@@ -80,32 +87,39 @@ def get_test_list() -> List[DBTest]:
     model_tests: List[DBTest] = [ExampleTest1(), 
                                  HasUsernameField(),     # Accounts
                                  HasIdField(), 
-                                 HasPasswordHashField(), 
+                                 HasPasswordHashField(),
+                                 accountAddTest(),
                                  PostHasContentText(),   # Post
                                  PostHasAccountId(), 
                                  HasPostTime(), 
                                  HasPostId(), 
-                                #  PostHasCommunityId(), 
+                                 PostHasCommunityId(), 
                                  postAddToTableTest(), 
                                  HasDepartId(),          # Depart
                                  HasDepartLocation(), 
-                                 HasDepartPostId(), 
+                                 HasDepartPostId(),
+                                 departingAddTest(),
                                  HasArriveId(),          # Arrive
                                  HasArriveLocation(),  
-                                 HasArrivePostId(), 
+                                 HasArrivePostId(),
+                                 arrivingAddTest(),
                                  HasMessageId(),         # Message
                                  HasMessageSenderId(), 
                                  HasMessageReceiverId(), 
                                  HasMessageContent(), 
-                                 HasMessageTime(), 
+                                 HasMessageTime(),
+                                #  messagesAddTest(),
                                  HasForumId(),           # Forums
                                  HasForumName(), 
-                                 ForumHasPostId(), 
+                                 ForumHasPostId(),
+                                 forumsAddTest(),
                                  HasCommunityId(),       # Community
-                                 HasCommunityName(), 
+                                 HasCommunityName(),
+                                 communityAddTest(), 
                                  HasCommentId(),         # Comments
                                  HasCommentText(), 
-                                 CommentHasPostId()] 
+                                 CommentHasPostId(),
+                                 commentAddTest()] 
  
     test_bases = [view_tests, controller_tests, model_tests]
     combined_tests: List[DBTest] = []

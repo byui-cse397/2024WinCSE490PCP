@@ -17,12 +17,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import byui.app.linkUp.FrontendSender.FrontendSender;
 
 public class EditAccountActivity extends AppCompatActivity {
 
     EditText usernameEditText, emailEditText, bioEditText;
     TextView usernameTextView, emailTextView, bioTextView;
-    Button saveProfileButton, deleteProfileButton;
+    Button saveProfileButton, deleteProfileButton, cancelEditButton;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -40,11 +44,12 @@ public class EditAccountActivity extends AppCompatActivity {
 
         saveProfileButton = (Button) findViewById(R.id.sprofile);
         deleteProfileButton = (Button) findViewById(R.id.dprofile);
+        cancelEditButton = (Button) findViewById(R.id.cancel_edit);
 
-        fetchUserData();
+//        fetchUserData();
         setupSaveProfileButton();
         setupDeleteProfileButton();
-        //setupCancelEditButton();
+        setupCancelEditButton();
     }
 
 
@@ -81,46 +86,59 @@ public class EditAccountActivity extends AppCompatActivity {
         });
     }
 
-    private void fetchUserData() {
-        // Placeholder to fetch user data
+    private void setupCancelEditButton() {
+        cancelEditButton.setOnClickListener(v -> {
+            // Send the user back to AccountActivity
+            Intent intent = new Intent(EditAccountActivity.this, AccountActivity.class);
+            startActivity(intent);
+            // Optionally, if you don't want the user to come back to this activity on pressing back button from AccountActivity,
+            // you can call finish() here to destroy this instance of EditAccountActivity
+            finish();
+        });
     }
 
+//    private void fetchUserData() {
+//        // Placeholder to fetch user data
+//    }
+
     private class SendDataToServer extends AsyncTask<String, Void, Boolean> {
-
         @Override
-        protected Boolean doInBackground(String... strings) {
-            HttpURLConnection urlConnection = null;
+        protected Boolean doInBackground(String... params) {
             try {
-                URL url = new URL("#"); // Update with your URL
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setRequestMethod("POST");
-                urlConnection.setRequestProperty("Content-Type", "application/json");
-                urlConnection.setDoOutput(true);
+                String email = params[0];
+                String username = params[1];
+                String bio = params[2];
 
-                OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
-                out.write(strings[0].getBytes());
-                out.flush();
-                out.close();
+                Map<String, String> data = new HashMap<>();
+                data.put("email", email);
+                data.put("username", username);
+                data.put("bio", bio);
 
-                int responseCode = urlConnection.getResponseCode();
-                return responseCode == HttpURLConnection.HTTP_OK;
-            } catch (IOException e) {
+                FrontendSender.sendDataToBackend("userCreate", data);
+            } catch (Exception e) {
                 e.printStackTrace();
                 return false;
-            } finally {
-                if (urlConnection != null) {
-                    urlConnection.disconnect();
-                }
             }
+            return true;
         }
 
-        @Override
-        protected void onPostExecute(Boolean success) {
-            if (success) {
+        protected void onPostExecute(String result) {
+            if (result != null && !result.isEmpty()) {
                 Toast.makeText(EditAccountActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(EditAccountActivity.this, AccountActivity.class);
+                startActivity(intent);
+                finish(); // Optionally finish EditAccountActivity
             } else {
                 Toast.makeText(EditAccountActivity.this, "Failed to update profile. Please try again later.", Toast.LENGTH_SHORT).show();
             }
+        }
+
+        private String createXmlMessage(String email, String username, String bio) {
+            return "<userUpdate>" +
+                    "<email>" + email + "</email>" +
+                    "<username>" + username + "</username>" +
+                    "<bio>" + bio + "</bio>" +
+                    "</userUpdate>";
         }
     }
 }

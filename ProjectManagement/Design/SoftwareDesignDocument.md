@@ -1,10 +1,12 @@
-# Software Design Description (SDD) for Community Board Forum
+**Software Design Description (SDD) for Community Board Forum**
 
 **Document Identifier:** SDD-CBF-003
 
-## Authors
+# 1. Front Matter
 
-### Frontend
+## 1.1 Authors
+
+###  Frontend
 - Darcy Merilan (Team Lead)
 - Andrew Swayze
 - Angela Slinker
@@ -23,23 +25,22 @@
 - Kjellden Knutzen
 - Claudio Parra
 
-## Submitted to
+**Submitted to**
 Brother William Clements  
 CSE 490R Special Topics
 
-## Project Management
+**Project Management**
 - **Project Manager:** [Project Manager's Name]
 - **Team Leads:** [Joshua Bee, Darcy Merilan, Allan Marina]
 
-**Version:** 3.0  
+**Version:** 6.0  
 **Date:** [Current Date or "Post-Thursday's Update"]
 
 ---
 
 
-## Revision History
+## 1.2 Revision History
 ===============
-## Revision History
 
 | Date       | Version | Description of Changes                                      |
 |------------|---------|-------------------------------------------------------------|
@@ -47,76 +48,119 @@ CSE 490R Special Topics
 | 02/18/2024 | 2.0     | Minor updates and corrections. Enhanced the Architecture section, added preliminary details to the Design Considerations, and revised the Introduction for clarity. |
 | 02/19/2024 | 3.0     | Today's updates include: Correcting the title page to better align with IEEE standards; Refining the Revision History section for enhanced document control and transparency; Adjusting the Table of Contents for improved navigation and consistency; Incorporating detailed descriptions and examples in the References section as per IEEE citation standards; Expanding the Search Functionality Overview with a more in-depth explanation of the MVC components and back-end processing; Adding detailed diagrams for the Model, View, and Controller to visually support the Search Functionality descriptions. |
 | TBD        | 4.0     | Comprehensive review and update based on feedback. Enhanced security considerations, refined data models, and expanded the Appendix with additional resources. |
+| 04/04/2024|5.0| Added info from the code that was not listed. User Account Management Security and Privacy, data collection and storage added 'CreateUser' information.|
 
 
 
 **Date:** 02/19/2024
 
-## Table of Contents
-- [Software Design Description (SDD) for Community Board Forum](#software-design-description-sdd-for-community-board-forum)
-  - [Authors](#authors)
-  - [Submitted to](#submitted-to)
-  - [Project Management](#project-management)
-  - [Revision History](#revision-history)
-  - [Revision History](#revision-history-1)
-  - [Table of Contents](#table-of-contents)
-  - [4. References](#4-references)
-  - [Details](#details)
-  - [1. Introduction](#1-introduction)
-    - [Purpose](#purpose)
-    - [Scope](#scope)
-  - [Glossary](#glossary)
-  - [Overview](#overview)
-  - [2. System Overview](#2-system-overview)
-  - [3. Design Considerations](#3-design-considerations)
-    - [Assumptions and Dependencies](#assumptions-and-dependencies)
-    - [Development Environment Setup](#development-environment-setup)
-  - [4. Architecture](#4-architecture)
-    - [System Architecture Overview](#system-architecture-overview)
-  - [Front-End Design(Android Studio)](#front-end-designandroid-studio)
-  - [Back-End Design (Java in Android Studio)](#back-end-design-java-in-android-studio)
-    - [Introduction](#introduction)
-    - [Architecture](#architecture)
+## 1.3 Table of Contents
+- [1. Front Matter](#1-front-matter)
+  - [1.1 Authors](#11-authors)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+    - [Database](#database)
+  - [1.2 Revision History](#12-revision-history)
+  - [1.3 Table of Contents](#13-table-of-contents)
+  - [1.4 References](#14-references)
+- [Details](#details)
+- [2. Introduction](#2-introduction)
+  - [2.1 Purpose](#21-purpose)
+  - [2.2 Scope](#22-scope)
+  - [2.3 Glossary](#23-glossary)
+  - [2.4 Overview](#24-overview)
+- [3. System Overview](#3-system-overview)
+- [4. Design Considerations](#4-design-considerations)
+  - [4.1 Assumptions and Dependencies](#41-assumptions-and-dependencies)
+    - [4.1.1 CreateUser Dependencies](#411-createuser-dependencies)
+  - [4.2 Development Environment Setup](#42-development-environment-setup)
+    - [Backend Development Environment Setup](#backend-development-environment-setup)
+      - [Required Software and Tool](#required-software-and-tool)
+  - [4.3 Security Considerations](#43-security-considerations)
+- [5. Architecture](#5-architecture)
+  - [5.1 System Architecture Overview](#51-system-architecture-overview)
+  - [5.2 Front-End Design(Android Studio)](#52-front-end-designandroid-studio)
+    - [Security Architeture](#security-architeture)
+  - [5.3 Back-End Design (Java in Android Studio)](#53-back-end-design-java-in-android-studio)
+    - [5.3.1 Introduction](#531-introduction)
+    - [5.3.2 Architecture](#532-architecture)
+    - [5.3.3 Delete Account](#533-delete-account)
+    - [5.3.4 Login Functionality](#534-login-functionality)
+    - [Login Functionality Overview](#login-functionality-overview)
+    - [Model - Class Diagram](#model---class-diagram)
+    - [Registration Functionality](#registration-functionality)
+  - [Registration Functionality Overview](#registration-functionality-overview)
+    - [Model – Process Flow Diagram](#model--process-flow-diagram)
+  - [Controller](#controller)
     - [Search Functionality](#search-functionality)
   - [Search Functionality Overview](#search-functionality-overview)
-    - [Model - Class Diagram](#model---class-diagram)
+    - [Model - Class Diagram](#model---class-diagram-1)
     - [Back-End System Processing of Search Requests](#back-end-system-processing-of-search-requests)
     - [View - Process Flow Diagram](#view---process-flow-diagram)
     - [Controller - Process Flow Diagram](#controller---process-flow-diagram)
-  - [Database Design (MySQL)](#database-design-mysql)
-  - [5. Detailed System Design](#5-detailed-system-design)
-    - [Main Feature: User Login](#main-feature-user-login)
-      - [Sub-Features Breakdown](#sub-features-breakdown)
-      - [Data Description](#data-description)
-      - [Collaboration Requirements](#collaboration-requirements)
-    - [Search Functionality](#search-functionality-1)
-      - [Data Description](#data-description-1)
-      - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
-    - [Front End :](#front-end-)
-      - [User Account Management](#user-account-management)
-        - [Security:](#security)
-        - [View:](#view)
-        - [Create:](#create)
-        - [Read:](#read)
-        - [Update:](#update)
-        - [Delete:](#delete)
-      - [Community Posts](#community-posts)
-        - [View:](#view-1)
-        - [Create:](#create-1)
-        - [Read:](#read-1)
-        - [Update:](#update-1)
-        - [Delete:](#delete-1)
-      - [Search Functionality](#search-functionality-2)
-        - [View:](#view-2)
-        - [Create:](#create-2)
-        - [Read:](#read-2)
-        - [Update:](#update-2)
-        - [Delete:](#delete-2)
-  - [Development and Runtime Environment Setup](#development-and-runtime-environment-setup)
-  - [Implementation Planning](#implementation-planning)
-  - [8. Appendices](#8-appendices)
+  - [5.4 Database Design (MySQL)](#54-database-design-mysql)
+    - [Account Sequence Diagram](#account-sequence-diagram)
+    - [Post Sequence Diagram](#post-sequence-diagram)
+    - [Community Sequence Diagram](#community-sequence-diagram)
+- [6. Detailed System Design](#6-detailed-system-design)
+  - [6.1 User Registration and Account Creation](#61-user-registration-and-account-creation)
+    - [Overview :](#overview-)
+    - [User Entity Representation](#user-entity-representation)
+    - [Validation Mechanisms](#validation-mechanisms)
+    - [Logging Strategy](#logging-strategy)
+    - [Database Schema Design](#database-schema-design)
+    - [Sub-Features Breakdown](#sub-features-breakdown)
+    - [Data Description](#data-description)
+    - [Collaboration Requirements](#collaboration-requirements)
+  - [6.2 DeleteUser Class](#62-deleteuser-class)
+    - [6.2.1 Overview:](#621-overview)
+    - [6.2.2 Class Responsibilities:](#622-class-responsibilities)
+    - [6.2.3 Attributes:](#623-attributes)
+    - [6.2.4 Methods:](#624-methods)
+    - [6.2.5 Interaction with Database:](#625-interaction-with-database)
+    - [6.2.6 Security Measures:](#626-security-measures)
+  - [6.3 Search Functionality](#63-search-functionality)
+    - [6.3.1 OverView 'FindUser' Class Implementation](#631-overview-finduser-class-implementation)
+    - [6.3.2 Class Responsibilities](#632-class-responsibilities)
+    - [6.3.3 Attributes](#633-attributes)
+    - [6.3.4 Methods](#634-methods)
+    - [6.3.5 Interactions with Database](#635-interactions-with-database)
+    - [6.3.6 Error Handling](#636-error-handling)
+    - [6.3.7 Security Measure](#637-security-measure)
+    - [Data Description](#data-description-1)
+    - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
+- [7 Front End :](#7-front-end-)
+  - [7.1 User Account Management](#71-user-account-management)
+    - [7.1.1 Security:](#711-security)
+    - [7.1.2 View:](#712-view)
+    - [7.1.3 Create:](#713-create)
+    - [7.1.4 Read:](#714-read)
+    - [7.1.5 Update:](#715-update)
+    - [7.1.6 Delete:](#716-delete)
+  - [7.2 Community Posts](#72-community-posts)
+    - [7.2.1 View:](#721-view)
+    - [7.2.2 Create:](#722-create)
+    - [7.2.3 Read:](#723-read)
+    - [7.2.4 Update:](#724-update)
+    - [7.2.4 Delete:](#724-delete)
+  - [7.3 Search Functionality](#73-search-functionality)
+    - [7.3.1 View:](#731-view)
+    - [7.3.2 Create:](#732-create)
+    - [7.3.3 Read:](#733-read)
+    - [7.3.4 Update:](#734-update)
+    - [7.3.5 Delete:](#735-delete)
+  - [7.4 Front End Design Detail:](#74-front-end-design-detail)
+    - [7.4.1 User Account Management flow system:](#741-user-account-management-flow-system)
+    - [7.4.2 Content Page Flow System:](#742-content-page-flow-system)
+- [8 Development and Runtime Environment Setup](#8-development-and-runtime-environment-setup)
+- [9. Implementation Planning](#9-implementation-planning)
+  - [User account Creation Process](#user-account-creation-process)
+- [10. Password Handling](#10-password-handling)
+- [11. Appendices](#11-appendices)
 
-## 4. References
+
+
+## 1.4 References
 
 The following references were used in the preparation of this Software Design Description (SDD) document:
 
@@ -130,74 +174,117 @@ The following references were used in the preparation of this Software Design De
 
 Please note that the URLs and access dates are fictional and provided for illustrative purposes only.
 
-## Details
-## 1. Introduction
+# Details
+# 2. Introduction
 
-### Purpose
+## 2.1 Purpose
 This document provides a detailed design overview for the Community Board Forum, an Android application aimed at facilitating community engagement and interaction. It serves as a blueprint for development, detailing the application's architecture, components, and interaction flows in adherence to the Model-View-Controller (MVC) design pattern.
 
-### Scope
+## 2.2 Scope
 The application will support functionalities such as user registration and login, post creation and management, commenting, and searching, with a focus on mobile usability and performance.
 
-## Glossary
+## 2.3 Glossary
 
 This section provides definitions for terms, acronyms, and abbreviations used throughout the Software Design Description (SDD) document to ensure clarity for all readers.
+Here's a comprehensive list combining the initial terms you provided with the additional ones, all organized in alphabetical order:
 
-- **SDD:** Software Design Description. A document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
-- **SRS:** Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
-- **MVC:** Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted from the user.
-- **FE:** Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
-- **BE:** Back End. The part of the software that does not directly interact with the users. It is responsible for storing and retrieving data, and performing background operations.
-- **DB:** Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used for storing and managing data in the software system.
-- **CRUD:** Create, Read, Update, Delete. These are the four basic functions of persistent storage in software development. CRUD operations are essential for managing databases.
-- **API:** Application Programming Interface. A set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
-- **UI:** User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
-- **UX:** User Experience. Refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
-- **HTTP:** Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
-- **HTTPS:** Hypertext Transfer Protocol Secure. An extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
-- **SQL:** Structured Query Language. A standard language for storing, manipulating, and retrieving data in databases.
-- **NoSQL:** A class of database management systems that do not follow all of the rules of a traditional database. NoSQL databases are useful for working with a huge quantity of data when the data's nature does not require a relational model.
-- **JSON:** JavaScript Object Notation. An open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.
-- **XML:** eXtensible Markup Language. A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+ **API**: Application Programming Interface. A set of functions and procedures allows the creation of applications that access the features or data of an operating system, application, or other service.
+. **API Endpoint**: A specific point at the end of an API that the client calls to perform an action. It refers to the location where APIs can access the resources they need to carry out their function.
+**Asynchronous Operations**: In software, operations occur without waiting for other operations to complete, allowing for more efficient task execution without blocking the execution flow.
+4. ** BE **: Back end. This part of the software does not directly interact with the users. It is responsible for storing and retrieving data and performing background operations.
+ **Captcha**: A system designed to distinguish human from machine input, typically to thwart spam and automated data extraction from websites.
+ **Cloud Computing**: The delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud") to offer faster innovation, flexible resources, and economies of scale.
+ **CRUD**: Create, Read, Update, Delete. These are the four essential functions of persistent storage in software development. CRUD operations are essential for managing databases.
+ ** DB **: Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used to store and manage data in the software system.
+ **Data Interchange Format**: A standard format for exchanging or transferring data between software systems or components. Examples include JSON (JavaScript Object Notation) and XML (eXtensible Markup Language).
+ **Data Schema**: An outline or blueprint of how data is organized in a database. It defines how entities like tables, fields, and databases relate to each other and the attributes of data stored in these entities.
+**Data Validation**: Ensuring data entered into an application meets predefined formats, rules, and constraints. It is crucial for ensuring the integrity and correctness of data in software applications.
+**Dependency**: In software, a dependency is a piece of software required by another piece to function. Software dependencies can include libraries, frameworks, and other software modules.
+ **Digital Signature**: A mathematical scheme for demonstrating the authenticity of digital messages or documents. A valid digital signature gives a recipient reason to believe that a known sender created the message and was not altered in transit.
+**Encryption** is the method by which information is converted into secret code that hides its true meaning. The science of encrypting and decrypting information is known as cryptography.
+**Error Logging** is the process of recording errors that occur in the operation of a software system. It is intended to provide debug information to software developers and system administrators.
+**FE**: Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
+**Frontend Cryptography Libraries**: Collections of functions and algorithms used in web development to perform cryptographic operations on the client side, such as hashing and encrypting data before it is sent over the network.
+**Hash Function**: A function that converts an input (or 'message') into a fixed-size string of bytes, typically a digest unique to each input. It is used in various security applications and data management.
+**HTTP**: Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
+20. ** HTTPS **: Hypertext Transfer Protocol Secure. This is an extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
+**IDE (Integrated Development Environment)**: A software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of at least a source code editor, build automation tools and a debugger.
+22. ** JSON ** is JavaScript Object Notation, an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute-value pairs and arrays.
+**MVC**: Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted by the user.
+**NoSQL**: A class of database management systems that do not follow all of the rules of a traditional database. NoSQL databases help work with a huge quantity of data when the data's nature does not require a relational model.
+**Password Hashing** converts a password into another string of characters, known as a hash, which is difficult to reverse. It provides a layer of security for stored passwords.
+**SDD**: Software Design Description. This is a document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
+**Session Token (JWT, Session ID)**: Data that is passed between the client and server to keep track of the state of a user's session. It can be a JSON Web Token (JWT) or a simple session ID.
+**SQL**: Structured Query Language. A standard language for storing, manipulating, and retrieving data in databases.
+**SRS**: Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
+** UI **: User interface. The means by which the user and a computer system interact, in particular, the use of input devices and software.
+**UI Components**: The elements that make up the user interface of a software application, including buttons, text fields, data displays, navigation menus, and any visual element that the user interacts with.
+** UX **: User experience refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
+**XML** is an eXtensible Markup Language, a markup language that defines a set of rules for encoding documents in a human-readable and machine-readable format.
 
 Please note that this glossary is not exhaustive and may be updated as the project evolves and new terms are introduced or existing definitions are revised.
 
 
-## Overview 
+## 2.4 Overview 
 The document is structured to guide the development process across the front-end, back-end, and database components, emphasizing detailed feature breakdowns and MVC implementation for each sub-feature.
 
-## 2. System Overview
+# 3. System Overview
 
 The Community Board Forum is transitioning to an Android application to directly target mobile users. This change impacts the development strategy, focusing on Android Studio for both front-end and back-end development, with MySQL for database management. The architecture supports modular development and scalability, adhering to MVC principles.
 
-## 3. Design Considerations
+# 4. Design Considerations
 
-### Assumptions and Dependencies
+## 4.1 Assumptions and Dependencies
 The application's successful operation depends on the Android operating environment, reliable internet connectivity, and the availability of AWS services for backend and database hosting.
 
-### Development Environment Setup
+### 4.1.1 CreateUser Dependencies
+- **Java Development Kit(JDK)**: Version 11 or above.
+- **Logging Framework**: Utilizes 'java.util.logging'.
+- **Password Hashing Library**: Bcrypt for Java, ensuring secure password storage.
+- **Datavase Connectivity**: JDBC driver for MySQL version 8.0.23.
+- **Frontend Cryptography Libraries**: Include cryptographic libraries such as `crypto-js` for password hashing within the frontend. This ensures that passwords are hashed before being transmitted over the network.
+
+## 4.2 Development Environment Setup
 Android Studio is designated for integrated development, with MySQL for data management. The backend services will be hosted on AWS, utilizing Linux-based/Ubuntu servers.
 
-## 4. Architecture
+### Backend Development Environment Setup
+To support the 'CreateUser' functionality and other system requirements, the development environment must include the following configurations and tools:
 
-### System Architecture Overview
+#### Required Software and Tool
+- JDK: Install version 11 or higher.  [Download link](https://www.oracle.com/java/technologies/downloads/
+- MySQL Server 8.0.23: [Installation guide](https://...)(https://dev.mysql.com/downloads/mysql/)
+- IntelliJ IDEA , Eclipse, or Visual Studio for development.
+
+## 4.3 Security Considerations
+
+# 5. Architecture
+
+## 5.1 System Architecture Overview
+The system architecture encompasses teh intergration fo various functionalities, including robust user account manangement. This ensures the secure and efficient handling of user registerations with the system. 
+
 The application leverages a microservices architecture, enabling independent development and scaling of its components. It integrates MVC across all levels—FE, BE, and DB—to ensure a cohesive and maintainable codebase.
 
-## Front-End Design(Android Studio)
+## 5.2 Front-End Design(Android Studio)
 Focuses on delivering a seamless user experience with a native Android application, implementing views for user interaction and controllers for handling user input and system responses.
 
-## Back-End Design (Java in Android Studio)
+### Security Architeture
+The decision to implement password hashing on the front end forms a crucial part of our security architecture. This approach is primarily adopted to enhance security by ensuring that user passwords are never transmitted in plain text over the network, significantly reducing the risk of exposure during data transmission.
+
+
+## 5.3 Back-End Design (Java in Android Studio)
 Utilizes Java for creating robust back-end logic, including APIs for data manipulation and communication with the MySQL database, following the controller component of MVC.
 
-### Introduction 
+### 5.3.1 Introduction 
 The back-end system plays a critical role in managing the Community Board Forum's data and business logic. It serves as the intermediary between the front-end application and the database, handling user requests, processing data, and ensuring secure and efficient operations.
 
-### Architecture 
+### 5.3.2 Architecture 
+The back-end architecture is designed to support user search functionality through efficient database interactions and robust security measures. The system leverages a relational database to store and retrieve user account information, facilitating quick and secure user searches. Security measures include input validation, authentication protocols, and encrypted communication to safeguard user data and prevent unauthorized access.
+
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
 
-### Delete Account
+### 5.3.3 Delete Account
 
 This diagram represents the deletion of a user's account.
 
@@ -205,7 +292,7 @@ This diagram represents the deletion of a user's account.
 
 The deletion function is responsible for deleting all information of a specified account. The process involves asking the user for their login information in order to ensure that the actual user is the one asking to delete the account.
 
-### Login Functionality
+### 5.3.4 Login Functionality
 
 * View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
   
@@ -436,7 +523,7 @@ The View component of the user registration feature provides an intuitive and us
     - **Forgot Password**: A link to initiate the password recovery process.
     - **Contact Support**: In case users encounter issues during the registration process, a link or button is provided to contact support for assistance.
 
-##Controller
+## Controller
 
 The **Controller** component orchestrates the sequence of operations involved in processing user registration attempts, ensuring seamless interaction between the View and Model while managing data flow effectively. For the user registration feature, the Controller executes the following tasks:
 
@@ -520,7 +607,7 @@ The Controller acts as the intermediary between the View and Model, processing u
 - **Coordinates** with the Model to retrieve search results based on the processed queries, applying any necessary logic or filters that are better handled outside the database (e.g., post-processing of results for personalization).
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
-## Database Design (MySQL)
+## 5.4 Database Design (MySQL)
 Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
 
 ```mermaid
@@ -534,6 +621,7 @@ erDiagram
         int id PK
         varchar(800) content_text
         int account_id FK
+        int community_id FK
         datetime post_time
     }
     
@@ -567,7 +655,7 @@ erDiagram
     COMMUNITY {
         int id PK
         varchar community_name
-        varchar region
+        int parent_account_id FK
     }
 
     FORUMS ||--o{ POST : contains
@@ -593,30 +681,104 @@ erDiagram
 ### Community Sequence Diagram
 ![Community Sequence Diagram](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week10/ProjectManagement/Design/Images/Community.drawio.png)
 
-## 5. Detailed System Design
+# 6. Detailed System Design
 
-### Main Feature: User Login
+## 6.1 User Registration and Account Creation
 
-#### Sub-Features Breakdown
-1. **User Authentication**
+### Overview :
+The 'createUser' class is desinged to encapsulate the functionality related to registering and adding new users tothe system. Its primary reesponsbilities are:
+
+- **Collecting User Date**: Gathering information from the user such as username , email,password. 
+- **Validating Input**: All information gathered from the user will meet certain criteria, such as password complexity requriemetns, valid email format, and uniqueness of the username within the system. 
+- **Password Hashing**: Securely handles te user's password by applying hashing functions in the frontend before submission to the backend. This security measure will prevent storing passwords in plain text. 
+- **Pesisting User Data**: Saves the valiadated adn process user data in the database, creating a new user account within the system 
+- **Error Handling**: Provides feedback for any errors encountered during the registration process.
+- **User Feedback**: Communictes the success of the account creation precess to the user and possibly guiding them to the next step,such as logging in or verifying their email address. 
+
+### User Entity Representation 
+A detailed description of the entity is provided, including attributes such as 'username' , 'email', 'password_hash', 'registrationDate', 'lastLoginDate', and 'isActive'. This entity captures user information and status within the system. 
+
+### Validation Mechanisms
+The system utilizes regular expressions to validate user inputs during the registration procese. The email address is checked against a pattern that ensures it conforms to tstandard email formatting. Similarly, the password is validated to ensure it meets the specified security criteria, including length and character composition. 
+
+### Logging Strategy 
+A comprehensive logging strategy is outlined, where system actions relate to user account managment(such as update to username, email, password, and account status) are logged for auditing and monitoring purposes, This approach aids in debugging and ensures accountablility within the system. 
+
+### Database Schema Design
+The document details the database schema, particularly focusing on the "ACCOUNT" table, which stores user information. This section specifies the table's structure, including fields for storing usernames, hashed passwords, email addresses, registration dates, and activity statuses, aligning with the system's data managements. 
+
+### Sub-Features Breakdown
+   - **User Authentication**
    - **Model (DB):** Manages user credentials and session data.
    - **View (FE):** Displays login UI and feedback.
    - **Controller (BE):** Handles authentication logic.
 
-#### Data Description
+### Data Description
 Involves user credentials (username/password) and session management for maintaining login states.
 
-#### Collaboration Requirements
+### Collaboration Requirements
 Teams must define clear interfaces for credential validation, session management, and user feedback, ensuring seamless integration across MVC components.
 
-### Search Functionality
+## 6.2 DeleteUser Class
 
-#### Data Description
+### 6.2.1 Overview:
+The DeleteUser class facilitates the deletion of user accounts from the system. To ensure account security, DeleteUser requires verification of the user's password before proceeding with the deletion.
+
+### 6.2.2 Class Responsibilities:
+- Verify the user's identity by comparing the provided password hash with the one stored in the database.
+- Remove all user data from the database upon successful authentication.
+- Provide feedback on the success or failure of the account deletion process.
+
+### 6.2.3 Attributes:
+- **userId**: The integer identifies the user's account that needs to be deleted.
+- **password_Hash**: String containing the hash of the password provided by the user for verification.
+- **confirmPassword_Hash**: String containing the hash of the confirmation password for additional verification.
+
+### 6.2.4 Methods:
+- nullIdCheck(): Ensures the userId is not null, throwing a FrontEndUsageException if it is.
+
+### 6.2.5 Interaction with Database:
+This class interacts with the ACCOUNT table in the database, specifically targeting the record associated with the userId. Upon successful verification, it issues a delete command to remove the user's record and all related data.
+
+### 6.2.6 Security Measures:
+- The class implements secure password verification to prevent unauthorized account deletion.
+- Utilizes secure communication channels to protect user data during the deletion process.
+
+## 6.3 Search Functionality
+
+### 6.3.1 OverView 'FindUser' Class Implementation
+The FindUser class is central to the system's ability to search for users by username. It extends the FindDBAction abstract class, inheriting the capability to execute database search operations.
+
+### 6.3.2 Class Responsibilities
+
+### 6.3.3 Attributes
+
+### 6.3.4 Methods
+- getTable(): Specifies the database table (ACCOUNT) targeted for the search, ensuring that queries are executed against the correct data set.
+- checks(): Performs preliminary checks before executing the search query. This includes invoking nullUserCheck to validate that the username input is not null or empty.
+- nullUserCheck(): Throws a FrontEndUsageException if the username input is null or empty, preventing the query from executing with invalid parameters.
+- buildQuery(Map<String, String> colValueMap): Constructs the SQL query for searching the database. It uses a regular expression (REGEXP) to match the username, enhancing the flexibility of search operations.
+
+### 6.3.5 Interactions with Database
+The ACCOUNT table within the database schema is crucial for storing user information.
+- username: A unique identifier for each user, used as the primary search parameter.
+- password_hash: Stores the hashed version of the user's password, reinforcing security by avoiding plain text storage.
+
+### 6.3.6 Error Handling 
+The FindUser class implements specific error-handling strategies to manage null or empty username inputs gracefully.
+- Invoking the nullUserCheck method ensures that the search operation only proceeds with valid input, reducing the risk of errors or security vulnerabilities.
+
+### 6.3.7 Security Measure 
+**User Authentication:** Before performing a search operation, the system verifies the user's identity to ensure that only authorized users can execute searches.
+**Input Validation:** The nullUserCheck method is part of our input validation strategy. It ensures the integrity of search parameters, preventing SQL injection and other security threats.
+**Regular Expressions in Queries:** Using regular expressions (REGEXP) for username searches adds an extra layer of flexibility and security. It allows for precise matching criteria without exposing the system to injection attacks.
+
+### Data Description
 Here, you would describe the types of data involved in the search functionality, such as user credentials (username/password), search criteria (destination, category, timestamp), and how this data is managed and utilized within the system.
 
 After providing a thorough understanding of the data aspects, you then introduce the sequence diagram to visually represent how this data is processed within the MVC framework of your application.
 
-#### Search Functionality Sequence Diagram
+### Search Functionality Sequence Diagram
 Following the data description, the sequence diagram illustrates the interactions for the search functionality within the Community Board Forum. This visualization helps in understanding the dynamic process from when a user initiates a search query to when the results are displayed.
 
 - **Stimulus/Response Sequences (MVC Framework):**
@@ -629,22 +791,22 @@ Following the data description, the sequence diagram illustrates the interaction
 
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
-### Front End :
 
+# 7 Front End :
 
-#### User Account Management 
+## 7.1 User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
 
-##### Security:
+### 7.1.1 Security:
 The backend program will look for and report on suspicious activity that could be linked to a potential bot. This program will look for repeated suspicious sign-in attempts or bot-like behavior within an account (high post frequency, high comment frequency, etc). When these are seen, the program will alert the owner of the account (in the case of bot-like attempts trying to sign in) and warn the owner of this app of the behavior. If serious or repeated enough, this could put a block on the account until everything is figured out.
-##### View:
+### 7.1.2 View:
 The user interface elements for account registration, login, profile management, and account settings. This includes forms for input, pages for viewing and editing user profiles, and menus for accessing account settings. The View listens for user actions (e.g., button clicks, form submissions) and communicates these actions to the Controller.
-##### Create:
+### 7.1.3 Create:
 - *Registration Form*
   - *Description:* Allows new users to create an account by entering their details, such as username, email, and password.
   - *Elements:* Text inputs for username, email, password, and possibly captcha or security questions for bot protection and user verification. A submit button to send the registration request.
   - *Actions:* When the user fills out the form and clicks the submit button, the View sends this information to the Controller to process the account creation.
-##### Read:
+### 7.1.4 Read:
 - *Login Form*
   - *Description:* Enables users to access their account by providing their credentials.
   - *Elements:* Text inputs for username/email and password, with a submit button for logging in. Links for "Forgot password" or "Register" for navigation to other views.
@@ -653,7 +815,7 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Displays the user's profile information, including username, email, and any additional details like bio or profile picture.
   - *Elements:* Text and possibly images showing the user's information. May include an "Edit Profile" button to navigate to the Update view.
   - *Actions:* Viewing the profile does not directly interact with the Controller but may involve fetching updated information from the Model through the Controller.
-##### Update:
+### 7.1.5 Update:
 - *Profile Edit Form*
   - *Description:* Allows users to update their profile information, such as email, bio, and profile picture.
   - *Elements:* Pre-filled text inputs and file upload inputs with the user's current information, and a submit button to apply changes.
@@ -662,32 +824,32 @@ The user interface elements for account registration, login, profile management,
   - *Description:* Provides a way for users to change their password.
   - *Elements:* Text inputs for the old password, new password, and new password confirmation. A submit button to apply the password change.
   - *Actions:* On submission, the View sends the password details to the Controller, which handles the password update process.
-##### Delete:
+### 7.1.6 Delete:
 - *Account Deletion Option*
   - *Description:* Offers users the option to delete their account.
   - *Elements:* A "Delete Account" button, often accompanied by a confirmation step (e.g., entering a password or answering a security question) to prevent accidental deletions.
   - *Actions:* Confirming account deletion sends a request to the Controller to remove the user's account from the Model.
 
-#### Community Posts 
+## 7.2 Community Posts 
 Users can create posts to seek or offer rides, promoting transportation assistance within the community. Posts must include attributes like start and stop destinations, description, category, timestamp, rating, and available passenger seats to enable effective communication.
-##### View:
+### 7.2.1 View:
 The components and pages that display community posts, comments, and the interface for creating and editing posts. This includes the post feed, individual post views, and forms for post creation and editing. The View updates in response to user interactions and data changes, informing the Controller of user actions like post submissions or comment additions.
-##### Create: 
+### 7.2.2 Create: 
 - *Create Post Form*
   - *Description:* Allows users to create new posts by entering details such as start and stop destinations, description, category, timestamp, rating, and available passenger seats. 
   - *Elements:* Input fields, dropdowns, or other UI elements for each post attribute. A submit button to create the post. 
   - *Actions:* When the user submits the create post form, the view sends the post details to the controller, which processes the request and adds the new post to the model.
-##### Read:
+### 7.2.3 Read:
 - *Post Feed*
   - *Description:* Displays community posts in a feed format, allowing users to easily browse through available options.
   - *Elements:* A list or grid displaying posts with summarized information. Each post may include start and stop destinations, description, category, timestamp, rating, and available passenger seats.
   - *Actions:* Viewing the post feed involves fetching and displaying data from the model. Users can click on individual posts to view more details.
-##### Update:
+### 7.2.4 Update:
 - *Edit Post Form*
   - *Description:* Enables post creators to update their posts by modifying details such as start and stop destinations, description, category, timestamp, rating, and available passenger seats.
   - *Elements:* Pre-filled input fields and dropdowns with the current post details. A submit button to apply the changes.
   - *Actions:* Submitting the updated information sends it to the controller, which processes the update requests and modifies the model to reflect the changes.
-##### Delete:
+### 7.2.4 Delete:
 - *Delete Post Option*
   - *Description:* Provides users with the option to delete their own posts, preventing accidental deletions through a confirmation step.
   - *Elements:* A "Delete Post" button, accompanied by a confirmation modal or dialog. Users may need to confirm the deletion by entering a password or answering a security question.
@@ -695,47 +857,56 @@ The components and pages that display community posts, comments, and the interfa
 
 ---
 
-#### Search Functionality 
+## 7.3 Search Functionality 
 The system must provide users with the ability to search for specific users, communities and posts based on criteria such as names and keywords, facilitating efficient discovery of relevant information.
 
-##### View:
+### 7.3.1 View:
 The search functionality view is responsible for providing users with a user-friendly interface to perform searches. This includes input fields for entering search criteria, search result display, and any additional features that enhance the search experience. The view communicates user input to the controller, which then processes the search query and updates the view with the relevant results.
-##### Create:
+### 7.3.2 Create:
 - *Search Form*
   - *Description:* Allows users to input search criteria such as user names and keywords.
   - *Elements:* Text inputs, dropdowns, or other input fields for specifying search criteria. A submit button to initiate the search.
   - *Actions:* When the user submits the search form, the view sends the search criteria to the controller, which processes the request and queries the model for matching posts.
-##### Read:
+### 7.3.3 Read:
 - *Search Results*
   - *Description:* Displays the search results based on the specified criteria.
   - *Elements:* A list or grid displaying relevant posts that match the search criteria. Each result should provide a summary of the post.
   - *Actions:* Viewing search results doesn't directly interact with the controller but involves fetching and displaying data from the model based on the search criteria.
-##### Update:
+### 7.3.4 Update:
 - *Refine Search Options*
   - *Description:* Allows users to modify their search criteria without starting a new search.
   - *Elements:* Additional controls or filters to refine the ongoing search, such as adjusting timestamps, changing categories, or adding/removing criteria.
   - *Actions:* When the user modifies the search options, the view sends the updated criteria to the controller, which reprocesses the search and
-##### Delete:
+### 7.3.5 Delete:
 - **Clear Search Form**
   - *Description:* Enables users to clear the search form and start a new search.
   - *Elements:* A "Clear" or "Reset" button to clear all entered search criteria.
   - *Actions:* Clicking the "Clear" button sends a request to the controller to reset the search criteria, clearing the form and potentially resetting the displayed results.
 
-## Front End Design Detail:
-### User Account Management flow system:
+## 7.4 Front End Design Detail:
+### 7.4.1 User Account Management flow system:
 ![User Account Management Flow system](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow.png)
-### Content Page Flow System:
+### 7.4.2 Content Page Flow System:
 ![Page Navigation](https://github.com/byui-cse397/2024WinCSE490PCP/blob/Week08/ProjectManagement/Design/Images/Community%20Board%20Front%20End%20Design%20%26%20Flow%20(1).png)
 
 Built on Canva (https://www.canva.com/design/DAF9RvzfjLY/bPRp0hg_JXf9df6RHb-aEQ/edit)
 
-## Development and Runtime Environment Setup
+# 8 Development and Runtime Environment Setup
 Preparation for implementation includes setting up Android Studio, configuring MySQL, and preparing AWS environments for both development and operational deployment.
 
-## Implementation Planning
+# 9. Implementation Planning
 - **First Feature Implementation:** Begins with user login due to its central role in user access control.
+
+## User account Creation Process
+The plan for implementing the user account creation feature is detailed, referncing the 'createNewUser' method. It includes steps for user input validation, password hashing, logging of keys actions, and data storage in the 'ACCOUNT' table. This process ensures the secure and efficient handling of user registrations. 
+
 - **Classes for Implementation:** Detailed planning for the classes involved in the login feature is required, focusing on MVC implementation across the FE, BE, and DB.
 
-## 8. Appendices
+# 10. Password Handling
+This secton describes the system's approach to securing user passwords, emphasizing the use of hashing algorithms for password storage. It outlines the criteria for paassword strength and the validation process to ensure user security. 
+
+By incorporating these updates, teh SRS and SDD will accurately reflect the functionalities and design considerations of the 'CreateUser' class, ensuring a comprehensive and clear documentation of the systmes requirements and design. 
+
+# 11. Appendices
 Includes installation guides, class diagrams, interface definitions, and detailed instructions tailored to the Android and MySQL setup, ensuring readiness for the project's implementation phase.
 

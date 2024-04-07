@@ -38,6 +38,194 @@ All information in red or says test is for example only I used a final draft fro
 |            |         |   - Added notes about information being examples |
 | 02/02/2024 | 3       | - Updating Features                       |
 
+## Table of Contents
+- [Software Requirements Specification](#software-requirements-specification)
+  - [For Community Board Forum](#for-community-board-forum)
+      - [Submitted to: Brother Clements](#submitted-to-brother-clements)
+  - [Version History](#version-history)
+  - [Table of Contents](#table-of-contents)
+- [1. Introduction](#1-introduction)
+  - [1.1. Purpose](#11-purpose)
+    - [1.1.1. Core Purpose](#111-core-purpose)
+    - [1.1.2. User Account Management](#112-user-account-management)
+    - [1.1.2.1 Login](#1121-login)
+    - [1.1.2.1.1 Scope](#11211-scope)
+    - [1.1.2.1.2 User Needs](#11212-user-needs)
+    - [1.1.2.1.3 Assumptions and Dependencies](#11213-assumptions-and-dependencies)
+    - [1.1.2.1.4 Description and Priority](#11214-description-and-priority)
+    - [1.1.2.1.5 Stimulus/Response Sequences (MVC Framework)](#11215-stimulusresponse-sequences-mvc-framework)
+    - [1.1.2.1.6 Functional Requirements (MVC Specifics)](#11216-functional-requirements-mvc-specifics)
+    - [1.1.2.1.7 User Interfaces (MVC Perspective)](#11217-user-interfaces-mvc-perspective)
+  - [1.1.2.1.8 Software Interfaces (MVC Design)](#11218-software-interfaces-mvc-design)
+    - [1.1.2.1.9 Performance Requirements (MVC Consideration)](#11219-performance-requirements-mvc-consideration)
+    - [1.1.2.1.10 Design Constraints (MVC Constraints)](#112110-design-constraints-mvc-constraints)
+    - [1.1.2.1.11 Other Requirements](#112111-other-requirements)
+    - [1.1.2.2 Registration](#1122-registration)
+    - [1.1.2.2.1 Scope](#11221-scope)
+    - [1.1.2.2.2 User Needs](#11222-user-needs)
+    - [1.1.2.2.3 Assumptions and Dependencies](#11223-assumptions-and-dependencies)
+    - [1.1.2.2.4 Description and Priority](#11224-description-and-priority)
+    - [1.1.2.2.5 Stimulus/Response Sequences (MVC Framework)](#11225-stimulusresponse-sequences-mvc-framework)
+    - [1.1.2.2.6 Functional Requirements (MVC Specifics)](#11226-functional-requirements-mvc-specifics)
+    - [1.1.2.2.7 User Interfaces (MVC Perspective)](#11227-user-interfaces-mvc-perspective)
+    - [1.1.2.2.8 Software Interfaces (MVC Design)](#11228-software-interfaces-mvc-design)
+    - [1.1.2.2.9 Performance Requirements (MVC Consideration)](#11229-performance-requirements-mvc-consideration)
+    - [1.1.2.2.10 Design Constraints (MVC Constraints)](#112210-design-constraints-mvc-constraints)
+    - [1.1.2.2.11 Other Requirements](#112211-other-requirements)
+    - [1.1.2.3 Account Deletion](#1123-account-deletion)
+    - [1.1.2.3.1 Scope](#11231-scope)
+    - [1.1.2.3.2 User Needs](#11232-user-needs)
+    - [1.1.2.3.3 Assumptions and Dependencies](#11233-assumptions-and-dependencies)
+    - [1.1.2.3.4 Description and Priority](#11234-description-and-priority)
+    - [1.1.2.3.5 Stimulus/Response Sequences (MVC Framework)](#11235-stimulusresponse-sequences-mvc-framework)
+    - [1.1.2.3.6 Functional Requirements (MVC Specifics)](#11236-functional-requirements-mvc-specifics)
+    - [1.1.2.3.7 User Interfaces (MVC Perspective)](#11237-user-interfaces-mvc-perspective)
+    - [1.1.2.3.8 Software Interfaces (MVC Design)](#11238-software-interfaces-mvc-design)
+    - [1.1.2.3.9 Performance Requirements (MVC Consideration)](#11239-performance-requirements-mvc-consideration)
+    - [1.1.2.3.10 Design Constraints (MVC Constraints)](#112310-design-constraints-mvc-constraints)
+    - [1.1.2.3.11 Other Requirements](#112311-other-requirements)
+    - [1.1.2.4. User Profile Editing](#1124-user-profile-editing)
+    - [1.1.2.4.1 Scope](#11241-scope)
+    - [1.1.2.4.2 User Needs](#11242-user-needs)
+    - [1.1.2.4.3 Assumptions and Dependencies](#11243-assumptions-and-dependencies)
+    - [1.1.2.4.4 Description and Priority](#11244-description-and-priority)
+    - [1.1.2.4.5 Stimulus/Response Sequences (MVC Framework)](#11245-stimulusresponse-sequences-mvc-framework)
+    - [1.1.2.4.6 Functional Requirements (MVC Specifics)](#11246-functional-requirements-mvc-specifics)
+    - [1.1.2.4.7 User Interfaces (MVC Perspective)](#11247-user-interfaces-mvc-perspective)
+    - [1.1.2.4.8 Software Interfaces (MVC Design)](#11248-software-interfaces-mvc-design)
+    - [1.1.2.4.9Performance Requirements (MVC Consideration)](#11249performance-requirements-mvc-consideration)
+    - [1.1.2.4.10 Design Constraints (MVC Constraints)](#112410-design-constraints-mvc-constraints)
+    - [1.1.2.4.11 Other Requirements](#112411-other-requirements)
+    - [1.1.3. Community Posts](#113-community-posts)
+    - [Introduction](#introduction)
+    - [1.1.3.1 Scope](#1131-scope)
+    - [1.1.3.2 User Needs](#1132-user-needs)
+    - [1.1.3.3 Assumptions and Dependencies](#1133-assumptions-and-dependencies)
+    - [1.1.3.4 Description and Priority](#1134-description-and-priority)
+    - [1.1.3.5 Stimulus/Response Sequences (MVC Framework)](#1135-stimulusresponse-sequences-mvc-framework)
+    - [1.1.3.6 Functional Requirements (MVC Specifics)](#1136-functional-requirements-mvc-specifics)
+    - [1.1.3.7 User Interfaces (MVC Perspective)](#1137-user-interfaces-mvc-perspective)
+    - [1.1.3.8 Software Interfaces (MVC Design)](#1138-software-interfaces-mvc-design)
+    - [1.1.3.9 Performance Requirements (MVC Consideration)](#1139-performance-requirements-mvc-consideration)
+    - [1.1.3.10 Design Constraints (MVC Constraints)](#11310-design-constraints-mvc-constraints)
+    - [1.1.3.11 Other Requirements](#11311-other-requirements)
+    - [1.1.4. Search Functionality](#114-search-functionality)
+      - [Introduction](#introduction-1)
+      - [1.1.4.1 Scope](#1141-scope)
+      - [1.1.4.2 User Needs](#1142-user-needs)
+      - [1.1.4.3 Assumptions and Dependencies](#1143-assumptions-and-dependencies)
+      - [1.1.4.4 Description and Priority](#1144-description-and-priority)
+      - [1.1.4.5 Stimulus/Response Sequences (MVC Framework)](#1145-stimulusresponse-sequences-mvc-framework)
+      - [1.1.4.6 Functional Requirements (MVC Specifics)](#1146-functional-requirements-mvc-specifics)
+      - [1.1.4.7 User Interfaces (MVC Perspective)](#1147-user-interfaces-mvc-perspective)
+      - [1.1.4.8 Software Interfaces (MVC Design)](#1148-software-interfaces-mvc-design)
+      - [1.1.4.9 Performance Requirements (MVC Consideration)](#1149-performance-requirements-mvc-consideration)
+      - [1.1.4.10 Design Constraints (MVC Constraints)](#11410-design-constraints-mvc-constraints)
+      - [1.1.4.11 Other Requirements](#11411-other-requirements)
+  - [1.2. Scope](#12-scope)
+    - [1.2.1. Description](#121-description)
+- [1.3. Product Overview](#13-product-overview)
+  - [1.3.1. Product Perspective Example](#131-product-perspective-example)
+    - [Figure 1.3 Component Diagram](#figure-13-component-diagram)
+    - [1.3.1.1. System Interfaces](#1311-system-interfaces)
+      - [1.3.1.1.1. SQLite Database Interface](#13111-sqlite-database-interface)
+      - [1.3.1.1.2. User Data Storage Interface](#13112-user-data-storage-interface)
+    - [1.3.1.2. User Authentication Interface](#1312-user-authentication-interface)
+      - [1.3.1.2.1. Authentication Functionality](#13121-authentication-functionality)
+      - [1.3.1.2.2. Secure User Authentication](#13122-secure-user-authentication)
+      - [1.3.1.2.3. Graphical User Interface (GUI)](#13123-graphical-user-interface-gui)
+      - [1.3.1.2.4. Consistent GUI Appearance](#13124-consistent-gui-appearance)
+    - [1.3.1.3. Community Forum Interface](#1313-community-forum-interface)
+      - [1.3.1.3.1. Forum Access Interface](#13131-forum-access-interface)
+        - [1.3.1.3.1.1. Engaging with Forum Content](#131311-engaging-with-forum-content)
+    - [1.3.1.4. Search Interface](#1314-search-interface)
+      - [1.3.1.5. Enhanced Content Discovery](#1315-enhanced-content-discovery)
+    - [1.3.1.6. Notification Interface](#1316-notification-interface)
+      - [1.3.1.6.1. Keeping Users Informed](#13161-keeping-users-informed)
+    - [1.3.1.7. Social Media Interface](#1317-social-media-interface)
+    - [1.3.1.8. Hardware Interfaces](#1318-hardware-interfaces)
+      - [1.3.1.8.1. Device Input Interfaces](#13181-device-input-interfaces)
+        - [1.3.1.8.1.1. Keyboard Input](#131811-keyboard-input)
+        - [1.3.1.8.1.2. Touchscreen Interaction](#131812-touchscreen-interaction)
+        - [1.3.1.8.1.3. Mouse or Trackpad Navigation](#131813-mouse-or-trackpad-navigation)
+        - [1.3.1.8.1.4. Audio Input](#131814-audio-input)
+    - [1.3.1.9. Device Output Interfaces](#1319-device-output-interfaces)
+      - [1.3.1.9.1. Display Interface](#13191-display-interface)
+      - [1.3.1.9.1.2. Haptic Feedback](#131912-haptic-feedback)
+- [1.3.1.9. Software Interfaces](#1319-software-interfaces)
+  - [1.3.1.9.1. Operating Systems Interfaces](#13191-operating-systems-interfaces)
+  - [1.3.1.9.2. Web Browser Interfaces](#13192-web-browser-interfaces)
+  - [1.3.1.9.3. Mobile Application Interfaces](#13193-mobile-application-interfaces)
+  - [1.3.1.9.4. Database Management System (DBMS) Interfaces](#13194-database-management-system-dbms-interfaces)
+  - [1.3.1.9.5. API Interfaces](#13195-api-interfaces)
+  - [1.3.1.9.6. Social Media Integration Interfaces](#13196-social-media-integration-interfaces)
+  - [1.3.1.9.7. Network Communication Interfaces](#13197-network-communication-interfaces)
+  - [1.3.1.9.8. User Interface Libraries/Frameworks](#13198-user-interface-librariesframeworks)
+- [1.4 Definitions](#14-definitions)
+- [2 References](#2-references)
+- [3 Requirements](#3-requirements)
+  - [3.1 Functions](#31-functions)
+    - [3.1.1 User Friendly Customization](#311-user-friendly-customization)
+    - [3.1.2 Security \& Data Collection](#312-security--data-collection)
+    - [3.1.3 Community and Connectivity](#313-community-and-connectivity)
+    - [3.1.4 Content Management](#314-content-management)
+    - [3.1.5 User Authentication and Search](#315-user-authentication-and-search)
+  - [3.2 Performance Requirements](#32-performance-requirements)
+    - [3.2.1 Login](#321-login)
+    - [3.2.2 System Background](#322-system-background)
+    - [3.2.3 Interface](#323-interface)
+    - [3.2.4 Storage](#324-storage)
+    - [3.2.5 Secure Hashing](#325-secure-hashing)
+    - [3.2.6 Security Requirements](#326-security-requirements)
+      - [3.2.6.1 Input Validation](#3261-input-validation)
+      - [3.2.6.2 Error Handling](#3262-error-handling)
+  - [3.3 Usability Requirements](#33-usability-requirements)
+    - [3.3.1 Onboarding Tutorial](#331-onboarding-tutorial)
+    - [3.3.2 Post Editing](#332-post-editing)
+    - [3.3.3 Social Media](#333-social-media)
+    - [3.3.4 Sharing](#334-sharing)
+    - [3.3.5 Organization](#335-organization)
+    - [3.3.6 Error Messages](#336-error-messages)
+    - [3.3.7 Account Deletion Process](#337-account-deletion-process)
+  - [3.4 Interface Requirements](#34-interface-requirements)
+    - [3.4.1 Menu](#341-menu)
+    - [3.4.2 System](#342-system)
+    - [3.4.3 Profile Page](#343-profile-page)
+  - [3.5 Menu Template](#35-menu-template)
+    - [3.5.1 The system has a menu](#351-the-system-has-a-menu)
+  - [3.6 Menu Social Media/Sharing](#36-menu-social-mediasharing)
+  - [3.7 Logical Database Requirements](#37-logical-database-requirements)
+- [4 Verification](#4-verification)
+  - [4.1 Functions](#41-functions)
+    - [4.1.1 User Friendly Customization](#411-user-friendly-customization)
+    - [4.1.2 Security \& Data Collection](#412-security--data-collection)
+    - [4.1.3 Communication and Connectivity](#413-communication-and-connectivity)
+- [4 Verification](#4-verification-1)
+  - [4.1.4 Content Management](#414-content-management)
+  - [4.2 Performance Requirements](#42-performance-requirements)
+    - [4.2.1 Logon](#421-logon)
+    - [4.2.2 System Background](#422-system-background)
+    - [4.2.3 Interface](#423-interface)
+    - [4.2.4 Storage](#424-storage)
+  - [4.3 Usability Requirements](#43-usability-requirements)
+    - [4.3.1 Onboarding Tutorial](#431-onboarding-tutorial)
+    - [4.3.2 Post](#432-post)
+    - [4.3.3 Social Media](#433-social-media)
+    - [4.3.4 Sharing](#434-sharing)
+    - [4.3.5 Organization](#435-organization)
+    - [4.3.6 Recommendations](#436-recommendations)
+  - [4.4 Interface Requirements](#44-interface-requirements)
+    - [4.4.1 Menu](#441-menu)
+    - [4.4.2 System](#442-system)
+    - [4.4.3 Profile Page](#443-profile-page)
+  - [4.5 Menu Search](#45-menu-search)
+  - [4.6 Menu Social Media/Sharing](#46-menu-social-mediasharing)
+  - [4.7 Logical Database Requirements](#47-logical-database-requirements)
+  - [5 Appendices](#5-appendices)
+    - [5.1 Acronyms and Abbreviations](#51-acronyms-and-abbreviations)
+  - [5.2 Priority Table](#52-priority-table)
+
+
 # 1. Introduction
 
 The Community Board Forum (hereafter referred to as "the system") is a mobile device application designed to facilitate community engagement and interaction. The system shall provide users with a platform to share information, exchange ideas, and connect with others within their local community or specific interest groups. Users shall be able to post text, images, and multimedia content to the digital bulletin board, similar to a digital bulletin board.
@@ -84,6 +272,7 @@ User registration and email verification are high-priority components of the app
 - **FR3**: The Model shall trigger the email service to send a verification email to the user's provided email address.
 - **FR4**: The View shall display a confirmation message indicating that the registration process is successful and instruct the user to check their email for verification instructions.
 
+
 ### 1.1.2.1.7 User Interfaces (MVC Perspective)
 
 - The View will include a user registration form with fields for user details such as name, email, and password.
@@ -108,7 +297,7 @@ User registration and email verification are high-priority components of the app
 
 - **Security Requirements**: The system shall ensure that user registration and email verification processes are performed securely, with protection against injection attacks and unauthorized access to user data.
 - **Maintenance Requirements**: The system shall be designed for easy maintenance and updates, including updating registration and verification algorithms and criteria.
-- 
+
 
 ### 1.1.2.2 Registration
 
@@ -675,6 +864,11 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.2.1 The system shall ask user to enter password and login.<br>
 3.1.2.2 The system shall ask the user for two authentications.<br>
 3.1.2.3 The user profile shall have Authorization.<br>
+3.1.2.4 The system shall enforce strong password policies, requiring passwords to have at least one digit and one letter and a minimum length of 8 characters.<br>
+3.1.2.5 User email addresses shall be validated against a standard email format to ensure data integrity.<br>
+3.1.2.6 The system shall provide functionality for users to securely delete their accounts. This includes verifying the user's identity by matching the provided password hash with the stored value. Priority: High (H_P)<br>
+3.1.2.7 The system shall ensure that all user data is removed from the database upon successful account deletion. Priority: High (H_P)<br>
+
 
 ### 3.1.3 Community and Connectivity
 3.1.3.1 The system shall allow users access to the community post page.<br>
@@ -692,12 +886,17 @@ These system interfaces collectively facilitate the functionality and interactio
 3.1.3.13 The system shall allow post to have timestamps. <br>
 3.1.3.14 The system shall allow post to have ratings. <br>
 3.1.3.15 The system shall allow post to have passengers<br>
+
 ### 3.1.4 Content Management 
  3.1.4.1 The system shall allow the user to view a search menu.
  3.1.4.2 The system shall allow the user to retrieve and search for a post.  
  3.1.4.3 The system shall allow users to search for categories. 
  3.1.4.4 The system shall allow users to search for rides.
  3.1.4.5 The system shall allow users to search for people.
+
+ ### 3.1.5 User Authentication and Search
+3.1.5.1 The system should allow authenticated users to search for other users by username.
+3.1.5.2 It must ensure that only authenticated and authorized users can perform a search to enhance privacy and security.
 
 ## 3.2 Performance Requirements
 
@@ -714,6 +913,16 @@ These system interfaces collectively facilitate the functionality and interactio
 ### 3.2.4 Storage
 3.2.4.1 The system shall store the characters and dates in the cache to allow the user to return to the app. 
 
+### 3.2.5 Secure Hashing 
+3.2.5.1 The system shall implement secure hashing of user passwords before storing them in the database to enhance security.
+
+### 3.2.6 Security Requirements
+#### 3.2.6.1 Input Validation
+3.2.6.1.1 The system must validate input data to ensure the search operation does not lead to security vulnerabilities.
+
+#### 3.2.6.2 Error Handling 
+3.2.6.2.1 Proper error messages should be displayed when a search cannot be completed due to missing or invalid input. 
+
 ## 3.3 Usability Requirements
 
 ### 3.3.1 Onboarding Tutorial
@@ -729,6 +938,12 @@ These system interfaces collectively facilitate the functionality and interactio
 
 ### 3.3.5 Organization
 3.3.5.1 When using List View mode, posts shall be automatically organized by date. 
+
+### 3.3.6 Error Messages
+3.3.6.1 The system shall provide clear error messages and feedback for user registration attempts, including invalid email formats and password strength failures.
+
+### 3.3.7 Account Deletion Process 
+3.3.7.1 The system shall provide a clear and straightforward process for users to delete their accounts, including confirming the deletion action to prevent accidental account loss.
 
 ## 3.4 Interface Requirements
 
@@ -763,10 +978,9 @@ These system interfaces collectively facilitate the functionality and interactio
       3.6.1.2 
 
 ## 3.7 Logical Database Requirements
+  3.7.1 The system should maintain a secure database containing user information, including usernames and hashed passwords.
+  3.7.2 Usernames must be unique within the system to ensure accurate search results.
 
-### 3.7.1 Each post hall have a date associated with it. (R) 
-      3.7.1.1 
-      3.7.1.2
 
 # 4 Verification
 
@@ -787,6 +1001,7 @@ it fails verification.<br>
 fails verification.<br>
 4.1.2.3 If the system gives the user authorization it passes verification; otherwise, it fa
 verification<br>
+4.1.2.4 If the system allows users to delete their accounts securely and removes all associated data from the database upon deletion, it passes verification; otherwise, it fails verification.
 
 ### 4.1.3 Communication and Connectivity
 4.1.3.1 If the system allows users access to the community post page it passes verification; otherwise, it fails verification.<br>

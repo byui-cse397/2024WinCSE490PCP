@@ -1,107 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/posthome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        android:padding="16dp"
-        tools:context=".PostHomeActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/posthome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="16dp"
+    tools:context=".PostHomeActivity">
 
 
-        <TextView
-            android:id="@+id/Postmade"
-            android:layout_width="298dp"
-            android:layout_height="145dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="68dp"
-            android:background="@drawable/rounded_border"
-            android:visibility="gone"
-            android:text="@string/Temppostdescrip"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/Postmade"
+        android:layout_width="298dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/rounded_border"
+        android:visibility="gone"
+        android:text="@string/Temppostdescrip"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/NullPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NullPostText"
-            android:textAlignment="center"
-            android:textColor="#424242"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.164" />
+    <TextView
+        android:id="@+id/NullPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NullPostText"
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164" />
 
-        <Button
-            android:id="@+id/Createpostbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="@string/CreatePostButton"
-            android:background="@color/button_color"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view"
-            app:layout_constraintEnd_toStartOf="@+id/tologinbutton"
-            app:layout_constraintHorizontal_bias="0.469"
-            app:layout_constraintStart_toEndOf="@+id/toaccountbutton" />
+    <TextView
+        android:id="@+id/tempostTitle"
+        android:layout_width="291dp"
+        android:layout_height="33dp"
+        android:background="@drawable/rounded_border"
+        android:text="@string/Temppostitle"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/Postmade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/toaccountbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/button_color"
-            android:text="@string/AccountButtonText"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view"
-            app:layout_constraintStart_toStartOf="parent" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
-        <Button
-            android:id="@+id/tologinbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="184dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/button_color"
-            android:text="@string/LogoutButton"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view"
-            app:layout_constraintStart_toEndOf="@+id/toaccountbutton" />
-
-        <TextView
-            android:id="@+id/tempostTitle"
-            android:layout_width="291dp"
-            android:layout_height="33dp"
-            android:background="@drawable/rounded_border"
-            android:text="@string/Temppostitle"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/Postmade"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.591"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

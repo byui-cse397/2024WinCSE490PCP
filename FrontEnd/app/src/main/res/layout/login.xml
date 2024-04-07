@@ -41,7 +41,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="350dp"
+            android:layout_width="377dp"
             android:layout_height="350dp"
             android:contentDescription="@string/rectback"
             android:src="@drawable/rounded_border"
@@ -83,7 +83,6 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:textColorHint="#5C5656"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintBottom_toTopOf="@id/signin_button"
             app:layout_constraintStart_toStartOf="@+id/imageView"

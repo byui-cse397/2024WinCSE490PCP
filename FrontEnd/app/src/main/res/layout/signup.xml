@@ -9,11 +9,9 @@
     android:padding="16dp"
     tools:context=".SignupActivity">
 
-    <!--        TODO: UPDATE TEXT IN BUTTON    -->
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="336dp"
+        android:layout_width="377dp"
         android:layout_height="516dp"
         android:contentDescription="@string/rectback"
         android:src="@drawable/rounded_border"

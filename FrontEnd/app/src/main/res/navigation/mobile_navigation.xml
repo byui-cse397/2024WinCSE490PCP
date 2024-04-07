@@ -5,11 +5,11 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/loginwelcome">
 
-    <fragment
-        android:id="@+id/loginwelcome"
-        android:name="byui.app.linkUp.LoginFragment"
-        android:label="@string/loginLink"
-        tools:layout="@layout/login" />
+<!--    <fragment-->
+<!--        android:id="@+id/loginwelcome"-->
+<!--        android:name="byui.app.linkUp.LoginActivity"-->
+<!--        android:label="@string/loginLink"-->
+<!--        tools:layout="@layout/login" />-->
 
 <!--    <fragment-->
 <!--        android:id="@+id/createpost"-->

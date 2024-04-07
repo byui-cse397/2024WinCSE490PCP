@@ -1,10 +1,18 @@
 package byui.app.linkUp;
+
+import android.accounts.Account;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView; // Import TextView instead of EditText
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.widget.Toast;
+
+import byui.app.linkUp.R;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -19,6 +27,8 @@ public class AccountActivity extends AppCompatActivity {
     private TextView emailTextView;
     private TextView bioTextView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +39,32 @@ public class AccountActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.textView2);
         bioTextView = findViewById(R.id.bioView);
 
+        BottomNavigationView navView = findViewById(R.id.nav_view);
 
+        Button homeButton = findViewById(R.id.cea);
+        Button saveButton = findViewById(R.id.edit_account);
 
-        Button cancelButton = findViewById(R.id.cea); // Assuming this is the cancel button
-        Button saveButton = findViewById(R.id.edit_account); // Corrected ID for save button
+//        navView.setOnNavigationItemSelectedListener(item -> {
+//            Intent intent; // Declare a common Intent variable
+//            switch (item.getItemId()) {
+//                case R.id.posthome:
+//                    intent = new Intent(this, PostHomeActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.create_post:
+//                    intent = new Intent(this, CreatePostActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.account_page:
+//                    intent = new Intent(this, LoginActivity.class);
+//                    startActivity(intent);
+//                    break;
+//                default:
+//                    return false;
+//            }
+//            finish(); // Optional: if you don't want to recreate the activity if it's already running
+//            return true;
+//        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +75,7 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Open the PosthomeActivity
@@ -54,8 +86,8 @@ public class AccountActivity extends AppCompatActivity {
     }
 
 
-    // Method to send user data to backend server
-    private void sendDataToBackend(String username, String email, String bio) {
+    // Method to get user data from backend server
+    private void getDataFromBackend(String email, String bio) {
         String backendUrl = "http://ec2-3-92-170-69.compute-1.amazonaws.com";
 
         try {
@@ -64,24 +96,14 @@ public class AccountActivity extends AppCompatActivity {
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
 
-            // Construct request body
-            // In future iterations, this should include user_id for the request
-            Map<String, String> postData = new HashMap<>();
-            postData.put("username", "username");
-            postData.put("email", email);
-            // postData.put("bio", bio);
 
-            StringBuilder requestBody = new StringBuilder();
-            for (Map.Entry<String, String> entry : postData.entrySet()) {
-                if (requestBody.length() != 0) {
-                    requestBody.append("&");
-                }
-                requestBody.append(entry.getKey()).append("=").append(entry.getValue());
-            }
+            StringBuilder request = new StringBuilder();
+
+            request.append("<readUser:parent><user_id:int>").append(GlobalUserID.getUserID()).append("</user_id></readUser>");
+
 
             // Write request body to connection
             OutputStream os = connection.getOutputStream();
-            os.write(requestBody.toString().getBytes());
             os.flush();
             os.close();
 
@@ -95,6 +117,11 @@ public class AccountActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
             // Error handling
+        } catch (GlobalUserID.UsernameException e) {
+            Toast.makeText(AccountActivity.this, "User Not Recognized. Please Login Again.", Toast.LENGTH_LONG).show();
+            // Back out to login screen on failed attempt to pull user data
+            Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
     }
 }
