@@ -186,23 +186,41 @@ The application will support functionalities such as user registration and login
 ## 2.3 Glossary
 
 This section provides definitions for terms, acronyms, and abbreviations used throughout the Software Design Description (SDD) document to ensure clarity for all readers.
+Here's a comprehensive list combining the initial terms you provided with the additional ones, all organized in alphabetical order:
 
-- **SDD:** Software Design Description. A document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
-- **SRS:** Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
-- **MVC:** Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted from the user.
-- **FE:** Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
-- **BE:** Back End. The part of the software that does not directly interact with the users. It is responsible for storing and retrieving data, and performing background operations.
-- **DB:** Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used for storing and managing data in the software system.
-- **CRUD:** Create, Read, Update, Delete. These are the four basic functions of persistent storage in software development. CRUD operations are essential for managing databases.
-- **API:** Application Programming Interface. A set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
-- **UI:** User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
-- **UX:** User Experience. Refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
-- **HTTP:** Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
-- **HTTPS:** Hypertext Transfer Protocol Secure. An extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
-- **SQL:** Structured Query Language. A standard language for storing, manipulating, and retrieving data in databases.
-- **NoSQL:** A class of database management systems that do not follow all of the rules of a traditional database. NoSQL databases are useful for working with a huge quantity of data when the data's nature does not require a relational model.
-- **JSON:** JavaScript Object Notation. An open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.
-- **XML:** eXtensible Markup Language. A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+ **API**: Application Programming Interface. A set of functions and procedures allows the creation of applications that access the features or data of an operating system, application, or other service.
+. **API Endpoint**: A specific point at the end of an API that the client calls to perform an action. It refers to the location where APIs can access the resources they need to carry out their function.
+**Asynchronous Operations**: In software, operations occur without waiting for other operations to complete, allowing for more efficient task execution without blocking the execution flow.
+4. ** BE **: Back end. This part of the software does not directly interact with the users. It is responsible for storing and retrieving data and performing background operations.
+ **Captcha**: A system designed to distinguish human from machine input, typically to thwart spam and automated data extraction from websites.
+ **Cloud Computing**: The delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud") to offer faster innovation, flexible resources, and economies of scale.
+ **CRUD**: Create, Read, Update, Delete. These are the four essential functions of persistent storage in software development. CRUD operations are essential for managing databases.
+ ** DB **: Database. A structured set of data held in a computer, especially one that is accessible in various ways. It is used to store and manage data in the software system.
+ **Data Interchange Format**: A standard format for exchanging or transferring data between software systems or components. Examples include JSON (JavaScript Object Notation) and XML (eXtensible Markup Language).
+ **Data Schema**: An outline or blueprint of how data is organized in a database. It defines how entities like tables, fields, and databases relate to each other and the attributes of data stored in these entities.
+**Data Validation**: Ensuring data entered into an application meets predefined formats, rules, and constraints. It is crucial for ensuring the integrity and correctness of data in software applications.
+**Dependency**: In software, a dependency is a piece of software required by another piece to function. Software dependencies can include libraries, frameworks, and other software modules.
+ **Digital Signature**: A mathematical scheme for demonstrating the authenticity of digital messages or documents. A valid digital signature gives a recipient reason to believe that a known sender created the message and was not altered in transit.
+**Encryption** is the method by which information is converted into secret code that hides its true meaning. The science of encrypting and decrypting information is known as cryptography.
+**Error Logging** is the process of recording errors that occur in the operation of a software system. It is intended to provide debug information to software developers and system administrators.
+**FE**: Front End. The part of a software system or application that interacts directly with the user, presenting data and providing interfaces for user input.
+**Frontend Cryptography Libraries**: Collections of functions and algorithms used in web development to perform cryptographic operations on the client side, such as hashing and encrypting data before it is sent over the network.
+**Hash Function**: A function that converts an input (or 'message') into a fixed-size string of bytes, typically a digest unique to each input. It is used in various security applications and data management.
+**HTTP**: Hypertext Transfer Protocol. An application protocol for distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
+20. ** HTTPS **: Hypertext Transfer Protocol Secure. This is an extension of HTTP. It is used for secure communication over a computer network and is widely used on the Internet. In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS).
+**IDE (Integrated Development Environment)**: A software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of at least a source code editor, build automation tools and a debugger.
+22. ** JSON ** is JavaScript Object Notation, an open standard file format and data interchange format that uses human-readable text to store and transmit data objects consisting of attribute-value pairs and arrays.
+**MVC**: Model-View-Controller. A design pattern used for developing user interfaces that divides the related program logic into three interconnected elements. This pattern is used to separate internal representations of information from the ways that information is presented to and accepted by the user.
+**NoSQL**: A class of database management systems that do not follow all of the rules of a traditional database. NoSQL databases help work with a huge quantity of data when the data's nature does not require a relational model.
+**Password Hashing** converts a password into another string of characters, known as a hash, which is difficult to reverse. It provides a layer of security for stored passwords.
+**SDD**: Software Design Description. This is a document that provides a comprehensive description of the software's design and architecture, outlining components, interactions, and processes.
+**Session Token (JWT, Session ID)**: Data that is passed between the client and server to keep track of the state of a user's session. It can be a JSON Web Token (JWT) or a simple session ID.
+**SQL**: Structured Query Language. A standard language for storing, manipulating, and retrieving data in databases.
+**SRS**: Software Requirements Specification. A document that captures the complete software requirements for the system, including functional, non-functional, and interface specifications.
+** UI **: User interface. The means by which the user and a computer system interact, in particular, the use of input devices and software.
+**UI Components**: The elements that make up the user interface of a software application, including buttons, text fields, data displays, navigation menus, and any visual element that the user interacts with.
+** UX **: User experience refers to a person's emotions and attitudes about using a particular product, system, or service. It includes the practical, experiential, affective, meaningful, and valuable aspects of human-computer interaction and product ownership.
+**XML** is an eXtensible Markup Language, a markup language that defines a set of rules for encoding documents in a human-readable and machine-readable format.
 
 Please note that this glossary is not exhaustive and may be updated as the project evolves and new terms are introduced or existing definitions are revised.
 
