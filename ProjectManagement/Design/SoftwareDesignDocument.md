@@ -82,10 +82,10 @@ CSE 490R Special Topics
   - [5.2 Front-End Design(Android Studio)](#52-front-end-designandroid-studio)
     - [Security Architeture](#security-architeture)
   - [5.3 Back-End Design (Java in Android Studio)](#53-back-end-design-java-in-android-studio)
-    - [Introduction](#introduction)
-    - [Architecture](#architecture)
-    - [Delete Account](#delete-account)
-    - [Login Functionality](#login-functionality)
+    - [5.3.1 Introduction](#531-introduction)
+    - [5.3.2 Architecture](#532-architecture)
+    - [5.3.3 Delete Account](#533-delete-account)
+    - [5.3.4 Login Functionality](#534-login-functionality)
     - [Login Functionality Overview](#login-functionality-overview)
     - [Model - Class Diagram](#model---class-diagram)
     - [Registration Functionality](#registration-functionality)
@@ -113,13 +113,20 @@ CSE 490R Special Topics
       - [Data Description](#data-description)
       - [Collaboration Requirements](#collaboration-requirements)
     - [6.2 DeleteUser Class](#62-deleteuser-class)
-      - [Overview:](#overview)
-      - [Class Responsibilities:](#class-responsibilities)
-      - [Attributes:](#attributes)
-      - [Methods:](#methods)
-      - [Interaction with Database:](#interaction-with-database)
-      - [Security Measures:](#security-measures)
+      - [6.2.1 Overview:](#621-overview)
+      - [6.2.2 Class Responsibilities:](#622-class-responsibilities)
+      - [6.2.3 Attributes:](#623-attributes)
+      - [6.2.4 Methods:](#624-methods)
+      - [6.2.5 Interaction with Database:](#625-interaction-with-database)
+      - [6.2.6 Security Measures:](#626-security-measures)
     - [6.3 Search Functionality](#63-search-functionality)
+      - [6.3.1 OverView 'FindUser' Class Implementation](#631-overview-finduser-class-implementation)
+      - [6.3.2 Class Responsibilities](#632-class-responsibilities)
+      - [6.3.3 Attributes](#633-attributes)
+      - [6.3.4 Methods](#634-methods)
+      - [6.3.5 Interactions with Database](#635-interactions-with-database)
+      - [6.3.6 Error Handling](#636-error-handling)
+      - [6.3.7 Security Measure](#637-security-measure)
       - [Data Description](#data-description-1)
       - [Search Functionality Sequence Diagram](#search-functionality-sequence-diagram)
     - [7 Front End :](#7-front-end-)
@@ -150,9 +157,6 @@ CSE 490R Special Topics
     - [User account Creation Process](#user-account-creation-process)
   - [10. Password Handling](#10-password-handling)
   - [11. Appendices](#11-appendices)
-
-
-
 
 
 ## 1.4 References
@@ -251,15 +255,17 @@ The decision to implement password hashing on the front end forms a crucial part
 ## 5.3 Back-End Design (Java in Android Studio)
 Utilizes Java for creating robust back-end logic, including APIs for data manipulation and communication with the MySQL database, following the controller component of MVC.
 
-### Introduction 
+### 5.3.1 Introduction 
 The back-end system plays a critical role in managing the Community Board Forum's data and business logic. It serves as the intermediary between the front-end application and the database, handling user requests, processing data, and ensuring secure and efficient operations.
 
-### Architecture 
+### 5.3.2 Architecture 
+The back-end architecture is designed to support user search functionality through efficient database interactions and robust security measures. The system leverages a relational database to store and retrieve user account information, facilitating quick and secure user searches. Security measures include input validation, authentication protocols, and encrypted communication to safeguard user data and prevent unauthorized access.
+
 * Description of the server setup and configuration.
 * Outline of the frameworks and languages used.
 
 
-### Delete Account
+### 5.3.3 Delete Account
 
 This diagram represents the deletion of a user's account.
 
@@ -267,7 +273,7 @@ This diagram represents the deletion of a user's account.
 
 The deletion function is responsible for deleting all information of a specified account. The process involves asking the user for their login information in order to ensure that the actual user is the one asking to delete the account.
 
-### Login Functionality
+### 5.3.4 Login Functionality
 
 * View: Explanation of the user interface components responsible for login, such as input fields for username and password, and the login button.
   
@@ -696,30 +702,57 @@ Teams must define clear interfaces for credential validation, session management
 
 ### 6.2 DeleteUser Class
 
-#### Overview:
+#### 6.2.1 Overview:
 The DeleteUser class facilitates the deletion of user accounts from the system. To ensure account security, DeleteUser requires verification of the user's password before proceeding with the deletion.
 
-#### Class Responsibilities:
+#### 6.2.2 Class Responsibilities:
 - Verify the user's identity by comparing the provided password hash with the one stored in the database.
 - Remove all user data from the database upon successful authentication.
 - Provide feedback on the success or failure of the account deletion process.
 
-#### Attributes:
+#### 6.2.3 Attributes:
 - **userId**: The integer identifies the user's account that needs to be deleted.
 - **password_Hash**: String containing the hash of the password provided by the user for verification.
 - **confirmPassword_Hash**: String containing the hash of the confirmation password for additional verification.
 
-#### Methods:
+#### 6.2.4 Methods:
 - nullIdCheck(): Ensures the userId is not null, throwing a FrontEndUsageException if it is.
 
-#### Interaction with Database:
+#### 6.2.5 Interaction with Database:
 This class interacts with the ACCOUNT table in the database, specifically targeting the record associated with the userId. Upon successful verification, it issues a delete command to remove the user's record and all related data.
 
-#### Security Measures:
+#### 6.2.6 Security Measures:
 - The class implements secure password verification to prevent unauthorized account deletion.
 - Utilizes secure communication channels to protect user data during the deletion process.
 
 ### 6.3 Search Functionality
+
+#### 6.3.1 OverView 'FindUser' Class Implementation
+The FindUser class is central to the system's ability to search for users by username. It extends the FindDBAction abstract class, inheriting the capability to execute database search operations.
+
+#### 6.3.2 Class Responsibilities
+
+#### 6.3.3 Attributes
+
+#### 6.3.4 Methods
+- getTable(): Specifies the database table (ACCOUNT) targeted for the search, ensuring that queries are executed against the correct data set.
+- checks(): Performs preliminary checks before executing the search query. This includes invoking nullUserCheck to validate that the username input is not null or empty.
+- nullUserCheck(): Throws a FrontEndUsageException if the username input is null or empty, preventing the query from executing with invalid parameters.
+- buildQuery(Map<String, String> colValueMap): Constructs the SQL query for searching the database. It uses a regular expression (REGEXP) to match the username, enhancing the flexibility of search operations.
+
+#### 6.3.5 Interactions with Database
+The ACCOUNT table within the database schema is crucial for storing user information.
+- username: A unique identifier for each user, used as the primary search parameter.
+- password_hash: Stores the hashed version of the user's password, reinforcing security by avoiding plain text storage.
+
+#### 6.3.6 Error Handling 
+The FindUser class implements specific error-handling strategies to manage null or empty username inputs gracefully.
+- Invoking the nullUserCheck method ensures that the search operation only proceeds with valid input, reducing the risk of errors or security vulnerabilities.
+
+#### 6.3.7 Security Measure 
+**User Authentication:** Before performing a search operation, the system verifies the user's identity to ensure that only authorized users can execute searches.
+**Input Validation:** The nullUserCheck method is part of our input validation strategy. It ensures the integrity of search parameters, preventing SQL injection and other security threats.
+**Regular Expressions in Queries:** Using regular expressions (REGEXP) for username searches adds an extra layer of flexibility and security. It allows for precise matching criteria without exposing the system to injection attacks.
 
 #### Data Description
 Here, you would describe the types of data involved in the search functionality, such as user credentials (username/password), search criteria (destination, category, timestamp), and how this data is managed and utilized within the system.
@@ -739,8 +772,8 @@ Following the data description, the sequence diagram illustrates the interaction
 
 This sequence diagram is essential for detailing the operational flow of the search functionality, emphasizing the MVC architectural pattern's role in facilitating this feature.
 
-### 7 Front End :
 
+### 7 Front End :
 
 #### User Account Management 
 The system must ensure security by implementing robust authorization, authentication, and access control mechanisms to protect user data and privacy.
