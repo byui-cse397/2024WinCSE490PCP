@@ -37,4 +37,12 @@ We also discussed the difficulty and complexity in implementing each feature of 
 - Calendar: 16
 - Messaging Platforms: 16
 
+## Database
+### init.sql
+In this file, we have something that initializes the entire database. This is useful for using the testing code, connector.py. This code runs all our unit tests on checking for rows in the tables, and
+checking if we can insert into tables correctly. 
+But at the bottom of the init.sql file, there is a comment section called 'Helpful Scripts'. This is a part that has some MySQL queries that help you in different ways. The first one is to add things to 3 tables, to help the tests actually run. The second is to check how many rows are in each table of the database, this can be useful in many scenarios. And the 3rd one is useful for testing mostly, and will erase all rows of the database tables, without erasing the structure of the database. 
+
+
+
 
