@@ -608,7 +608,7 @@ The Controller acts as the intermediary between the View and Model, processing u
 - **Optimizes** the search performance by implementing caching strategies for frequently accessed data or managing asynchronous operations to ensure a responsive user experience.
 
 ## 5.4 Database Design (MySQL)
-Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level.
+Structured to support the application's data needs efficiently, with schemas for users, posts, and comments, incorporating CRUD operations at the database level. The database will provide an interface for extending in backend that will connect the objects designed by backend to to tables and operations in the database.
 
 ```mermaid
 erDiagram
