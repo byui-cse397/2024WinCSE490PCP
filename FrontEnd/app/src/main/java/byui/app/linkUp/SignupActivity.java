@@ -77,7 +77,7 @@ public class SignupActivity extends AppCompatActivity {
                 data.put("username", username);
                 data.put("password_hash", hashedPassword);
 
-                FrontendSender.sendDataToBackend("userCreate", data);
+                FrontendSender.sendLoginAttemptBackend("userCreate", data);
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;

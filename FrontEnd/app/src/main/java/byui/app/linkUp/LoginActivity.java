@@ -59,7 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         data.put("username", username);
         data.put("password_hash", hashedPassword);
 
-        FrontendSender.sendDataToBackend("userLogin", data);
+        FrontendSender.sendLoginAttemptBackend("userLogin", data);
+
       } catch (Exception e) {
         e.printStackTrace();
         return false;

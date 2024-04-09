@@ -1,11 +1,11 @@
 package byui.app.linkUp;
 
 public class GlobalUserID {
-    private static int user_id = -1;
+    private static Integer user_id = null;
     public static void setUserID(int newUserID) { user_id = newUserID; }
 
     public static int getUserID() throws UsernameException {
-        if (GlobalUserID.user_id == -1) {
+        if (GlobalUserID.user_id == null) {
             throw new UsernameException("User not found in system.");
         }
         System.out.println("This is the Global Variable: " + user_id);
